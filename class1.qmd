@@ -1,0 +1,39 @@
+---
+title: "Class 1 - Introduction to python"
+author: "Valentine Gilbart"
+date : last-modified
+theme:
+  light: flatly
+  dark: darkly
+format: 
+  html: 
+    toc: true
+    numbered: true
+    toc_depth: 4
+    toc_float: true
+    number_sections: true
+    code_folding: hide
+editor: source
+---
+
+## Aim of the class
+
+Markdown is an easy to read and write text format:
+
+- It's _plain text_ so works well with version control
+- It can be **rendered** into HTML, PDF, and more
+- Learn more at: <https://quarto.org/docs/authoring/>
+
+## Code Cell
+
+Here is a Python code cell:
+
+```{python}
+import os
+os.cpu_count()
+```
+
+## Equation
+
+
+
