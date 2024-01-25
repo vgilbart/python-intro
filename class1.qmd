@@ -1,5 +1,5 @@
 ---
-title: "Class 1 - Introduction to python"
+title: "Class 1 - Introduction to Python"
 author: "Valentine Gilbart"
 date : last-modified
 theme:
@@ -8,32 +8,172 @@ theme:
 format: 
   html: 
     toc: true
-    numbered: true
-    toc_depth: 4
-    toc_float: true
-    number_sections: true
-    code_folding: hide
+    number-sections: true
 editor: source
 ---
 
+# Introduction
+
 ## Aim of the class
 
-Markdown is an easy to read and write text format:
+At the end of this class, you will:
 
-- It's _plain text_ so works well with version control
-- It can be **rendered** into HTML, PDF, and more
-- Learn more at: <https://quarto.org/docs/authoring/>
+- Be familiar with the Python environment
+- Understand the basics of coding with Python (type of data structures, how to manipulate them)
+- Create simple functions
+- Upload, modify and download your own files into Python 
 
-## Code Cell
+## Requirements
 
-Here is a Python code cell:
+You need to have a computer, and either:
+
+- [install Python 3.0.0](https://www.Python.org/downloads/) (or above) and install a text editor (Word is not a text editor!). 
+
+::: {.callout-note} 
+An IDE (integrated development environment) is an improved text editor. It is a software that provides functionalities like syntax highlighting, auto completion, help, debugger… 
+I recommand Visual Studio Code ([install](https://code.visualstudio.com/Download/) and learn [how to use it with Python](https://code.visualstudio.com/docs/languages/Python)), but [any other IDE](https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python) will work.
+::: 
+
+- have a github account, [create a new codespace](https://github.com/codespaces/), and select the Repository `vgilbart/Python-intro` to copy from. This is a free solution up to 60 hours of computing and 15 GB per month. 
+
+
+## What is Python? 
+
+Python is a programming language first released in 1991 and implemented by Guido van Rossum. 
+
+::: {.column-margin}
+![Guido van Rossum](img/GuidovanRossum.jpg){#fig-GuidovanRossum width=100%}
+:::
+
+
+It is widely used, with various applications, such as:
+
+- software development
+- web development
+- data analysis
+- ...
+
+It supports different types of programming paradigms (~ way of thinking) including the procedural programming paradigm. 
+In this approach, the program moves through a linear series of instructions.
 
 ```{python}
-import os
-os.cpu_count()
+# Create a string seq
+seq = 'ATGAAGGGTCC'
+# Call the function len() to retrieve the length of the string
+size = len(seq)
+# Call the function print() to print a text
+print('The sequence has', size, 'bases.')
 ```
 
-## Equation
+
+## Why use Python? 
+
+- Easy-to-use and easy-to-read syntax
+- Large standard library for many applications (`numpy` for tables/matrices, `matplotlib` for graphs, `scikit-learn` for machine learning...)
+- Interactive mode making it easy to test short snippets of code
+- Large community ([stackoverflow](https://stackoverflow.com/questions/tagged/Python))
+
+::: {.column-margin}
+![Just google it!](img/googling.webp){#fig-googling width=100%}
+:::
 
 
+## How can I program in Python? 
 
+Python is an interpreted language, this means that all scripts written in Python need a software to be run. This software is called an interpreter, which "translate" the each line of the code, into instructions that the computer can understand. 
+By extension, the interpreter that is able to read Python scripts is also called Python.
+So, whenever you want your Python code to run, you give it to the Python interpreter. 
+
+### Interactive mode 
+
+One way to to launch the Python interpreter is to type
+
+```{bash}
+python3
+```
+
+on the command line of a terminal. 
+
+::: {.callout-note} 
+You can also try `python`, `/usr/bin/env python3`, `/usr/bin/python3`... There are many ways to call python!
+
+You can see where your current python is located by running `which python3`. 
+:::
+
+From this, you can start using python interactively, e.g. run: 
+
+```{python}
+print("Hello world")
+```
+
+To get out of the Python interpreter, type: 
+```{python }
+#| eval: FALSE
+quit()
+```
+
+### Script mode 
+
+To run a script, create a folder named `script`, in which a file named `class1.py` contains: 
+
+```{python }
+#| eval: FALSE
+#!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
+
+print("Hello world")
+```
+
+and run 
+```{bash}
+./script/class1.py
+```
+
+You should get the same output as before, that is:
+
+```{python}
+#| echo: FALSE
+print("Hello world")
+```
+
+The shebang `#!` followed by the interpreter `/usr/bin/env python3` can be put at the beginning of the script in order to ommit calling `python3` in command-line. If you don't put it, you will have to run `python3 ./script/class1.py` instead of simply `./script/class1.py`.
+
+The `-*- coding: UTF-8 -*-` specify the type of encoding to use. UTF-8 is used by default (which means that this line in the script is not necessary). This accepts caracters from all languages. Other valid [encoding](https://docs.python.org/3/library/codecs.html#module-codecs) are available, such as ascii (English characters only). 
+
+
+::: {.callout-warning} 
+Some common errors can occur at this step: 
+
+- `bash: ./script/class1.py: No such file or directory` i.e. you are not in the right directory to run the file.
+
+  Solution: run `ls */` and make sure you can find `script/: class1.py`, if not go to the correct directory by running `cd <insert directory name here>`
+- `bash: ./script/class1.py: Permission denied` i.e. you don't have the right to execute your script.
+  
+  Solution: run `ls -l script/class1.py` and make sure you have at least `-rwx` (read, write, exectute rights) as the first 4 characters, if not run `chmod 744 ./script/class1.py` to change your rights.
+:::
+
+::: {.callout-tip} 
+## Comment your code 
+
+Except for the shebang and coding specifications seen above, all things after a hashtag `#` character will be ignored by the interpreter until the end of the line.
+This is used to add comments in your code. 
+:::
+
+# Basic concepts 
+
+## Values and variables 
+
+## Function calls
+
+::: {.callout-important} 
+## Exercise 
+
+:::
+# References {.unnumbered}
+
+https://www.w3schools.com/python/
+https://colab.research.google.com/drive/1oGIybNPgqUH8_tavy-yloW55YoSZZsVx?usp=sharing#scrollTo=qHPTgwHWPMn2
+https://github.com/vgilbart/Rintro/blob/main/01_IntroductionToR.Rmd
+https://www.pythonforbiologists.org/
+https://docs.python.org/
+https://justinbois.github.io/bootcamp/2020/lessons/l01_welcome.html#.py-files 
