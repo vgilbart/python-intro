@@ -813,10 +813,10 @@ GOOGLE IT
 # Idea of projects
 
 # References {.unnumbered}
-https://docs.python.org/3/tutorial/introduction.html
-https://www.w3schools.com/python/
-https://colab.research.google.com/drive/1oGIybNPgqUH8_tavy-yloW55YoSZZsVx?usp=sharing#scrollTo=qHPTgwHWPMn2
-https://github.com/vgilbart/Rintro/blob/main/01_IntroductionToR.Rmd
-https://www.pythonforbiologists.org/
-https://docs.python.org/
-https://justinbois.github.io/bootcamp/2020/lessons/l01_welcome.html#.py-files 
+
+Here are some references and ressources that inspired this class: 
+
+- [Python doc](https://docs.python.org/3/tutorial/introduction.html)
+- [w3schools](https://www.w3schools.com/python/)
+- [pythonforbiologists](https://www.pythonforbiologists.org/)
+- [justinbois's Bootcamp](https://justinbois.github.io/bootcamp/2020/lessons/l01_welcome.html#.py-files)
