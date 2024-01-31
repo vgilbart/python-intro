@@ -303,7 +303,7 @@ Note
 </section>
 <section id="script-mode" class="level3" data-number="1.5.2">
 <h3 data-number="1.5.2" class="anchored" data-anchor-id="script-mode"><span class="header-section-number">1.5.2</span> Script mode</h3>
-<p>To run a script, create a folder named <code>script</code>, in which a file named <code>class1.py</code> contains:</p>
+<p>To run a script, create a folder named <code>script</code>, in which a file named <code>intro.py</code> contains:</p>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env python3</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># -*- coding: UTF-8 -*-</span></span>
@@ -311,14 +311,14 @@ Note
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello world"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>and run</p>
-<pre class="{bash}"><code>./script/class1.py</code></pre>
+<pre class="{bash}"><code>./script/intro.py</code></pre>
 <p>You should get the same output as before, that is:</p>
 <div class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello world</code></pre>
 </div>
 </div>
-<p>The shebang <code>#!</code> followed by the interpreter <code>/usr/bin/env python3</code> can be put at the beginning of the script in order to ommit calling <code>python3</code> in command-line. If you don’t put it, you will have to run <code>python3 script/class1.py</code> instead of simply <code>./script/class1.py</code>.</p>
+<p>The shebang <code>#!</code> followed by the interpreter <code>/usr/bin/env python3</code> can be put at the beginning of the script in order to ommit calling <code>python3</code> in command-line. If you don’t put it, you will have to run <code>python3 script/intro.py</code> instead of simply <code>./script/intro.py</code>.</p>
 <p>The <code>-*- coding: UTF-8 -*-</code> specify the type of encoding to use. UTF-8 is used by default (which means that this line in the script is not necessary). This accepts characters from all languages. Other valid <a href="https://docs.python.org/3/library/codecs.html#module-codecs">encoding</a> are available, such as ascii (English characters only).</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -332,10 +332,10 @@ Warning
 <div class="callout-body-container callout-body">
 <p>Some common errors can occur at this step:</p>
 <ul>
-<li><p><code>bash: ./script/class1.py: No such file or directory</code> i.e.&nbsp;you are not in the right directory to run the file.</p>
-<p>Solution: run <code>ls */</code> and make sure you can find <code>script/: class1.py</code>, if not go to the correct directory by running <code>cd &lt;insert directory name here&gt;</code></p></li>
-<li><p><code>bash: ./script/class1.py: Permission denied</code> i.e.&nbsp;you don’t have the right to execute your script.</p>
-<p>Solution: run <code>ls -l script/class1.py</code> and make sure you have at least <code>-rwx</code> (read, write, exectute rights) as the first 4 characters, if not run <code>chmod 744 ./script/class1.py</code> to change your rights.</p></li>
+<li><p><code>bash: ./script/intro.py: No such file or directory</code> i.e.&nbsp;you are not in the right directory to run the file.</p>
+<p>Solution: run <code>ls */</code> and make sure you can find <code>script/: intro.py</code>, if not go to the correct directory by running <code>cd &lt;insert directory name here&gt;</code></p></li>
+<li><p><code>bash: ./script/intro.py: Permission denied</code> i.e.&nbsp;you don’t have the right to execute your script.</p>
+<p>Solution: run <code>ls -l script/intro.py</code> and make sure you have at least <code>-rwx</code> (read, write, exectute rights) as the first 4 characters, if not run <code>chmod 744 ./script/intro.py</code> to change your rights.</p></li>
 </ul>
 </div>
 </div>

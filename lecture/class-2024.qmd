@@ -112,7 +112,7 @@ To get out of the Python interpreter, type `quit()`or `exit()`. Alternatively, o
 
 ### Script mode 
 
-To run a script, create a folder named `script`, in which a file named `class1.py` contains: 
+To run a script, create a folder named `script`, in which a file named `intro.py` contains: 
 
 ```{python }
 #| eval: FALSE
@@ -124,7 +124,7 @@ print("Hello world")
 
 and run 
 ```{bash}
-./script/class1.py
+./script/intro.py
 ```
 
 You should get the same output as before, that is:
@@ -134,19 +134,19 @@ You should get the same output as before, that is:
 print("Hello world")
 ```
 
-The shebang `#!` followed by the interpreter `/usr/bin/env python3` can be put at the beginning of the script in order to ommit calling `python3` in command-line. If you don't put it, you will have to run `python3 script/class1.py` instead of simply `./script/class1.py`.
+The shebang `#!` followed by the interpreter `/usr/bin/env python3` can be put at the beginning of the script in order to ommit calling `python3` in command-line. If you don't put it, you will have to run `python3 script/intro.py` instead of simply `./script/intro.py`.
 
 The `-*- coding: UTF-8 -*-` specify the type of encoding to use. UTF-8 is used by default (which means that this line in the script is not necessary). This accepts characters from all languages. Other valid [encoding](https://docs.python.org/3/library/codecs.html#module-codecs) are available, such as ascii (English characters only). 
 
 ::: {.callout-warning} 
 Some common errors can occur at this step: 
 
-- `bash: ./script/class1.py: No such file or directory` i.e. you are not in the right directory to run the file.
+- `bash: ./script/intro.py: No such file or directory` i.e. you are not in the right directory to run the file.
 
-  Solution: run `ls */` and make sure you can find `script/: class1.py`, if not go to the correct directory by running `cd <insert directory name here>`
-- `bash: ./script/class1.py: Permission denied` i.e. you don't have the right to execute your script.
+  Solution: run `ls */` and make sure you can find `script/: intro.py`, if not go to the correct directory by running `cd <insert directory name here>`
+- `bash: ./script/intro.py: Permission denied` i.e. you don't have the right to execute your script.
   
-  Solution: run `ls -l script/class1.py` and make sure you have at least `-rwx` (read, write, exectute rights) as the first 4 characters, if not run `chmod 744 ./script/class1.py` to change your rights.
+  Solution: run `ls -l script/intro.py` and make sure you have at least `-rwx` (read, write, exectute rights) as the first 4 characters, if not run `chmod 744 ./script/intro.py` to change your rights.
 :::
 
 # Basic concepts 
