@@ -785,7 +785,7 @@ This you could not really guess, but, for dictionnary we consider that keys are 
 
 1. 
 
-::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
+::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions" }
 1. 
 ::: 
 :::
@@ -795,8 +795,11 @@ This you could not really guess, but, for dictionnary we consider that keys are 
 ## Reading, modifying, writting files
 
 ## Importing packages
-
+### numpy
+### BioPython
+### matplot lib 
 ## argv parse
+
 
 ## try Except
 
@@ -804,6 +807,10 @@ This you could not really guess, but, for dictionnary we consider that keys are 
 
 ## Best practices
 
+READ THE DOCS 
+GOOGLE IT 
+
+# Idea of projects
 
 # References {.unnumbered}
 https://docs.python.org/3/tutorial/introduction.html
