@@ -9,5 +9,5 @@
  
 | Lecture | Link  |
 |--------|--------|
-| 2024 | [https://vgilbart.github.io/python-intro/lecture/class-2024.html](https://vgilbart.github.io/python-intro/lecture/class-2024.html) |
+| 2024 | [https://vgilbart.github.io/python-intro/lecture/2024-lesson-1.html](https://vgilbart.github.io/python-intro/lecture/2024-lesson-1.html) |
 
