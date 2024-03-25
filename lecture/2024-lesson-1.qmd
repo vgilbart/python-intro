@@ -1,5 +1,5 @@
 ---
-title: "Class 1 - Introduction to Python"
+title: "Lesson 1 - Introduction to Python"
 author: "Valentine Gilbart"
 date : last-modified
 theme:
@@ -22,8 +22,7 @@ At the end of this class, you will:
 - Be familiar with the Python environment
 - Understand the major data types in Python 
 - Manipulate variables with operators and built-in functions
-- Create simple functions
-- Upload, modify and download your own files into Python 
+
 
 ## Requirements
 
@@ -88,13 +87,12 @@ So, whenever you want your Python code to run, you give it to the Python interpr
 
 ### Interactive mode 
 
-One way to to launch the Python interpreter is to type
+One way to launch the Python interpreter is to type the following, on the command line of a terminal:
 
 ```{bash}
 python3
 ```
 
-on the command line of a terminal. 
 
 ::: {.callout-note} 
 You can also try `python`, `/usr/bin/env python3`, `/usr/bin/python3`... There are many ways to call python!
@@ -177,7 +175,7 @@ A variable can have a short name (like x and y) or a more descriptive name (seq,
 
 - must start with a letter or the underscore character
 - cannot start with a number
-- can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ ), NO SPACE
+- can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )
 - are case-sensitive (seq, Seq and SEQ are three different variables)
 - cannot be any of the Python keywords (run `help('keywords')` to find the list of keywords).
 
@@ -187,13 +185,28 @@ Are the following variables names legal?
 - `2_sequences`
 - `_sequence`
 - `seq-2`
+- `seq 2`
 
+You can try to assign a value to these variable names to be sure of your answer! 
 
 ::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
 
-- No (starts with a number)
-- Yes
-- No (contains a `-`)
+```{python}
+#| error: true
+2_sequences = "ATCTG and ATGT" # No (starts with a number)
+```
+```{python}
+#| error: true
+_sequence = "ATCTG" # Yes, this is accepted!
+```
+```{python}
+#| error: true
+seq-2 = "ATGT" # No (contains a dash)
+```
+```{python}
+#| error: true
+seq 2 = "ATGT" # No (contains a space)
+```
 
 :::
 
@@ -229,7 +242,7 @@ round(ndigits = 2, number = 5.76543)
 :::
 
 
-Here are (@tbl-function-useful) some basic but useful R functions:
+In @tbl-function-useful you will find some basic but useful python functions:
 
 | Function  | Description  |
 |--------|--------|
@@ -266,6 +279,7 @@ Comments are used to:
 - justify decisions in the code
 - expose the problem being solved
 - ...
+
 
 # How can I represent data? 
 
@@ -475,12 +489,12 @@ Tuple is a collection which is ordered and unchangeable. It allows duplicate mem
 Tuples are written with round brackets `()`.
 
 ```{python}
-histidine = ('H', 'CAT', 'CAC')
+my_favorite_amino_acid = ('Y', 'Tyr', 'Tyrosine')
 ```
 
 Just like for the list, you can get items with their index. The only difference is that you cannot change a tuple that has been created. 
 
-Lists have specific methods. Here are a few: 
+Tuples have specific methods. Here are a few: 
 
 | Method  | Description  |
 |--------|--------|
@@ -489,14 +503,16 @@ Lists have specific methods. Here are a few:
 
 
 ::: {.callout-important title="Exercise"} 
-Try to change the value of the first element of `histidine` and see what happens. 
+Try to change the value of the first element of `my_favorite_amino_acid` and see what happens. 
 
 ::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
 ```{python}
 #| error: true
-histidine[0] = 'Hist'
+my_favorite_amino_acid[0] = 'H'
 ```
-
+```{python}
+my_favorite_amino_acid[0]
+```
 :::
 :::
 
@@ -506,10 +522,10 @@ Set is a collection which is unordered and unindexed. It does not allow duplicat
 Sets are written with curly brackets `{}`.
 
 ```{python}
-seq = {'ATGAAGGGTCCAAAA', 'AGTCCCCGTATGAT', 'ACCT', 'ACCT'}
+seq = {'BRCA1', 'TP53', 'EGFR', 'MYC'}
 ```
 
-Once a set is created, you cannot change its items (as they don't have index), but you can remove and add items.
+Once a set is created, you cannot change its items directly (as they don't have index), but you modify the set by removing and adding items.
 
 
 Sets have specific methods. Here are a few: 
@@ -523,6 +539,22 @@ Sets have specific methods. Here are a few:
 | `remove()` | Remove the specified item | 
 | `pop()` | Removes a random element | 
 
+::: {.callout-important title="Exercise"} 
+Get the common genes between the following sets: 
+```{python}
+organism1_genes = {'BRCA1', 'TP53', 'EGFR', 'MYC'}
+organism2_genes = {'TP53', 'MYC', 'KRAS', 'BRAF'}
+```
+
+::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
+```{python}
+#| error: true
+common_genes = organism1_genes.intersection(organism2_genes)
+```
+
+:::
+:::
+
 ### Dictionary
 
 Dictionaries are used to store data values in `key: value` pairs.
@@ -530,17 +562,21 @@ A dictionary is a collection which is ordered (as of Python >= 3.7), changeable 
 Dictionaries are written with curly brackets `{}`, with keys and values.
 
 ```{python}
-stop_codons = {
+
+
+organism1_genes = {
   #key: value;
-  "amber": "TAG",
-  "ochre": "TAA",
-  "opal": "TGA",
+  'BRCA1': 'DNA repair', 
+  'TP53': 'Tumor suppressor', 
+  'EGFR': 'Cell growth', 
+  'MYC': 'Regulation of gene expression'
 }
+
 ```
 
 Dictionary items can be referred to by using the key name.
 ```{python}
-stop_codons["ochre"]
+organism1_genes["BRCA1"]
 ```
 
 Dictionaries have specific methods. Here are a few: 
@@ -556,15 +592,26 @@ Dictionaries have specific methods. Here are a few:
 
 ::: {.callout-important title="Exercise"} 
 
-From the dictionary `stop_codons` created as example, get the value of the key `opal`. If the key does not exist, return `TGA` by default. 
-Try your code before and after removing the `opal` key:value pair.
+From the dictionary `organism1_genes` created as example, get the value of the key `BRCA1`. If the key does not exist, return `Unknown` by default. 
+Try your code before and after removing the `BRCA1` key:value pair. 
+
+Check the help of `get` by running `help(dict.get)` to get a some help. 
 
 ::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"} 
 ```{python}
-#| eval: FALSE
-stop_codons.get('opal', 'TGA')
-stop_codons.pop('opal')
-stop_codons.get('opal', 'TGA')
+organism1_genes
+```
+```{python}
+organism1_genes.get('BRCA1', 'Unknown')
+```
+```{python}
+organism1_genes.pop('BRCA1')
+```
+```{python}
+organism1_genes
+```
+```{python}
+organism1_genes.get('BRCA1', 'Unknown')
 ```
 ::: 
 :::
@@ -584,13 +631,24 @@ You can (more or less easily) convert between data types.
 | `dict()`  |  Convert a tuple of order (key, value) into a dictionary type  |
 
 ```{python}
-#| eval: FALSE
 bool(1)
-int(5.8) ; float(5)
-complex(1,2)
+```
+```{python}
+int(5.8) 
+```
+```{python}
 str(1)
-list({1, 2, 3}) ; tuple({1, 2, 3}) ; set([1, 2, 3, 3])
-dict((('a', 1), ('f', 2), ('g', 3)))
+```
+```{python}
+list({1, 2, 3})
+```
+```{python}
+set([1, 2, 3, 3])
+```
+```{python}
+dict((('a', 1), 
+      ('f', 2), 
+      ('g', 3)))
 ```
 
 
@@ -750,7 +808,7 @@ Try to guess what will output the following expressions:
 - `1+1 == 2 and "actg" == "ACTG"`
 - `True or False and True and False`
 - `"Homo sapiens" == "Homo" + "sapiens"`
-- `'TAA' in stop_codons`
+- `'Tumor suppressor' in organism1_genes`
 
 Verify with Python.
 
@@ -770,51 +828,603 @@ True or False and True and False
 ```
 This you could not really guess, but, for dictionnary we consider that keys are in the dictionnary, not the values, so: 
 ```{python}
-'TAA' in stop_codons, 'TAA' in stop_codons.values(), 'amber' in stop_codons, 'amber' in stop_codons.keys()
+'Tumor suppressor' in organism1_genes, 'Tumor suppressor' in organism1_genes.values(), 'TP53' in organism1_genes, 'TP53' in organism1_genes.keys()
 ```
 :::
 :::
 
 ## Conditionals
 
-## Iterations
+Conditionals allows you to make decisions in your code based on certain conditions. 
 
-## Functions
+```
+if something is true:
+    do task a
+otherwise:
+    do task b
+```
+
+The comparison (`==`, `!=`, `>`, `>=`, `<`, `<=`), logical (`and`, `or`, `not`) and membership (`in`, `not in`) operators can be used as conditions. 
+
+In Python, this is written with an `if ... elif ... else` statement like so: 
+
+```{python}
+# Define gene expression levels
+gene1_expression = 100
+gene2_expression = 50
+
+# Analyze gene expression levels
+if gene1_expression > gene2_expression:
+  print("Gene 1 has higher expression level.")
+elif gene1_expression < gene2_expression:
+  print("Gene 2 has higher expression level.")
+else:
+  print("Gene 1 and Gene 2 have the same expression level.")
+```
+
+The `elif` keyword is Python's way of saying "if the previous conditions were not true, then try this condition". The following code is equivalent to the one before:
+
+```{python}
+# Analyze gene expression levels
+if gene1_expression > gene2_expression:
+  print("Gene 1 has higher expression level.")
+else:
+  if gene1_expression < gene2_expression:
+    print("Gene 2 has higher expression level.")
+  else:
+    print("Gene 1 and Gene 2 have the same expression level.")
+```
+
+
 
 ::: {.callout-important title="Exercise"} 
 
-1. 
+Are these two codes equivalent? 
 
-::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions" }
-1. 
-::: 
+```{python}
+#| eval: false
+# Code A
+if "ATG" in dna_sequence:
+  print("Start codon found.")  
+elif "TAG" in dna_sequence:
+  print("Stop codon found.")  
+else:
+  print("No interesting codon not found.") 
+```
+
+```{python}
+#| eval: false
+# Code B
+if "ATG" in dna_sequence:
+  print("Start codon found.")  
+  if "TAG" in dna_sequence:
+    print("Stop codon found.")  
+else:
+  print("No interesting codon not found.") 
+```
+
+::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
+Understand better with an example: 
+```{python}
+dna_sequence = "ATGCTAGCTAGCTAG"
+
+# Code A
+if "ATG" in dna_sequence:
+  print("Start codon found.")  
+elif "TAG" in dna_sequence:
+  print("Stop codon found.")  
+else:
+  print("No interesting codon not found.") 
+```
+
+
+```{python}
+# Code B
+if "ATG" in dna_sequence:
+  print("Start codon found.")  
+  if "TAG" in dna_sequence:
+    print("Stop codon found.")  
+else:
+  print("No interesting codon not found.") 
+```
+
+The equivalent code to `Code A` would be:
+
+```{python}
+if "ATG" in dna_sequence:
+  print("Start codon found.")  
+else:
+  if "TAG" in dna_sequence:
+    print("Stop codon found.")  
+  else:
+    print("No interesting codon not found.") 
+```
+
+:::
 :::
 
-# Utilities
-
-## Reading, modifying, writting files
-
-## Importing packages
-### numpy
-### BioPython
-### matplot lib 
-## argv parse
+An `if` statement cannot be empty, but if for some reason you have an if statement with no content, put in the `pass` statement to avoid getting an error.
 
 
-## try Except
+```{python}
+a = 33
+b = 200
 
-## regular expression
+if b > a:
+  pass
+```
 
-## Best practices
+### Notes on indentation
 
-READ THE DOCS 
-GOOGLE IT 
+::: {.callout-note} 
+Python relies on **indentation** (the spaces at the beginning of the lines). 
+::: 
 
-# Idea of projects
+Indentation is not just for readability. In Python, you use spaces or tabs to indent code blocks.  Python uses it to determine the scope of functions, loops, conditional statements, and classes.
+
+Any code that is at the same level of indentation is considered part of the same block. Blocks of code are typically defined by starting a line with a colon (`:`) and then indenting the following lines.
+
+When you have nested structures like a conditional statement inside another conditional statement, you must further to show the hierarchy. Each level of indentation represents a deeper level of nesting.
+
+It's essential to be consistent with your indentation throughout your code. Mixing tabs and spaces can lead to errors, so it's recommended to choose one and stick with it.
+
+
+::: {.callout-important title="Exercise"} 
+
+
+Here are three codes, they all are incorrect, can you tell why?
+
+Of course, you can run them and read the error that Python gives!
+
+```{python}
+#| eval: false
+amino_acid_list = ["MET", "ARG", "THR", "GLY"]
+
+if "MET" in amino_acid_list:
+  print("Start codon found.") 
+  if "GLY" in amino_acid_list:
+    print("Glycine found.")  
+else:
+print("Start codon not found.")
+```
+
+```{python}
+#| eval: false
+dna_sequence = "ATGCTAGCTAGCTAG"
+
+if "ATG" in dna_sequence:
+  print("Start codon found.")  
+if "TAG" in dna_sequence
+  print("Stop codon found.")  
+```
+
+```{python}
+#| eval: false
+x = 7
+
+if x > 5:
+  print("x is greater than 5")  
+  if y > 10:
+    print("x is greater than 10")  
+  elif y = 10: 
+    print("x equals 10") 
+  else:
+    print("x is less than 10")  
+```
+::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
+
+```{python}
+#| error: false
+amino_acid_list = ["MET", "ARG", "THR", "GLY"]
+
+if "MET" in amino_acid_list:
+  print("Start codon found.") 
+  if "GLY" in amino_acid_list:
+    print("Glycine found.")  
+else:
+  print("Start codon not found.") # This line was not correctly indented
+```
+
+
+```{python}
+#| error: false
+dna_sequence = "ATGCTAGCTAGCTAG"
+
+if "ATG" in dna_sequence:
+  print("Start codon found.")  
+if "TAG" in dna_sequence: # The colon was missing
+  print("Stop codon found.")  
+```
+
+
+```{python}
+#| error: false
+x = 7
+
+if x > 5:
+  print("x is greater than 5")  
+  if y > 10:
+    print("x is greater than 10")  
+  elif y == 10: 
+    print("x equals 10") 
+    # It must be ==, the comparison operator 
+    # instead of =, the assignement operator
+  else:
+    print("x is less than 10")  
+
+```
+
+:::
+:::
+
+## Iterations
+
+Iteration involves repeating a set of instructions or a block of code multiple times. 
+
+There are two types of loops in python, `for` and `while`. 
+
+Iterating through data structures like lists allows you to access each element individually, making it easier to perform operations on them. 
+
+### For loops
+
+When using a for loop, you iterate over a sequence of elements, such as a list, tuple, or dictionary. 
+
+```
+for item in data_structure:
+    do task a
+```
+
+The loop will execute the indented block of code for each element in the sequence until all elements have been processed. This is particularly useful when you know the number of times you need to iterate.
+
+
+```{python}
+all_codons = [
+    'AAA', 'AAC', 'AAG', 'AAT',
+    'ACA', 'ACC', 'ACG', 'ACT',
+    'AGA', 'AGC', 'AGG', 'AGT',
+    'ATA', 'ATC', 'ATG', 'ATT',
+    'CAA', 'CAC', 'CAG', 'CAT',
+    'CCA', 'CCC', 'CCG', 'CCT',
+    'CGA', 'CGC', 'CGG', 'CGT',
+    'CTA', 'CTC', 'CTG', 'CTT',
+    'GAA', 'GAC', 'GAG', 'GAT',
+    'GCA', 'GCC', 'GCG', 'GCT',
+    'GGA', 'GGC', 'GGG', 'GGT',
+    'GTA', 'GTC', 'GTG', 'GTT',
+    'TAA', 'TAC', 'TAG', 'TAT',
+    'TCA', 'TCC', 'TCG', 'TCT',
+    'TGA', 'TGC', 'TGG', 'TGT',
+    'TTA', 'TTC', 'TTG', 'TTT'
+]
+
+count = 0
+for codon in all_codons: 
+  if codon[1] == 'T':
+    count += 1
+
+print(count, 'codons have a T as a second nucleotide.')
+
+```
+
+What it does is the following: it processes each element in the list `all_codons`, called in the following code `codon`. If the `codon` has as a second character a `T`, it adds 1 to a counter (the variable called `count`).
+
+::: {.callout-warning} 
+You cannot modify a list that way.
+:::
+
+```{python}
+for codon in all_codons: 
+  if 'T' in codon :
+    codon = codon.replace('T', 'U')
+
+print(all_codons)
+```
+
+
+This is because `all_codons` was converted to an iterator in the `for` statement. 
+
+
+### Iterators
+
+An iterator is a special object that gives values in succession.
+
+In the previous example, the iterator returns a copy of the item in a list, not a reference to it. Therefore, the `codon` inside the `for` block is not a view into the original list, and changing it does not do anything.
+
+A way to modify the list would be to use an iterable to access the original data. 
+The `range(start, stop)` function creates an iterable to count from one integer to another. 
+```{python}
+for i in range(2, 10):
+    print(i, end='  ')
+```
+
+We could count from 0 to the size of the list, loop though every element of the list by calling them by their index, and modify them if necessary.
+That's what the following code does: 
+
+```{python}
+for i in range(0, len(all_codons)): 
+  if 'T' in all_codons[i] :
+    all_codons[i] = all_codons[i].replace('T', 'U')
+
+print(all_codons)
+```
+
+Another useful function that returns an iterator is `enumerate()`. It is an iterator that generates pairs of index and value. It is commonly used when you need to access both the index and value of items simultaneously.
+
+```{python}
+seq = 'ATGCATGC'
+
+# Print index and identity of bases
+for i, base in enumerate(seq):
+    print(i, base)
+```
+
+```{python}
+# Loop through sequence and print index of G's
+for i, base in enumerate(seq):
+    if base in 'G':
+        print(i, end='  ')
+```
+
+
+### While loops
+
+A while loop continues executing a set of statement as long as a condition is true. 
+
+```
+while condition is true:
+    do task a
+```
+
+This type of loop is handy when you're not sure how many iterations you'll need to perform or when you need to repeat a block of code until a certain condition is met.
+
+
+```{python}
+seq = 'TACTCTGTCGATCGTACGTATGCAAGCTGATGCATGATTGACTTCAGTATCGAGCGCAGCA'
+start_codon = 'ATG'
+
+# Initialize sequence index
+i = 0
+# Scan sequence until we hit the start codon
+while seq[i:i+3] != start_codon:
+  i += 1
+
+# Show the result
+print('The start codon begins at index', i)
+```
+
+::: {.callout-warning} 
+Remember to increment i, or you'll get stuck in a loop.
+:::
+
+::: {.column-margin}
+![Hopefully not you!](img/StuckInLoop.jpg){#fig-StuckInLoop width=100%}
+:::
+
+Actually, the previous code is quite dangerous. You can also get stuck in a loop... if the `start_codon` does not appear in `seq` at all. 
+
+Indeed, even when you go above the given length of `seq`, the condition `seq[i:i+3] != start_codon` will still be true because `seq[i:i+3]` will output an empty string. 
+
+```{python}
+seq[9999:9999+3]
+```
+
+So, once the end of the sequence is reached, the condition `seq[i:i+3] != start_codon` will always be true, and you'll get stuck in an infinite loop.
+
+### Break statement
+
+Iteration stops in a `for` loop when the iterator is exhausted. It stops in a `while` loop when the conditional evaluates to `False`. 
+There is another way to stop iteration: the `break` keyword. Whenever `break` is encountered in a `for` or `while` loop, the iteration stops and execution continues outside the loop. 
+```{python}
+seq = 'ACCATTTTTTGGGGGGGCGGGGGGAGGGGGGG'
+start_codon = 'ATG'
+
+# Initialize sequence index
+i = 0
+# Scan sequence until we hit the start codon
+while seq[i:i+3] != start_codon:
+  i += 1
+  if i+3 > len(seq): # Get out of the loop if we parsed the full seq 
+    print('Codon not found in sequence.')
+    break
+else:
+  print('The start codon starts at index', i)
+```
+
+::: {.callout-note} 
+Also, note that the `else` statement can be used in `for` and `while` loops. 
+In `for` loops it is executed when the **loop is finished**. In `while` loops, it is executed when the condition is **no longer true**. In both case, the loops need to **not** encounter a `break` to enter in the `else` block. 
+:::
+
+### Continue statement 
+
+In addition to the break statement, there is also the continue statement in Python that can be used to alter the flow of iteration in loops. When continue is encountered within a loop, it skips the remaining code inside the loop for the current iteration and moves on to the next iteration.
+
+Here's an example showcasing the continue statement in a loop:
+
+```{python}
+
+# List of DNA sequences
+dna_sequences = ['ATGCTAGCTAG', 'ATCGATCGATC', 'ATGGCTAGCTA', 'ATGTAGCTAGC']
+
+# Find sequences starting with a start codon
+for sequence in dna_sequences:
+    if sequence[:3] != 'ATG':  # Check if the sequence does not start with a start codon
+        print(f"Sequence '{sequence}' does not start with a start codon. Skipping analysis.")
+        continue  # Skip further analysis for this sequence
+    print(f"Analyzing sequence '{sequence}' for protein coding regions...")
+    # Additional analysis code here
+else:
+  print('All sequences were processed.')
+```
+
+The continue statement in this example skips the analysis code for sequence that does not start with a start codon.
+
+### Exercises
+
+
+::: {.callout-important title="Exercise 1"} 
+
+Given a list of DNA sequences, find the first sequence that contains a specific motif `'TATA'`, print the sequence, and stop the process. If no sequence contains the motif, print a message accordingly. You must use only one `for` loop. 
+
+With the input given below, the output should look like this:
+
+```{python}
+#| echo: true
+#| eval: false
+
+# List of DNA sequences with a TATA
+dna_sequences = ['ATGCTACAGCTAG', 'ATCGATATAATC', 'ATGGCTAGCTA', 'ATGTAGCTAGC'] 
+
+for ...
+  # Your code here
+```
+
+```{python}
+#| echo: false
+#| eval: true
+
+# List of DNA sequences
+dna_sequences = ['ATGCTACAGCTAG', 'ATCGATATAATC', 'ATGGCTAGCTA', 'ATGTAGCTAGC'] 
+
+# Find the sequence containing 'TATA' motif
+for sequence in dna_sequences:
+    if 'TATA' in sequence:
+        print(f"Sequence '{sequence}' contains the 'TATA' motif.")
+        break  # Exit the loop once the motif is found
+else:
+    print("No sequence contains the 'TATA' motif.")
+
+```
+
+
+```{python}
+#| echo: true
+#| eval: false
+
+# List of DNA sequences without a TATA
+dna_sequences = ['ATGCTACAGCTAG', 'ATCGATACAATC', 'ATGGCTAGCTA', 'ATGTAGCTAGC']
+
+for ...
+  # Your code here
+```
+```{python}
+#| echo: false
+#| eval: true
+
+# List of DNA sequences
+dna_sequences = ['ATGCTACAGCTAG', 'ATCGATACAATC', 'ATGGCTAGCTA', 'ATGTAGCTAGC']
+
+# Find the sequence containing 'TATA' motif
+for sequence in dna_sequences:
+    if 'TATA' in sequence:
+        print(f"Sequence '{sequence}' contains the 'TATA' motif.")
+        break  # Exit the loop once the motif is found
+else:
+    print("No sequence contains the 'TATA' motif.")
+
+```
+::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
+
+```{python}
+#| eval: false
+#  Find the sequence containing 'TATA' motif
+for sequence in dna_sequences:
+    if 'TATA' in sequence:
+        print(f"Sequence '{sequence}' contains the 'TATA' motif.")
+        break  # Exit the loop once the motif is found
+else:
+    print("No sequence contains the 'TATA' motif.")
+
+```
+
+:::
+:::
+
+
+
+
+::: {.callout-important title="Exercise 2"} 
+
+Analyze a DNA sequence to count the number of consecutive `'A'` nucleotides. You must use only one `while` loop.
+
+With the input given below, the output should look like this:
+
+```{python}
+#| echo: true
+#| eval: false
+
+# DNA sequence to analyze
+dna_sequence = 'ATGATAAGAGAAAGTAAAAGCGATCGAAAAAA'
+
+while ...
+  # Your code here
+```
+
+```{python}
+#| echo: false
+#| eval: true
+
+# DNA sequence to analyze
+dna_sequence = 'ATGATAAGAGAAAGTAAAAGCGATCGAAAAAA'
+
+# Count consecutive 'A's
+count = 0
+index = 0
+max_consecutive_a = 0
+
+while index < len(dna_sequence):
+  if dna_sequence[index] == 'A':
+    count += 1
+    max_consecutive_a = max(max_consecutive_a, count)
+  else:
+    count = 0
+  index += 1
+
+print(f"Number of consecutive 'A's: {max_consecutive_a}")
+```
+
+::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
+
+```{python}
+# DNA sequence to analyze
+dna_sequence = 'ATGATAAGAGAAAGTAAAAGCGATCGAAAAAA'
+
+# Count consecutive 'A's, skipping 'G's
+count = 0
+index = 0
+max_consecutive_a = 0
+
+while index < len(dna_sequence):
+  if dna_sequence[index] == 'A':
+    count += 1
+    max_consecutive_a = max(max_consecutive_a, count)
+  else:
+    count = 0
+  index += 1
+
+print(f"Number of consecutive 'A's: {max_consecutive_a}")
+```
+
+:::
+:::
+
+# Conclusion 
+
+Congrats! You now know the (very) basics of Python programming. 
+
+If you want to keep on practising with simple exercises I recommend you check out [w3schools](https://www.w3schools.com/python/exercise.asp). 
+
+For more biology-related exercises check out [pythonforbiologist.org](https://www.pythonforbiologists.org/), they have exercises availables in each chapters.
+
+For french speakers, the AFPy (Association Francophone Python) has a learning tool called [HackInScience](https://www.hackinscience.org/exercises/).
+
+Or keep on googling for more python exercises! 
 
 # References {.unnumbered}
 
-Here are some references and ressources that inspired this class: 
+A [python conference](https://www.pycon.fr/2024/) organized by the AFPy (Association Francophone Python) is held in Strasbourg in the end of October 2024!  
+
+Here are some references and ressources that (greatly) inspired this class: 
 
 - [Python doc](https://docs.python.org/3/tutorial/introduction.html)
 - [w3schools](https://www.w3schools.com/python/)
