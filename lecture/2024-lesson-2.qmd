@@ -1,0 +1,797 @@
+---
+title: "Lesson 2 - Introduction to Python"
+author: "Valentine Gilbart"
+date : last-modified
+theme:
+  light: flatly
+  dark: darkly
+format: 
+  html: 
+    toc: true
+    number-sections: true
+editor: source
+solutions: false
+engine: knitr
+---
+
+# Introduction
+
+## Aim of the class
+
+At the end of this class, you will be able to:
+
+- Create simple functions
+- Handle some errors
+- Ask for input from the user
+- Upload, modify and download files into Python 
+- Import packages (and use in a simple manner some scientific packages)
+
+## Requirements
+
+Remembering some of [lesson 1](../lecture/2024-lesson-1.html).
+
+# Function
+
+A function stores a piece of code that performs a certain task, and that gets run when called. It takes some data as input (parameters that are required or optional), and returns an output (that can be of any type). 
+
+::: {.callout-tip} 
+We already learned how to run a predefined function in the last lesson. 
+You need to write its name followed by parenthesis. Parameters are added inside the parenthesis as follow:
+
+```{python}
+# round(number, ndigits=None)
+x = round(number = 5.76543, ndigits = 2)
+print(x)
+```
+
+To get more information about a function, use the `help()` function.
+:::
+
+We will now learn how to create our own function. 
+
+## Syntax
+
+In python, a function is declared with the keyword `def` followed by its name, and the arguments inside parenthesis. 
+The next block of code, corresponding to the content of the function, must be indented. The output is defined by the `return` keyword.
+
+```{python}
+def hello(name):
+  """Presenting myself."""
+  presentation = "Hello, my name is {0}.".format(name)
+  return presentation
+```
+
+
+```{python}
+text = hello(name = "Valentine")
+print(text)
+```
+
+## Documentation
+
+As you may have noticed, you can also add a description of the function directly after the function definition. It is the message that will be shown when running `help()`. As it can be along text over multiple lines, it is common to put it inside triple quotes ```"""```. 
+
+```{python}
+help(hello)
+```
+
+## Arguments
+
+You can have several arguments. They can be mandatory or optional. To make them optional, they need to have a default value assigned inside the function definition, like so:
+
+```{python}
+def hello(name, french = True):
+  """Presenting myself."""
+  if french:
+    presentation = "Bonjour, je m'appelle {0}."
+  else:
+    presentation = "Hello, my name is {0}."
+  return presentation.format(name)
+```
+
+The parameter `name`is mandatory, but `french` is optional.
+
+```{python}
+hello("Valentine")
+```
+
+```{python}
+#| error: true
+hello(french = False)
+```
+
+::: {.callout-note} 
+Reminder: if you provide the parameters in the exact same order as they are defined, you don’t have to name them. If you name the parameters you can switch their order. As good practice, put all required parameters first.
+
+```{python}
+hello(french = False, name = "Valentine")
+```
+
+```{python}
+hello("Valentine", False)
+```
+:::
+
+## Output
+
+If no `return` statement is given, then no output will be returned, but the function will still be run. 
+
+```{python}
+def hello(name):
+  """Presenting myself."""
+  print("We are inside the 'hello()' function.")
+  presentation = "Hello, my name is {0}.".format(name)
+```
+
+```{python}
+print(hello("Valentine"))
+```
+
+The output can be of any type. If you have a lot of things to return, you might want to return a `list` or a `dict` for example. 
+
+```{python}
+def multiple_of_3(list_of_numbers):
+  """Returns the number that are multiple of 3."""
+  multiples = []
+  for num in list_of_numbers:
+    if num % 3 == 0:
+      multiples.append(num)
+  return multiples
+
+multiple_of_3(range(1, 20, 2))
+```
+
+::: {.callout-note} 
+This could be written as a one-liner.
+```{python}
+def multiple_of_3(list_of_numbers):
+  """Returns the number that are multiple of 3."""
+  multiples = [num for num in list_of_numbers if num % 3 == 0]
+  return multiples
+
+multiple_of_3(range(1, 20, 2))
+```
+:::
+
+
+
+## Exercise 
+::: {.callout-important title="Exercise"} 
+
+1. 
+We’ll write a function to compute the reverse complement of a sequence of DNA. 
+
+::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions" }
+1. 
+::: 
+:::
+# Exceptions Handling 
+
+
+
+## Syntax
+
+It is possible to handle errors (in python, they are also called exceptions), using the following statements:
+
+- `try` to test a block of code for errors
+- `except` to handle the error
+- `else` to excute code if there is no error
+- `finally` to excute code, regardless of the result of the try and except blocks
+
+```{python}
+# The try block will generate an exception, because some_undefined_variable is not defined:
+try:
+  print(some_undefined_variable)
+except:
+  print("Oops... Something went wrong") 
+```
+
+
+```{python}
+#| error: true
+# Without the try block, the program will crash and raise an error:
+print(some_undefined_variable)
+```
+
+```{python}
+try:
+  print(some_undefined_variable)
+except:
+  print("Oops... Something went wrong") 
+else:
+  print("Nothing went wrong") 
+finally:
+  print("The 'try except' is finished") 
+```
+
+
+## Raising exceptions
+
+Here is a table of some of the built-in exceptions in python. 
+
+| Exception  | Description  |
+|--------|--------|
+| `IndexError`  |  Raised when the index of a sequence is out of range.  |
+| `KeyError`  |  Raised when a key is not found in a dictionary.  |
+| `KeyboardInterrupt`  | Raised when the user hits the interrupt key (Ctrl+c or Delete). |
+| `NameError`  |  Raised when a variable is not found in the local or global scope.  |
+| `TypeError`  |  Raised when a function or operation is applied to an object of an incorrect type.  |
+| `RuntimeError`  |  Raised when an error occurs that do not belong to any specific exceptions.  |
+| `Exception`  |  Base class of exceptions.  |
+
+You can use them to be more specific about the type of exception occurring. 
+
+```{python}
+try:
+  print(some_undefined_variable)
+except NameError:
+  print("A variable is not defined") 
+except:
+  print("Oops... Something went wrong") 
+else:
+  print("Nothing went wrong") 
+finally:
+  print("The 'try except' is finished") 
+```
+
+You can also use them to throw an exception if a condition occurs, by using the `raise` keyword.
+
+```{python}
+#| error: true
+x = "hello"
+try:
+  if not type(x) is int:
+    raise TypeError("Only integers are allowed") 
+  if x < 0:
+    raise Exception("Sorry, no numbers below zero") 
+  print(x, "is a positive integer.")
+except NameError:
+  print("A variable is not defined") 
+else:
+  print("Nothing went wrong") 
+finally:
+  print("The 'try except' is finished") 
+```
+
+
+## Exercise 
+
+TODO
+::: {.callout-important title="Exercise"} 
+
+1. 
+Let's make our previous function even better by adding some exception handling
+
+::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions" }
+1. 
+::: 
+:::
+
+# User-defined input
+
+There are some interesting ways to get input from the user: 
+
+- `input()` receives input from the keyboard. This means that the input is defined *while* the python script is being executed.
+- `sys.argv` takes arguments provided in command line after the name of the program. This means that the input is defined *before* the python script is being executed.
+- `argparse` is similar to `sys.argv`, with the advantage of being able to give specific names to arguments.
+
+## input
+
+Python stops executing when it comes to the `input()` function, and continues when the user has given some input.
+
+In a file called `username-1.py`, write the following: 
+```{python}
+#| eval: False
+username = input("Enter username: ")
+print("Username is: " + username)
+```
+
+Then in the terminal, run: 
+```{bash}
+#| eval: False
+python username-1.py 
+```
+
+You should be asked, in command line, to enter a username. When you write it, and press Enter, it gets printed. 
+
+```{python}
+#| echo: False
+print("Enter username: vgilbart")
+print("Username is: vgilbart" )
+```
+
+
+## sys.argv
+
+To use `sys.argv` you need to import a module called `sys`. It is part of the standard python library, so you should not have to install anything in particular. 
+
+In a file called `username-2.py`, write the following: 
+```{python}
+#| eval: False
+import sys 
+
+print("Username is: " + sys.argv[1])
+```
+
+Then in the terminal, run: 
+```{bash}
+#| eval: False
+python username-2.py vgilbart
+```
+
+Arguments are given in command line, seperated by `[space]`. 
+
+```{python}
+#| echo: False
+print("Username is: " + "vgilbart")
+```
+
+::: {.callout-note} 
+What is the type of `sys.argv`? Remember that in python index begins at `0`. What do you think is `sys.argv[0]`? Verify!
+
+Also, what happens if you run `python username-2.py valentine gilbart` ? 
+::: 
+
+
+## argparse
+
+Just like for `sys`, you need to import `argparse`. 
+
+In a file called `username-3.py`, write the following: 
+```{python}
+#| eval: False
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--username', action="store")
+
+args = parser.parse_args()
+print("Username is: " + args.username)
+```
+
+Then in the terminal, run: 
+
+```{bash}
+#| eval: False
+python username-3.py --username vgilbart
+```
+
+Arguments are given in command line, but they have specific names. 
+
+
+::: {.callout-note} 
+`argparse` is a very useful module when creating programs! You can easily specify the expected type of argument, whether  it is optional or not, and create a help for your script.
+Check their [tutorial](https://docs.python.org/3/howto/argparse.html) for more information.
+::: 
+
+## Exercise 
+
+TODO
+::: {.callout-important title="Exercise"} 
+
+1. 
+Let's make our previous function even better by asking the user for the input. Use the solution that you like the most. 
+
+::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions" }
+1. 
+::: 
+:::
+
+
+# File Handling
+
+The key function to work with files in `open()`. 
+Its two parameters `file` and `mode`.
+
+```{python}
+f = open('../hands-on/data/some_rrna.fasta', mode = 'r')
+```
+
+The modes can be one of the following: 
+
+| Mode  | Description  |
+|-|--------|
+| `r`  | Opens a file for reading, error if the file does not exist (default) |
+| `a`  | Opens a file for appending, creates the file if it does not exist |
+| `w`  | Opens a file for writing, creates the file if it does not exist |
+| `x`  | Creates the specified file, returns an error if the file exists |
+
+
+## Reading
+
+The `open()` function returns a file object, which has a `read()` method for reading the content of the file:
+```{python}
+print(f.read())
+```
+
+The parameter `size =` can be added to specify the number of bytes (~ characters) to return.
+
+```{python}
+# We need to re-open it because we have already parsed the whole file
+f = open('../hands-on/data/some_rrna.fasta', mode = 'r') 
+print(f.read(2))
+```
+
+You can return one line by using the readline() method:
+By calling readline() two times, you can read the two first lines:
+```{python}
+f = open('../hands-on/data/some_rrna.fasta', mode = 'r') 
+print(f.readline())
+print(f.readline())
+```
+
+By looping through the lines of the file, you can read the whole file, line by line:
+
+```{python}
+for i, line in enumerate(f):
+  print(i, line) 
+```
+
+It is a good practice to close the file when you are done with it.
+
+```{python}
+f.close() 
+```
+
+
+::: {.callout-warning} 
+In some cases, changes made to a file may not show until you close the file.
+::: 
+
+::: {.callout-note} 
+A common syntax to handle files that you might encounter is:
+```{python}
+with open('../hands-on/data/some_rrna.fasta', 'r') as f:
+  print(f.readline())
+```
+
+This code is equivalent to 
+```{python}
+f = open('../hands-on/data/some_rrna.fasta', 'r') 
+try:
+  print(f.readline())
+finally:
+  f.close()
+```
+
+The `with` statement is an example of a context manager, i.e. it allows to allocate and release resources precisely, by cleaning up the resources once they are no longer needed.
+::: 
+
+## Writting
+
+To write into a file, you must have it open under a `w`, `a` mode. 
+
+Then, the method `write()` can be used. 
+
+```{python}
+f = open("../hands-on/data/some_file.txt", "w")
+f.write("Woops! I have deleted the content!\n")
+f.close()
+
+# Read the current content of the file
+f = open("../hands-on/data/some_file.txt", "r")
+print(f.read()) 
+```
+
+::: {.callout-warning} 
+Be very careful when opening a file in `write` mode than as you can delete its content without any way to retrieve the original file!
+::: 
+
+As you may have noticed, `write()` returns the number of characters written. You can prevent it from being printed by assigning the return value to a variable that will not be used.
+
+```{python}
+f = open("../hands-on/data/some_file.txt", "a")
+_ = f.write("Now the file has more content!\n") 
+f.close()
+
+# Read the current content of the file
+f = open("../hands-on/data/some_file.txt", "r")
+print(f.read()) 
+```
+
+::: {.callout-note} 
+You must specify a newline with the character:
+
+- `\n` in Linus/MacOS
+- `\r\n` in Windows
+- `\r` in MacOS before X
+::: 
+
+
+## Regular expression
+
+A regular expression is a sequence of characters that forms a search pattern. 
+
+Python has a built-in package called re, to work with regular expressions.
+
+```{python}
+import re 
+
+x = re.findall("hello", "hello world, hello you!") 
+print(x)
+```
+
+Here are some useful functions from the `re` package. 
+
+| Function  | Description  |
+|--|--------|
+| `findall()`  |  Returns a list containing all matches |
+| `search()`  |  Returns a Match object if there is a match anywhere in the string |
+| `split()`  | Returns a list where the string has been split at each match |
+| `sub()`  |  Replaces one or many matches with a string |
+
+To be more specific about a sequence search, regular expression uses metacharacters (i.e characters with sepecial meaning)
+
+| Metacharacter | Description | Example |
+|-|----|--|
+|[] |	A set of characters | 	`[a-m]` 	 |
+|\ |	Signals a special sequence (can also be used to escape special characters) | 	`\n` 	 |
+|. |	Any character (except newline character) | 	`he..o` 	 |
+|^ |	Starts with | 	`^hello` 	 |
+|$ |	Ends with | 	`hello$` 	 |
+|* |	Zero or more occurrences | 	`he.*o` 	 |
+|+ |	One or more occurrences | 	`he.+o` 	 |
+|? |	Zero or one occurrences  |	`he.?o` 	 |
+|{} |	Exactly the specified number of occurrences  |	`he.{2}o` 	 |
+|\| |	Either or  |	`hello|bonjour` 	 |
+| () |	Captures and group |	`hello (.+) \1` in which `\1` correspond to what is being captured in `(.+)` |
+
+
+::: {.callout-note} 
+To build and test a regex, you can use [regex101.com](https://regex101.com), or any website equivalent, in which you can write your regex, and some string to test, to see how it matches.
+::: 
+
+A Match Object is an object containing information about the search and the result.
+
+```{python}
+x = re.search("hello .*", 
+"""
+hello world
+hello you
+bonjour
+""") 
+print(x)
+```
+
+The Match object has properties and methods used to retrieve information about the search, and the result:
+
+- `.span()` returns a tuple containing the start and end positions of the match.
+- `.string` returns the string passed into the function
+- `.group()` returns the part of the string where there was a match
+
+```{python}
+print(x.group()) 
+```
+
+## Exercise
+
+TODO
+
+# Scientific packages introduction
+
+A python package contains a set of function to perform specific tasks. 
+
+A package needs to be **installed** to your computer one time. 
+
+You can install a package with `pip`. It should have been automatically installed with your python, to make sure that you have it you can run:
+
+```{bash}
+#| eval: false
+# In Linux/MacOS
+python -m pip --version
+# In Windows
+py -m pip --version
+```
+
+If it does not work, check out [pip documentation](https://pip.pypa.io/en/stable/getting-started/).
+
+To install a package called 
+
+```{bash}
+#| eval: false
+# In Linux/MacOS
+python -m pip install pandas
+# In Windows
+py -m pip install pandas
+```
+
+To get more information about `pip`, check out the full[documentation](https://pip.pypa.io/en/stable/getting-started/).
+
+
+::: {.callout-warning} 
+Installing a package is done outside of the python interpreter, in command line in a terminal. 
+::: 
+
+When you wish to use a package in a script, you'll need to import it. 
+
+```{python}
+import pandas
+```
+
+## Pandas
+
+Pandas is a package used to work with data sets, in order to easily clean, manipulate, explore and analyze data.
+
+### Create pandas data
+
+Pandas provides two types of classes for handling data:
+
+- `Series`: a one-dimensional labeled array holding data of any type such as integers or strings. It is like a column in a table.
+
+```{python}
+# If nothing else is specified, the values are labeled with their index number (starting from `0`).
+myseries = pandas.Series([1, 7, 2], index = ["x", "y", "z"])
+print(myseries)
+```
+
+
+- `DataFrame`: a two-dimensional data structure that holds data like a two-dimension array or a table with rows and columns. It is like a table.
+
+
+```{python}
+data = {
+  "calories": [420, 380, 390],
+  "duration": [50, 40, 45]
+} 
+
+df = pandas.DataFrame(data)
+
+print(df) 
+```
+
+You can also create a DataFrame from a file.
+```{python}
+df = pandas.read_csv('../hands-on/data/sample.csv')
+
+print(df)
+```
+
+You can select rows as follows:
+```{python}
+# Select one row
+print(df.loc[[0]])
+# Select several rows
+print(df.loc[[0,2]])
+```
+
+You can select columns as follows:
+```{python}
+# Select one column
+df['Tissue']
+# Select several column
+df[['Gene','Expression_Level']]
+```
+
+You can select rows and columns as follow:
+```{python}
+df.loc[[1], ['Gene','Expression_Level']]
+```
+
+You can filter based on a condition as follow: 
+```{python}
+df[df['Expression_Level'] > 6]
+```
+
+### Useful manipulation
+
+To explore the data set, use the following methods:
+```{python}
+df.info()
+```
+
+```{python}
+df.describe()
+```
+
+```{python}
+df.head()
+```
+```{python}
+df.sort_values(by="Gene")
+```
+
+```{python}
+df['Expression_Level'].mean()
+
+df.groupby("Gene")[['Expression_Level']].mean()
+```
+
+### Learn More 
+
+To get more information on how to use pandas, check out:
+
+- the [documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html#)
+- the [cheat sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
+- any [useful tutorial](https://www.w3schools.com/python/pandas/)
+
+
+## Matplotlib 
+
+Matplotlib is a package to create visualizations in Python.
+
+To shorten the name of the package when we call its functions, we can import it as follow:
+```{python}
+import matplotlib.pyplot as plt
+
+# Create a new figure 
+fig = plt.figure()
+
+# Create a boxplot showing the expression levels of GeneA and GeneB
+# The data for GeneA and GeneB is extracted from the DataFrame 'df'
+plt.boxplot([df[df['Gene'] == 'GeneA']['Expression_Level'], 
+            df[df['Gene'] == 'GeneB']['Expression_Level']],
+            labels=['GeneA', 'GeneB'])
+
+# Set the label for the x-axis
+plt.xlabel('Gene')
+# Set the label for the y-axis
+plt.ylabel('Expression Level')
+# Set the title of the plot
+plt.title('Expression of Genes in Different Tissues')
+# Display the boxplot
+plt.show()
+
+# Save the plot as a PNG file with a resolution of 300 dots per inch (dpi)
+# The file will be saved in the specified location 
+fig.savefig('../hands-on/data/my-figure.png', dpi=300)
+```
+
+Many visualizations are available. 
+
+For more information, check out: 
+
+- the [documentation](https://matplotlib.org/stable/users/explain/quick_start.html)
+- the [cheat sheet](https://matplotlib.org/cheatsheets/)
+- any [useful tutorial](https://www.w3schools.com/python/matplotlib_intro.asp)
+- some [inpiration](https://matplotlib.org/stable/gallery/index)
+
+
+## More packages
+
+There are MANY packages available, here's a short list of some that might interest you:
+
+
+| Package  | Usage | Example of usage | 
+|-|---|---|
+| [BioPython](https://biopython.org/docs/dev/Tutorial/index.html)  |  Computational molecular biology  | Sequence handling, access to NCBI databases | 
+| [NumPy](https://numpy.org/doc/stable/user/absolute_beginners.html) |	Numerical arrays |	Data manipulation, mathematical operations, linear algebra|
+| [Seaborn](https://seaborn.pydata.org/tutorial.html) |	High-level interface for drawing plots |	Data visualization, statistical graphics |
+| [SciPy](https://docs.scipy.org/doc/scipy/tutorial/index.html) |	Mathematical algorithms | Hypothesis testing, Fourier transforms, signal processing |
+| [Scikit-image](https://scikit-image.org/docs/stable/user_guide/getting_started.html) |	Image processing |	Image enhancement, segmentation, feature extraction |
+| [Scikit-learn](https://scikit-learn.org/stable/getting_started.html) |	Machine learning |	Classification, regression, clustering, dimensionality reduction |
+| [TensorFlow](https://www.tensorflow.org/tutorials/quickstart/beginner?hl=fr) and [PyTorch](https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html) |	Deep learning |	Neural networks, natural language processing, computer vision |
+
+# Final tips and resources 
+
+
+Here are a couple of tips:
+
+- Leave comments (think of your future self!)
+- Be consistent (quotes, indents...)
+- Don't re-invent the wheel, for common tasks, it's likely that a function already exists
+
+::: {.column-margin}
+![Please, read the doc](img/readthedocs.jpg){#fig-readthedocs width=100%}
+:::
+
+- Read the documentation when using a new package or function!
+
+- Google It! Use the correct programming vocabulary to increase your chances of finding an answer. If you don't find anything, try wording it differently. 
+
+You can follow some free tutorials on:
+
+- [Code Academy](https://www.codecademy.com/catalog/language/python)
+- [EdX](https://www.edx.org/learn/python)
+- Youtube!
+  
+Finally, you should able to use Github Copilot (AI coding assistant), as it is free for students: [https://education.github.com/benefits](https://education.github.com/benefits). 
+
+# References {.unnumbered}
+
+A [python conference](https://www.pycon.fr/2024/) organized by the AFPy (Association Francophone Python) is held in Strasbourg in the end of October 2024!  
+
+Here are some references and ressources that inspired this class: 
+
+- [Python doc](https://docs.python.org/3/tutorial/introduction.html)
+- [w3schools](https://www.w3schools.com/python/)
+- [pythonforbiologists](https://www.pythonforbiologists.org/)
+- [justinbois's Bootcamp](https://justinbois.github.io/bootcamp/2020/lessons/l01_welcome.html#.py-files)

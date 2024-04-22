@@ -954,7 +954,7 @@ if b > a:
   pass
 ```
 
-### Notes on indentation
+## Notes on indentation
 
 ::: {.callout-note} 
 Python relies on **indentation** (the spaces at the beginning of the lines). 
@@ -1412,13 +1412,15 @@ print(f"Number of consecutive 'A's: {max_consecutive_a}")
 
 Congrats! You now know the (very) basics of Python programming. 
 
-If you want to keep on practising with simple exercises I recommend you check out [w3schools](https://www.w3schools.com/python/exercise.asp). 
+If you want to keep on practising with simple exercises, you can check out [w3schools](https://www.w3schools.com/python/exercise.asp). 
 
 For more biology-related exercises check out [pythonforbiologist.org](https://www.pythonforbiologists.org/), they have exercises availables in each chapters.
 
 For french speakers, the AFPy (Association Francophone Python) has a learning tool called [HackInScience](https://www.hackinscience.org/exercises/).
 
 Or keep on googling for more python exercises! 
+
+To continue your learning journey, follow [lesson 2](../2024-lesson-2.html)
 
 # References {.unnumbered}
 
