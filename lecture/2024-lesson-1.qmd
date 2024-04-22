@@ -10,7 +10,7 @@ format:
     toc: true
     number-sections: true
 editor: source
-solutions: false
+solutions: true
 ---
 
 # Introduction
@@ -24,6 +24,10 @@ At the end of this class, you will:
 - Manipulate variables with operators and built-in functions
 
 
+::: {.column-margin}
+![Python logo](img/python.png){#fig-python width=100%}
+:::
+
 ## Requirements
 
 You need to have a computer, and either:
@@ -32,10 +36,10 @@ You need to have a computer, and either:
 
 ::: {.callout-note} 
 An IDE (integrated development environment) is an improved text editor. It is a software that provides functionalities like syntax highlighting, auto completion, help, debugger… 
-I recommand Visual Studio Code ([install](https://code.visualstudio.com/Download/) and learn [how to use it with Python](https://code.visualstudio.com/docs/languages/Python)), but [any other IDE](https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python) will work.
+For example Visual Studio Code ([install](https://code.visualstudio.com/Download/) and learn [how to use it with Python](https://code.visualstudio.com/docs/languages/Python)), but [any other IDE](https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python) will work.
 ::: 
 
-- have a github account, [create a new codespace](https://github.com/codespaces/), and select the Repository `vgilbart/Python-intro` to copy from. This is a free solution up to 60 hours of computing and 15 GB per month. 
+- have a github account, [create a new codespace](https://github.com/codespaces/), and select the Repository `vgilbart/python-intro` to copy from. This is a free solution up to 60 hours of computing and 15 GB per month. 
 
 
 ## What is Python? 
@@ -54,7 +58,7 @@ It is widely used, with various applications, such as:
 - data analysis
 - ...
 
-It supports different types of programming paradigms (~ way of thinking) including the procedural programming paradigm. 
+It supports different types of programming paradigms (i.e. way of thinking) including the procedural programming paradigm. 
 In this approach, the program moves through a linear series of instructions.
 
 ```{python}
@@ -81,7 +85,7 @@ print('The sequence has', size, 'bases.')
 
 ## How can I program in Python? 
 
-Python is an interpreted language, this means that all scripts written in Python need a software to be run. This software is called an interpreter, which "translate" the each line of the code, into instructions that the computer can understand. 
+Python is an interpreted language, this means that all scripts written in Python need a software to be run. This software is called an interpreter, which "translate" each line of the code, into instructions that the computer can understand. 
 By extension, the interpreter that is able to read Python scripts is also called Python.
 So, whenever you want your Python code to run, you give it to the Python interpreter. 
 
@@ -106,7 +110,11 @@ From this, you can start using python interactively, e.g. run:
 print("Hello world")
 ```
 
-To get out of the Python interpreter, type `quit()`or `exit()`. Alternatively, on Linux/Mac press `[ctrl + d]`, on Windows press `[ctrl + z]` followed by `enter`. 
+To get out of the Python interpreter, type `quit()`or `exit()`, followed by `enter`. Alternatively, on Linux/Mac press `[ctrl + d]`, on Windows press `[ctrl + z]`. 
+
+
+![Interactive mode](img/interactive.png){#fig-interactive width=100%}
+
 
 ### Script mode 
 
@@ -139,12 +147,12 @@ The `-*- coding: UTF-8 -*-` specify the type of encoding to use. UTF-8 is used b
 ::: {.callout-warning} 
 Some common errors can occur at this step: 
 
-- `bash: ./script/intro.py: No such file or directory` i.e. you are not in the right directory to run the file.
+- `bash: script/intro.py: No such file or directory` i.e. you are not in the right directory to run the file.
 
   Solution: run `ls */` and make sure you can find `script/: intro.py`, if not go to the correct directory by running `cd <insert directory name here>`
-- `bash: ./script/intro.py: Permission denied` i.e. you don't have the right to execute your script.
+- `bash: script/intro.py: Permission denied` i.e. you don't have the right to execute your script.
   
-  Solution: run `ls -l script/intro.py` and make sure you have at least `-rwx` (read, write, exectute rights) as the first 4 characters, if not run `chmod 744 ./script/intro.py` to change your rights.
+  Solution: run `ls -l script/intro.py` and make sure you have at least `-rwx` (read, write, exectute rights) as the first 4 characters, if not run `chmod 744 script/intro.py` to change your rights.
 :::
 
 # Basic concepts 
@@ -188,8 +196,12 @@ Are the following variables names legal?
 - `seq 2`
 
 You can try to assign a value to these variable names to be sure of your answer! 
+:::
 
-::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
 
 ```{python}
 #| error: true
@@ -254,6 +266,12 @@ In @tbl-function-useful you will find some basic but useful python functions:
 
 : List of useful Python functions. {#tbl-function-useful}
 
+::: {.callout-note} 
+In python, you will also hear about methods. This vocabulary belongs to a programming paradigm called "Object-oriented programming" (OOP). 
+
+A method is a function that belongs to a specific class of objects. It is defined within a class and operates only on objects from that class. Methods can access and modify the object's state.
+
+:::
 
 ## Getting help
 
@@ -278,6 +296,7 @@ Comments are used to:
 - explain assumptions
 - justify decisions in the code
 - expose the problem being solved
+- inactivate a line to help debug
 - ...
 
 
@@ -354,18 +373,19 @@ print(my_str)
 
 You can get the number of characters inside a string with `len()`.
 ```{python}
+print(seq)
 len(seq)
 ```
 
-Strings have specific methods (~ functions). Here are a few: 
+Strings have specific methods (i.e. functions specific to this class of object). Here are a few: 
 
 | Method  | Description  |
 |--------|--------|
-| `count()` | Returns the number of times a specified value occurs in a string|
-| `startswith()` | Returns true if the string starts with the specified value| 
-| `endswith()` | Returns true if the string ends with the specified value | 
-| `find()` | Searches the string for a specified value and returns the position of where it was found | 
-| `replace()` | Returns a string where a specified value is replaced with a specified value | 
+| `.count()` | Returns the number of times a specified value occurs in a string|
+| `.startswith()` | Returns true if the string starts with the specified value| 
+| `.endswith()` | Returns true if the string ends with the specified value | 
+| `.find()` | Searches the string for a specified value and returns the position of where it was found | 
+| `.replace()` | Returns a string where a specified value is replaced with a specified value | 
 
 They are called like this: 
 
@@ -374,14 +394,19 @@ seq.count('A')
 ```
 
 ::: {.callout-tip} 
-To get the `help()` of the `count()` method, you need to run `help(str.count)`.
+To get the `help()` of the `.count()` method, you need to run `help(str.count)`.
 :::
 
 ::: {.callout-important title="Exercise"} 
 1. Check if the sequence `seq` starts with the codon `ATG`
 2. Replace all `T` into `U` in `seq`
 
-::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
+
+:::
+
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
 
 1. 
 ```{python}
@@ -416,7 +441,7 @@ seq[1]
 ```
 
 ::: {.callout-tip} 
-You can also count backwards, with the index `[-1]` that retrieves the last item.
+You can count backwards, with the index `[-1]` that retrieves the last item.
 :::
 
 As a list is changeable, we can change, add, and remove items in a list after it has been created. 
@@ -441,6 +466,18 @@ seq[:2]
 Similarly, by leaving out the end value, the range will end at the last item.
 :::
 
+
+::: {.callout-note} 
+Indexes also conveniently work on `str` types.
+```{python}
+print(seq[0])
+print(seq[0][0:5]) 
+print(seq[0][2]) 
+print(seq[0][-1]) 
+```
+
+:::
+
 You can get how many items are in a list with `len()`.
 ```{python}
 len(seq)
@@ -450,20 +487,25 @@ Lists have specific methods. Here are a few:
 
 | Method  | Description  |
 |--------|--------|
-| `append()` | Inserts an item at the end |
-| `insert()` | Inserts an item at the specified index | 
-| `extend()` | Append elements from another list to the current list | 
-| `remove()` | Removes the first occurance of a specified item | 
-| `pop()` | Removes the specified (by default last) index | `
-| `sort()` | Sorts the list alphanumerically, by default in ascending order |
-| `count()` | Returns the number of times a specified value occurs  |
-| `index()` | Searches for a specified value and returns the position of where it was found |
+| `.append()` | Inserts an item at the end |
+| `.insert()` | Inserts an item at the specified index | 
+| `.extend()` | Append elements from another list to the current list | 
+| `.remove()` | Removes the first occurance of a specified item | 
+| `.pop()` | Removes the specified (by default last) index | `
+| `.sort()` | Sorts the list alphanumerically, by default in ascending order |
+| `.count()` | Returns the number of times a specified value occurs  |
+| `.index()` | Searches for a specified value and returns the position of where it was found |
 
 ::: {.callout-important title="Exercise"} 
-1. Create a list `l = ['AAA', 'AAT', 'AAC']`, and add `AAG` at the end. 
-2. Replace all `T` into `U` in the element `AAT`
+1. Create a list `l = ['AAA', 'AAT', 'AAC']`, and add `AAG` at the end, using `.append()`. 
+2. Replace all `T` into `U` in the element `AAT`, using `.replace()`. 
 
-::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
+
+:::
+
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
 
 1. 
 ```{python}
@@ -473,11 +515,10 @@ l.append('AAG')
 # l = l.append('AAA') to update l
 l
 ```
-2. 
+1. 
 ```{python}
 l[1] = l[1].replace('T', 'U')
 l
-# or also, l[1] = 'AAU'
 ```
 
 :::
@@ -498,14 +539,20 @@ Tuples have specific methods. Here are a few:
 
 | Method  | Description  |
 |--------|--------|
-| `count()` | Returns the number of times a specified value occurs  |
-| `index()` | Searches for a specified value and returns the position of where it was found |
+| `.count()` | Returns the number of times a specified value occurs  |
+| `.index()` | Searches for a specified value and returns the position of where it was found |
 
 
 ::: {.callout-important title="Exercise"} 
 Try to change the value of the first element of `my_favorite_amino_acid` and see what happens. 
 
-::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
+
+:::
+
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
 ```{python}
 #| error: true
 my_favorite_amino_acid[0] = 'H'
@@ -532,12 +579,12 @@ Sets have specific methods. Here are a few:
 
 | Method  | Description  |
 |--------|--------|
-| `add()` | Adds an element to the set |
-| `difference()` | 	Returns a set containing the difference between two sets | 
-| `intersection()` | 	Returns a set containing the intersection between two sets | 
-| `union()` | 	Returns a set containing the union of two sets | 
-| `remove()` | Remove the specified item | 
-| `pop()` | Removes a random element | 
+| `.add()` | Adds an element to the set |
+| `.difference()` | 	Returns a set containing the difference between two sets | 
+| `.intersection()` | 	Returns a set containing the intersection between two sets | 
+| `.union()` | 	Returns a set containing the union of two sets | 
+| `.remove()` | Remove the specified item | 
+| `.pop()` | Removes a random element | 
 
 ::: {.callout-important title="Exercise"} 
 Get the common genes between the following sets: 
@@ -546,7 +593,12 @@ organism1_genes = {'BRCA1', 'TP53', 'EGFR', 'MYC'}
 organism2_genes = {'TP53', 'MYC', 'KRAS', 'BRAF'}
 ```
 
-::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
+
+:::
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
 ```{python}
 #| error: true
 common_genes = organism1_genes.intersection(organism2_genes)
@@ -583,21 +635,26 @@ Dictionaries have specific methods. Here are a few:
 
 | Method  | Description  |
 |--------|--------|
-| `items()` |	Returns a list containing a tuple for each key value pair | 
-| `keys()` | Returns a list containing the dictionary's keys |
-| `values()` | Returns a list of all the values in the dictionary |
-| `pop()` | Removes the element with the specified key |
-| `get()` | Returns the value of the specified key |
+| `.items()` |	Returns a list containing a tuple for each key value pair | 
+| `.keys()` | Returns a list containing the dictionary's keys |
+| `.values()` | Returns a list of all the values in the dictionary |
+| `.pop()` | Removes the element with the specified key |
+| `.get()` | Returns the value of the specified key |
 
 
 ::: {.callout-important title="Exercise"} 
 
 From the dictionary `organism1_genes` created as example, get the value of the key `BRCA1`. If the key does not exist, return `Unknown` by default. 
-Try your code before and after removing the `BRCA1` key:value pair. 
+Try your code before **and after** removing the `BRCA1` key:value pair. 
 
-Check the help of `get` by running `help(dict.get)` to get a some help. 
+Check the help of `get` by running `help(dict.get)`. 
 
-::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"} 
+
+:::
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
 ```{python}
 organism1_genes
 ```
@@ -812,9 +869,14 @@ Try to guess what will output the following expressions:
 
 Verify with Python.
 
-::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
+
+:::
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
 ```{python}
-1+1 == 2 and "Text" == "Text."
+1+1 == 2 and "actg" == "ACTG"
 ```
 
 ```{python}
@@ -828,7 +890,10 @@ True or False and True and False
 ```
 This you could not really guess, but, for dictionnary we consider that keys are in the dictionnary, not the values, so: 
 ```{python}
-'Tumor suppressor' in organism1_genes, 'Tumor suppressor' in organism1_genes.values(), 'TP53' in organism1_genes, 'TP53' in organism1_genes.keys()
+print('Tumor suppressor' in organism1_genes)
+print('Tumor suppressor' in organism1_genes.values())
+print('TP53' in organism1_genes)
+print('TP53' in organism1_genes.keys())
 ```
 :::
 :::
@@ -903,7 +968,12 @@ else:
   print("No interesting codon not found.") 
 ```
 
-::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
+
+:::
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
 Understand better with an example: 
 ```{python}
 dna_sequence = "ATGCTAGCTAGCTAG"
@@ -1011,7 +1081,12 @@ if x > 5:
   else:
     print("x is less than 10")  
 ```
-::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
+
+:::
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
 
 ```{python}
 #| error: false
@@ -1109,8 +1184,7 @@ print(count, 'codons have a T as a second nucleotide.')
 What it does is the following: it processes each element in the list `all_codons`, called in the following code `codon`. If the `codon` has as a second character a `T`, it adds 1 to a counter (the variable called `count`).
 
 ::: {.callout-warning} 
-You cannot modify a list that way.
-:::
+You cannot modify an element of a list that way.
 
 ```{python}
 for codon in all_codons: 
@@ -1122,6 +1196,8 @@ print(all_codons)
 
 
 This is because `all_codons` was converted to an iterator in the `for` statement. 
+:::
+
 
 
 ### Iterators
@@ -1210,6 +1286,11 @@ seq[9999:9999+3]
 
 So, once the end of the sequence is reached, the condition `seq[i:i+3] != start_codon` will always be true, and you'll get stuck in an infinite loop.
 
+
+::: {.callout-note} 
+To get interrupt a process, press `[ctrl + c]`. 
+:::
+
 ### Break statement
 
 Iteration stops in a `for` loop when the iterator is exhausted. It stops in a `while` loop when the conditional evaluates to `False`. 
@@ -1273,7 +1354,13 @@ With the input given below, the output should look like this:
 #| eval: false
 
 # List of DNA sequences with a TATA
-dna_sequences = ['ATGCTACAGCTAG', 'ATCGATATAATC', 'ATGGCTAGCTA', 'ATGTAGCTAGC'] 
+dna_sequences = [
+'ATGCTACAGCTAG', 
+'ATCGATATAATC', # TATA
+'ATGGCTAGCTA', 
+'ATGTAGCTAGC', 
+'ATGTAGCTATA'   # TATA
+] 
 
 for ...
   # Your code here
@@ -1284,7 +1371,13 @@ for ...
 #| eval: true
 
 # List of DNA sequences
-dna_sequences = ['ATGCTACAGCTAG', 'ATCGATATAATC', 'ATGGCTAGCTA', 'ATGTAGCTAGC'] 
+dna_sequences = [
+'ATGCTACAGCTAG', 
+'ATCGATATAATC', 
+'ATGGCTAGCTA', 
+'ATGTAGCTAGC', 
+'ATGTAGCTATA'
+] 
 
 # Find the sequence containing 'TATA' motif
 for sequence in dna_sequences:
@@ -1302,7 +1395,12 @@ else:
 #| eval: false
 
 # List of DNA sequences without a TATA
-dna_sequences = ['ATGCTACAGCTAG', 'ATCGATACAATC', 'ATGGCTAGCTA', 'ATGTAGCTAGC']
+dna_sequences = [
+'ATGCTACAGCTAG', 
+'ATCGATACAATC', 
+'ATGGCTAGCTA', 
+'ATGTAGCTAGC'
+]
 
 for ...
   # Your code here
@@ -1312,7 +1410,12 @@ for ...
 #| eval: true
 
 # List of DNA sequences
-dna_sequences = ['ATGCTACAGCTAG', 'ATCGATACAATC', 'ATGGCTAGCTA', 'ATGTAGCTAGC']
+dna_sequences = [
+'ATGCTACAGCTAG', 
+'ATCGATACAATC', 
+'ATGGCTAGCTA', 
+'ATGTAGCTAGC'
+]
 
 # Find the sequence containing 'TATA' motif
 for sequence in dna_sequences:
@@ -1323,7 +1426,12 @@ else:
     print("No sequence contains the 'TATA' motif.")
 
 ```
-::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
+
+:::
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
 
 ```{python}
 #| eval: false
@@ -1383,7 +1491,12 @@ while index < len(dna_sequence):
 print(f"Number of consecutive 'A's: {max_consecutive_a}")
 ```
 
-::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions"}
+
+:::
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
 
 ```{python}
 # DNA sequence to analyze
@@ -1420,7 +1533,7 @@ For french speakers, the AFPy (Association Francophone Python) has a learning to
 
 Or keep on googling for more python exercises! 
 
-To continue your learning journey, follow [lesson 2](../2024-lesson-2.html)
+To continue your learning journey, follow [lesson 2](../lecture/2024-lesson-2.html). 
 
 # References {.unnumbered}
 

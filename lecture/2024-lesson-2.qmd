@@ -10,7 +10,7 @@ format:
     toc: true
     number-sections: true
 editor: source
-solutions: false
+solutions: true
 engine: knitr
 ---
 
@@ -158,16 +158,54 @@ multiple_of_3(range(1, 20, 2))
 ## Exercise 
 ::: {.callout-important title="Exercise"} 
 
-1. 
-We’ll write a function to compute the reverse complement of a sequence of DNA. 
+Write a function called `nucl_freq` to compute nucleotide frequency of a sequence. 
+Given a sequence as input, it outputs a dictionnary with keys being the nucleotides `A`, `T`, `C` and `G`, and values being their frequency in the sequence.  
 
-::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions" }
-1. 
+With the input given below, the output should be:
+
+```{python}
+#| eval: false
+
+def ...
+  # Your code here
+
+nucl_freq("ATTCCCGGGG")
+```
+
+
+```{python}
+#| echo: false
+def nucl_freq(seq):
+  n = len(seq)
+  freq = dict()
+  for nucl in {"A", "T", "C", "G"}:
+    freq[nucl] = seq.count(nucl)/n
+  return freq 
+
+nucl_freq("ATTCCCGGGG")
+```
+
+
+
+:::
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
+```{python}
+def nucl_freq(seq):
+  n = len(seq)
+  freq = dict()
+  for nucl in {"A", "T", "C", "G"}:
+    freq[nucl] = seq.count(nucl)/n
+  return freq 
+
+nucl_freq("ATTCCCGGGG")
+```
 ::: 
 :::
+
 # Exceptions Handling 
-
-
 
 ## Syntax
 
@@ -216,6 +254,7 @@ Here is a table of some of the built-in exceptions in python.
 | `KeyboardInterrupt`  | Raised when the user hits the interrupt key (Ctrl+c or Delete). |
 | `NameError`  |  Raised when a variable is not found in the local or global scope.  |
 | `TypeError`  |  Raised when a function or operation is applied to an object of an incorrect type.  |
+| `ValueError`  |  Raised when a function receives an argument of the correct type but of an incorrect value.  |
 | `RuntimeError`  |  Raised when an error occurs that do not belong to any specific exceptions.  |
 | `Exception`  |  Base class of exceptions.  |
 
@@ -240,7 +279,7 @@ You can also use them to throw an exception if a condition occurs, by using the 
 #| error: true
 x = "hello"
 try:
-  if not type(x) is int:
+  if not isinstance(x, int):
     raise TypeError("Only integers are allowed") 
   if x < 0:
     raise Exception("Sorry, no numbers below zero") 
@@ -256,14 +295,73 @@ finally:
 
 ## Exercise 
 
-TODO
 ::: {.callout-important title="Exercise"} 
 
-1. 
-Let's make our previous function even better by adding some exception handling
+Let's make our previous function even better by adding some exception handling. Raise a `TypeError` if the input is not a string. Raise a `ValueError` if the input string contains something else than the nucleotides `A, C, T, G`. 
 
-::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions" }
-1. 
+With the input given below, the output and errors should be:
+```{python}
+#| eval: false
+def ...
+  # Your code here
+
+nucl_freq(5474)
+nucl_freq("ATTCXCCGGGG")
+nucl_freq("ATTCCCGGGG")
+
+```
+
+```{python}
+#| error: true
+#| echo: false
+def nucl_freq(seq):
+  if not isinstance(seq, str):
+    raise TypeError("Input must be a string.")
+  valid_nucl = {"A", "T", "C", "G"}
+  seq_nucl = set(seq)
+  if seq_nucl.difference(valid_nucl) != set():
+    raise ValueError("Input string must only contain characters A, C, T or G.")
+
+  n = len(seq)
+  freq = dict()
+  for nucl in valid_nucl:
+    freq[nucl] = seq.count(nucl)/n
+  return freq 
+
+nucl_freq(5474)
+nucl_freq("ATTCXCCGGGG")
+nucl_freq("ATTCCCGGGG")
+
+```
+
+
+:::
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
+```{python}
+#| error: true
+
+def nucl_freq(seq):
+  if not isinstance(seq, str):
+    raise TypeError("Input must be a string.")
+  valid_nucl = {"A", "T", "C", "G"}
+  seq_nucl = set(seq)
+  if seq_nucl.difference(valid_nucl) != set():
+    raise ValueError("Input string must only contain characters A, C, T or G.")
+    
+  n = len(seq)
+  freq = dict()
+  for nucl in valid_nucl:
+    freq[nucl] = seq.count(nucl)/n
+  return freq 
+
+nucl_freq(5474)
+nucl_freq("ATTCXCCGGGG")
+nucl_freq("ATTCCCGGGG")
+
+```
 ::: 
 :::
 
@@ -363,19 +461,6 @@ Arguments are given in command line, but they have specific names.
 Check their [tutorial](https://docs.python.org/3/howto/argparse.html) for more information.
 ::: 
 
-## Exercise 
-
-TODO
-::: {.callout-important title="Exercise"} 
-
-1. 
-Let's make our previous function even better by asking the user for the input. Use the solution that you like the most. 
-
-::: {.callout .content-visible when-meta="solutions" collapse="true" title="Solutions" }
-1. 
-::: 
-:::
-
 
 # File Handling
 
@@ -383,7 +468,9 @@ The key function to work with files in `open()`.
 Its two parameters `file` and `mode`.
 
 ```{python}
-f = open('../hands-on/data/some_rrna.fasta', mode = 'r')
+# Write the correct path for you!
+fasta_file = '../exercise/data/example.fasta' 
+f = open(fasta_file, mode = 'r')
 ```
 
 The modes can be one of the following: 
@@ -407,14 +494,14 @@ The parameter `size =` can be added to specify the number of bytes (~ characters
 
 ```{python}
 # We need to re-open it because we have already parsed the whole file
-f = open('../hands-on/data/some_rrna.fasta', mode = 'r') 
+f = open(fasta_file, mode = 'r') 
 print(f.read(2))
 ```
 
-You can return one line by using the readline() method:
-By calling readline() two times, you can read the two first lines:
+You can return one line by using the `.readline()` method.
+By calling it two times, you can read the two first lines:
 ```{python}
-f = open('../hands-on/data/some_rrna.fasta', mode = 'r') 
+f = open(fasta_file, mode = 'r') 
 print(f.readline())
 print(f.readline())
 ```
@@ -440,13 +527,13 @@ In some cases, changes made to a file may not show until you close the file.
 ::: {.callout-note} 
 A common syntax to handle files that you might encounter is:
 ```{python}
-with open('../hands-on/data/some_rrna.fasta', 'r') as f:
+with open(fasta_file, 'r') as f:
   print(f.readline())
 ```
 
 This code is equivalent to 
 ```{python}
-f = open('../hands-on/data/some_rrna.fasta', 'r') 
+f = open(fasta_file, 'r') 
 try:
   print(f.readline())
 finally:
@@ -463,12 +550,13 @@ To write into a file, you must have it open under a `w`, `a` mode.
 Then, the method `write()` can be used. 
 
 ```{python}
-f = open("../hands-on/data/some_file.txt", "w")
+txt_file = "../exercise/data/some_file.txt"
+f = open(txt_file, "w")
 f.write("Woops! I have deleted the content!\n")
 f.close()
 
 # Read the current content of the file
-f = open("../hands-on/data/some_file.txt", "r")
+f = open(txt_file, "r")
 print(f.read()) 
 ```
 
@@ -479,12 +567,12 @@ Be very careful when opening a file in `write` mode than as you can delete its c
 As you may have noticed, `write()` returns the number of characters written. You can prevent it from being printed by assigning the return value to a variable that will not be used.
 
 ```{python}
-f = open("../hands-on/data/some_file.txt", "a")
+f = open(txt_file, "a")
 _ = f.write("Now the file has more content!\n") 
 f.close()
 
 # Read the current content of the file
-f = open("../hands-on/data/some_file.txt", "r")
+f = open(txt_file, "r")
 print(f.read()) 
 ```
 
@@ -496,12 +584,33 @@ You must specify a newline with the character:
 - `\r` in MacOS before X
 ::: 
 
+## os module
+
+Python has a built-in package called `os`, to interact with the operating system. 
+
+```{python}
+import os 
+
+print("Current working directory:", os.getcwd()) 
+os.chdir('../') 
+print("Current working directory:", os.getcwd()) 
+```
+
+Here are some useful functions from the `os` package. 
+
+| Function  | Description  |
+|--|--------|
+| `getcwd()`  |  Returns the current working directory |
+| `chdir()`  |  Change the current working directory |
+| `listdir()`  | Returns a list of the names of the entries in a directory |
+| `mkdir()`  |  Creates a directory |
+| `mkdirs()`  |  Creates a directory recursively |
 
 ## Regular expression
 
 A regular expression is a sequence of characters that forms a search pattern. 
 
-Python has a built-in package called re, to work with regular expressions.
+Python has a built-in package called `re`, to work with regular expressions.
 
 ```{python}
 import re 
@@ -552,10 +661,9 @@ bonjour
 print(x)
 ```
 
-The Match object has properties and methods used to retrieve information about the search, and the result:
+The Match object has methods used to retrieve information about the search, and the result:
 
 - `.span()` returns a tuple containing the start and end positions of the match.
-- `.string` returns the string passed into the function
 - `.group()` returns the part of the string where there was a match
 
 ```{python}
@@ -564,9 +672,73 @@ print(x.group())
 
 ## Exercise
 
-TODO
+::: {.callout-important title="Exercise"} 
 
-# Scientific packages introduction
+Create a program, that you can run on command line as follow `./analyse_fasta.py path/to/fasta/file path/to/output/file`. 
+It should:
+
+- read the fasta file, 
+- calculate the nucleotide frequency for each sequence (using the previously defined function)
+- create a new file as follow:
+
+```
+Seq A C T G 
+seq1 0.1 0.2 0.3 0.4
+seq2 0.4 0.3 0.2 0.1
+...
+```
+
+To make this easier, consider that the sequences in the fasta file are only in one line. 
+
+You might make good use of the method `str.strip()`.
+
+You can take as input the file in `exercise/data/example.fasta` you should get the same result as `exercise/data/example.txt`. 
+
+:::
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
+
+
+```{python}
+#| eval: false
+
+import sys 
+
+def analyse_fasta(input_file, output_file):
+  freq = {}
+  
+  # Parse input_file and calculate nucl_freq for each seq
+  with open(input_file, 'r') as input:
+    for line in input:
+      if line.startswith(">"):
+        sequence_name = line.strip()[1:]
+      else: 
+        current_sequence = line.strip()
+        freq[sequence_name] = nucl_freq(current_sequence)
+
+  # Write results in output_file
+  with open(output_file, 'w') as output:
+    output.write("Seq A T C G\n")
+    for key, value in freq.items():
+      # f-strings were introduced in Python 3.6
+      # you can also use "".format()
+      # check: https://docs.python.org/3/tutorial/inputoutput.html
+      output.write(f"{key} {value.get('A')} {value.get('T')} {value.get('C')} {value.get('G')}\n")
+
+
+input_file = sys.argv[1]
+output_file = sys.argv[2]
+
+analyse_fasta(input_file, output_file)
+
+```
+
+:::
+:::
+
+# Scientific packages 
 
 A python package contains a set of function to perform specific tasks. 
 
@@ -584,7 +756,7 @@ py -m pip --version
 
 If it does not work, check out [pip documentation](https://pip.pypa.io/en/stable/getting-started/).
 
-To install a package called 
+To install a package called pandas, you must run:
 
 ```{bash}
 #| eval: false
@@ -594,14 +766,14 @@ python -m pip install pandas
 py -m pip install pandas
 ```
 
-To get more information about `pip`, check out the full[documentation](https://pip.pypa.io/en/stable/getting-started/).
+To get more information about `pip`, check out the full [documentation](https://pip.pypa.io/en/stable/getting-started/).
 
 
 ::: {.callout-warning} 
 Installing a package is done outside of the python interpreter, in command line in a terminal. 
 ::: 
 
-When you wish to use a package in a script, you'll need to import it. 
+When you wish to use a package in a python script, you'll need to import, by writing inside of you script:
 
 ```{python}
 import pandas
@@ -640,7 +812,7 @@ print(df)
 
 You can also create a DataFrame from a file.
 ```{python}
-df = pandas.read_csv('../hands-on/data/sample.csv')
+df = pandas.read_csv('../exercise/data/sample.csv')
 
 print(df)
 ```
@@ -671,7 +843,7 @@ You can filter based on a condition as follow:
 df[df['Expression_Level'] > 6]
 ```
 
-### Useful manipulation
+### Useful methods
 
 To explore the data set, use the following methods:
 ```{python}
@@ -729,10 +901,9 @@ plt.ylabel('Expression Level')
 plt.title('Expression of Genes in Different Tissues')
 # Display the boxplot
 plt.show()
-
 # Save the plot as a PNG file with a resolution of 300 dots per inch (dpi)
 # The file will be saved in the specified location 
-fig.savefig('../hands-on/data/my-figure.png', dpi=300)
+fig.savefig('../exercise/data/my-figure.png', dpi=300)
 ```
 
 Many visualizations are available. 
@@ -742,8 +913,61 @@ For more information, check out:
 - the [documentation](https://matplotlib.org/stable/users/explain/quick_start.html)
 - the [cheat sheet](https://matplotlib.org/cheatsheets/)
 - any [useful tutorial](https://www.w3schools.com/python/matplotlib_intro.asp)
-- some [inpiration](https://matplotlib.org/stable/gallery/index)
+- some [inspiration](https://matplotlib.org/stable/gallery/index)
 
+## Exercise
+
+::: {.callout-important title="Exercise"} 
+
+Create a script that reads nucleotide frequency data from a file in the format of `../exercise/data/example.txt` (space-separated values), and visualizes it using Matplotlib and Pandas. 
+
+Your script should read this data, create a stacked bar chart showing the nucleotide frequencies for each sequence, and label the axes appropriately. 
+Here's the expected plot:
+
+```{python}
+#| echo: false
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create a DataFrame from the given data
+df = pd.read_csv('../exercise/data/example.txt', index_col=0, sep=' ')
+
+# Plot the data
+df.plot(kind='bar', stacked=True);
+plt.xlabel('Sequences');
+plt.ylabel('Frequency');
+plt.legend(title='Nucleotides', bbox_to_anchor=(0, 1),
+          loc='lower left', ncols=4);
+
+plt.show()
+```
+:::
+
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
+```{python}
+#| eval: false
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create a DataFrame from the given data
+df = pd.read_csv('../exercise/data/example.txt', index_col=0, sep=' ')
+
+# Plot the data
+df.plot(kind='bar', stacked=True)
+plt.xlabel('Sequences')
+plt.ylabel('Frequency')
+plt.legend(title='Nucleotides', bbox_to_anchor=(0, 1),
+          loc='lower left', ncols=4)
+
+plt.show()
+```
+
+:::
+
+:::
 
 ## More packages
 
@@ -762,20 +986,18 @@ There are MANY packages available, here's a short list of some that might intere
 
 # Final tips and resources 
 
+::: {.column-margin}
+![Please, read the doc](img/readthedocs.jpg){#fig-readthedocs width=100%}
+:::
 
 Here are a couple of tips:
 
 - Leave comments (think of your future self!)
 - Be consistent (quotes, indents...)
 - Don't re-invent the wheel, for common tasks, it's likely that a function already exists
-
-::: {.column-margin}
-![Please, read the doc](img/readthedocs.jpg){#fig-readthedocs width=100%}
-:::
-
 - Read the documentation when using a new package or function!
-
 - Google It! Use the correct programming vocabulary to increase your chances of finding an answer. If you don't find anything, try wording it differently. 
+- The easiest way to learn is by example, so follow a tutorial with the example data, and then try to apply it to your own! 
 
 You can follow some free tutorials on:
 
