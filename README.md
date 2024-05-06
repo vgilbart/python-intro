@@ -11,4 +11,4 @@
 |--------|--------|
 | Lesson 1 | [lecture/2024-lesson-1.html](https://vgilbart.github.io/python-intro/lecture/2024-lesson-1.html) |
 | Lesson 2 | [lecture/2024-lesson-2.html](https://vgilbart.github.io/python-intro/lecture/2024-lesson-2.html) |
-
+| Lesson 3 | [lecture/2024-lesson-3.html](https://vgilbart.github.io/python-intro/lecture/2024-lesson-3.html) |
