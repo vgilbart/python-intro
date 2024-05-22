@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Valentine Gilbart">
-<meta name="dcterms.date" content="2024-05-22">
+<meta name="dcterms.date" content="2024-05-14">
 
 <title>Lesson 2 - Introduction to Python</title>
 <style>
@@ -154,7 +154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 22, 2024</p>
+      <p class="date">May 14, 2024</p>
     </div>
   </div>
   
@@ -369,7 +369,7 @@ Exercise
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>{'A': 0.1, 'T': 0.2, 'C': 0.3, 'G': 0.4}</code></pre>
+<pre><code>{'G': 0.4, 'T': 0.2, 'A': 0.1, 'C': 0.3}</code></pre>
 </div>
 </div>
 </div>
@@ -396,7 +396,7 @@ Solutions
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>nucl_freq(<span class="st">"ATTCCCGGGG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'A': 0.1, 'T': 0.2, 'C': 0.3, 'G': 0.4}</code></pre>
+<pre><code>{'G': 0.4, 'T': 0.2, 'A': 0.1, 'C': 0.3}</code></pre>
 </div>
 </div>
 </div>
@@ -520,7 +520,7 @@ The 'try except' is finished</code></pre>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(x, <span class="bu">int</span>):</span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">TypeError</span>(<span class="st">"Only integers are allowed"</span>) </span>
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">0</span>:</span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Sorry, no numbers below zero"</span>) </span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">"Sorry, no numbers below zero"</span>) </span>
 <span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">"is a positive integer."</span>)</span>
 <span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">NameError</span>:</span>
 <span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"A variable is not defined"</span>) </span>
@@ -563,7 +563,7 @@ Exercise
 <pre><code>Input string must only contain characters A, C, T or G.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'A': 0.1, 'T': 0.2, 'C': 0.3, 'G': 0.4}</code></pre>
+<pre><code>{'G': 0.4, 'T': 0.2, 'A': 0.1, 'C': 0.3}</code></pre>
 </div>
 </div>
 </div>
@@ -605,7 +605,7 @@ Solutions
 </div>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>nucl_freq(<span class="st">"ATTCCCGGGG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'A': 0.1, 'T': 0.2, 'C': 0.3, 'G': 0.4}</code></pre>
+<pre><code>{'G': 0.4, 'T': 0.2, 'A': 0.1, 'C': 0.3}</code></pre>
 </div>
 </div>
 </div>
@@ -711,7 +711,7 @@ Note
 </section>
 <section id="file-handling" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> File Handling</h1>
-<p>The key function to work with files in <code>open()</code>. It has two parameters <code>file</code> and <code>mode</code>.</p>
+<p>The key function to work with files in <code>open()</code>. Its two parameters <code>file</code> and <code>mode</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the correct path for you!</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>fasta_file <span class="op">=</span> <span class="st">'../exercise/data/example.fasta'</span> </span>
@@ -863,16 +863,22 @@ Note
 <h2 data-number="5.2" class="anchored" data-anchor-id="writting"><span class="header-section-number">5.2</span> Writting</h2>
 <p>To write into a file, you must have it open under a <code>w</code>, <code>a</code> mode.</p>
 <p>Then, the method <code>write()</code> can be used.</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>txt_file <span class="op">=</span> <span class="st">"../exercise/data/some_file.txt"</span></span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">open</span>(txt_file, <span class="st">"w"</span>)</span>
 <span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>f.write(<span class="st">"Woops! I have deleted the content!</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>35</p>
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>f.close()</span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the current content of the file</span></span>
-<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">open</span>(txt_file, <span class="st">"r"</span>)</span>
-<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(f.read()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Woops! I have deleted the content!</p>
+<div class="cell-output cell-output-stdout">
+<pre><code>35</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>f.close()</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the current content of the file</span></span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">open</span>(txt_file, <span class="st">"r"</span>)</span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(f.read()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Woops! I have deleted the content!</code></pre>
+</div>
+</div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -883,18 +889,18 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Be very careful when opening a file in <code>write</code> mode as you can delete its content without any way to retrieve the original file!</p>
+<p>Be very careful when opening a file in <code>write</code> mode than as you can delete its content without any way to retrieve the original file!</p>
 </div>
 </div>
 <p>As you may have noticed, <code>write()</code> returns the number of characters written. You can prevent it from being printed by assigning the return value to a variable that will not be used.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">open</span>(txt_file, <span class="st">"a"</span>)</span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> f.write(<span class="st">"Now the file has more content!</span><span class="ch">\n</span><span class="st">"</span>) </span>
-<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>f.close()</span>
-<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the current content of the file</span></span>
-<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">open</span>(txt_file, <span class="st">"r"</span>)</span>
-<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(f.read()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">open</span>(txt_file, <span class="st">"a"</span>)</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> f.write(<span class="st">"Now the file has more content!</span><span class="ch">\n</span><span class="st">"</span>) </span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>f.close()</span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the current content of the file</span></span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">open</span>(txt_file, <span class="st">"r"</span>)</span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(f.read()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Woops! I have deleted the content!
 Now the file has more content!</code></pre>
@@ -923,14 +929,14 @@ Note
 <h2 data-number="5.3" class="anchored" data-anchor-id="os-module"><span class="header-section-number">5.3</span> os module</h2>
 <p>Python has a built-in package called <code>os</code>, to interact with the operating system.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os </span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Current working directory:"</span>, os.getcwd()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os </span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Current working directory:"</span>, os.getcwd()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Current working directory: /Users/gilbartv/Documents/git/python-intro/lecture</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">'../'</span>) </span>
-<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Current working directory:"</span>, os.getcwd()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">'../'</span>) </span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Current working directory:"</span>, os.getcwd()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Current working directory: /Users/gilbartv/Documents/git/python-intro</code></pre>
 </div>
@@ -976,10 +982,10 @@ Note
 <p>A regular expression is a sequence of characters that forms a search pattern.</p>
 <p>Python has a built-in package called <code>re</code>, to work with regular expressions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re </span>
-<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> re.findall(<span class="st">"hello"</span>, <span class="st">"hello world, hello you!"</span>) </span>
-<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re </span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> re.findall(<span class="st">"hello"</span>, <span class="st">"hello world, hello you!"</span>) </span>
+<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['hello', 'hello']</code></pre>
 </div>
@@ -1102,13 +1108,13 @@ Note
 </div>
 <p>A Match Object is an object containing information about the search and the result.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> re.search(<span class="st">"hello .*"</span>, </span>
-<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
-<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="st">hello world</span></span>
-<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a><span class="st">hello you</span></span>
-<span id="cb83-5"><a href="#cb83-5" aria-hidden="true" tabindex="-1"></a><span class="st">bonjour</span></span>
-<span id="cb83-6"><a href="#cb83-6" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span>) </span>
-<span id="cb83-7"><a href="#cb83-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> re.search(<span class="st">"hello .*"</span>, </span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="st">hello world</span></span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a><span class="st">hello you</span></span>
+<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a><span class="st">bonjour</span></span>
+<span id="cb85-6"><a href="#cb85-6" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span>) </span>
+<span id="cb85-7"><a href="#cb85-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;re.Match object; span=(1, 12), match='hello world'&gt;</code></pre>
 </div>
@@ -1119,74 +1125,9 @@ Note
 <li><code>.group()</code> returns the part of the string where there was a match</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x.group()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x.group()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>hello world</code></pre>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled" title="Exercise">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>From the list <code>dna_sequences = ["ATGCGAATTCAC", "ATGAC", "ATGCCCGGGTAA", "ATGACGTACGTC", "ATGAGGGGTTCA"]</code>,</p>
-<ol type="1">
-<li><p>Extract all sequences that start with <code>ATG</code> and end with <code>AC</code> or <code>AA</code>.</p></li>
-<li><p>Extract sequences that contain either <code>G</code> or <code>C</code> repeated three times consecutively.</p></li>
-</ol>
-<p>You should get the following results:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>Sequences starting with 'ATG' and ending with 'AC' or 'AA':
-['ATGCGAATTCAC', 'ATGAC', 'ATGCCCGGGTAA']</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Sequences containing 'G' or 'C' repeated three times consecutively:
-['ATGCCCGGGTAA', 'ATGAGGGGTTCA']</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-none no-icon callout-titled" title="Solutions">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solutions
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dataset of DNA sequences</span></span>
-<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>dna_sequences <span class="op">=</span> [<span class="st">"ATGCGAATTCAC"</span>, <span class="st">"ATGAC"</span>, <span class="st">"ATGCCCGGGTAA"</span>, <span class="st">"ATGACGTACGTC"</span>, <span class="st">"ATGAGGGGTTCA"</span>]</span>
-<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Task 1: Extract sequences starting with "ATG", and ending with "AC" or "AA"</span></span>
-<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a>task1_sequences <span class="op">=</span> [seq <span class="cf">for</span> seq <span class="kw">in</span> dna_sequences <span class="cf">if</span> re.match(<span class="vs">r"^ATG.*(AC|AA)$"</span>, seq)]</span>
-<span id="cb89-6"><a href="#cb89-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-7"><a href="#cb89-7" aria-hidden="true" tabindex="-1"></a><span class="co"># This code is equivalent to the one above</span></span>
-<span id="cb89-8"><a href="#cb89-8" aria-hidden="true" tabindex="-1"></a>task1_sequences <span class="op">=</span> []</span>
-<span id="cb89-9"><a href="#cb89-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> seq <span class="kw">in</span> dna_sequences:</span>
-<span id="cb89-10"><a href="#cb89-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> re.match(<span class="vs">r"^ATG.*(AC|AA)$"</span>, seq):</span>
-<span id="cb89-11"><a href="#cb89-11" aria-hidden="true" tabindex="-1"></a>        task1_sequences.append(seq)</span>
-<span id="cb89-12"><a href="#cb89-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-13"><a href="#cb89-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Task 2: Extract sequences with "G" or "C" repeated three times consecutively</span></span>
-<span id="cb89-14"><a href="#cb89-14" aria-hidden="true" tabindex="-1"></a>task2_sequences <span class="op">=</span> [seq <span class="cf">for</span> seq <span class="kw">in</span> dna_sequences <span class="cf">if</span> re.search(<span class="vs">r"(G</span><span class="sc">{3}</span><span class="vs">|C</span><span class="sc">{3}</span><span class="vs">)"</span>, seq)]</span>
-<span id="cb89-15"><a href="#cb89-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-16"><a href="#cb89-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-17"><a href="#cb89-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out the extracted sequences for each task</span></span>
-<span id="cb89-18"><a href="#cb89-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sequences starting with 'ATG' and ending with 'AC' or 'AA':</span><span class="ch">\n</span><span class="sc">{</span>task1_sequences<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb89-19"><a href="#cb89-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-20"><a href="#cb89-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sequences containing 'G' or 'C' repeated three times consecutively:</span><span class="ch">\n</span><span class="sc">{</span>task2_sequences<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
 </div>
 </div>
 </section>
@@ -1218,7 +1159,7 @@ seq2 0.4 0.3 0.2 0.1
 </div>
 </div>
 <div class="callout callout-style-simple callout-none no-icon callout-titled" title="Solutions">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1227,37 +1168,37 @@ Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys </span>
-<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> analyse_fasta(input_file, output_file):</span>
-<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>  freq <span class="op">=</span> {}</span>
-<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Parse input_file and calculate nucl_freq for each seq</span></span>
-<span id="cb91-7"><a href="#cb91-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">with</span> <span class="bu">open</span>(input_file, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">input</span>:</span>
-<span id="cb91-8"><a href="#cb91-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">input</span>:</span>
-<span id="cb91-9"><a href="#cb91-9" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> line.startswith(<span class="st">"&gt;"</span>):</span>
-<span id="cb91-10"><a href="#cb91-10" aria-hidden="true" tabindex="-1"></a>        sequence_name <span class="op">=</span> line.strip()[<span class="dv">1</span>:]</span>
-<span id="cb91-11"><a href="#cb91-11" aria-hidden="true" tabindex="-1"></a>      <span class="cf">else</span>: </span>
-<span id="cb91-12"><a href="#cb91-12" aria-hidden="true" tabindex="-1"></a>        current_sequence <span class="op">=</span> line.strip()</span>
-<span id="cb91-13"><a href="#cb91-13" aria-hidden="true" tabindex="-1"></a>        freq[sequence_name] <span class="op">=</span> nucl_freq(current_sequence)</span>
-<span id="cb91-14"><a href="#cb91-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-15"><a href="#cb91-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Write results in output_file</span></span>
-<span id="cb91-16"><a href="#cb91-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">with</span> <span class="bu">open</span>(output_file, <span class="st">'w'</span>) <span class="im">as</span> output:</span>
-<span id="cb91-17"><a href="#cb91-17" aria-hidden="true" tabindex="-1"></a>    output.write(<span class="st">"Seq A T C G</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb91-18"><a href="#cb91-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> key, value <span class="kw">in</span> freq.items():</span>
-<span id="cb91-19"><a href="#cb91-19" aria-hidden="true" tabindex="-1"></a>      <span class="co"># f-strings were introduced in Python 3.6</span></span>
-<span id="cb91-20"><a href="#cb91-20" aria-hidden="true" tabindex="-1"></a>      <span class="co"># you can also use "".format()</span></span>
-<span id="cb91-21"><a href="#cb91-21" aria-hidden="true" tabindex="-1"></a>      <span class="co"># check: https://docs.python.org/3/tutorial/inputoutput.html</span></span>
-<span id="cb91-22"><a href="#cb91-22" aria-hidden="true" tabindex="-1"></a>      output.write(<span class="ss">f"</span><span class="sc">{</span>key<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>value<span class="sc">.</span>get(<span class="st">'A'</span>)<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>value<span class="sc">.</span>get(<span class="st">'T'</span>)<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>value<span class="sc">.</span>get(<span class="st">'C'</span>)<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>value<span class="sc">.</span>get(<span class="st">'G'</span>)<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span>
-<span id="cb91-23"><a href="#cb91-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-24"><a href="#cb91-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-25"><a href="#cb91-25" aria-hidden="true" tabindex="-1"></a>input_file <span class="op">=</span> sys.argv[<span class="dv">1</span>]</span>
-<span id="cb91-26"><a href="#cb91-26" aria-hidden="true" tabindex="-1"></a>output_file <span class="op">=</span> sys.argv[<span class="dv">2</span>]</span>
-<span id="cb91-27"><a href="#cb91-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-28"><a href="#cb91-28" aria-hidden="true" tabindex="-1"></a>analyse_fasta(input_file, output_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys </span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> analyse_fasta(input_file, output_file):</span>
+<span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a>  freq <span class="op">=</span> {}</span>
+<span id="cb90-5"><a href="#cb90-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb90-6"><a href="#cb90-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Parse input_file and calculate nucl_freq for each seq</span></span>
+<span id="cb90-7"><a href="#cb90-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">with</span> <span class="bu">open</span>(input_file, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">input</span>:</span>
+<span id="cb90-8"><a href="#cb90-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">input</span>:</span>
+<span id="cb90-9"><a href="#cb90-9" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> line.startswith(<span class="st">"&gt;"</span>):</span>
+<span id="cb90-10"><a href="#cb90-10" aria-hidden="true" tabindex="-1"></a>        sequence_name <span class="op">=</span> line.strip()[<span class="dv">1</span>:]</span>
+<span id="cb90-11"><a href="#cb90-11" aria-hidden="true" tabindex="-1"></a>      <span class="cf">else</span>: </span>
+<span id="cb90-12"><a href="#cb90-12" aria-hidden="true" tabindex="-1"></a>        current_sequence <span class="op">=</span> line.strip()</span>
+<span id="cb90-13"><a href="#cb90-13" aria-hidden="true" tabindex="-1"></a>        freq[sequence_name] <span class="op">=</span> nucl_freq(current_sequence)</span>
+<span id="cb90-14"><a href="#cb90-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb90-15"><a href="#cb90-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Write results in output_file</span></span>
+<span id="cb90-16"><a href="#cb90-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">with</span> <span class="bu">open</span>(output_file, <span class="st">'w'</span>) <span class="im">as</span> output:</span>
+<span id="cb90-17"><a href="#cb90-17" aria-hidden="true" tabindex="-1"></a>    output.write(<span class="st">"Seq A T C G</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb90-18"><a href="#cb90-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> key, value <span class="kw">in</span> freq.items():</span>
+<span id="cb90-19"><a href="#cb90-19" aria-hidden="true" tabindex="-1"></a>      <span class="co"># f-strings were introduced in Python 3.6</span></span>
+<span id="cb90-20"><a href="#cb90-20" aria-hidden="true" tabindex="-1"></a>      <span class="co"># you can also use "".format()</span></span>
+<span id="cb90-21"><a href="#cb90-21" aria-hidden="true" tabindex="-1"></a>      <span class="co"># check: https://docs.python.org/3/tutorial/inputoutput.html</span></span>
+<span id="cb90-22"><a href="#cb90-22" aria-hidden="true" tabindex="-1"></a>      output.write(<span class="ss">f"</span><span class="sc">{</span>key<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>value<span class="sc">.</span>get(<span class="st">'A'</span>)<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>value<span class="sc">.</span>get(<span class="st">'T'</span>)<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>value<span class="sc">.</span>get(<span class="st">'C'</span>)<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>value<span class="sc">.</span>get(<span class="st">'G'</span>)<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span>
+<span id="cb90-23"><a href="#cb90-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb90-24"><a href="#cb90-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb90-25"><a href="#cb90-25" aria-hidden="true" tabindex="-1"></a>input_file <span class="op">=</span> sys.argv[<span class="dv">1</span>]</span>
+<span id="cb90-26"><a href="#cb90-26" aria-hidden="true" tabindex="-1"></a>output_file <span class="op">=</span> sys.argv[<span class="dv">2</span>]</span>
+<span id="cb90-27"><a href="#cb90-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb90-28"><a href="#cb90-28" aria-hidden="true" tabindex="-1"></a>analyse_fasta(input_file, output_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1270,18 +1211,18 @@ Solutions
 <p>A package needs to be <strong>installed</strong> to your computer one time.</p>
 <p>You can install a package with <code>pip</code>. It should have been automatically installed with your python, to make sure that you have it you can run:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In Linux/MacOS</span></span>
-<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip <span class="at">--version</span></span>
-<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="co"># In Windows</span></span>
-<span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a><span class="ex">py</span> <span class="at">-m</span> pip <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In Linux/MacOS</span></span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip <span class="at">--version</span></span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="co"># In Windows</span></span>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a><span class="ex">py</span> <span class="at">-m</span> pip <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If it does not work, check out <a href="https://pip.pypa.io/en/stable/getting-started/">pip documentation</a>.</p>
 <p>To install a package called pandas, you must run:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In Linux/MacOS</span></span>
-<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install pandas</span>
-<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a><span class="co"># In Windows</span></span>
-<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a><span class="ex">py</span> <span class="at">-m</span> pip install pandas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In Linux/MacOS</span></span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install pandas</span>
+<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="co"># In Windows</span></span>
+<span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a><span class="ex">py</span> <span class="at">-m</span> pip install pandas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To get more information about <code>pip</code>, check out the full <a href="https://pip.pypa.io/en/stable/getting-started/">documentation</a>.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -1297,9 +1238,9 @@ Warning
 <p>Installing a package is done outside of the python interpreter, in command line in a terminal.</p>
 </div>
 </div>
-<p>When you wish to use a package in a python script, you’ll need to import it, by writing inside of you script:</p>
+<p>When you wish to use a package in a python script, you’ll need to import, by writing inside of you script:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="pandas" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="pandas"><span class="header-section-number">6.1</span> Pandas</h2>
@@ -1311,9 +1252,9 @@ Warning
 <li><code>Series</code>: a one-dimensional labeled array holding data of any type such as integers or strings. It is like a column in a table.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If nothing else is specified, the values are labeled with their index number (starting from `0`).</span></span>
-<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>myseries <span class="op">=</span> pandas.Series([<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">2</span>], index <span class="op">=</span> [<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"z"</span>])</span>
-<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myseries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If nothing else is specified, the values are labeled with their index number (starting from `0`).</span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>myseries <span class="op">=</span> pandas.Series([<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">2</span>], index <span class="op">=</span> [<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"z"</span>])</span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myseries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x    1
 y    7
@@ -1325,14 +1266,14 @@ dtype: int64</code></pre>
 <li><code>DataFrame</code>: a two-dimensional data structure that holds data like a two-dimension array or a table with rows and columns. It is like a table.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {</span>
-<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"calories"</span>: [<span class="dv">420</span>, <span class="dv">380</span>, <span class="dv">390</span>],</span>
-<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"duration"</span>: [<span class="dv">50</span>, <span class="dv">40</span>, <span class="dv">45</span>]</span>
-<span id="cb97-4"><a href="#cb97-4" aria-hidden="true" tabindex="-1"></a>} </span>
-<span id="cb97-5"><a href="#cb97-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-6"><a href="#cb97-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pandas.DataFrame(data)</span>
-<span id="cb97-7"><a href="#cb97-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-8"><a href="#cb97-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {</span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"calories"</span>: [<span class="dv">420</span>, <span class="dv">380</span>, <span class="dv">390</span>],</span>
+<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"duration"</span>: [<span class="dv">50</span>, <span class="dv">40</span>, <span class="dv">45</span>]</span>
+<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a>} </span>
+<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-6"><a href="#cb96-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pandas.DataFrame(data)</span>
+<span id="cb96-7"><a href="#cb96-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-8"><a href="#cb96-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   calories  duration
 0       420        50
@@ -1342,10 +1283,9 @@ dtype: int64</code></pre>
 </div>
 <p>You can also create a DataFrame from a file.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure this is the correct path for you! You are in the directory from where you execute the script.</span></span>
-<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pandas.read_csv(<span class="st">'../exercise/data/sample.csv'</span>)</span>
-<span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pandas.read_csv(<span class="st">'../exercise/data/sample.csv'</span>)</span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Gene  Expression_Level Tissue
 0  GeneA               8.7  Heart
@@ -1358,14 +1298,14 @@ dtype: int64</code></pre>
 </div>
 <p>You can select rows as follows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select one row</span></span>
-<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.loc[[<span class="dv">0</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select one row</span></span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.loc[[<span class="dv">0</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Gene  Expression_Level Tissue
 0  GeneA               8.7  Heart</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select several rows</span></span>
-<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.loc[[<span class="dv">0</span>,<span class="dv">2</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select several rows</span></span>
+<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.loc[[<span class="dv">0</span>,<span class="dv">2</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Gene  Expression_Level Tissue
 0  GeneA               8.7  Heart
@@ -1374,8 +1314,8 @@ dtype: int64</code></pre>
 </div>
 <p>You can select columns as follows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select one column</span></span>
-<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Tissue'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select one column</span></span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Tissue'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0    Heart
 1    Heart
@@ -1385,8 +1325,8 @@ dtype: int64</code></pre>
 5    Liver
 Name: Tissue, dtype: object</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select several column</span></span>
-<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'Gene'</span>,<span class="st">'Expression_Level'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select several column</span></span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'Gene'</span>,<span class="st">'Expression_Level'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Gene  Expression_Level
 0  GeneA               8.7
@@ -1399,7 +1339,7 @@ Name: Tissue, dtype: object</code></pre>
 </div>
 <p>You can select rows and columns as follow:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>df.loc[[<span class="dv">1</span>], [<span class="st">'Gene'</span>,<span class="st">'Expression_Level'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>df.loc[[<span class="dv">1</span>], [<span class="st">'Gene'</span>,<span class="st">'Expression_Level'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Gene  Expression_Level
 1  GeneB               3.2</code></pre>
@@ -1407,7 +1347,7 @@ Name: Tissue, dtype: object</code></pre>
 </div>
 <p>You can filter based on a condition as follow:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">'Expression_Level'</span>] <span class="op">&gt;</span> <span class="dv">6</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">'Expression_Level'</span>] <span class="op">&gt;</span> <span class="dv">6</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Gene  Expression_Level Tissue
 0  GeneA               8.7  Heart
@@ -1422,7 +1362,7 @@ Name: Tissue, dtype: object</code></pre>
 <h3 data-number="6.1.2" class="anchored" data-anchor-id="useful-methods"><span class="header-section-number">6.1.2</span> Useful methods</h3>
 <p>To explore the data set, use the following methods:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 6 entries, 0 to 5
@@ -1437,7 +1377,7 @@ memory usage: 276.0+ bytes</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       Expression_Level
 count          6.000000
@@ -1451,7 +1391,7 @@ max           10.200000</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Gene  Expression_Level Tissue
 0  GeneA               8.7  Heart
@@ -1462,7 +1402,7 @@ max           10.200000</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>df.sort_values(by<span class="op">=</span><span class="st">"Gene"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>df.sort_values(by<span class="op">=</span><span class="st">"Gene"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Gene  Expression_Level Tissue
 0  GeneA               8.7  Heart
@@ -1474,11 +1414,11 @@ max           10.200000</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Expression_Level'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Expression_Level'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>7.216666666666666</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Gene"</span>)[[<span class="st">'Expression_Level'</span>]].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Gene"</span>)[[<span class="st">'Expression_Level'</span>]].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       Expression_Level
 Gene                   
@@ -1499,113 +1439,52 @@ GeneB          7.000000</code></pre>
 </section>
 <section id="matplotlib" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="matplotlib"><span class="header-section-number">6.2</span> Matplotlib</h2>
-<p>Matplotlib is a package to create visualizations in Python widely used in science.</p>
-<p>To shorten the name of the package when we call its functions, we can import it as follows:</p>
+<p>Matplotlib is a package to create visualizations in Python.</p>
+<p>To shorten the name of the package when we call its functions, we can import it as follow:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb125-3"><a href="#cb125-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The data for GeneA and GeneB is extracted from the DataFrame 'df'</span></span>
-<span id="cb125-4"><a href="#cb125-4" aria-hidden="true" tabindex="-1"></a>serieA <span class="op">=</span> df[df[<span class="st">'Gene'</span>] <span class="op">==</span> <span class="st">'GeneA'</span>][<span class="st">'Expression_Level'</span>]</span>
-<span id="cb125-5"><a href="#cb125-5" aria-hidden="true" tabindex="-1"></a>serieB <span class="op">=</span> df[df[<span class="st">'Gene'</span>] <span class="op">==</span> <span class="st">'GeneB'</span>][<span class="st">'Expression_Level'</span>]</span>
-<span id="cb125-6"><a href="#cb125-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb125-7"><a href="#cb125-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new figure </span></span>
-<span id="cb125-8"><a href="#cb125-8" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
-<span id="cb125-9"><a href="#cb125-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb125-10"><a href="#cb125-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a boxplot showing the expression levels of GeneA and GeneB</span></span>
-<span id="cb125-11"><a href="#cb125-11" aria-hidden="true" tabindex="-1"></a>plt.boxplot([serieA, serieB], <span class="co"># List of series</span></span>
-<span id="cb125-12"><a href="#cb125-12" aria-hidden="true" tabindex="-1"></a>            labels<span class="op">=</span>[<span class="st">'GeneA'</span>, <span class="st">'GeneB'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-3"><a href="#cb124-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new figure </span></span>
+<span id="cb124-4"><a href="#cb124-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb124-5"><a href="#cb124-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-6"><a href="#cb124-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a boxplot showing the expression levels of GeneA and GeneB</span></span>
+<span id="cb124-7"><a href="#cb124-7" aria-hidden="true" tabindex="-1"></a><span class="co"># The data for GeneA and GeneB is extracted from the DataFrame 'df'</span></span>
+<span id="cb124-8"><a href="#cb124-8" aria-hidden="true" tabindex="-1"></a>plt.boxplot([df[df[<span class="st">'Gene'</span>] <span class="op">==</span> <span class="st">'GeneA'</span>][<span class="st">'Expression_Level'</span>], </span>
+<span id="cb124-9"><a href="#cb124-9" aria-hidden="true" tabindex="-1"></a>            df[df[<span class="st">'Gene'</span>] <span class="op">==</span> <span class="st">'GeneB'</span>][<span class="st">'Expression_Level'</span>]],</span>
+<span id="cb124-10"><a href="#cb124-10" aria-hidden="true" tabindex="-1"></a>            labels<span class="op">=</span>[<span class="st">'GeneA'</span>, <span class="st">'GeneB'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x163e05e20&gt;, &lt;matplotlib.lines.Line2D object at 0x163e42f90&gt;, &lt;matplotlib.lines.Line2D object at 0x163e78110&gt;, &lt;matplotlib.lines.Line2D object at 0x163e78440&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x163e432c0&gt;, &lt;matplotlib.lines.Line2D object at 0x163e435c0&gt;, &lt;matplotlib.lines.Line2D object at 0x163e78710&gt;, &lt;matplotlib.lines.Line2D object at 0x163e78a10&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x163a0eb10&gt;, &lt;matplotlib.lines.Line2D object at 0x163e43da0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x163e438c0&gt;, &lt;matplotlib.lines.Line2D object at 0x163e78cb0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x163e43b90&gt;, &lt;matplotlib.lines.Line2D object at 0x163e78fb0&gt;], 'means': []}</code></pre>
+<pre><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x161ed7fe0&gt;, &lt;matplotlib.lines.Line2D object at 0x161f55700&gt;, &lt;matplotlib.lines.Line2D object at 0x161f56810&gt;, &lt;matplotlib.lines.Line2D object at 0x161f56b40&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x161f55a00&gt;, &lt;matplotlib.lines.Line2D object at 0x161f55ca0&gt;, &lt;matplotlib.lines.Line2D object at 0x161f56de0&gt;, &lt;matplotlib.lines.Line2D object at 0x161f570b0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x161dc7290&gt;, &lt;matplotlib.lines.Line2D object at 0x161f56540&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x161f55fa0&gt;, &lt;matplotlib.lines.Line2D object at 0x161f573b0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x161f562a0&gt;, &lt;matplotlib.lines.Line2D object at 0x161f576b0&gt;], 'means': []}</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the label for the x-axis</span></span>
-<span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Gene'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the label for the x-axis</span></span>
+<span id="cb126-2"><a href="#cb126-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Gene'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Text(0.5, 0, 'Gene')</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the label for the y-axis</span></span>
-<span id="cb129-2"><a href="#cb129-2" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Expression Level'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the label for the y-axis</span></span>
+<span id="cb128-2"><a href="#cb128-2" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Expression Level'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Text(0, 0.5, 'Expression Level')</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the title of the plot</span></span>
-<span id="cb131-2"><a href="#cb131-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Expression of Genes in Different Tissues'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the title of the plot</span></span>
+<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Expression of Genes in Different Tissues'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Text(0.5, 1.0, 'Expression of Genes in Different Tissues')</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the boxplot</span></span>
-<span id="cb133-2"><a href="#cb133-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the boxplot</span></span>
+<span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="2024-lesson-2_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid figure-img" width="614"></p>
+<p><img src="2024-lesson-2_files/figure-html/unnamed-chunk-63-1.png" class="img-fluid figure-img" width="614"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the plot as a PNG file with a resolution of 300 dots per inch (dpi)</span></span>
-<span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The file will be saved in the specified location </span></span>
-<span id="cb134-3"><a href="#cb134-3" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">'../exercise/data/my-figure.png'</span>, dpi<span class="op">=</span><span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the plot as a PNG file with a resolution of 300 dots per inch (dpi)</span></span>
+<span id="cb133-2"><a href="#cb133-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The file will be saved in the specified location </span></span>
+<span id="cb133-3"><a href="#cb133-3" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">'../exercise/data/my-figure.png'</span>, dpi<span class="op">=</span><span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The following code is equivalent.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new figure </span></span>
-<span id="cb135-2"><a href="#cb135-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">4</span>))</span>
-<span id="cb135-3"><a href="#cb135-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb135-4"><a href="#cb135-4" aria-hidden="true" tabindex="-1"></a>ax.boxplot([serieA, serieB], <span class="co"># List of series</span></span>
-<span id="cb135-5"><a href="#cb135-5" aria-hidden="true" tabindex="-1"></a>            labels<span class="op">=</span>[<span class="st">'GeneA'</span>, <span class="st">'GeneB'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x168880230&gt;, &lt;matplotlib.lines.Line2D object at 0x168880530&gt;, &lt;matplotlib.lines.Line2D object at 0x168880a70&gt;, &lt;matplotlib.lines.Line2D object at 0x168880d40&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x163efbb90&gt;, &lt;matplotlib.lines.Line2D object at 0x163efb740&gt;, &lt;matplotlib.lines.Line2D object at 0x168881040&gt;, &lt;matplotlib.lines.Line2D object at 0x168881310&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x168880050&gt;, &lt;matplotlib.lines.Line2D object at 0x168880770&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x163efb500&gt;, &lt;matplotlib.lines.Line2D object at 0x1688815e0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x163efaf90&gt;, &lt;matplotlib.lines.Line2D object at 0x1688818e0&gt;], 'means': []}</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Gene'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Text(0.5, 0, 'Gene')</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Expression Level'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Text(0, 0.5, 'Expression Level')</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Expression of Genes in Different Tissues'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Text(0.5, 1.0, 'Expression of Genes in Different Tissues')</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a>ax.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;matplotlib.legend.Legend object at 0x163e06e70&gt;
-
-No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="2024-lesson-2_files/figure-html/unnamed-chunk-66-3.png" class="img-fluid figure-img" width="480"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb146-2"><a href="#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the plot as a PNG file with a resolution of 300 dots per inch (dpi)</span></span>
-<span id="cb146-3"><a href="#cb146-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The file will be saved in the specified location </span></span>
-<span id="cb146-4"><a href="#cb146-4" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">'../exercise/data/my-figure-2.png'</span>, dpi<span class="op">=</span><span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The first way of plotting is function-oriented, and the second is object-oriented. You might encounter both styles of coding.</p>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/matplotlib.webp" class="img-fluid figure-img"></p>
-<figcaption>Anatomy of a matplotlib plot</figcaption>
-</figure>
-</div>
-<p>Many visualizations are available (static, animated, interactive). For more information, check out:</p>
+<p>Many visualizations are available.</p>
+<p>For more information, check out:</p>
 <ul>
 <li>the <a href="https://matplotlib.org/stable/users/explain/quick_start.html">documentation</a></li>
 <li>the <a href="https://matplotlib.org/cheatsheets/">cheat sheet</a></li>
@@ -1628,25 +1507,10 @@ Exercise
 <p>Create a script that reads nucleotide frequency data from a file in the format of <code>../exercise/data/example.txt</code> (space-separated values), and visualizes it using Matplotlib and Pandas.</p>
 <p>Your script should read this data, create a stacked bar chart showing the nucleotide frequencies for each sequence, and label the axes appropriately. Here’s the expected plot:</p>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;BarContainer object of 5 artists&gt;
-&lt;BarContainer object of 5 artists&gt;
-&lt;BarContainer object of 5 artists&gt;
-&lt;BarContainer object of 5 artists&gt;</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Text(0.5, 0, 'Sequences')</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Text(0, 0.5, 'Frequency')</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;matplotlib.legend.Legend object at 0x163e42ed0&gt;</code></pre>
-</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="2024-lesson-2_files/figure-html/unnamed-chunk-67-5.png" class="img-fluid figure-img" width="480"></p>
+<p><img src="2024-lesson-2_files/figure-html/unnamed-chunk-64-3.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1654,7 +1518,7 @@ Exercise
 </div>
 </div>
 <div class="callout callout-style-simple callout-none no-icon callout-titled" title="Solutions">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1663,64 +1527,23 @@ Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb151-2"><a href="#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb151-3"><a href="#cb151-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-4"><a href="#cb151-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a DataFrame from the given data</span></span>
-<span id="cb151-5"><a href="#cb151-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../exercise/data/example.txt'</span>, index_col<span class="op">=</span><span class="dv">0</span>, sep<span class="op">=</span><span class="st">' '</span>)</span>
-<span id="cb151-6"><a href="#cb151-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-7"><a href="#cb151-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the data</span></span>
-<span id="cb151-8"><a href="#cb151-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">6</span>))</span>
-<span id="cb151-9"><a href="#cb151-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-10"><a href="#cb151-10" aria-hidden="true" tabindex="-1"></a>bottom <span class="op">=</span> pd.Series([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>], index <span class="op">=</span> df.index) </span>
-<span id="cb151-11"><a href="#cb151-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> df.columns:</span>
-<span id="cb151-12"><a href="#cb151-12" aria-hidden="true" tabindex="-1"></a>    ax.bar(df.index, df[col], label<span class="op">=</span>col, bottom<span class="op">=</span>bottom)</span>
-<span id="cb151-13"><a href="#cb151-13" aria-hidden="true" tabindex="-1"></a>    bottom <span class="op">+=</span> df[col]</span>
-<span id="cb151-14"><a href="#cb151-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-15"><a href="#cb151-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Add labels and legend</span></span>
-<span id="cb151-16"><a href="#cb151-16" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Sequences'</span>)</span>
-<span id="cb151-17"><a href="#cb151-17" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Frequency'</span>)</span>
-<span id="cb151-18"><a href="#cb151-18" aria-hidden="true" tabindex="-1"></a>ax.legend(title<span class="op">=</span><span class="st">'Nucleotides'</span>, bbox_to_anchor<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
-<span id="cb151-19"><a href="#cb151-19" aria-hidden="true" tabindex="-1"></a>          loc<span class="op">=</span><span class="st">'lower left'</span>, ncols<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb151-20"><a href="#cb151-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>or also,</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb152"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb152-2"><a href="#cb152-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb152-3"><a href="#cb152-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb152-4"><a href="#cb152-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a DataFrame from the given data</span></span>
-<span id="cb152-5"><a href="#cb152-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../exercise/data/example.txt'</span>, index_col<span class="op">=</span><span class="dv">0</span>, sep<span class="op">=</span><span class="st">' '</span>)</span>
-<span id="cb152-6"><a href="#cb152-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb152-7"><a href="#cb152-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the data</span></span>
-<span id="cb152-8"><a href="#cb152-8" aria-hidden="true" tabindex="-1"></a>df.plot(kind<span class="op">=</span><span class="st">'bar'</span>, stacked<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;Axes: xlabel='Seq'&gt;</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb154"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Sequences'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Text(0.5, 0, 'Sequences')</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb156"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Text(0, 0.5, 'Frequency')</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb158"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Nucleotides'</span>, bbox_to_anchor<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
-<span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a>          loc<span class="op">=</span><span class="st">'lower left'</span>, ncols<span class="op">=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;matplotlib.legend.Legend object at 0x1689064b0&gt;</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb160"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="2024-lesson-2_files/figure-html/unnamed-chunk-69-7.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb134-3"><a href="#cb134-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-4"><a href="#cb134-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a DataFrame from the given data</span></span>
+<span id="cb134-5"><a href="#cb134-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../exercise/data/example.txt'</span>, index_col<span class="op">=</span><span class="dv">0</span>, sep<span class="op">=</span><span class="st">' '</span>)</span>
+<span id="cb134-6"><a href="#cb134-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-7"><a href="#cb134-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the data</span></span>
+<span id="cb134-8"><a href="#cb134-8" aria-hidden="true" tabindex="-1"></a>df.plot(kind<span class="op">=</span><span class="st">'bar'</span>, stacked<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb134-9"><a href="#cb134-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Sequences'</span>)</span>
+<span id="cb134-10"><a href="#cb134-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb134-11"><a href="#cb134-11" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Nucleotides'</span>, bbox_to_anchor<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb134-12"><a href="#cb134-12" aria-hidden="true" tabindex="-1"></a>          loc<span class="op">=</span><span class="st">'lower left'</span>, ncols<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb134-13"><a href="#cb134-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-14"><a href="#cb134-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
