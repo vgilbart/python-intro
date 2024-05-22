@@ -282,7 +282,7 @@ try:
   if not isinstance(x, int):
     raise TypeError("Only integers are allowed") 
   if x < 0:
-    raise Exception("Sorry, no numbers below zero") 
+    raise ValueError("Sorry, no numbers below zero") 
   print(x, "is a positive integer.")
 except NameError:
   print("A variable is not defined") 
@@ -465,7 +465,7 @@ Check their [tutorial](https://docs.python.org/3/howto/argparse.html) for more i
 # File Handling
 
 The key function to work with files in `open()`. 
-Its two parameters `file` and `mode`.
+It has two parameters `file` and `mode`.
 
 ```{python}
 # Write the correct path for you!
@@ -550,6 +550,7 @@ To write into a file, you must have it open under a `w`, `a` mode.
 Then, the method `write()` can be used. 
 
 ```{python}
+#| output: asis
 txt_file = "../exercise/data/some_file.txt"
 f = open(txt_file, "w")
 f.write("Woops! I have deleted the content!\n")
@@ -561,7 +562,7 @@ print(f.read())
 ```
 
 ::: {.callout-warning} 
-Be very careful when opening a file in `write` mode than as you can delete its content without any way to retrieve the original file!
+Be very careful when opening a file in `write` mode as you can delete its content without any way to retrieve the original file!
 ::: 
 
 As you may have noticed, `write()` returns the number of characters written. You can prevent it from being printed by assigning the return value to a variable that will not be used.
@@ -670,6 +671,70 @@ The Match object has methods used to retrieve information about the search, and 
 print(x.group()) 
 ```
 
+
+::: {.callout-important title="Exercise"} 
+
+From the list `dna_sequences = ["ATGCGAATTCAC", "ATGAC", "ATGCCCGGGTAA", "ATGACGTACGTC", "ATGAGGGGTTCA"]`, 
+
+1. Extract all sequences that start with `ATG` and end with `AC` or `AA`.
+
+2. Extract sequences that contain either `G` or `C` repeated three times consecutively.
+
+You should get the following results:
+
+```{python}
+#| echo: false
+
+# Dataset of DNA sequences
+dna_sequences = ["ATGCGAATTCAC", "ATGAC", "ATGCCCGGGTAA", "ATGACGTACGTC", "ATGAGGGGTTCA"]
+
+# Task 1: Extract sequences starting with "ATG", and ending with "AC" or "AA"
+task1_sequences = [seq for seq in dna_sequences if re.match(r"^ATG.*(AC|AA)$", seq)]
+
+# Task 2: Extract sequences with "G" or "C" repeated three times consecutively
+task2_sequences = [seq for seq in dna_sequences if re.search(r"(G{3}|C{3})", seq)]
+
+# Print out the extracted sequences for each task
+print(f"Sequences starting with 'ATG' and ending with 'AC' or 'AA':\n{task1_sequences}")
+
+print(f"Sequences containing 'G' or 'C' repeated three times consecutively:\n{task2_sequences}")
+```
+
+:::
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
+
+
+```{python}
+#| eval: false
+
+# Dataset of DNA sequences
+dna_sequences = ["ATGCGAATTCAC", "ATGAC", "ATGCCCGGGTAA", "ATGACGTACGTC", "ATGAGGGGTTCA"]
+
+# Task 1: Extract sequences starting with "ATG", and ending with "AC" or "AA"
+task1_sequences = [seq for seq in dna_sequences if re.match(r"^ATG.*(AC|AA)$", seq)]
+
+# This code is equivalent to the one above
+task1_sequences = []
+for seq in dna_sequences:
+    if re.match(r"^ATG.*(AC|AA)$", seq):
+        task1_sequences.append(seq)
+
+# Task 2: Extract sequences with "G" or "C" repeated three times consecutively
+task2_sequences = [seq for seq in dna_sequences if re.search(r"(G{3}|C{3})", seq)]
+
+
+# Print out the extracted sequences for each task
+print(f"Sequences starting with 'ATG' and ending with 'AC' or 'AA':\n{task1_sequences}")
+
+print(f"Sequences containing 'G' or 'C' repeated three times consecutively:\n{task2_sequences}")
+```
+
+:::
+:::
+
 ## Exercise
 
 ::: {.callout-important title="Exercise"} 
@@ -773,7 +838,7 @@ To get more information about `pip`, check out the full [documentation](https://
 Installing a package is done outside of the python interpreter, in command line in a terminal. 
 ::: 
 
-When you wish to use a package in a python script, you'll need to import, by writing inside of you script:
+When you wish to use a package in a python script, you'll need to import it, by writing inside of you script:
 
 ```{python}
 import pandas
@@ -812,6 +877,7 @@ print(df)
 
 You can also create a DataFrame from a file.
 ```{python}
+# Make sure this is the correct path for you! You are in the directory from where you execute the script.
 df = pandas.read_csv('../exercise/data/sample.csv')
 
 print(df)
@@ -878,19 +944,21 @@ To get more information on how to use pandas, check out:
 
 ## Matplotlib 
 
-Matplotlib is a package to create visualizations in Python.
+Matplotlib is a package to create visualizations in Python widely used in science.
 
-To shorten the name of the package when we call its functions, we can import it as follow:
+To shorten the name of the package when we call its functions, we can import it as follows:
 ```{python}
 import matplotlib.pyplot as plt
+
+# The data for GeneA and GeneB is extracted from the DataFrame 'df'
+serieA = df[df['Gene'] == 'GeneA']['Expression_Level']
+serieB = df[df['Gene'] == 'GeneB']['Expression_Level']
 
 # Create a new figure 
 fig = plt.figure()
 
 # Create a boxplot showing the expression levels of GeneA and GeneB
-# The data for GeneA and GeneB is extracted from the DataFrame 'df'
-plt.boxplot([df[df['Gene'] == 'GeneA']['Expression_Level'], 
-            df[df['Gene'] == 'GeneB']['Expression_Level']],
+plt.boxplot([serieA, serieB], # List of series
             labels=['GeneA', 'GeneB'])
 
 # Set the label for the x-axis
@@ -906,9 +974,32 @@ plt.show()
 fig.savefig('../exercise/data/my-figure.png', dpi=300)
 ```
 
-Many visualizations are available. 
+The following code is equivalent. 
+```{python}
+# Create a new figure 
+fig, ax = plt.subplots(1, figsize=(5, 4))
 
-For more information, check out: 
+ax.boxplot([serieA, serieB], # List of series
+            labels=['GeneA', 'GeneB'])
+ax.set_xlabel('Gene')
+ax.set_ylabel('Expression Level')
+ax.set_title('Expression of Genes in Different Tissues')
+ax.legend()
+plt.show()
+
+# Save the plot as a PNG file with a resolution of 300 dots per inch (dpi)
+# The file will be saved in the specified location 
+fig.savefig('../exercise/data/my-figure-2.png', dpi=300)
+```
+
+::: {.callout-note} 
+The first way of plotting is function-oriented, and the second is object-oriented. 
+You might encounter both styles of coding. 
+:::
+
+![Anatomy of a matplotlib plot](img/matplotlib.webp)
+
+Many visualizations are available (static, animated, interactive). For more information, check out: 
 
 - the [documentation](https://matplotlib.org/stable/users/explain/quick_start.html)
 - the [cheat sheet](https://matplotlib.org/cheatsheets/)
@@ -926,6 +1017,7 @@ Here's the expected plot:
 
 ```{python}
 #| echo: false
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -933,14 +1025,22 @@ import matplotlib.pyplot as plt
 df = pd.read_csv('../exercise/data/example.txt', index_col=0, sep=' ')
 
 # Plot the data
-df.plot(kind='bar', stacked=True);
-plt.xlabel('Sequences');
-plt.ylabel('Frequency');
-plt.legend(title='Nucleotides', bbox_to_anchor=(0, 1),
-          loc='lower left', ncols=4);
+fig, ax = plt.subplots(1, figsize=(5, 6))
+
+bottom = pd.Series([0,0,0,0,0], index = df.index) 
+for col in df.columns:
+    ax.bar(df.index, df[col], label=col, bottom=bottom)
+    bottom += df[col]
+
+# Add labels and legend
+ax.set_xlabel('Sequences')
+ax.set_ylabel('Frequency')
+ax.legend(title='Nucleotides', bbox_to_anchor=(0, 1),
+          loc='lower left', ncols=4)
 
 plt.show()
 ```
+
 :::
 
 ::: {.content-hidden unless-meta="solutions"}
@@ -956,6 +1056,31 @@ import matplotlib.pyplot as plt
 df = pd.read_csv('../exercise/data/example.txt', index_col=0, sep=' ')
 
 # Plot the data
+fig, ax = plt.subplots(1, figsize=(5, 6))
+
+bottom = pd.Series([0,0,0,0,0], index = df.index) 
+for col in df.columns:
+    ax.bar(df.index, df[col], label=col, bottom=bottom)
+    bottom += df[col]
+
+# Add labels and legend
+ax.set_xlabel('Sequences')
+ax.set_ylabel('Frequency')
+ax.legend(title='Nucleotides', bbox_to_anchor=(0, 1),
+          loc='lower left', ncols=4)
+plt.show()
+```
+
+or also, 
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create a DataFrame from the given data
+df = pd.read_csv('../exercise/data/example.txt', index_col=0, sep=' ')
+
+# Plot the data
 df.plot(kind='bar', stacked=True)
 plt.xlabel('Sequences')
 plt.ylabel('Frequency')
@@ -964,6 +1089,7 @@ plt.legend(title='Nucleotides', bbox_to_anchor=(0, 1),
 
 plt.show()
 ```
+
 
 :::
 
