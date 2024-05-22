@@ -194,3 +194,5 @@ Create another implementation of Conway's Game of Life, with the following chara
 - use matplotlib to plot each generation, and create a final gif
 
 ![Example of a final gif generated](img/r_pentomino.gif)
+
+

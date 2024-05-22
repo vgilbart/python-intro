@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Valentine Gilbart">
-<meta name="dcterms.date" content="2024-05-17">
+<meta name="dcterms.date" content="2024-05-22">
 
 <title>Lesson 3 - Introduction to Python</title>
 <style>
@@ -125,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 17, 2024</p>
+      <p class="date">May 22, 2024</p>
     </div>
   </div>
   
@@ -330,6 +330,7 @@ Figure&nbsp;1: <em>pssssss</em>
 <section id="tips" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="tips"><span class="header-section-number">2.6</span> Tips</h2>
 <ul>
+<li>Take an exemple and do it by hand to better understand the game.</li>
 <li>Before jumping into coding, try to have a plan of how you will implement it all. Imagine what will be the input and output of each function.</li>
 <li>To visualize the evolution of the grid, you can print it, and then can clean the terminal by using <code>os.system('cls' if os.name == 'nt' else 'clear')</code> (you will need to <code>import os</code> at the beginning of your script).</li>
 <li>To wait between two generations you can use <code>time.sleep(delay)</code> (you will need to <code>import time</code> at the beginning of your script).</li>
@@ -342,14 +343,14 @@ Figure&nbsp;1: <em>pssssss</em>
 <h2 data-number="3.1" class="anchored" data-anchor-id="instructions-1"><span class="header-section-number">3.1</span> Instructions</h2>
 <p>Create another implementation of Conway’s Game of Life, with the following characteristics:</p>
 <ul>
-<li>the initial matrix is given as a file</li>
+<li>the file parses arguments from command line</li>
 <li>use pandas (or numpy) to deal with the matrix</li>
 <li>use matplotlib to plot each generation, and create a final gif</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/r_pentomino.gif" class="img-fluid figure-img"></p>
-<figcaption>Final gif</figcaption>
+<figcaption>Example of a final gif generated</figcaption>
 </figure>
 </div>
 </section>
