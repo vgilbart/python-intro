@@ -678,7 +678,7 @@ From the list `dna_sequences = ["ATGCGAATTCAC", "ATGAC", "ATGCCCGGGTAA", "ATGACG
 
 1. Extract all sequences that start with `ATG` and end with `AC` or `AA`.
 
-2. Extract sequences that contain either `G` or `C` repeated three times consecutively.
+2. Extract all sequences that contain either `G` or `C` repeated three times consecutively.
 
 You should get the following results:
 
@@ -689,10 +689,10 @@ You should get the following results:
 dna_sequences = ["ATGCGAATTCAC", "ATGAC", "ATGCCCGGGTAA", "ATGACGTACGTC", "ATGAGGGGTTCA"]
 
 # Task 1: Extract sequences starting with "ATG", and ending with "AC" or "AA"
-task1_sequences = [seq for seq in dna_sequences if re.match(r"^ATG.*(AC|AA)$", seq)]
+task1_sequences = [seq for seq in dna_sequences if re.search("^ATG.*(AC|AA)$", seq)]
 
 # Task 2: Extract sequences with "G" or "C" repeated three times consecutively
-task2_sequences = [seq for seq in dna_sequences if re.search(r"(G{3}|C{3})", seq)]
+task2_sequences = [seq for seq in dna_sequences if re.search("(G{3}|C{3})", seq)]
 
 # Print out the extracted sequences for each task
 print(f"Sequences starting with 'ATG' and ending with 'AC' or 'AA':\n{task1_sequences}")
@@ -714,16 +714,16 @@ print(f"Sequences containing 'G' or 'C' repeated three times consecutively:\n{ta
 dna_sequences = ["ATGCGAATTCAC", "ATGAC", "ATGCCCGGGTAA", "ATGACGTACGTC", "ATGAGGGGTTCA"]
 
 # Task 1: Extract sequences starting with "ATG", and ending with "AC" or "AA"
-task1_sequences = [seq for seq in dna_sequences if re.match(r"^ATG.*(AC|AA)$", seq)]
+task1_sequences = [seq for seq in dna_sequences if re.search("^ATG.*(AC|AA)$", seq)]
 
 # This code is equivalent to the one above
 task1_sequences = []
 for seq in dna_sequences:
-    if re.match(r"^ATG.*(AC|AA)$", seq):
+    if re.search("^ATG.*(AC|AA)$", seq):
         task1_sequences.append(seq)
 
 # Task 2: Extract sequences with "G" or "C" repeated three times consecutively
-task2_sequences = [seq for seq in dna_sequences if re.search(r"(G{3}|C{3})", seq)]
+task2_sequences = [seq for seq in dna_sequences if re.search("(G{3}|C{3})", seq)]
 
 
 # Print out the extracted sequences for each task
@@ -883,31 +883,56 @@ df = pandas.read_csv('../exercise/data/sample.csv')
 print(df)
 ```
 
-You can select rows as follows:
+You get access to the index and column names with: 
+
 ```{python}
-# Select one row
-print(df.loc[[0]])
-# Select several rows
-print(df.loc[[0,2]])
+df.columns
+df.index
 ```
 
-You can select columns as follows:
+You can rename index and column names:
 ```{python}
-# Select one column
-df['Tissue']
-# Select several column
+df = df.rename(index={0: 'a', 1: 'b', 2: 'c', 3: 'd', 4: 'e', 5 : 'f'})
+
+df.index
+```
+
+You can select rows:
+```{python}
+# Select one row by its label
+print(df.loc[['a']]) 
+# Select one row by its index
+print(df.iloc[[0]]) 
+
+# Select several rows by labels
+print(df.loc[['a','c']])
+# Select one row by index
+print(df.iloc[[0,2]]) 
+```
+
+You can select columns:
+```{python}
+# Select one column by label
+df['Tissue'] # Series
+df[['Tissue']] # DataFrame
+
+# Select several columns
 df[['Gene','Expression_Level']]
+
+# Select several columns by index 
+df.iloc[:,[0,1]]
 ```
 
-You can select rows and columns as follow:
+You can select rows and columns as follows:
 ```{python}
-df.loc[[1], ['Gene','Expression_Level']]
+df.loc[['b'], ['Gene','Expression_Level']]
 ```
 
-You can filter based on a condition as follow: 
+You can filter based on a condition as follows: 
 ```{python}
 df[df['Expression_Level'] > 6]
 ```
+
 
 ### Useful methods
 
@@ -941,7 +966,75 @@ To get more information on how to use pandas, check out:
 - the [cheat sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
 - any [useful tutorial](https://www.w3schools.com/python/pandas/)
 
+### Exercise 
 
+
+::: {.callout-important title="Exercise"} 
+
+1. Create a pandas DataFrame from the file containing the frequency of each nucleotide per sequences (`exercise/data/example.txt`). 
+
+2. Make sure that `df.index` contains the name of the sequences, and `df.columns` contains the nucleotides. 
+
+3. Use `pandas.melt()` (see the [doc](https://pandas.pydata.org/docs/reference/api/pandas.melt.html)) to get the data in the following format:
+
+```
+    nucl  freq
+Seq            
+seq1    A  0.46
+seq2    A  0.20
+seq3    A  0.16
+seq4    A  0.18
+seq5    A  0.26
+seq1    T  0.22
+seq2    T  0.12
+...
+```
+
+4. Get the mean value of all nucleotide frequencies.
+
+5. Get the mean value of frequencies per nucleotide.
+
+6. Filter to remove values of seq1. 
+
+7. Recompute the mean value of frequencies per nucleotide.
+  
+:::
+
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
+
+```{python}
+import pandas
+
+# 1. 
+df = pandas.read_csv('../exercise/data/example.txt', index_col=0, sep=' ')
+
+# 2. 
+df.index
+df.columns
+
+# 3.
+df = pandas.melt(df, var_name='nucl', value_name='freq', ignore_index=False)
+
+# 4.
+df['freq'].mean()
+
+# 5.
+df.groupby("nucl")[['freq']].mean()
+
+# 6. 
+df = df[df.index != "seq1"]
+
+# 7.
+df.groupby("nucl")[['freq']].mean()
+
+```
+
+:::
+
+:::
 ## Matplotlib 
 
 Matplotlib is a package to create visualizations in Python widely used in science.
@@ -949,6 +1042,8 @@ Matplotlib is a package to create visualizations in Python widely used in scienc
 To shorten the name of the package when we call its functions, we can import it as follows:
 ```{python}
 import matplotlib.pyplot as plt
+
+df = pandas.read_csv('../exercise/data/sample.csv')
 
 # The data for GeneA and GeneB is extracted from the DataFrame 'df'
 serieA = df[df['Gene'] == 'GeneA']['Expression_Level']
@@ -1010,9 +1105,9 @@ Many visualizations are available (static, animated, interactive). For more info
 
 ::: {.callout-important title="Exercise"} 
 
-Create a script that reads nucleotide frequency data from a file in the format of `../exercise/data/example.txt` (space-separated values), and visualizes it using Matplotlib and Pandas. 
+Create a script that gets nucleotide frequency data from a file in the format of `exercise/data/example.txt`, and visualizes it using Matplotlib and Pandas. 
 
-Your script should read this data, create a stacked bar chart showing the nucleotide frequencies for each sequence, and label the axes appropriately. 
+Your script should read the data, create a stacked bar chart showing the nucleotide frequencies for each sequence, and label the axes appropriately. 
 Here's the expected plot:
 
 ```{python}
@@ -1103,9 +1198,11 @@ There are MANY packages available, here's a short list of some that might intere
 | Package  | Usage | Example of usage | 
 |-|---|---|
 | [BioPython](https://biopython.org/docs/dev/Tutorial/index.html)  |  Computational molecular biology  | Sequence handling, access to NCBI databases | 
-| [NumPy](https://numpy.org/doc/stable/user/absolute_beginners.html) |	Numerical arrays |	Data manipulation, mathematical operations, linear algebra|
+| [NumPy](https://numpy.org/doc/stable/user/absolute_beginners.html) |	Numerical arrays |	Data manipulation, mathematical operations, linear algebra |
 | [Seaborn](https://seaborn.pydata.org/tutorial.html) |	High-level interface for drawing plots |	Data visualization, statistical graphics |
-| [SciPy](https://docs.scipy.org/doc/scipy/tutorial/index.html) |	Mathematical algorithms | Hypothesis testing, Fourier transforms, signal processing |
+| [HTSeq](https://htseq.readthedocs.io/en/latest/index.html) | High throughput sequencing | Quality and coverage, counting reads, read alignment |
+| [Scanpy](https://scanpy.readthedocs.io/en/stable/) | Single-Cell Analysis | Preprocessing, visualization, clustering |
+| [SciPy](https://docs.scipy.org/doc/scipy/tutorial/index.html) |	Mathematical algorithms | Clustering, ODE, Fourier Transforms |
 | [Scikit-image](https://scikit-image.org/docs/stable/user_guide/getting_started.html) |	Image processing |	Image enhancement, segmentation, feature extraction |
 | [Scikit-learn](https://scikit-learn.org/stable/getting_started.html) |	Machine learning |	Classification, regression, clustering, dimensionality reduction |
 | [TensorFlow](https://www.tensorflow.org/tutorials/quickstart/beginner?hl=fr) and [PyTorch](https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html) |	Deep learning |	Neural networks, natural language processing, computer vision |
