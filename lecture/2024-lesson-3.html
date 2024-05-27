@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Valentine Gilbart">
-<meta name="dcterms.date" content="2024-05-22">
+<meta name="dcterms.date" content="2024-05-27">
 
 <title>Lesson 3 - Introduction to Python</title>
 <style>
@@ -101,6 +101,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#instructions-1" id="toc-instructions-1" class="nav-link" data-scroll-target="#instructions-1"><span class="header-section-number">3.1</span> Instructions</a></li>
   </ul></li>
+  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions"><span class="header-section-number">4</span> Solutions</a></li>
   </ul>
 </nav>
 </div>
@@ -125,7 +126,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 22, 2024</p>
+      <p class="date">May 27, 2024</p>
     </div>
   </div>
   
@@ -258,7 +259,7 @@ Figure&nbsp;1: <em>pssssss</em>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>]</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>animate_life(universe, n_generations <span class="op">=</span> <span class="dv">3</span>, delay<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>animate_life(universe, generations <span class="op">=</span> <span class="dv">3</span>, delay<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>. . . . . . . . . .
 . . . * . . . . . .
@@ -343,17 +344,21 @@ Figure&nbsp;1: <em>pssssss</em>
 <h2 data-number="3.1" class="anchored" data-anchor-id="instructions-1"><span class="header-section-number">3.1</span> Instructions</h2>
 <p>Create another implementation of Conway’s Game of Life, with the following characteristics:</p>
 <ul>
-<li>the file parses arguments from command line</li>
-<li>use pandas (or numpy) to deal with the matrix</li>
+<li>the file parses arguments from command line (if you use argparse, you can check the help of your function by running in the terminal <code>python conway_life_advanced.py --help</code>)</li>
+<li>use pandas (or numpy as there it is only numerical data) to deal with the matrix</li>
 <li>use matplotlib to plot each generation, and create a final gif</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/r_pentomino.gif" class="img-fluid figure-img"></p>
-<figcaption>Example of a final gif generated</figcaption>
+<p><img src="img/game_of_life.gif" class="img-fluid figure-img"></p>
+<figcaption>Example of a final gif generated from the same universe matrix as the one from basic implementation</figcaption>
 </figure>
 </div>
 </section>
+</section>
+<section id="solutions" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Solutions</h1>
+<p>Both solutions are available in the folder <code>exercise/script/</code>.</p>
 </section>
 
 </main>
