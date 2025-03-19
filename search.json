@@ -10,36 +10,6 @@
     ]
   },
   {
-    "objectID": "index.html#description",
-    "href": "index.html#description",
-    "title": "Python Introduction IMCBio",
-    "section": "Description",
-    "text": "Description\n\nPublic: Biology PhD students\nModalities: 3 x 3 hours of class",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Python introduction</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#material",
-    "href": "index.html#material",
-    "title": "Python Introduction IMCBio",
-    "section": "Material",
-    "text": "Material\n\n\n\nLecture\nLink\n\n\n\n\nLesson 1 - Introduction\nlecture/lesson-1.html\n\n\nLesson 2 - pandas\nlecture/lesson-2.html\n\n\nLesson 3 - matplotlib\nlecture/lesson-3.html",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Python introduction</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#old-material",
-    "href": "index.html#old-material",
-    "title": "Python Introduction IMCBio",
-    "section": "Old Material",
-    "text": "Old Material\n\n2024\n\n\n\nLecture\nLink\n\n\n\n\nLesson 1\nlecture/2024-lesson-1.html\n\n\nLesson 2\nlecture/2024-lesson-2.html\n\n\nLesson 3\nlecture/2024-lesson-3.html",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Python introduction</span>"
-    ]
-  },
-  {
     "objectID": "lecture/lesson-1.html",
     "href": "lecture/lesson-1.html",
     "title": "Lesson 1 - Introduction, Data types, Operators",
