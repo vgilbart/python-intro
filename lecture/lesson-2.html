@@ -203,6 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sys.argv" id="toc-sys.argv" class="nav-link" data-scroll-target="#sys.argv"><span class="header-section-number">7.2</span> sys.argv</a></li>
   <li><a href="#argparse" id="toc-argparse" class="nav-link" data-scroll-target="#argparse"><span class="header-section-number">7.3</span> argparse</a></li>
   </ul></li>
+  <li><a href="#file-handling" id="toc-file-handling" class="nav-link" data-scroll-target="#file-handling"><span class="header-section-number">8</span> File Handling</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://vgilbart.github.io/python-intro/edit/main/lecture/lesson-2.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://vgilbart.github.io/python-intro/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -240,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="292cd4ea" class="cell" data-execution_count="1">
+<div id="a2ed961c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>os.getcwd()</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>os.listdir(<span class="st">'exercise/data'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -285,7 +286,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>We already learned how to run a predefined function in the last lesson. You need to write its name followed by parenthesis. Parameters are added inside the parenthesis as follow:</p>
-<div id="544ca454" class="cell" data-execution_count="2">
+<div id="3908d5d3" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># round(number, ndigits=None)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">round</span>(number <span class="op">=</span> <span class="fl">5.76543</span>, ndigits <span class="op">=</span> <span class="dv">2</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -300,13 +301,13 @@ Tip
 <section id="syntax" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="syntax"><span class="header-section-number">5.1</span> Syntax</h2>
 <p>In python, a function is declared with the keyword <code>def</code> followed by its name, and the arguments inside parenthesis. The next block of code, corresponding to the content of the function, must be indented. The output is defined by the <code>return</code> keyword.</p>
-<div id="55f229eb" class="cell" data-execution_count="3">
+<div id="19c23231" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello(name):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""Presenting myself."""</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  presentation <span class="op">=</span> <span class="st">"Hello, my name is </span><span class="sc">{0}</span><span class="st">."</span>.<span class="bu">format</span>(name)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> presentation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="581a5302" class="cell" data-execution_count="4">
+<div id="ed2a6ae1" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> hello(name <span class="op">=</span> <span class="st">"Valentine"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -317,7 +318,7 @@ Tip
 <section id="documentation" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="documentation"><span class="header-section-number">5.2</span> Documentation</h2>
 <p>As you may have noticed, you can also add a description of the function directly after the function definition. It is the message that will be shown when running <code>help()</code>. As it can be along text over multiple lines, it is common to put it inside triple quotes <code>"""</code>.</p>
-<div id="257e852d" class="cell" data-execution_count="5">
+<div id="e49c8f49" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(hello)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on function hello in module __main__:
@@ -331,7 +332,7 @@ hello(name)
 <section id="arguments" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="arguments"><span class="header-section-number">5.3</span> Arguments</h2>
 <p>You can have several arguments. They can be mandatory or optional. To make them optional, they need to have a default value assigned inside the function definition, like so:</p>
-<div id="2fddee57" class="cell" data-execution_count="6">
+<div id="f13d1f8e" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello(name, french <span class="op">=</span> <span class="va">True</span>):</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""Presenting myself."""</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> french:</span>
@@ -341,13 +342,13 @@ hello(name)
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> presentation.<span class="bu">format</span>(name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The parameter <code>name</code>is mandatory, but <code>french</code> is optional.</p>
-<div id="04328bb4" class="cell" data-execution_count="7">
+<div id="3b2c68df" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>hello(<span class="st">"Valentine"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>"Bonjour, je m'appelle Valentine."</code></pre>
 </div>
 </div>
-<div id="e596408f" class="cell" data-execution_count="8">
+<div id="5989c677" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>hello(french <span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -371,13 +372,13 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>Reminder: if you provide the parameters in the exact same order as they are defined, you don’t have to name them. If you name the parameters you can switch their order. As good practice, put all required parameters first.</p>
-<div id="8894c0fc" class="cell" data-execution_count="9">
+<div id="81a7cafa" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>hello(french <span class="op">=</span> <span class="va">False</span>, name <span class="op">=</span> <span class="st">"Valentine"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>'Hello, my name is Valentine.'</code></pre>
 </div>
 </div>
-<div id="dc319826" class="cell" data-execution_count="10">
+<div id="3ecdf355" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>hello(<span class="st">"Valentine"</span>, <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>'Hello, my name is Valentine.'</code></pre>
@@ -389,13 +390,13 @@ Note
 <section id="output" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="output"><span class="header-section-number">5.4</span> Output</h2>
 <p>If no <code>return</code> statement is given, then no output will be returned, but the function will still be run.</p>
-<div id="5301eccd" class="cell" data-execution_count="11">
+<div id="1c4b4092" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello(name):</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""Presenting myself."""</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"We are inside the 'hello()' function."</span>)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  presentation <span class="op">=</span> <span class="st">"Hello, my name is </span><span class="sc">{0}</span><span class="st">."</span>.<span class="bu">format</span>(name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="58b0d9a8" class="cell" data-execution_count="12">
+<div id="33728c10" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(hello(<span class="st">"Valentine"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>We are inside the 'hello()' function.
@@ -403,7 +404,7 @@ None</code></pre>
 </div>
 </div>
 <p>The output can be of any type. If you have a lot of things to return, you might want to return a <code>list</code> or a <code>dict</code> for example.</p>
-<div id="e1b1369f" class="cell" data-execution_count="13">
+<div id="7e455603" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> multiple_of_3(list_of_numbers):</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""Returns the number that are multiple of 3."""</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  multiples <span class="op">=</span> []</span>
@@ -428,7 +429,7 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>This could be written as a one-liner.</p>
-<div id="596d7fe7" class="cell" data-execution_count="14">
+<div id="3698114b" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> multiple_of_3(list_of_numbers):</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""Returns the number that are multiple of 3."""</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  multiples <span class="op">=</span> [num <span class="cf">for</span> num <span class="kw">in</span> list_of_numbers <span class="cf">if</span> num <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span>]</span>
@@ -456,15 +457,15 @@ Exercise
 <div class="callout-body-container callout-body">
 <p>Write a function called <code>nucl_freq</code> to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides <code>A</code>, <code>T</code>, <code>C</code> and <code>G</code>, and values being their frequency in the sequence.</p>
 <p>With the input given below, the output should be:</p>
-<div id="1301888d" class="cell" data-execution_count="15">
+<div id="5223678f" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ...</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Your code here</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>nucl_freq(<span class="st">"ATTCCCGGGG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f6715627" class="cell" data-execution_count="16">
+<div id="9c8ace40" class="cell" data-execution_count="16">
 <div class="cell-output cell-output-display" data-execution_count="15">
-<pre><code>{'G': 0.4, 'C': 0.3, 'T': 0.2, 'A': 0.1}</code></pre>
+<pre><code>{'A': 0.1, 'G': 0.4, 'C': 0.3, 'T': 0.2}</code></pre>
 </div>
 </div>
 </div>
@@ -481,7 +482,7 @@ Solutions
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="83f0a7e9" class="cell" data-execution_count="17">
+<div id="f8083a45" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nucl_freq(seq):</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  n <span class="op">=</span> <span class="bu">len</span>(seq)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  freq <span class="op">=</span> <span class="bu">dict</span>()</span>
@@ -491,7 +492,7 @@ Solutions
 <span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>nucl_freq(<span class="st">"ATTCCCGGGG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
-<pre><code>{'G': 0.4, 'C': 0.3, 'T': 0.2, 'A': 0.1}</code></pre>
+<pre><code>{'A': 0.1, 'G': 0.4, 'C': 0.3, 'T': 0.2}</code></pre>
 </div>
 </div>
 </div>
@@ -510,7 +511,7 @@ Solutions
 <li><code>else</code> to excute code if there is no error</li>
 <li><code>finally</code> to excute code, regardless of the result of the try and except blocks</li>
 </ul>
-<div id="7fc0435f" class="cell" data-execution_count="18">
+<div id="26ee57da" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The try block will generate an exception, because some_undefined_variable is not defined:</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(some_undefined_variable)</span>
@@ -520,7 +521,7 @@ Solutions
 <pre><code>Oops... Something went wrong</code></pre>
 </div>
 </div>
-<div id="668c95cc" class="cell" data-execution_count="19">
+<div id="629fee6c" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Without the try block, the program will crash and raise an error:</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(some_undefined_variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -535,7 +536,7 @@ Cell <span class="ansi-green-fg">In[18], line 2</span>
 </div>
 </div>
 </div>
-<div id="8f1fa9af" class="cell" data-execution_count="20">
+<div id="fbe9c50d" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(some_undefined_variable)</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
@@ -600,7 +601,7 @@ The 'try except' is finished</code></pre>
 </tbody>
 </table>
 <p>You can use them to be more specific about the type of exception occurring.</p>
-<div id="4396d8c4" class="cell" data-execution_count="21">
+<div id="0f7f7124" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(some_undefined_variable)</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">NameError</span>:</span>
@@ -617,7 +618,7 @@ The 'try except' is finished</code></pre>
 </div>
 </div>
 <p>You can also use them to throw an exception if a condition occurs, by using the <code>raise</code> keyword.</p>
-<div id="49113c65" class="cell" data-execution_count="22">
+<div id="7c2c2887" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"hello"</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(x, <span class="bu">int</span>):</span>
@@ -664,7 +665,7 @@ Exercise
 <div class="callout-body-container callout-body">
 <p>Let’s make our previous function even better by adding some exception handling. Raise a <code>TypeError</code> if the input is not a string. Raise a <code>ValueError</code> if the input string contains something else than the nucleotides <code>A, C, T, G</code>.</p>
 <p>With the input given below, the output and errors should be:</p>
-<div id="902fd5bc" class="cell" data-execution_count="23">
+<div id="80ee8419" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ...</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Your code here</span></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -672,7 +673,7 @@ Exercise
 <span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>nucl_freq(<span class="st">"ATTCXCCGGGG"</span>)</span>
 <span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>nucl_freq(<span class="st">"ATTCCCGGGG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e70a783b" class="cell" data-execution_count="24">
+<div id="700fa6bd" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
@@ -709,7 +710,7 @@ Solutions
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="e1aaa574" class="cell" data-execution_count="25">
+<div id="a18d07aa" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nucl_freq(seq):</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(seq, <span class="bu">str</span>):</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">TypeError</span>(<span class="st">"Input must be a string."</span>)</span>
@@ -766,7 +767,7 @@ Cell <span class="ansi-green-fg">In[23], line 3</span>, in <span class="ansi-cya
 <h2 data-number="7.1" class="anchored" data-anchor-id="input"><span class="header-section-number">7.1</span> input</h2>
 <p>Python stops executing when it comes to the <code>input()</code> function, and continues when the user has given some input.</p>
 <p>In a file called <code>username-1.py</code>, write the following:</p>
-<div id="5df2be0a" class="cell" data-execution_count="26">
+<div id="3845a8a1" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>username <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter username: "</span>)</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Username is: "</span> <span class="op">+</span> username)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -774,7 +775,7 @@ Cell <span class="ansi-green-fg">In[23], line 3</span>, in <span class="ansi-cya
 <pre class="{bash}"><code>#| eval: False
 python username-1.py </code></pre>
 <p>You should be asked, in command line, to enter a username. When you write it, and press Enter, it gets printed.</p>
-<div id="5a3904f9" class="cell" data-execution_count="27">
+<div id="01c3c971" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-stdout">
 <pre><code>Enter username: vgilbart
 Username is: vgilbart</code></pre>
@@ -785,7 +786,7 @@ Username is: vgilbart</code></pre>
 <h2 data-number="7.2" class="anchored" data-anchor-id="sys.argv"><span class="header-section-number">7.2</span> sys.argv</h2>
 <p>To use <code>sys.argv</code> you need to import a module called <code>sys</code>. It is part of the standard python library, so you should not have to install anything in particular.</p>
 <p>In a file called <code>username-2.py</code>, write the following:</p>
-<div id="38394000" class="cell" data-execution_count="28">
+<div id="96823629" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys </span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Username is: "</span> <span class="op">+</span> sys.argv[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -794,7 +795,7 @@ Username is: vgilbart</code></pre>
 <pre class="{bash}"><code>#| eval: False
 python username-2.py vgilbart</code></pre>
 <p>Arguments are given in command line, seperated by <code>[space]</code>.</p>
-<div id="a11ceb7b" class="cell" data-execution_count="29">
+<div id="a6e6c864" class="cell" data-execution_count="29">
 <div class="cell-output cell-output-stdout">
 <pre><code>Username is: vgilbart</code></pre>
 </div>
@@ -818,7 +819,7 @@ Note
 <h2 data-number="7.3" class="anchored" data-anchor-id="argparse"><span class="header-section-number">7.3</span> argparse</h2>
 <p>Just like for <code>sys</code>, you need to import <code>argparse</code>.</p>
 <p>In a file called <code>username-3.py</code>, write the following:</p>
-<div id="407bebc7" class="cell" data-execution_count="30">
+<div id="90826dfb" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> argparse</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>parser <span class="op">=</span> argparse.ArgumentParser()</span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>parser.add_argument(<span class="st">'--username'</span>, action<span class="op">=</span><span class="st">"store"</span>)</span>
@@ -843,9 +844,49 @@ Note
 <p><code>argparse</code> is a very useful module when creating programs! You can easily specify the expected type of argument, whether it is optional or not, and create a help for your script. Check their <a href="https://docs.python.org/3/howto/argparse.html">tutorial</a> for more information.</p>
 </div>
 </div>
-
-
 </section>
+</section>
+<section id="file-handling" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> File Handling</h1>
+<p>The key function to work with files in <code>open()</code>. It has two parameters <code>file</code> and <code>mode</code>.</p>
+<div id="b86b5aab" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the correct path for you!</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>fasta_file <span class="op">=</span> <span class="st">'exercise/data/example.fasta'</span> </span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">open</span>(fasta_file, mode <span class="op">=</span> <span class="st">'r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The modes can be one of the following:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 88%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mode</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>r</code></td>
+<td>Opens a file for reading, error if the file does not exist (default)</td>
+</tr>
+<tr class="even">
+<td><code>a</code></td>
+<td>Opens a file for appending, creates the file if it does not exist</td>
+</tr>
+<tr class="odd">
+<td><code>w</code></td>
+<td>Opens a file for writing, creates the file if it does not exist</td>
+</tr>
+<tr class="even">
+<td><code>x</code></td>
+<td>Creates the specified file, returns an error if the file exists</td>
+</tr>
+</tbody>
+</table>
+
+
 </section>
 
 </main> <!-- /main -->
