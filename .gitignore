@@ -1,4 +1,5 @@
 .DS_Store
 *.ipynb
-
+_book/
 /.quarto/
+exercise/script/__pycache__/
