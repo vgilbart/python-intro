@@ -1,0 +1,36 @@
+project:
+  type: book
+  execute-dir: project
+
+execute:
+  freeze: auto  # re-render only when source changes
+
+book:
+  title: "Python Introduction IMCBio"
+  author: 
+    - name: Valentine Gilbart
+      affiliations:
+        - name: Metzger Lab, IGBMC  
+  date: last-modified
+  repo-url: https://vgilbart.github.io/python-intro/
+  repo-branch: main
+  repo-actions: [edit, issue]
+  chapters:
+    - index.qmd
+    - lecture/lesson-1.qmd
+
+    - references.qmd
+
+bibliography: references.bib
+
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    number-sections: false
+  pdf:
+    documentclass: scrreprt
+
+output-dir: public
