@@ -19,6 +19,8 @@ book:
     - index.qmd
     - lecture/lesson-1.qmd
     - lecture/lesson-2.qmd
+    - lecture/lesson-3.qmd
+
     - references.qmd
 
 bibliography: references.bib

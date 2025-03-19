@@ -1,6 +1,6 @@
 
 ---
-title: "Lesson 2 - Functions, Errors, File Handling, Scientific Packages"
+title: "Lesson 2 - Functions, Scientific Packages"
 author: "Valentine Gilbart"
 date : last-modified
 format: 
@@ -29,10 +29,6 @@ At the end of this class, you will be able to:
 - Upload, modify and download files into Python 
 - Import packages (and use in a simple manner some scientific packages)
 
-## Requirements
-
-Remembering some of [lesson 1](../lecture/2024-lesson-1.html).
-
 # Function
 
 A function stores a piece of code that performs a certain task, and that gets run when called. It takes some data as input (parameters that are required or optional), and returns an output (that can be of any type). 
@@ -60,7 +56,7 @@ The next block of code, corresponding to the content of the function, must be in
 ```{python}
 def hello(name):
   """Presenting myself."""
-  presentation = "Hello, my name is {0}.".format(name)
+  presentation = f"Hello, my name is {name}."
   return presentation
 ```
 
@@ -86,10 +82,10 @@ You can have several arguments. They can be mandatory or optional. To make them 
 def hello(name, french = True):
   """Presenting myself."""
   if french:
-    presentation = "Bonjour, je m'appelle {0}."
+    presentation = f"Bonjour, je m'appelle {name}."
   else:
-    presentation = "Hello, my name is {0}."
-  return presentation.format(name)
+    presentation = f"Hello, my name is {name}."
+  return presentation
 ```
 
 The parameter `name`is mandatory, but `french` is optional.
@@ -123,7 +119,7 @@ If no `return` statement is given, then no output will be returned, but the func
 def hello(name):
   """Presenting myself."""
   print("We are inside the 'hello()' function.")
-  presentation = "Hello, my name is {0}.".format(name)
+  presentation = f"Hello, my name is {name}."
 ```
 
 ```{python}
@@ -218,6 +214,7 @@ You can install a package with `pip`. It should have been automatically installe
 
 ```{bash}
 #| eval: false
+
 # In Linux/MacOS
 python -m pip --version
 # In Windows
@@ -230,6 +227,7 @@ To install a package called pandas, you must run:
 
 ```{bash}
 #| eval: false
+
 # In Linux/MacOS
 python -m pip install pandas
 # In Windows
@@ -399,7 +397,7 @@ seq2    T  0.12
 6. Filter to remove values of seq1. 
 
 7. Recompute the mean value of frequencies per nucleotide.
-  
+
 :::
 
 ::: {.content-hidden unless-meta="solutions"}
