@@ -54,7 +54,7 @@
     "href": "lecture/lesson-1.html#why-use-python",
     "title": "Lesson 1 - Introduction, Data types, Operators",
     "section": "3.4 Why use Python?",
-    "text": "3.4 Why use Python?\n\nEasy-to-use and easy-to-read syntax\nLarge standard library for many applications (pandas for tables, matplotlib for graphs, scikit-learn for machine learning…)\nInteractive mode making it easy to test short snippets of code\nLarge community (stackoverflow)",
+    "text": "3.4 Why use Python?\n\nEasy-to-use and easy-to-read syntax\nLarge standard library for many applications (pandas for tables, matplotlib for graphs, scikit-learn for machine learning…)\nInteractive mode making it easy to test short snippets of code\nLarge community (stackoverflow)\n\n\n\n\n\n\n\n\n\nFigure 3.3: Just google (or ChatGPT/Copilot) it!",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
     ]
@@ -64,7 +64,7 @@
     "href": "lecture/lesson-1.html#how-can-i-program-in-python",
     "title": "Lesson 1 - Introduction, Data types, Operators",
     "section": "3.5 How can I program in Python?",
-    "text": "3.5 How can I program in Python?\nPython is an interpreted language, this means that all scripts written in Python need a software to be run. This software is called an interpreter, which “translate” each line of the code, into instructions that the computer can understand. By extension, the interpreter that is able to read Python scripts is also called Python. So, whenever you want your Python code to run, you give it to the Python interpreter.\n\n3.5.1 Interactive mode\nOne way to launch the Python interpreter is to type the following, on the command line of a terminal:\npython3\n\n\n\n\n\n\nNote\n\n\n\nYou can also try python, /usr/bin/env python3, /usr/bin/python3… There are many ways to call python!\nYou can see where your current python is located by running which python3.\n\n\nFrom this, you can start using python interactively, e.g. run:\n\nprint(\"Hello world\")\n\nHello world\n\n\nTo get out of the Python interpreter, type quit()or exit(), followed by enter. Alternatively, on Linux/Mac press [ctrl + d], on Windows press [ctrl + z].\n\n\n\n\n\n\nFigure 3.3: Interactive mode\n\n\n\n\n\n3.5.2 Script mode\nTo run a script, create a folder named script, in which a file named intro.py contains:\n\n#!/usr/bin/env python3\n# -*- coding: UTF-8 -*-\n\nprint(\"Hello world\")\n\nand run\n./script/intro.py\nYou should get the same output as before, that is:\n\n\nHello world\n\n\nThe shebang #! followed by the interpreter /usr/bin/env python3 can be put at the beginning of the script in order to ommit calling python3 in command-line. If you don’t put it, you will have to run python3 script/intro.py instead of simply ./script/intro.py.\nThe -*- coding: UTF-8 -*- specify the type of encoding to use. UTF-8 is used by default (which means that this line in the script is not necessary). This accepts characters from all languages. Other valid encoding are available, such as ascii (English characters only).\n\n\n\n\n\n\nWarning\n\n\n\nSome common errors can occur at this step:\n\nbash: script/intro.py: No such file or directory i.e. you are not in the right directory to run the file.\nSolution: run ls */ and make sure you can find script/: intro.py, if not go to the correct directory by running cd &lt;insert directory name here&gt;\nbash: script/intro.py: Permission denied i.e. you don’t have the right to execute your script.\nSolution: run ls -l script/intro.py and make sure you have at least -rwx (read, write, exectute rights) as the first 4 characters, if not run chmod 744 script/intro.py to change your rights.",
+    "text": "3.5 How can I program in Python?\nPython is an interpreted language, this means that all scripts written in Python need a software to be run. This software is called an interpreter, which “translate” each line of the code, into instructions that the computer can understand. By extension, the interpreter that is able to read Python scripts is also called Python. So, whenever you want your Python code to run, you give it to the Python interpreter.\n\n3.5.1 Interactive mode\nOne way to launch the Python interpreter is to type the following, on the command line of a terminal:\npython3\n\n\n\n\n\n\nNote\n\n\n\nYou can also try python, /usr/bin/env python3, /usr/bin/python3… There are many ways to call python!\nYou can see where your current python is located by running which python3.\n\n\nFrom this, you can start using python interactively, e.g. run:\n\nprint(\"Hello world\")\n\nHello world\n\n\nTo get out of the Python interpreter, type quit()or exit(), followed by enter. Alternatively, on Linux/Mac press [ctrl + d], on Windows press [ctrl + z].\n\n\n\n\n\n\nFigure 3.4: Interactive mode\n\n\n\n\n\n3.5.2 Script mode\nTo run a script, create a folder named script, in which a file named intro.py contains:\n\n#!/usr/bin/env python3\n# -*- coding: UTF-8 -*-\n\nprint(\"Hello world\")\n\nand run\n./script/intro.py\nYou should get the same output as before, that is:\n\n\nHello world\n\n\nThe shebang #! followed by the interpreter /usr/bin/env python3 can be put at the beginning of the script in order to ommit calling python3 in command-line. If you don’t put it, you will have to run python3 script/intro.py instead of simply ./script/intro.py.\nThe -*- coding: UTF-8 -*- specify the type of encoding to use. UTF-8 is used by default (which means that this line in the script is not necessary). This accepts characters from all languages. Other valid encoding are available, such as ascii (English characters only).\n\n\n\n\n\n\nWarning\n\n\n\nSome common errors can occur at this step:\n\nbash: script/intro.py: No such file or directory i.e. you are not in the right directory to run the file.\nSolution: run ls */ and make sure you can find script/: intro.py, if not go to the correct directory by running cd &lt;insert directory name here&gt;\nbash: script/intro.py: Permission denied i.e. you don’t have the right to execute your script.\nSolution: run ls -l script/intro.py and make sure you have at least -rwx (read, write, exectute rights) as the first 4 characters, if not run chmod 744 script/intro.py to change your rights.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
     ]
@@ -84,7 +84,7 @@
     "href": "lecture/lesson-1.html#function-calls",
     "title": "Lesson 1 - Introduction, Data types, Operators",
     "section": "4.2 Function calls",
-    "text": "4.2 Function calls\nA function stores a piece of code that performs a certain task, and that gets run when called. It takes some data as input (parameters that are required or optional), and returns an output (that can be of any type). Some functions are predefined (but we will also learn how to create our own later on).\nTo run a function, write its name followed by parenthesis. Parameters are added inside the parenthesis as follow:\n\n# round(number, ndigits=None)\nx = round(number = 5.76543, ndigits = 2)\nprint(x)\n\n5.77\n\n\nHere the function round() needs as input a numerical value. As an option, one can add the number of decimal places to be used with digits. If an option is not provided, a default value is given. In the case of the option ndigits, None is the default. The function returns a numerical value, that corresponds to the rounded value. This value, just like any other, can be stored in a variable.\nTo get more information about a function, use the help() function.\n\n\n\n\n\n\nNote\n\n\n\nIf you provide the parameters in the exact same order as they are defined, you don’t have to name them. If you name the parameters you can switch their order. As good practice, put all required parameters first.\n\nround(5.76543, 2) \n\n5.77\n\n\n\nround(ndigits = 2, number = 5.76543) \n\n5.77\n\n\n\n\nIn Table 4.1 you will find some basic but useful python functions:\n\n\n\nTable 4.1: List of useful Python functions.\n\n\n\n\n\nFunction\nDescription\n\n\n\n\nprint()\nPrint into the screen the values given in argument.\n\n\nhelp()\nExecute the built-in help system\n\n\nquit() or exit()\nExit from Python\n\n\nlen()\nReturn the length of an object\n\n\nround()\nRound a numbers",
+    "text": "4.2 Function calls\nA function stores a piece of code that performs a certain task, and that gets run when called. It takes some data as input (parameters that are required or optional), and returns an output (that can be of any type). Some functions are predefined (but we will also learn how to create our own later on).\nTo run a function, write its name followed by parenthesis. Parameters are added inside the parenthesis as follow:\n\n# round(number, ndigits=None)\nx = round(number = 5.76543, ndigits = 2)\nprint(x)\n\n5.77\n\n\nHere the function round() needs as input a numerical value. As an option, one can add the number of decimal places to be used with digits. If an option is not provided, a default value is given. In the case of the option ndigits, None is the default. The function returns a numerical value, that corresponds to the rounded value. This value, just like any other, can be stored in a variable.\nTo get more information about a function, use the help() function.\n\n\n\n\n\n\nNote\n\n\n\nIf you provide the parameters in the exact same order as they are defined, you don’t have to name them. If you name the parameters you can switch their order. As good practice, put all required parameters first.\n\nround(5.76543, 2) \n\n5.77\n\n\n\nround(ndigits = 2, number = 5.76543) \n\n5.77\n\n\n\n\nIn Table 7.1 you will find some basic but useful python functions:\n\n\n\nTable 4.1: List of useful Python functions.\n\n\n\n\n\nFunction\nDescription\n\n\n\n\nprint()\nPrint into the screen the values given in argument.\n\n\nhelp()\nExecute the built-in help system\n\n\nquit() or exit()\nExit from Python\n\n\nlen()\nReturn the length of an object\n\n\nround()\nRound a numbers",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
     ]
@@ -182,121 +182,328 @@
   {
     "objectID": "lecture/lesson-2.html",
     "href": "lecture/lesson-2.html",
-    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "title": "Lesson 2 - Functions, Scientific Packages",
     "section": "",
     "text": "4 Introduction",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Scientific Packages</span>"
     ]
   },
   {
     "objectID": "lecture/lesson-2.html#aim-of-the-class",
     "href": "lecture/lesson-2.html#aim-of-the-class",
-    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "title": "Lesson 2 - Functions, Scientific Packages",
     "section": "4.1 Aim of the class",
     "text": "4.1 Aim of the class\nAt the end of this class, you will be able to:\n\nCreate simple functions\nHandle some errors\nAsk for input from the user\nUpload, modify and download files into Python\nImport packages (and use in a simple manner some scientific packages)",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
-    ]
-  },
-  {
-    "objectID": "lecture/lesson-2.html#requirements",
-    "href": "lecture/lesson-2.html#requirements",
-    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
-    "section": "4.2 Requirements",
-    "text": "4.2 Requirements\nRemembering some of lesson 1.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Scientific Packages</span>"
     ]
   },
   {
     "objectID": "lecture/lesson-2.html#syntax",
     "href": "lecture/lesson-2.html#syntax",
-    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "title": "Lesson 2 - Functions, Scientific Packages",
     "section": "5.1 Syntax",
-    "text": "5.1 Syntax\nIn python, a function is declared with the keyword def followed by its name, and the arguments inside parenthesis. The next block of code, corresponding to the content of the function, must be indented. The output is defined by the return keyword.\n\ndef hello(name):\n  \"\"\"Presenting myself.\"\"\"\n  presentation = \"Hello, my name is {0}.\".format(name)\n  return presentation\n\n\ntext = hello(name = \"Valentine\")\nprint(text)\n\nHello, my name is Valentine.",
+    "text": "5.1 Syntax\nIn python, a function is declared with the keyword def followed by its name, and the arguments inside parenthesis. The next block of code, corresponding to the content of the function, must be indented. The output is defined by the return keyword.\n\ndef hello(name):\n  \"\"\"Presenting myself.\"\"\"\n  presentation = f\"Hello, my name is {name}.\"\n  return presentation\n\n\ntext = hello(name = \"Valentine\")\nprint(text)\n\nHello, my name is Valentine.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Scientific Packages</span>"
     ]
   },
   {
     "objectID": "lecture/lesson-2.html#documentation",
     "href": "lecture/lesson-2.html#documentation",
-    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "title": "Lesson 2 - Functions, Scientific Packages",
     "section": "5.2 Documentation",
     "text": "5.2 Documentation\nAs you may have noticed, you can also add a description of the function directly after the function definition. It is the message that will be shown when running help(). As it can be along text over multiple lines, it is common to put it inside triple quotes \"\"\".\n\nhelp(hello)\n\nHelp on function hello in module __main__:\n\nhello(name)\n    Presenting myself.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Scientific Packages</span>"
     ]
   },
   {
     "objectID": "lecture/lesson-2.html#arguments",
     "href": "lecture/lesson-2.html#arguments",
-    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "title": "Lesson 2 - Functions, Scientific Packages",
     "section": "5.3 Arguments",
-    "text": "5.3 Arguments\nYou can have several arguments. They can be mandatory or optional. To make them optional, they need to have a default value assigned inside the function definition, like so:\n\ndef hello(name, french = True):\n  \"\"\"Presenting myself.\"\"\"\n  if french:\n    presentation = \"Bonjour, je m'appelle {0}.\"\n  else:\n    presentation = \"Hello, my name is {0}.\"\n  return presentation.format(name)\n\nThe parameter nameis mandatory, but french is optional.\n\nhello(\"Valentine\")\n\n\"Bonjour, je m'appelle Valentine.\"\n\n\n\nhello(french = False)\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[8], line 1\n----&gt; 1 hello(french = False)\n\nTypeError: hello() missing 1 required positional argument: 'name'\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nReminder: if you provide the parameters in the exact same order as they are defined, you don’t have to name them. If you name the parameters you can switch their order. As good practice, put all required parameters first.\n\nhello(french = False, name = \"Valentine\")\n\n'Hello, my name is Valentine.'\n\n\n\nhello(\"Valentine\", False)\n\n'Hello, my name is Valentine.'",
+    "text": "5.3 Arguments\nYou can have several arguments. They can be mandatory or optional. To make them optional, they need to have a default value assigned inside the function definition, like so:\n\ndef hello(name, french = True):\n  \"\"\"Presenting myself.\"\"\"\n  if french:\n    presentation = f\"Bonjour, je m'appelle {name}.\"\n  else:\n    presentation = f\"Hello, my name is {name}.\"\n  return presentation\n\nThe parameter nameis mandatory, but french is optional.\n\nhello(\"Valentine\")\n\n\"Bonjour, je m'appelle Valentine.\"\n\n\n\nhello(french = False)\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[8], line 1\n----&gt; 1 hello(french = False)\n\nTypeError: hello() missing 1 required positional argument: 'name'\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nReminder: if you provide the parameters in the exact same order as they are defined, you don’t have to name them. If you name the parameters you can switch their order. As good practice, put all required parameters first.\n\nhello(french = False, name = \"Valentine\")\n\n'Hello, my name is Valentine.'\n\n\n\nhello(\"Valentine\", False)\n\n'Hello, my name is Valentine.'",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Scientific Packages</span>"
     ]
   },
   {
     "objectID": "lecture/lesson-2.html#output",
     "href": "lecture/lesson-2.html#output",
-    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "title": "Lesson 2 - Functions, Scientific Packages",
     "section": "5.4 Output",
-    "text": "5.4 Output\nIf no return statement is given, then no output will be returned, but the function will still be run.\n\ndef hello(name):\n  \"\"\"Presenting myself.\"\"\"\n  print(\"We are inside the 'hello()' function.\")\n  presentation = \"Hello, my name is {0}.\".format(name)\n\n\nprint(hello(\"Valentine\"))\n\nWe are inside the 'hello()' function.\nNone\n\n\nThe output can be of any type. If you have a lot of things to return, you might want to return a list or a dict for example.\n\ndef multiple_of_3(list_of_numbers):\n  \"\"\"Returns the number that are multiple of 3.\"\"\"\n  multiples = []\n  for num in list_of_numbers:\n    if num % 3 == 0:\n      multiples.append(num)\n  return multiples\n\nmultiple_of_3(range(1, 20, 2))\n\n[3, 9, 15]\n\n\n\n\n\n\n\n\nNote\n\n\n\nThis could be written as a one-liner.\n\ndef multiple_of_3(list_of_numbers):\n  \"\"\"Returns the number that are multiple of 3.\"\"\"\n  multiples = [num for num in list_of_numbers if num % 3 == 0]\n  return multiples\n\nmultiple_of_3(range(1, 20, 2))\n\n[3, 9, 15]",
+    "text": "5.4 Output\nIf no return statement is given, then no output will be returned, but the function will still be run.\n\ndef hello(name):\n  \"\"\"Presenting myself.\"\"\"\n  print(\"We are inside the 'hello()' function.\")\n  presentation = f\"Hello, my name is {name}.\"\n\n\nprint(hello(\"Valentine\"))\n\nWe are inside the 'hello()' function.\nNone\n\n\nThe output can be of any type. If you have a lot of things to return, you might want to return a list or a dict for example.\n\ndef multiple_of_3(list_of_numbers):\n  \"\"\"Returns the number that are multiple of 3.\"\"\"\n  multiples = []\n  for num in list_of_numbers:\n    if num % 3 == 0:\n      multiples.append(num)\n  return multiples\n\nmultiple_of_3(range(1, 20, 2))\n\n[3, 9, 15]\n\n\n\n\n\n\n\n\nNote\n\n\n\nThis could be written as a one-liner.\n\ndef multiple_of_3(list_of_numbers):\n  \"\"\"Returns the number that are multiple of 3.\"\"\"\n  multiples = [num for num in list_of_numbers if num % 3 == 0]\n  return multiples\n\nmultiple_of_3(range(1, 20, 2))\n\n[3, 9, 15]",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Scientific Packages</span>"
     ]
   },
   {
     "objectID": "lecture/lesson-2.html#exercise",
     "href": "lecture/lesson-2.html#exercise",
-    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "title": "Lesson 2 - Functions, Scientific Packages",
     "section": "5.5 Exercise",
-    "text": "5.5 Exercise\n\n\n\n\n\n\nExercise\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'A': 0.1, 'G': 0.4, 'C': 0.3, 'T': 0.2}\n\n\n\n\n\n\n\n\n\n\nSolutions\n\n\n\n\n\n\ndef nucl_freq(seq):\n  n = len(seq)\n  freq = dict()\n  for nucl in {\"A\", \"T\", \"C\", \"G\"}:\n    freq[nucl] = seq.count(nucl)/n\n  return freq \n\nnucl_freq(\"ATTCCCGGGG\")\n\n{'A': 0.1, 'G': 0.4, 'C': 0.3, 'T': 0.2}",
+    "text": "5.5 Exercise\n\n\n\n\n\n\nExercise\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'G': 0.4, 'A': 0.1, 'T': 0.2, 'C': 0.3}\n\n\n\n\n\n\n\n\n\n\nSolutions\n\n\n\n\n\n\ndef nucl_freq(seq):\n  n = len(seq)\n  freq = dict()\n  for nucl in {\"A\", \"T\", \"C\", \"G\"}:\n    freq[nucl] = seq.count(nucl)/n\n  return freq \n\nnucl_freq(\"ATTCCCGGGG\")\n\n{'G': 0.4, 'A': 0.1, 'T': 0.2, 'C': 0.3}",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Scientific Packages</span>"
     ]
   },
   {
     "objectID": "lecture/lesson-2.html#pandas",
     "href": "lecture/lesson-2.html#pandas",
-    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "title": "Lesson 2 - Functions, Scientific Packages",
     "section": "6.1 Pandas",
     "text": "6.1 Pandas\nPandas is a package used to work with data sets, in order to easily clean, manipulate, explore and analyze data.\n\n6.1.1 Create pandas data\nPandas provides two types of classes for handling data:\n\nSeries: a one-dimensional labeled array holding data of any type such as integers or strings. It is like a column in a table.\n\n\n# If nothing else is specified, the values are labeled with their index number (starting from `0`).\nmyseries = pandas.Series([1, 7, 2], index = [\"x\", \"y\", \"z\"])\nprint(myseries)\n\nx    1\ny    7\nz    2\ndtype: int64\n\n\n\nDataFrame: a two-dimensional data structure that holds data like a two-dimension array or a table with rows and columns. It is like a table.\n\n\ndata = {\n  \"calories\": [420, 380, 390],\n  \"duration\": [50, 40, 45]\n} \n\ndf = pandas.DataFrame(data)\n\nprint(df) \n\n   calories  duration\n0       420        50\n1       380        40\n2       390        45\n\n\nYou can also create a DataFrame from a file.\n\n# Make sure this is the correct path for you! You are in the directory from where you execute the script.\ndf = pandas.read_csv('exercise/data/sample.csv')\n\nprint(df)\n\n    Gene  Expression_Level Tissue\n0  GeneA               8.7  Heart\n1  GeneB               3.2  Heart\n2  GeneA               7.0  Brain\n3  GeneB              10.2  Brain\n4  GeneA               6.6  Liver\n5  GeneB               7.6  Liver\n\n\nYou get access to the index and column names with:\n\ndf.columns\ndf.index\n\nRangeIndex(start=0, stop=6, step=1)\n\n\nYou can rename index and column names:\n\ndf = df.rename(index={0: 'a', 1: 'b', 2: 'c', 3: 'd', 4: 'e', 5 : 'f'})\n\ndf.index\n\nIndex(['a', 'b', 'c', 'd', 'e', 'f'], dtype='object')\n\n\nYou can select rows:\n\n# Select one row by its label\nprint(df.loc[['a']]) \n# Select one row by its index\nprint(df.iloc[[0]]) \n\n# Select several rows by labels\nprint(df.loc[['a','c']])\n# Select one row by index\nprint(df.iloc[[0,2]]) \n\n    Gene  Expression_Level Tissue\na  GeneA               8.7  Heart\n    Gene  Expression_Level Tissue\na  GeneA               8.7  Heart\n    Gene  Expression_Level Tissue\na  GeneA               8.7  Heart\nc  GeneA               7.0  Brain\n    Gene  Expression_Level Tissue\na  GeneA               8.7  Heart\nc  GeneA               7.0  Brain\n\n\nYou can select columns:\n\n# Select one column by label\ndf['Tissue'] # Series\ndf[['Tissue']] # DataFrame\n\n# Select several columns\ndf[['Gene','Expression_Level']]\n\n# Select several columns by index \ndf.iloc[:,[0,1]]\n\n\n\n\n\n\n\n\nGene\nExpression_Level\n\n\n\n\na\nGeneA\n8.7\n\n\nb\nGeneB\n3.2\n\n\nc\nGeneA\n7.0\n\n\nd\nGeneB\n10.2\n\n\ne\nGeneA\n6.6\n\n\nf\nGeneB\n7.6\n\n\n\n\n\n\n\nYou can select rows and columns as follows:\n\ndf.loc[['b'], ['Gene','Expression_Level']]\n\n\n\n\n\n\n\n\nGene\nExpression_Level\n\n\n\n\nb\nGeneB\n3.2\n\n\n\n\n\n\n\nYou can filter based on a condition as follows:\n\ndf[df['Expression_Level'] &gt; 6]\n\n\n\n\n\n\n\n\nGene\nExpression_Level\nTissue\n\n\n\n\na\nGeneA\n8.7\nHeart\n\n\nc\nGeneA\n7.0\nBrain\n\n\nd\nGeneB\n10.2\nBrain\n\n\ne\nGeneA\n6.6\nLiver\n\n\nf\nGeneB\n7.6\nLiver\n\n\n\n\n\n\n\n\n\n6.1.2 Useful methods\nTo explore the data set, use the following methods:\n\ndf.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nIndex: 6 entries, a to f\nData columns (total 3 columns):\n #   Column            Non-Null Count  Dtype  \n---  ------            --------------  -----  \n 0   Gene              6 non-null      object \n 1   Expression_Level  6 non-null      float64\n 2   Tissue            6 non-null      object \ndtypes: float64(1), object(2)\nmemory usage: 364.0+ bytes\n\n\n\ndf.describe()\n\n\n\n\n\n\n\n\nExpression_Level\n\n\n\n\ncount\n6.000000\n\n\nmean\n7.216667\n\n\nstd\n2.358319\n\n\nmin\n3.200000\n\n\n25%\n6.700000\n\n\n50%\n7.300000\n\n\n75%\n8.425000\n\n\nmax\n10.200000\n\n\n\n\n\n\n\n\ndf.head()\n\n\n\n\n\n\n\n\nGene\nExpression_Level\nTissue\n\n\n\n\na\nGeneA\n8.7\nHeart\n\n\nb\nGeneB\n3.2\nHeart\n\n\nc\nGeneA\n7.0\nBrain\n\n\nd\nGeneB\n10.2\nBrain\n\n\ne\nGeneA\n6.6\nLiver\n\n\n\n\n\n\n\n\ndf.sort_values(by=\"Gene\")\n\n\n\n\n\n\n\n\nGene\nExpression_Level\nTissue\n\n\n\n\na\nGeneA\n8.7\nHeart\n\n\nc\nGeneA\n7.0\nBrain\n\n\ne\nGeneA\n6.6\nLiver\n\n\nb\nGeneB\n3.2\nHeart\n\n\nd\nGeneB\n10.2\nBrain\n\n\nf\nGeneB\n7.6\nLiver\n\n\n\n\n\n\n\n\ndf['Expression_Level'].mean()\n\ndf.groupby(\"Gene\")[['Expression_Level']].mean()\n\n\n\n\n\n\n\n\nExpression_Level\n\n\nGene\n\n\n\n\n\nGeneA\n7.433333\n\n\nGeneB\n7.000000\n\n\n\n\n\n\n\n\n\n6.1.3 Learn More\nTo get more information on how to use pandas, check out:\n\nthe documentation\nthe cheat sheet\nany useful tutorial\n\n\n\n6.1.4 Exercise\n\n\n\n\n\n\nExercise\n\n\n\n\nCreate a pandas DataFrame from the file containing the frequency of each nucleotide per sequences (exercise/data/example.txt).\nMake sure that df.index contains the name of the sequences, and df.columns contains the nucleotides.\nUse pandas.melt() (see the doc) to get the data in the following format:\n\n    nucl  freq\nSeq            \nseq1    A  0.46\nseq2    A  0.20\nseq3    A  0.16\nseq4    A  0.18\nseq5    A  0.26\nseq1    T  0.22\nseq2    T  0.12\n...\n\nGet the mean value of all nucleotide frequencies.\nGet the mean value of frequencies per nucleotide.\nFilter to remove values of seq1.\nRecompute the mean value of frequencies per nucleotide.\n\n\n\n\n\n\n\n\n\nSolutions\n\n\n\n\n\n\nimport pandas\n\n# 1. \ndf = pandas.read_csv('exercise/data/example.txt', index_col=0, sep=' ')\n\n# 2. \ndf.index\ndf.columns\n\n# 3.\ndf = pandas.melt(df, var_name='nucl', value_name='freq', ignore_index=False)\n\n# 4.\ndf['freq'].mean()\n\n# 5.\ndf.groupby(\"nucl\")[['freq']].mean()\n\n# 6. \ndf = df[df.index != \"seq1\"]\n\n# 7.\ndf.groupby(\"nucl\")[['freq']].mean()\n\n\n\n\n\n\n\n\nfreq\n\n\nnucl\n\n\n\n\n\nA\n0.200\n\n\nC\n0.270\n\n\nG\n0.285\n\n\nT\n0.245",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Scientific Packages</span>"
     ]
   },
   {
     "objectID": "lecture/lesson-2.html#matplotlib",
     "href": "lecture/lesson-2.html#matplotlib",
-    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "title": "Lesson 2 - Functions, Scientific Packages",
     "section": "6.2 Matplotlib",
     "text": "6.2 Matplotlib\nMatplotlib is a package to create visualizations in Python widely used in science.\nTo shorten the name of the package when we call its functions, we can import it as follows:\n\nimport matplotlib.pyplot as plt\n\ndf = pandas.read_csv('exercise/data/sample.csv')\n\n# The data for GeneA and GeneB is extracted from the DataFrame 'df'\nserieA = df[df['Gene'] == 'GeneA']['Expression_Level']\nserieB = df[df['Gene'] == 'GeneB']['Expression_Level']\n\n# Create a new figure \nfig = plt.figure()\n\n# Create a boxplot showing the expression levels of GeneA and GeneB\nplt.boxplot([serieA, serieB], # List of series\n            labels=['GeneA', 'GeneB'])\n\n# Set the label for the x-axis\nplt.xlabel('Gene')\n# Set the label for the y-axis\nplt.ylabel('Expression Level')\n# Set the title of the plot\nplt.title('Expression of Genes in Different Tissues')\n# Display the boxplot\nplt.show()\n# Save the plot as a PNG file with a resolution of 300 dots per inch (dpi)\n# The file will be saved in the specified location \nfig.savefig('exercise/data/my-figure.png', dpi=300)\n\n\n\n\n\n\n\n\nThe following code is equivalent.\n\n# Create a new figure \nfig, ax = plt.subplots(1, figsize=(5, 4))\n\nax.boxplot([serieA, serieB], # List of series\n            labels=['GeneA', 'GeneB'])\nax.set_xlabel('Gene')\nax.set_ylabel('Expression Level')\nax.set_title('Expression of Genes in Different Tissues')\nax.legend()\nplt.show()\n\n# Save the plot as a PNG file with a resolution of 300 dots per inch (dpi)\n# The file will be saved in the specified location \nfig.savefig('exercise/data/my-figure-2.png', dpi=300)\n\nNo artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe first way of plotting is function-oriented, and the second is object-oriented. You might encounter both styles of coding.\n\n\n\n\n\nAnatomy of a matplotlib plot\n\n\nMany visualizations are available (static, animated, interactive). For more information, check out:\n\nthe documentation\nthe cheat sheet\nany useful tutorial\nsome inspiration",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Scientific Packages</span>"
     ]
   },
   {
     "objectID": "lecture/lesson-2.html#exercise-2",
     "href": "lecture/lesson-2.html#exercise-2",
-    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "title": "Lesson 2 - Functions, Scientific Packages",
     "section": "6.3 Exercise",
     "text": "6.3 Exercise\n\n\n\n\n\n\nExercise\n\n\n\nCreate a script that gets nucleotide frequency data from a file in the format of exercise/data/example.txt, and visualizes it using Matplotlib and Pandas.\nYour script should read the data, create a stacked bar chart showing the nucleotide frequencies for each sequence, and label the axes appropriately. Here’s the expected plot:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolutions\n\n\n\n\n\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# Create a DataFrame from the given data\ndf = pd.read_csv('exercise/data/example.txt', index_col=0, sep=' ')\n\n# Plot the data\nfig, ax = plt.subplots(1, figsize=(5, 6))\n\nbottom = pd.Series([0,0,0,0,0], index = df.index) \nfor col in df.columns:\n    ax.bar(df.index, df[col], label=col, bottom=bottom)\n    bottom += df[col]\n\n# Add labels and legend\nax.set_xlabel('Sequences')\nax.set_ylabel('Frequency')\nax.legend(title='Nucleotides', bbox_to_anchor=(0, 1),\n          loc='lower left', ncols=4)\nplt.show()\n\nor also,\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# Create a DataFrame from the given data\ndf = pd.read_csv('exercise/data/example.txt', index_col=0, sep=' ')\n\n# Plot the data\ndf.plot(kind='bar', stacked=True)\nplt.xlabel('Sequences')\nplt.ylabel('Frequency')\nplt.legend(title='Nucleotides', bbox_to_anchor=(0, 1),\n          loc='lower left', ncols=4)\n\nplt.show()",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Scientific Packages</span>"
     ]
   },
   {
     "objectID": "lecture/lesson-2.html#more-packages",
     "href": "lecture/lesson-2.html#more-packages",
-    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "title": "Lesson 2 - Functions, Scientific Packages",
     "section": "6.4 More packages",
     "text": "6.4 More packages\nThere are MANY packages available, here’s a short list of some that might interest you:\n\n\n\nPackage\nUsage\nExample of usage\n\n\n\n\nBioPython\nComputational molecular biology\n Sequence handling, access to NCBI databases\n\n\nNumPy\nNumerical arrays\nData manipulation, mathematical operations, linear algebra\n\n\nSeaborn\nHigh-level interface for drawing plots\nData visualization, statistical graphics\n\n\nHTSeq\nHigh throughput sequencing\n Quality and coverage, counting reads, read alignment\n\n\nScanpy\nSingle-Cell Analysis\nPreprocessing, visualization, clustering\n\n\nSciPy\nMathematical algorithms\nClustering, ODE, Fourier Transforms\n\n\nScikit-image\nImage processing\nImage enhancement, segmentation, feature extraction\n\n\nScikit-learn\nMachine learning\nClassification, regression, clustering, dimensionality reduction\n\n\nTensorFlow and PyTorch\nDeep learning\nNeural networks, natural language processing, computer vision",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Scientific Packages</span>"
+    ]
+  },
+  {
+    "objectID": "lecture/lesson-3.html",
+    "href": "lecture/lesson-3.html",
+    "title": "Lesson 3 - Jupyter Notebook",
+    "section": "",
+    "text": "5 Introduction",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lesson 3 - Jupyter Notebook</span>"
+    ]
+  },
+  {
+    "objectID": "lecture/lesson-3.html#aim-of-the-class",
+    "href": "lecture/lesson-3.html#aim-of-the-class",
+    "title": "Lesson 3 - Jupyter Notebook",
+    "section": "5.1 Aim of the class",
+    "text": "5.1 Aim of the class\nThis last class is to pratice the notions learned on a couple of (larger) exercises.\n\n\n\n\n\n\n\n\nFigure 5.1: pssssss\n\n\n\nThe exercises have one provided solution, but it is not the only one. We all have a different coding style, and it evolves with time. So do not worry if you have a different solution, as long as your result is correct, that’s already great!",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lesson 3 - Jupyter Notebook</span>"
+    ]
+  },
+  {
+    "objectID": "lecture/lesson-3.html#requirements",
+    "href": "lecture/lesson-3.html#requirements",
+    "title": "Lesson 3 - Jupyter Notebook",
+    "section": "5.2 Requirements",
+    "text": "5.2 Requirements\nRemembering some of lesson 1 and 2.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Lesson 3 - Jupyter Notebook</span>"
+    ]
+  },
+  {
+    "objectID": "archive/2024-lesson-1.html",
+    "href": "archive/2024-lesson-1.html",
+    "title": "Lesson 1 - Introduction, Data types, Operators",
+    "section": "",
+    "text": "6 Introduction",
+    "crumbs": [
+      "Archive",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
+    ]
+  },
+  {
+    "objectID": "archive/2024-lesson-1.html#aim-of-the-class",
+    "href": "archive/2024-lesson-1.html#aim-of-the-class",
+    "title": "Lesson 1 - Introduction, Data types, Operators",
+    "section": "6.1 Aim of the class",
+    "text": "6.1 Aim of the class\nAt the end of this class, you will:\n\nBe familiar with the Python environment\nUnderstand the major data types in Python\nManipulate variables with operators and built-in functions\n\n\n\n\n\n\n\n\n\nFigure 6.1: Python logo",
+    "crumbs": [
+      "Archive",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
+    ]
+  },
+  {
+    "objectID": "archive/2024-lesson-1.html#requirements",
+    "href": "archive/2024-lesson-1.html#requirements",
+    "title": "Lesson 1 - Introduction, Data types, Operators",
+    "section": "6.2 Requirements",
+    "text": "6.2 Requirements\nYou need to have a computer, and either:\n\ninstall Python 3.0.0 (or above) and install a text editor (Word is not a text editor!).\n\n\n\n\n\n\n\nNote\n\n\n\nAn IDE (integrated development environment) is an improved text editor. It is a software that provides functionalities like syntax highlighting, auto completion, help, debugger… For example Visual Studio Code (install and learn how to use it with Python), but any other IDE will work.\n\n\n\nhave a github account, create a new codespace, and select the Repository vgilbart/python-intro to copy from. This is a free solution up to 60 hours of computing and 15 GB per month.",
+    "crumbs": [
+      "Archive",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
+    ]
+  },
+  {
+    "objectID": "archive/2024-lesson-1.html#what-is-python",
+    "href": "archive/2024-lesson-1.html#what-is-python",
+    "title": "Lesson 1 - Introduction, Data types, Operators",
+    "section": "6.3 What is Python?",
+    "text": "6.3 What is Python?\nPython is a programming language first released in 1991 and implemented by Guido van Rossum.\n\n\n\n\n\n\n\n\nFigure 6.2: Guido van Rossum\n\n\n\nIt is widely used, with various applications, such as:\n\nsoftware development\nweb development\ndata analysis\n…\n\nIt supports different types of programming paradigms (i.e. way of thinking) including the procedural programming paradigm. In this approach, the program moves through a linear series of instructions.\n\n# Create a string seq\nseq = 'ATGAAGGGTCC'\n# Call the function len() to retrieve the length of the string\nsize = len(seq)\n# Call the function print() to print a text\nprint('The sequence has', size, 'bases.')\n\nThe sequence has 11 bases.",
+    "crumbs": [
+      "Archive",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
+    ]
+  },
+  {
+    "objectID": "archive/2024-lesson-1.html#why-use-python",
+    "href": "archive/2024-lesson-1.html#why-use-python",
+    "title": "Lesson 1 - Introduction, Data types, Operators",
+    "section": "6.4 Why use Python?",
+    "text": "6.4 Why use Python?\n\nEasy-to-use and easy-to-read syntax\nLarge standard library for many applications (numpy for tables/matrices, matplotlib for graphs, scikit-learn for machine learning…)\nInteractive mode making it easy to test short snippets of code\nLarge community (stackoverflow)\n\n\n\n\n\n\n\n\n\nFigure 6.3: Just google it!",
+    "crumbs": [
+      "Archive",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
+    ]
+  },
+  {
+    "objectID": "archive/2024-lesson-1.html#how-can-i-program-in-python",
+    "href": "archive/2024-lesson-1.html#how-can-i-program-in-python",
+    "title": "Lesson 1 - Introduction, Data types, Operators",
+    "section": "6.5 How can I program in Python?",
+    "text": "6.5 How can I program in Python?\nPython is an interpreted language, this means that all scripts written in Python need a software to be run. This software is called an interpreter, which “translate” each line of the code, into instructions that the computer can understand. By extension, the interpreter that is able to read Python scripts is also called Python. So, whenever you want your Python code to run, you give it to the Python interpreter.\n\n6.5.1 Interactive mode\nOne way to launch the Python interpreter is to type the following, on the command line of a terminal:\npython3\n\n\n\n\n\n\nNote\n\n\n\nYou can also try python, /usr/bin/env python3, /usr/bin/python3… There are many ways to call python!\nYou can see where your current python is located by running which python3.\n\n\nFrom this, you can start using python interactively, e.g. run:\n\nprint(\"Hello world\")\n\nHello world\n\n\nTo get out of the Python interpreter, type quit()or exit(), followed by enter. Alternatively, on Linux/Mac press [ctrl + d], on Windows press [ctrl + z].\n\n\n\n\n\n\nFigure 6.4: Interactive mode\n\n\n\n\n\n6.5.2 Script mode\nTo run a script, create a folder named script, in which a file named intro.py contains:\n\n#!/usr/bin/env python3\n# -*- coding: UTF-8 -*-\n\nprint(\"Hello world\")\n\nand run\n./script/intro.py\nYou should get the same output as before, that is:\n\n\nHello world\n\n\nThe shebang #! followed by the interpreter /usr/bin/env python3 can be put at the beginning of the script in order to ommit calling python3 in command-line. If you don’t put it, you will have to run python3 script/intro.py instead of simply ./script/intro.py.\nThe -*- coding: UTF-8 -*- specify the type of encoding to use. UTF-8 is used by default (which means that this line in the script is not necessary). This accepts characters from all languages. Other valid encoding are available, such as ascii (English characters only).\n\n\n\n\n\n\nWarning\n\n\n\nSome common errors can occur at this step:\n\nbash: script/intro.py: No such file or directory i.e. you are not in the right directory to run the file.\nSolution: run ls */ and make sure you can find script/: intro.py, if not go to the correct directory by running cd &lt;insert directory name here&gt;\nbash: script/intro.py: Permission denied i.e. you don’t have the right to execute your script.\nSolution: run ls -l script/intro.py and make sure you have at least -rwx (read, write, exectute rights) as the first 4 characters, if not run chmod 744 script/intro.py to change your rights.",
+    "crumbs": [
+      "Archive",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
+    ]
+  },
+  {
+    "objectID": "archive/2024-lesson-1.html#values-and-variables",
+    "href": "archive/2024-lesson-1.html#values-and-variables",
+    "title": "Lesson 1 - Introduction, Data types, Operators",
+    "section": "7.1 Values and variables",
+    "text": "7.1 Values and variables\nYou will manipulate values such as integers, characters or dictionaries. These values can be stored in memory using variables. To assign a value to a variable, use the = operator as follow:\n\nseq = 'ATGAAGGGTCC'\n\nTo output the variable value, either type the variable name or use a function like print():\n\nseq \n\n'ATGAAGGGTCC'\n\n\n\nprint(seq)\n\nATGAAGGGTCC\n\n\nWe can change a variable value by assigning it a new one:\n\nseq = seq + 'AAAA' # The + operator can be used to concatenate strings\nseq\n\n'ATGAAGGGTCCAAAA'\n\n\nA variable can have a short name (like x and y) or a more descriptive name (seq, motif, genome_file). Rules for Python variable names:\n\nmust start with a letter or the underscore character\ncannot start with a number\ncan only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )\nare case-sensitive (seq, Seq and SEQ are three different variables)\ncannot be any of the Python keywords (run help('keywords') to find the list of keywords).\n\n\n\n\n\n\n\nExercise\n\n\n\nAre the following variables names legal?\n\n2_sequences\n_sequence\nseq-2\nseq 2\n\nYou can try to assign a value to these variable names to be sure of your answer!",
+    "crumbs": [
+      "Archive",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
+    ]
+  },
+  {
+    "objectID": "archive/2024-lesson-1.html#function-calls",
+    "href": "archive/2024-lesson-1.html#function-calls",
+    "title": "Lesson 1 - Introduction, Data types, Operators",
+    "section": "7.2 Function calls",
+    "text": "7.2 Function calls\nA function stores a piece of code that performs a certain task, and that gets run when called. It takes some data as input (parameters that are required or optional), and returns an output (that can be of any type). Some functions are predefined (but we will also learn how to create our own later on).\nTo run a function, write its name followed by parenthesis. Parameters are added inside the parenthesis as follow:\n\n# round(number, ndigits=None)\nx = round(number = 5.76543, ndigits = 2)\nprint(x)\n\n5.77\n\n\nHere the function round() needs as input a numerical value. As an option, one can add the number of decimal places to be used with digits. If an option is not provided, a default value is given. In the case of the option ndigits, None is the default. The function returns a numerical value, that corresponds to the rounded value. This value, just like any other, can be stored in a variable.\nTo get more information about a function, use the help() function.\n\n\n\n\n\n\nNote\n\n\n\nIf you provide the parameters in the exact same order as they are defined, you don’t have to name them. If you name the parameters you can switch their order. As good practice, put all required parameters first.\n\nround(5.76543, 2) \n\n5.77\n\n\n\nround(ndigits = 2, number = 5.76543) \n\n5.77\n\n\n\n\nIn Table 7.1 you will find some basic but useful python functions:\n\n\n\nTable 7.1: List of useful Python functions.\n\n\n\n\n\nFunction\nDescription\n\n\n\n\nprint()\nPrint into the screen the values given in argument.\n\n\nhelp()\nExecute the built-in help system\n\n\nquit() or exit()\nExit from Python\n\n\nlen()\nReturn the length of an object\n\n\nround()\nRound a numbers\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nIn python, you will also hear about methods. This vocabulary belongs to a programming paradigm called “Object-oriented programming” (OOP).\nA method is a function that belongs to a specific class of objects. It is defined within a class and operates only on objects from that class. Methods can access and modify the object’s state.",
+    "crumbs": [
+      "Archive",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
+    ]
+  },
+  {
+    "objectID": "archive/2024-lesson-1.html#getting-help",
+    "href": "archive/2024-lesson-1.html#getting-help",
+    "title": "Lesson 1 - Introduction, Data types, Operators",
+    "section": "7.3 Getting help",
+    "text": "7.3 Getting help\nTo get more information about a function or an operator, you can use the help() function. For example, in interactive mode, run help(print) to display the help of the print() function, giving you information about the input and output of this function. If you need information about an operator, you will have to put it into quotes, e.g. help('+')\n\n\n\n\n\n\nBrowse the help\n\n\n\nIf the help is long, press [enter] to get the next line or [space] to get the next ‘page’ of information.\nTo quit the help, press q.",
+    "crumbs": [
+      "Archive",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
+    ]
+  },
+  {
+    "objectID": "archive/2024-lesson-1.html#comment-your-code",
+    "href": "archive/2024-lesson-1.html#comment-your-code",
+    "title": "Lesson 1 - Introduction, Data types, Operators",
+    "section": "7.4 Comment your code",
+    "text": "7.4 Comment your code\nExcept for the shebang and coding specifications seen before, all things after a hashtag # character will be ignored by the interpreter until the end of the line. This is used to add comments in your code.\nComments are used to:\n\nexplain assumptions\njustify decisions in the code\nexpose the problem being solved\ninactivate a line to help debug\n…",
+    "crumbs": [
+      "Archive",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
+    ]
+  },
+  {
+    "objectID": "archive/2024-lesson-1.html#simple-data-types",
+    "href": "archive/2024-lesson-1.html#simple-data-types",
+    "title": "Lesson 1 - Introduction, Data types, Operators",
+    "section": "8.1 Simple data types",
+    "text": "8.1 Simple data types\n\n8.1.1 Boolean\nBooleans represent one of two values: True or False.\nWhen you compare two values, the expression is evaluated and Python returns the Boolean answer:\n\nprint(10 &gt; 9)\n\nTrue\n\n\n\n\n8.1.2 Numeric\nPython provides three kinds of numerical type:\n\nint (\\(\\mathbb{Z}\\)), integers\nfloat (\\(\\mathbb{R}\\)), real numbers\ncomplex (\\(\\mathbb{C}\\)), complex numbers\n\nPython will assign a numerical type automatically.\n\nx = 1    \ny = 2.8 \nz = 1j + 2 # j is the convention in electrical engineering\n\n\ntype(x)\n\nint\n\n\n\ntype(y)\n\nfloat\n\n\n\ntype(z)\n\ncomplex\n\n\n\n\n8.1.3 Text\nString type represents textual data composed of letters, numbers, and symbols. The character string must be expressed between quotes.\n\n\"\"\"my string\"\"\"\n'''my string'''\n\"my string\"\n'my string'\n\nare all the same thing. The difference with triple quotes is that it allows a string to extend over multiple lines. You can also use single quotes and double quotes freely within the triple quotes.\n\n# A multi-line string\nmy_str = '''This is a multi-line string. This is the first line.\nThis is the second line.\n\"What's your name?,\" I asked.\nHe said \"Bond, James Bond.\"\n'''\n\nprint(my_str)\n\nThis is a multi-line string. This is the first line.\nThis is the second line.\n\"What's your name?,\" I asked.\nHe said \"Bond, James Bond.\"\n\n\n\nYou can get the number of characters inside a string with len().\n\nprint(seq)\nlen(seq)\n\nATGAAGGGTCCAAAA\n\n\n15\n\n\nStrings have specific methods (i.e. functions specific to this class of object). Here are a few:\n\n\n\n\n\n\n\nMethod\nDescription\n\n\n\n\n.count()\nReturns the number of times a specified value occurs in a string\n\n\n .startswith()\n Returns true if the string starts with the specified value\n\n\n .endswith()\n Returns true if the string ends with the specified value\n\n\n .find()\n Searches the string for a specified value and returns the position of where it was found\n\n\n .replace()\n Returns a string where a specified value is replaced with a specified value\n\n\n\nThey are called like this:\n\nseq.count('A')\n\n7\n\n\n\n\n\n\n\n\nTip\n\n\n\nTo get the help() of the .count() method, you need to run help(str.count).\n\n\n\n\n\n\n\n\nExercise\n\n\n\n\nCheck if the sequence seq starts with the codon ATG\nReplace all T into U in seq",
+    "crumbs": [
+      "Archive",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
+    ]
+  },
+  {
+    "objectID": "archive/2024-lesson-1.html#data-structures",
+    "href": "archive/2024-lesson-1.html#data-structures",
+    "title": "Lesson 1 - Introduction, Data types, Operators",
+    "section": "8.2 Data structures",
+    "text": "8.2 Data structures\nData structures are a collection of data types and/or data structures, organized in some way.\n\n8.2.1 List\nList is a collection which is ordered and changeable. It allows duplicate members. They are created using square brackets [].\n\nseq = ['ATGAAGGGTCCAAAA', 'AGTCCCCGTATGAT', 'ACCT', 'ACCT']\n\nList items are indexed, the first item has index [0], the second item has index [1] etc.\n\nseq[1]\n\n'AGTCCCCGTATGAT'\n\n\n\n\n\n\n\n\nTip\n\n\n\nYou can count backwards, with the index [-1] that retrieves the last item.\n\n\nAs a list is changeable, we can change, add, and remove items in a list after it has been created.\n\nseq[1] = 'ATG'\nseq\n\n['ATGAAGGGTCCAAAA', 'ATG', 'ACCT', 'ACCT']\n\n\nYou can specify a range of indexes by specifying the start (included) and the end (not included) of the range.\n\nseq[0:2]\n\n['ATGAAGGGTCCAAAA', 'ATG']\n\n\n\n\n\n\n\n\nTip\n\n\n\nBy leaving out the start value, the range will start at the first item:\n\nseq[:2]\n\n['ATGAAGGGTCCAAAA', 'ATG']\n\n\nSimilarly, by leaving out the end value, the range will end at the last item.\n\n\n\n\n\n\n\n\nNote\n\n\n\nIndexes also conveniently work on str types.\n\nprint(seq[0])\nprint(seq[0][0:5]) \nprint(seq[0][2]) \nprint(seq[0][-1]) \n\nATGAAGGGTCCAAAA\nATGAA\nG\nA\n\n\n\n\nYou can get how many items are in a list with len().\n\nlen(seq)\n\n4\n\n\nLists have specific methods. Here are a few:\n\n\n\nMethod\nDescription\n\n\n\n\n.append()\nInserts an item at the end\n\n\n .insert()\n Inserts an item at the specified index\n\n\n .extend()\n Append elements from another list to the current list\n\n\n .remove()\n Removes the first occurance of a specified item\n\n\n .pop()\n Removes the specified (by default last) index\n\n\n\n\n\n\n\n\n\nExercise\n\n\n\n\nCreate a list l = ['AAA', 'AAT', 'AAC'], and add AAG at the end, using .append().\nReplace all T into U in the element AAT, using .replace().\n\n\n\n\n\n8.2.2 Tuple\nTuple is a collection which is ordered and unchangeable. It allows duplicate members. Tuples are written with round brackets ().\n\nmy_favorite_amino_acid = ('Y', 'Tyr', 'Tyrosine')\n\nJust like for the list, you can get items with their index. The only difference is that you cannot change a tuple that has been created.\nTuples have specific methods. Here are a few:\n\n\n\n\n\n\n\nMethod\nDescription\n\n\n\n\n .count()\n Returns the number of times a specified value occurs\n\n\n .index()\n Searches for a specified value and returns the position of where it was found\n\n\n\n\n\n\n\n\n\nExercise\n\n\n\nTry to change the value of the first element of my_favorite_amino_acid and see what happens.\n\n\n\n\n8.2.3 Set\nSet is a collection which is unordered and unindexed. It does not allow duplicate members (they will be ignored). Sets are written with curly brackets {}.\n\nseq = {'BRCA1', 'TP53', 'EGFR', 'MYC'}\n\nOnce a set is created, you cannot change its items directly (as they don’t have index), but you modify the set by removing and adding items.\nSets have specific methods. Here are a few:\n\n\n\n\n\n\n\nMethod\nDescription\n\n\n\n\n.add()\nAdds an element to the set\n\n\n .difference()\n  Returns a set containing the difference between two sets\n\n\n .intersection()\n  Returns a set containing the intersection between two sets\n\n\n .union()\n  Returns a set containing the union of two sets\n\n\n .remove()\n Remove the specified item\n\n\n .pop()\n Removes a random element\n\n\n\n\n\n\n\n\n\nExercise\n\n\n\nGet the common genes between the following sets:\n\norganism1_genes = {'BRCA1', 'TP53', 'EGFR', 'MYC'}\norganism2_genes = {'TP53', 'MYC', 'KRAS', 'BRAF'}\n\n\n\n\n\n8.2.4 Dictionary\nDictionaries are used to store data values in key: value pairs. A dictionary is a collection which is ordered (as of Python &gt;= 3.7), changeable and does not allow duplicates keys. Dictionaries are written with curly brackets {}, with keys and values.\n\norganism1_genes = {\n  #key: value;\n  'BRCA1': 'DNA repair', \n  'TP53': 'Tumor suppressor', \n  'EGFR': 'Cell growth', \n  'MYC': 'Regulation of gene expression'\n}\n\nDictionary items can be referred to by using the key name.\n\norganism1_genes[\"BRCA1\"]\n\n'DNA repair'\n\n\nDictionaries have specific methods. Here are a few:\n\n\n\n\n\n\n\nMethod\nDescription\n\n\n\n\n.items()\nReturns a list containing a tuple for each key value pair\n\n\n.keys()\nReturns a list containing the dictionary’s keys\n\n\n.values()\nReturns a list of all the values in the dictionary\n\n\n.pop()\nRemoves the element with the specified key\n\n\n.get()\nReturns the value of the specified key\n\n\n\n\n\n\n\n\n\nExercise\n\n\n\nFrom the dictionary organism1_genes created as example, get the value of the key BRCA1. If the key does not exist, return Unknown by default. Try your code before and after removing the BRCA1 key:value pair.\nCheck the help of get by running help(dict.get).",
+    "crumbs": [
+      "Archive",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
+    ]
+  },
+  {
+    "objectID": "archive/2024-lesson-1.html#conversion-between-types",
+    "href": "archive/2024-lesson-1.html#conversion-between-types",
+    "title": "Lesson 1 - Introduction, Data types, Operators",
+    "section": "8.3 Conversion between types",
+    "text": "8.3 Conversion between types\nYou can get the data type of any object by using the function type(). You can (more or less easily) convert between data types.\n\n\n\n\n\n\n\nFunction\nDescription\n\n\n\n\nbool()\nConvert to boolean type\n\n\nint(), float()\nConvert between integer or float types\n\n\ncomplex()\nConvert to complex type\n\n\nstr()\nConvert to string type\n\n\nlist(), tuple(), set()\nConvert between list, tuple, and set types\n\n\ndict()\nConvert a tuple of order (key, value) into a dictionary type\n\n\n\n\nbool(1)\n\nTrue\n\n\n\nint(5.8) \n\n5\n\n\n\nstr(1)\n\n'1'\n\n\n\nlist({1, 2, 3})\n\n[1, 2, 3]\n\n\n\nset([1, 2, 3, 3])\n\n{1, 2, 3}\n\n\n\ndict((('a', 1), \n      ('f', 2), \n      ('g', 3)))\n\n{'a': 1, 'f': 2, 'g': 3}",
+    "crumbs": [
+      "Archive",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
+    ]
+  },
+  {
+    "objectID": "archive/2024-lesson-1.html#operators",
+    "href": "archive/2024-lesson-1.html#operators",
+    "title": "Lesson 1 - Introduction, Data types, Operators",
+    "section": "9.1 Operators",
+    "text": "9.1 Operators\nOperators are used to perform operations on variables and values. We will present a few common ones here.\n\n9.1.1 Arithmetic operators\nArithmetic operators are used with numeric values to perform common mathematical operations:\n\n\n\nOperator\nName\n\n\n\n\n+\nAddition\n\n\n-\nSubstraction\n\n\n*\nMultiplication\n\n\n/\nDivision\n\n\n**\nPower\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nDo not use the ^ operator to raise to a power. That is actually the operator for bitwise XOR, which we will not cover.\n\n\nPython will convert data type according to what is necessary. Thus, when you divide two int you will obtain a float number, if you add a float to an int, you will get a float, …\n\n# Example\n2/10\n\n0.2\n\n\n\n\n\n\n\n\nNote\n\n\n\n+ also conveniently work on str types.\n\n'AC' + 'AT'\n\n'ACAT'\n\n\n\n\n\n\n9.1.2 Assignment operators\nAssignment operators are used to assign values to variables:\n\n\n\nOperator\nExample as\nSame as\n\n\n\n\n=\nx = 5\nx = 5\n\n\n+=\nx += 5\nx = x + 5\n\n\n-=\nx -= 5\nx = x - 5\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe same principle applies to multiplication, division and power, but are less commonly used.\n\n\n\n\n9.1.3 Comparison operators\nComparison operators are used to compare two values:\n\n\n\nOperator\nName\n\n\n\n\n==\nEqual\n\n\n!=\nNot equal\n\n\n&gt;\nGreater than\n\n\n&gt;=\nGreater than or equal to\n\n\n&lt;\nLess than\n\n\n&lt;=\nLess than or equal to\n\n\n\n\n# Example\n2 == 1 + 1\n\nTrue\n\n\n\n\n\n\n\n\nWarning\n\n\n\nYou should never use equalty operators (==or !=) with floats or complex values.\n\n# Example\n2.1 + 3.2 == 5.3\n\nFalse\n\n\nThis is a floating point arithmetic problem seen in other programming languages. It is due to the difficulty of having a fixed number of binary digits (bits) to accurately represent some decimal number. This leads to small rounding errors in calculations.\n\n2.1 + 3.2 \n\n5.300000000000001\n\n\nIf you need to use equalty operators, do it with a degree of freedom:\n\ntol = 1e-6 ; abs((2.1 + 3.2) - 5.3) &lt; tol\n\nTrue\n\n\n\n\n\n\n9.1.4 Logical operators\nLogical operators are used to combine conditional statements:\n\n\n\nOperator\nDescription\n\n\n\n\nand\nReturns True if both statements are true\n\n\nor\nReturns True if one of the statements is true\n\n\nnot\nReverse the result, returns False if the result is true\n\n\n\n\n# Example \nFalse and False, False and True, True and False, True and True\n\n(False, False, False, True)\n\n\n\n# Example \nFalse or False, False or True, True or False, True or True\n\n(False, True, True, True)\n\n\n\n# Example \nTrue or not True\n\nTrue\n\n\n\n\n9.1.5 Membership operators\n\n\n\n\n\n\n\nOperator\nDescription\n\n\n\n\nin\nReturns True if a sequence with the specified value is present in the object\n\n\nnot in\nReturns True if a sequence with the specified value is not present in the object\n\n\n\n\n# Example \n'ACCT' in seq\n\nFalse\n\n\n\n\n9.1.6 Operator precedence\nOperator precedence describes the order in which operations are performed.\nThe precedence order is described in the table below, starting with the highest precedence at the top:\n\n\n\n\n\n\n\nOperator\nDescription\n\n\n\n\n()\nParenthesis\n\n\n**\nPower\n\n\n* /\nMultiplication, division\n\n\n+ -\nAddition, substraction\n\n\n==,!=,&gt;,&gt;=,&lt;,&lt;=,is,is not,in,not in,\nComparisons, identity, and membership operators\n\n\nnot\nLogical NOT\n\n\nand\nAND\n\n\nor\nOR\n\n\n\nIf two operators have the same precedence, the expression is evaluated from left to right.\n\n\n\n\n\n\nExercise\n\n\n\nTry to guess what will output the following expressions:\n\n1+1 == 2 and \"actg\" == \"ACTG\"\nTrue or False and True and False\n\"Homo sapiens\" == \"Homo\" + \"sapiens\"\n'Tumor suppressor' in organism1_genes\n\nVerify with Python.",
+    "crumbs": [
+      "Archive",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
+    ]
+  },
+  {
+    "objectID": "archive/2024-lesson-1.html#conditionals",
+    "href": "archive/2024-lesson-1.html#conditionals",
+    "title": "Lesson 1 - Introduction, Data types, Operators",
+    "section": "9.2 Conditionals",
+    "text": "9.2 Conditionals\nConditionals allows you to make decisions in your code based on certain conditions.\nif something is true:\n    do task a\notherwise:\n    do task b\nThe comparison (==, !=, &gt;, &gt;=, &lt;, &lt;=), logical (and, or, not) and membership (in, not in) operators can be used as conditions.\nIn Python, this is written with an if ... elif ... else statement like so:\n\n# Define gene expression levels\ngene1_expression = 100\ngene2_expression = 50\n\n# Analyze gene expression levels\nif gene1_expression &gt; gene2_expression:\n  print(\"Gene 1 has higher expression level.\")\nelif gene1_expression &lt; gene2_expression:\n  print(\"Gene 2 has higher expression level.\")\nelse:\n  print(\"Gene 1 and Gene 2 have the same expression level.\")\n\nGene 1 has higher expression level.\n\n\nThe elif keyword is Python’s way of saying “if the previous conditions were not true, then try this condition”. The following code is equivalent to the one before:\n\n# Analyze gene expression levels\nif gene1_expression &gt; gene2_expression:\n  print(\"Gene 1 has higher expression level.\")\nelse:\n  if gene1_expression &lt; gene2_expression:\n    print(\"Gene 2 has higher expression level.\")\n  else:\n    print(\"Gene 1 and Gene 2 have the same expression level.\")\n\nGene 1 has higher expression level.\n\n\n\n\n\n\n\n\nExercise\n\n\n\nAre these two codes equivalent?\n\n# Code A\nif \"ATG\" in dna_sequence:\n  print(\"Start codon found.\")  \nelif \"TAG\" in dna_sequence:\n  print(\"Stop codon found.\")  \nelse:\n  print(\"No interesting codon not found.\") \n\n\n# Code B\nif \"ATG\" in dna_sequence:\n  print(\"Start codon found.\")  \n  if \"TAG\" in dna_sequence:\n    print(\"Stop codon found.\")  \nelse:\n  print(\"No interesting codon not found.\") \n\n\n\nAn if statement cannot be empty, but if for some reason you have an if statement with no content, put in the pass statement to avoid getting an error.\n\na = 33\nb = 200\n\nif b &gt; a:\n  pass",
+    "crumbs": [
+      "Archive",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
+    ]
+  },
+  {
+    "objectID": "archive/2024-lesson-1.html#notes-on-indentation",
+    "href": "archive/2024-lesson-1.html#notes-on-indentation",
+    "title": "Lesson 1 - Introduction, Data types, Operators",
+    "section": "9.3 Notes on indentation",
+    "text": "9.3 Notes on indentation\n\n\n\n\n\n\nNote\n\n\n\nPython relies on indentation (the spaces at the beginning of the lines).\n\n\nIndentation is not just for readability. In Python, you use spaces or tabs to indent code blocks. Python uses it to determine the scope of functions, loops, conditional statements, and classes.\nAny code that is at the same level of indentation is considered part of the same block. Blocks of code are typically defined by starting a line with a colon (:) and then indenting the following lines.\nWhen you have nested structures like a conditional statement inside another conditional statement, you must further to show the hierarchy. Each level of indentation represents a deeper level of nesting.\nIt’s essential to be consistent with your indentation throughout your code. Mixing tabs and spaces can lead to errors, so it’s recommended to choose one and stick with it.\n\n\n\n\n\n\nExercise\n\n\n\nHere are three codes, they all are incorrect, can you tell why?\nOf course, you can run them and read the error that Python gives!\n\namino_acid_list = [\"MET\", \"ARG\", \"THR\", \"GLY\"]\n\nif \"MET\" in amino_acid_list:\n  print(\"Start codon found.\") \n  if \"GLY\" in amino_acid_list:\n    print(\"Glycine found.\")  \nelse:\nprint(\"Start codon not found.\")\n\n\ndna_sequence = \"ATGCTAGCTAGCTAG\"\n\nif \"ATG\" in dna_sequence:\n  print(\"Start codon found.\")  \nif \"TAG\" in dna_sequence\n  print(\"Stop codon found.\")  \n\n\nx = 7\n\nif x &gt; 5:\n  print(\"x is greater than 5\")  \n  if y &gt; 10:\n    print(\"x is greater than 10\")  \n  elif y = 10: \n    print(\"x equals 10\") \n  else:\n    print(\"x is less than 10\")",
+    "crumbs": [
+      "Archive",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
+    ]
+  },
+  {
+    "objectID": "archive/2024-lesson-1.html#iterations",
+    "href": "archive/2024-lesson-1.html#iterations",
+    "title": "Lesson 1 - Introduction, Data types, Operators",
+    "section": "9.4 Iterations",
+    "text": "9.4 Iterations\nIteration involves repeating a set of instructions or a block of code multiple times.\nThere are two types of loops in python, for and while.\nIterating through data structures like lists allows you to access each element individually, making it easier to perform operations on them.\n\n9.4.1 For loops\nWhen using a for loop, you iterate over a sequence of elements, such as a list, tuple, or dictionary.\nfor item in data_structure:\n    do task a\nThe loop will execute the indented block of code for each element in the sequence until all elements have been processed. This is particularly useful when you know the number of times you need to iterate.\n\nall_codons = [\n    'AAA', 'AAC', 'AAG', 'AAT',\n    'ACA', 'ACC', 'ACG', 'ACT',\n    'AGA', 'AGC', 'AGG', 'AGT',\n    'ATA', 'ATC', 'ATG', 'ATT',\n    'CAA', 'CAC', 'CAG', 'CAT',\n    'CCA', 'CCC', 'CCG', 'CCT',\n    'CGA', 'CGC', 'CGG', 'CGT',\n    'CTA', 'CTC', 'CTG', 'CTT',\n    'GAA', 'GAC', 'GAG', 'GAT',\n    'GCA', 'GCC', 'GCG', 'GCT',\n    'GGA', 'GGC', 'GGG', 'GGT',\n    'GTA', 'GTC', 'GTG', 'GTT',\n    'TAA', 'TAC', 'TAG', 'TAT',\n    'TCA', 'TCC', 'TCG', 'TCT',\n    'TGA', 'TGC', 'TGG', 'TGT',\n    'TTA', 'TTC', 'TTG', 'TTT'\n]\n\ncount = 0\nfor codon in all_codons: \n  if codon[1] == 'T':\n    count += 1\n\nprint(count, 'codons have a T as a second nucleotide.')\n\n16 codons have a T as a second nucleotide.\n\n\nWhat it does is the following: it processes each element in the list all_codons, called in the following code codon. If the codon has as a second character a T, it adds 1 to a counter (the variable called count).\n\n\n\n\n\n\nWarning\n\n\n\nYou cannot modify an element of a list that way.\n\nfor codon in all_codons: \n  if 'T' in codon :\n    codon = codon.replace('T', 'U')\n\nprint(all_codons)\n\n['AAA', 'AAC', 'AAG', 'AAT', 'ACA', 'ACC', 'ACG', 'ACT', 'AGA', 'AGC', 'AGG', 'AGT', 'ATA', 'ATC', 'ATG', 'ATT', 'CAA', 'CAC', 'CAG', 'CAT', 'CCA', 'CCC', 'CCG', 'CCT', 'CGA', 'CGC', 'CGG', 'CGT', 'CTA', 'CTC', 'CTG', 'CTT', 'GAA', 'GAC', 'GAG', 'GAT', 'GCA', 'GCC', 'GCG', 'GCT', 'GGA', 'GGC', 'GGG', 'GGT', 'GTA', 'GTC', 'GTG', 'GTT', 'TAA', 'TAC', 'TAG', 'TAT', 'TCA', 'TCC', 'TCG', 'TCT', 'TGA', 'TGC', 'TGG', 'TGT', 'TTA', 'TTC', 'TTG', 'TTT']\n\n\nThis is because all_codons was converted to an iterator in the for statement.\n\n\n\n\n9.4.2 Iterators\nAn iterator is a special object that gives values in succession.\nIn the previous example, the iterator returns a copy of the item in a list, not a reference to it. Therefore, the codon inside the for block is not a view into the original list, and changing it does not do anything.\nA way to modify the list would be to use an iterable to access the original data. The range(start, stop) function creates an iterable to count from one integer to another.\n\nfor i in range(2, 10):\n    print(i, end='  ')\n\n2  3  4  5  6  7  8  9  \n\n\nWe could count from 0 to the size of the list, loop though every element of the list by calling them by their index, and modify them if necessary. That’s what the following code does:\n\nfor i in range(0, len(all_codons)): \n  if 'T' in all_codons[i] :\n    all_codons[i] = all_codons[i].replace('T', 'U')\n\nprint(all_codons)\n\n['AAA', 'AAC', 'AAG', 'AAU', 'ACA', 'ACC', 'ACG', 'ACU', 'AGA', 'AGC', 'AGG', 'AGU', 'AUA', 'AUC', 'AUG', 'AUU', 'CAA', 'CAC', 'CAG', 'CAU', 'CCA', 'CCC', 'CCG', 'CCU', 'CGA', 'CGC', 'CGG', 'CGU', 'CUA', 'CUC', 'CUG', 'CUU', 'GAA', 'GAC', 'GAG', 'GAU', 'GCA', 'GCC', 'GCG', 'GCU', 'GGA', 'GGC', 'GGG', 'GGU', 'GUA', 'GUC', 'GUG', 'GUU', 'UAA', 'UAC', 'UAG', 'UAU', 'UCA', 'UCC', 'UCG', 'UCU', 'UGA', 'UGC', 'UGG', 'UGU', 'UUA', 'UUC', 'UUG', 'UUU']\n\n\nAnother useful function that returns an iterator is enumerate(). It is an iterator that generates pairs of index and value. It is commonly used when you need to access both the index and value of items simultaneously.\n\nseq = 'ATGCATGC'\n\n# Print index and identity of bases\nfor i, base in enumerate(seq):\n    print(i, base)\n\n0 A\n1 T\n2 G\n3 C\n4 A\n5 T\n6 G\n7 C\n\n\n\n# Loop through sequence and print index of G's\nfor i, base in enumerate(seq):\n    if base in 'G':\n        print(i, end='  ')\n\n2  6  \n\n\n\n\n9.4.3 While loops\nA while loop continues executing a set of statement as long as a condition is true.\nwhile condition is true:\n    do task a\nThis type of loop is handy when you’re not sure how many iterations you’ll need to perform or when you need to repeat a block of code until a certain condition is met.\n\nseq = 'TACTCTGTCGATCGTACGTATGCAAGCTGATGCATGATTGACTTCAGTATCGAGCGCAGCA'\nstart_codon = 'ATG'\n\n# Initialize sequence index\ni = 0\n# Scan sequence until we hit the start codon\nwhile seq[i:i+3] != start_codon:\n  i += 1\n\n# Show the result\nprint('The start codon begins at index', i)\n\nThe start codon begins at index 19\n\n\n\n\n\n\n\n\nWarning\n\n\n\nRemember to increment i, or you’ll get stuck in a loop.\n\n\n\n\n\n\n\n\n\n\nFigure 9.1: Hopefully not you!\n\n\n\nActually, the previous code is quite dangerous. You can also get stuck in a loop… if the start_codon does not appear in seq at all.\nIndeed, even when you go above the given length of seq, the condition seq[i:i+3] != start_codon will still be true because seq[i:i+3] will output an empty string.\n\nseq[9999:9999+3]\n\n''\n\n\nSo, once the end of the sequence is reached, the condition seq[i:i+3] != start_codon will always be true, and you’ll get stuck in an infinite loop.\n\n\n\n\n\n\nNote\n\n\n\nTo get interrupt a process, press [ctrl + c].\n\n\n\n\n9.4.4 Break statement\nIteration stops in a for loop when the iterator is exhausted. It stops in a while loop when the conditional evaluates to False. There is another way to stop iteration: the break keyword. Whenever break is encountered in a for or while loop, the iteration stops and execution continues outside the loop.\n\nseq = 'ACCATTTTTTGGGGGGGCGGGGGGAGGGGGGG'\nstart_codon = 'ATG'\n\n# Initialize sequence index\ni = 0\n# Scan sequence until we hit the start codon\nwhile seq[i:i+3] != start_codon:\n  i += 1\n  if i+3 &gt; len(seq): # Get out of the loop if we parsed the full seq \n    print('Codon not found in sequence.')\n    break\nelse:\n  print('The start codon starts at index', i)\n\nCodon not found in sequence.\n\n\n\n\n\n\n\n\nNote\n\n\n\nAlso, note that the else statement can be used in for and while loops. In for loops it is executed when the loop is finished. In while loops, it is executed when the condition is no longer true. In both case, the loops need to not encounter a break to enter in the else block.\n\n\n\n\n9.4.5 Continue statement\nIn addition to the break statement, there is also the continue statement in Python that can be used to alter the flow of iteration in loops. When continue is encountered within a loop, it skips the remaining code inside the loop for the current iteration and moves on to the next iteration.\nHere’s an example showcasing the continue statement in a loop:\n\n# List of DNA sequences\ndna_sequences = ['ATGCTAGCTAG', 'ATCGATCGATC', 'ATGGCTAGCTA', 'ATGTAGCTAGC']\n\n# Find sequences starting with a start codon\nfor sequence in dna_sequences:\n    if sequence[:3] != 'ATG':  # Check if the sequence does not start with a start codon\n        print(f\"Sequence '{sequence}' does not start with a start codon. Skipping analysis.\")\n        continue  # Skip further analysis for this sequence\n    print(f\"Analyzing sequence '{sequence}' for protein coding regions...\")\n    # Additional analysis code here\nelse:\n  print('All sequences were processed.')\n\nAnalyzing sequence 'ATGCTAGCTAG' for protein coding regions...\nSequence 'ATCGATCGATC' does not start with a start codon. Skipping analysis.\nAnalyzing sequence 'ATGGCTAGCTA' for protein coding regions...\nAnalyzing sequence 'ATGTAGCTAGC' for protein coding regions...\nAll sequences were processed.\n\n\nThe continue statement in this example skips the analysis code for sequence that does not start with a start codon.\n\n\n9.4.6 Exercises\n\n\n\n\n\n\nExercise 1\n\n\n\nGiven a list of DNA sequences, find the first sequence that contains a specific motif 'TATA', print the sequence, and stop the process. If no sequence contains the motif, print a message accordingly. You must use only one for loop.\nWith the input given below, the output should look like this:\n\n# List of DNA sequences with a TATA\ndna_sequences = [\n'ATGCTACAGCTAG', \n'ATCGATATAATC', # TATA\n'ATGGCTAGCTA', \n'ATGTAGCTAGC', \n'ATGTAGCTATA'   # TATA\n] \n\nfor ...\n  # Your code here\n\n\n\nSequence 'ATCGATATAATC' contains the 'TATA' motif.\n\n\n\n# List of DNA sequences without a TATA\ndna_sequences = [\n'ATGCTACAGCTAG', \n'ATCGATACAATC', \n'ATGGCTAGCTA', \n'ATGTAGCTAGC'\n]\n\nfor ...\n  # Your code here\n\n\n\nNo sequence contains the 'TATA' motif.\n\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\nAnalyze a DNA sequence to count the number of consecutive 'A' nucleotides. You must use only one while loop.\nWith the input given below, the output should look like this:\n\n# DNA sequence to analyze\ndna_sequence = 'ATGATAAGAGAAAGTAAAAGCGATCGAAAAAA'\n\nwhile ...\n  # Your code here\n\n\n\nNumber of consecutive 'A's: 6",
+    "crumbs": [
+      "Archive",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
     ]
   }
 ]
