@@ -28,7 +28,7 @@ At the end of this class, you will be able to:
 
 ## Requirements
 
-Remembering some of [lesson 1](../lecture/2024-lesson-1.html).
+Remembering some of [lesson 1](../archive/2024-lesson-1.html).
 
 # Function
 
@@ -469,7 +469,7 @@ It has two parameters `file` and `mode`.
 
 ```{python}
 # Write the correct path for you!
-fasta_file = '../exercise/data/example.fasta' 
+fasta_file = 'exercise/data/example.fasta' 
 f = open(fasta_file, mode = 'r')
 ```
 
@@ -551,7 +551,7 @@ Then, the method `write()` can be used.
 
 ```{python}
 #| output: asis
-txt_file = "../exercise/data/some_file.txt"
+txt_file = "exercise/data/some_file.txt"
 f = open(txt_file, "w")
 f.write("Woops! I have deleted the content!\n")
 f.close()
@@ -595,6 +595,14 @@ import os
 print("Current working directory:", os.getcwd()) 
 os.chdir('../') 
 print("Current working directory:", os.getcwd()) 
+```
+
+```{python}
+#| echo: false
+#| output: false
+#| warning: false 
+
+os.chdir('python-intro') 
 ```
 
 Here are some useful functions from the `os` package. 
@@ -877,8 +885,10 @@ print(df)
 
 You can also create a DataFrame from a file.
 ```{python}
+#| eval: false
+
 # Make sure this is the correct path for you! You are in the directory from where you execute the script.
-df = pandas.read_csv('../exercise/data/sample.csv')
+df = pandas.read_csv('exercise/data/sample.csv')
 
 print(df)
 ```
@@ -886,12 +896,16 @@ print(df)
 You get access to the index and column names with: 
 
 ```{python}
+#| eval: false
+
 df.columns
 df.index
 ```
 
 You can rename index and column names:
 ```{python}
+#| eval: false
+
 df = df.rename(index={0: 'a', 1: 'b', 2: 'c', 3: 'd', 4: 'e', 5 : 'f'})
 
 df.index
@@ -899,6 +913,8 @@ df.index
 
 You can select rows:
 ```{python}
+#| eval: false
+
 # Select one row by its label
 print(df.loc[['a']]) 
 # Select one row by its index
@@ -912,6 +928,8 @@ print(df.iloc[[0,2]])
 
 You can select columns:
 ```{python}
+#| eval: false
+
 # Select one column by label
 df['Tissue'] # Series
 df[['Tissue']] # DataFrame
@@ -925,11 +943,15 @@ df.iloc[:,[0,1]]
 
 You can select rows and columns as follows:
 ```{python}
+#| eval: false
+
 df.loc[['b'], ['Gene','Expression_Level']]
 ```
 
 You can filter based on a condition as follows: 
 ```{python}
+#| eval: false
+
 df[df['Expression_Level'] > 6]
 ```
 
@@ -938,21 +960,33 @@ df[df['Expression_Level'] > 6]
 
 To explore the data set, use the following methods:
 ```{python}
+#| eval: false
+
 df.info()
 ```
 
 ```{python}
+#| eval: false
+
 df.describe()
 ```
 
 ```{python}
+#| eval: false
+
 df.head()
 ```
 ```{python}
+#| eval: false
+
+#| eval: false
+
 df.sort_values(by="Gene")
 ```
 
 ```{python}
+#| eval: false
+
 df['Expression_Level'].mean()
 
 df.groupby("Gene")[['Expression_Level']].mean()
@@ -1006,10 +1040,12 @@ seq2    T  0.12
 
 
 ```{python}
+#| eval: false
+
 import pandas
 
 # 1. 
-df = pandas.read_csv('../exercise/data/example.txt', index_col=0, sep=' ')
+df = pandas.read_csv('exercise/data/example.txt', index_col=0, sep=' ')
 
 # 2. 
 df.index
@@ -1041,9 +1077,11 @@ Matplotlib is a package to create visualizations in Python widely used in scienc
 
 To shorten the name of the package when we call its functions, we can import it as follows:
 ```{python}
+#| eval: false
+
 import matplotlib.pyplot as plt
 
-df = pandas.read_csv('../exercise/data/sample.csv')
+df = pandas.read_csv('exercise/data/sample.csv')
 
 # The data for GeneA and GeneB is extracted from the DataFrame 'df'
 serieA = df[df['Gene'] == 'GeneA']['Expression_Level']
@@ -1066,11 +1104,13 @@ plt.title('Expression of Genes in Different Tissues')
 plt.show()
 # Save the plot as a PNG file with a resolution of 300 dots per inch (dpi)
 # The file will be saved in the specified location 
-fig.savefig('../exercise/data/my-figure.png', dpi=300)
+fig.savefig('exercise/data/my-figure.png', dpi=300)
 ```
 
 The following code is equivalent. 
 ```{python}
+#| eval: false
+
 # Create a new figure 
 fig, ax = plt.subplots(1, figsize=(5, 4))
 
@@ -1084,7 +1124,7 @@ plt.show()
 
 # Save the plot as a PNG file with a resolution of 300 dots per inch (dpi)
 # The file will be saved in the specified location 
-fig.savefig('../exercise/data/my-figure-2.png', dpi=300)
+fig.savefig('exercise/data/my-figure-2.png', dpi=300)
 ```
 
 ::: {.callout-note} 
@@ -1092,7 +1132,7 @@ The first way of plotting is function-oriented, and the second is object-oriente
 You might encounter both styles of coding. 
 :::
 
-![Anatomy of a matplotlib plot](img/matplotlib.webp)
+![Anatomy of a matplotlib plot](img/matplotlib.png)
 
 Many visualizations are available (static, animated, interactive). For more information, check out: 
 
@@ -1111,13 +1151,14 @@ Your script should read the data, create a stacked bar chart showing the nucleot
 Here's the expected plot:
 
 ```{python}
+#| eval: false
 #| echo: false
 
 import pandas as pd
 import matplotlib.pyplot as plt
 
 # Create a DataFrame from the given data
-df = pd.read_csv('../exercise/data/example.txt', index_col=0, sep=' ')
+df = pd.read_csv('exercise/data/example.txt', index_col=0, sep=' ')
 
 # Plot the data
 fig, ax = plt.subplots(1, figsize=(5, 6))
@@ -1148,7 +1189,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Create a DataFrame from the given data
-df = pd.read_csv('../exercise/data/example.txt', index_col=0, sep=' ')
+df = pd.read_csv('exercise/data/example.txt', index_col=0, sep=' ')
 
 # Plot the data
 fig, ax = plt.subplots(1, figsize=(5, 6))
@@ -1169,11 +1210,13 @@ plt.show()
 or also, 
 
 ```{python}
+#| eval: false
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
 # Create a DataFrame from the given data
-df = pd.read_csv('../exercise/data/example.txt', index_col=0, sep=' ')
+df = pd.read_csv('exercise/data/example.txt', index_col=0, sep=' ')
 
 # Plot the data
 df.plot(kind='bar', stacked=True)

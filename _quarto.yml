@@ -12,7 +12,7 @@ book:
       affiliations:
         - name: Metzger Lab, IGBMC  
   date: last-modified
-  repo-url: https://vgilbart.github.io/python-intro/
+  repo-url: https://github.com/vgilbart/python-intro
   repo-branch: gh-pages
   repo-actions: [edit, issue]
   chapters:
@@ -20,7 +20,11 @@ book:
     - lecture/lesson-1.qmd
     - lecture/lesson-2.qmd
     - lecture/lesson-3.qmd
-
+    - part: "Archive 2024"
+      chapters: 
+        - archive/2024-lesson-1.qmd
+        - archive/2024-lesson-2.qmd
+        - archive/2024-lesson-3.qmd
     - references.qmd
 
 bibliography: references.bib

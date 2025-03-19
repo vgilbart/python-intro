@@ -79,7 +79,7 @@ print('The sequence has', size, 'bases.')
 - Large community ([stackoverflow](https://stackoverflow.com/questions/tagged/Python))
 
 ::: {.column-margin}
-![Just google it!](img/googling.webp){#fig-googling width=100%}
+![Just google it!](img/googling.png){#fig-googling width=100%}
 :::
 
 

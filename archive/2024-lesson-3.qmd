@@ -28,7 +28,7 @@ The exercises have one provided solution, but it is not the only one. We all hav
 
 ## Requirements
 
-Remembering some of [lesson 1](../lecture/2024-lesson-1.html) and [2](../lecture/2024-lesson-2.html).
+Remembering some of [lesson 1](../archive/2024-lesson-1.html) and [2](../archive/2024-lesson-2.html).
 
 # Conway's Game of Life (basic)
 
@@ -125,7 +125,7 @@ Here's an example of input, and the desired output:
 
 import sys
 
-sys.path.append( '../exercise/script' )
+sys.path.append( 'exercise/script' )
 from conway_life_basic import * 
 ```
 
@@ -192,8 +192,7 @@ Create another implementation of Conway's Game of Life, with the following chara
 - use pandas (or numpy as there it is only numerical data) to deal with the matrix
 - use matplotlib to plot each generation, and create a final gif
 
-![Example of a final gif generated from the same universe matrix as the one from basic implementation](img/game_of_life.gif)
-
+[Example of a final gif generated from the same universe matrix as the one from basic implementation](img/game_of_life.gif)
 
 # Solutions
 
