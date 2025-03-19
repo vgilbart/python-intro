@@ -14,7 +14,7 @@
     "href": "lecture/lesson-1.html",
     "title": "Lesson 1 - Introduction, Data types, Operators",
     "section": "",
-    "text": "3 Introduction\nimport os\nos.getcwd()\n\n'/home/runner/work/python-intro/python-intro'",
+    "text": "3 Introduction\nimport os\nos.getcwd()\nos.listdir() \n\n['archive',\n '_quarto.yml',\n 'index.qmd',\n 'index.html',\n '.git',\n 'README.md',\n '.quarto',\n '_book',\n 'requirements.txt',\n 'site_libs',\n '.gitignore',\n '_freeze',\n '.devcontainer',\n '.github',\n 'exercise',\n 'lecture',\n 'references.bib',\n 'references.qmd']",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
     ]
