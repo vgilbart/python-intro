@@ -14,7 +14,7 @@
     "href": "lecture/lesson-1.html",
     "title": "Lesson 1 - Introduction, Data types, Operators",
     "section": "",
-    "text": "3 Introduction\nimport os\nos.getcwd()\nos.listdir() \n\n['archive',\n '_quarto.yml',\n 'index.qmd',\n 'index.html',\n '.git',\n 'README.md',\n '.quarto',\n '_book',\n 'requirements.txt',\n 'site_libs',\n '.gitignore',\n '_freeze',\n '.devcontainer',\n '.github',\n 'exercise',\n 'lecture',\n 'references.bib',\n 'references.qmd']",
+    "text": "3 Introduction",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
     ]
@@ -177,6 +177,146 @@
     "text": "6.4 Iterations\nIteration involves repeating a set of instructions or a block of code multiple times.\nThere are two types of loops in python, for and while.\nIterating through data structures like lists allows you to access each element individually, making it easier to perform operations on them.\n\n6.4.1 For loops\nWhen using a for loop, you iterate over a sequence of elements, such as a list, tuple, or dictionary.\nfor item in data_structure:\n    do task a\nThe loop will execute the indented block of code for each element in the sequence until all elements have been processed. This is particularly useful when you know the number of times you need to iterate.\n\nall_codons = [\n    'AAA', 'AAC', 'AAG', 'AAT',\n    'ACA', 'ACC', 'ACG', 'ACT',\n    'AGA', 'AGC', 'AGG', 'AGT',\n    'ATA', 'ATC', 'ATG', 'ATT',\n    'CAA', 'CAC', 'CAG', 'CAT',\n    'CCA', 'CCC', 'CCG', 'CCT',\n    'CGA', 'CGC', 'CGG', 'CGT',\n    'CTA', 'CTC', 'CTG', 'CTT',\n    'GAA', 'GAC', 'GAG', 'GAT',\n    'GCA', 'GCC', 'GCG', 'GCT',\n    'GGA', 'GGC', 'GGG', 'GGT',\n    'GTA', 'GTC', 'GTG', 'GTT',\n    'TAA', 'TAC', 'TAG', 'TAT',\n    'TCA', 'TCC', 'TCG', 'TCT',\n    'TGA', 'TGC', 'TGG', 'TGT',\n    'TTA', 'TTC', 'TTG', 'TTT'\n]\n\ncount = 0\nfor codon in all_codons: \n  if codon[1] == 'T':\n    count += 1\n\nprint(count, 'codons have a T as a second nucleotide.')\n\n16 codons have a T as a second nucleotide.\n\n\nWhat it does is the following: it processes each element in the list all_codons, called in the following code codon. If the codon has as a second character a T, it adds 1 to a counter (the variable called count).\n\n\n\n\n\n\nWarning\n\n\n\nYou cannot modify an element of a list that way.\n\nfor codon in all_codons: \n  if 'T' in codon :\n    codon = codon.replace('T', 'U')\n\nprint(all_codons)\n\n['AAA', 'AAC', 'AAG', 'AAT', 'ACA', 'ACC', 'ACG', 'ACT', 'AGA', 'AGC', 'AGG', 'AGT', 'ATA', 'ATC', 'ATG', 'ATT', 'CAA', 'CAC', 'CAG', 'CAT', 'CCA', 'CCC', 'CCG', 'CCT', 'CGA', 'CGC', 'CGG', 'CGT', 'CTA', 'CTC', 'CTG', 'CTT', 'GAA', 'GAC', 'GAG', 'GAT', 'GCA', 'GCC', 'GCG', 'GCT', 'GGA', 'GGC', 'GGG', 'GGT', 'GTA', 'GTC', 'GTG', 'GTT', 'TAA', 'TAC', 'TAG', 'TAT', 'TCA', 'TCC', 'TCG', 'TCT', 'TGA', 'TGC', 'TGG', 'TGT', 'TTA', 'TTC', 'TTG', 'TTT']\n\n\nThis is because all_codons was converted to an iterator in the for statement.\n\n\n\n\n6.4.2 Iterators\nAn iterator is a special object that gives values in succession.\nIn the previous example, the iterator returns a copy of the item in a list, not a reference to it. Therefore, the codon inside the for block is not a view into the original list, and changing it does not do anything.\nA way to modify the list would be to use an iterable to access the original data. The range(start, stop) function creates an iterable to count from one integer to another.\n\nfor i in range(2, 10):\n    print(i, end='  ')\n\n2  3  4  5  6  7  8  9  \n\n\nWe could count from 0 to the size of the list, loop though every element of the list by calling them by their index, and modify them if necessary. That’s what the following code does:\n\nfor i in range(0, len(all_codons)): \n  if 'T' in all_codons[i] :\n    all_codons[i] = all_codons[i].replace('T', 'U')\n\nprint(all_codons)\n\n['AAA', 'AAC', 'AAG', 'AAU', 'ACA', 'ACC', 'ACG', 'ACU', 'AGA', 'AGC', 'AGG', 'AGU', 'AUA', 'AUC', 'AUG', 'AUU', 'CAA', 'CAC', 'CAG', 'CAU', 'CCA', 'CCC', 'CCG', 'CCU', 'CGA', 'CGC', 'CGG', 'CGU', 'CUA', 'CUC', 'CUG', 'CUU', 'GAA', 'GAC', 'GAG', 'GAU', 'GCA', 'GCC', 'GCG', 'GCU', 'GGA', 'GGC', 'GGG', 'GGU', 'GUA', 'GUC', 'GUG', 'GUU', 'UAA', 'UAC', 'UAG', 'UAU', 'UCA', 'UCC', 'UCG', 'UCU', 'UGA', 'UGC', 'UGG', 'UGU', 'UUA', 'UUC', 'UUG', 'UUU']\n\n\nAnother useful function that returns an iterator is enumerate(). It is an iterator that generates pairs of index and value. It is commonly used when you need to access both the index and value of items simultaneously.\n\nseq = 'ATGCATGC'\n\n# Print index and identity of bases\nfor i, base in enumerate(seq):\n    print(i, base)\n\n0 A\n1 T\n2 G\n3 C\n4 A\n5 T\n6 G\n7 C\n\n\n\n# Loop through sequence and print index of G's\nfor i, base in enumerate(seq):\n    if base in 'G':\n        print(i, end='  ')\n\n2  6  \n\n\n\n\n6.4.3 While loops\nA while loop continues executing a set of statement as long as a condition is true.\nwhile condition is true:\n    do task a\nThis type of loop is handy when you’re not sure how many iterations you’ll need to perform or when you need to repeat a block of code until a certain condition is met.\n\nseq = 'TACTCTGTCGATCGTACGTATGCAAGCTGATGCATGATTGACTTCAGTATCGAGCGCAGCA'\nstart_codon = 'ATG'\n\n# Initialize sequence index\ni = 0\n# Scan sequence until we hit the start codon\nwhile seq[i:i+3] != start_codon:\n  i += 1\n\n# Show the result\nprint('The start codon begins at index', i)\n\nThe start codon begins at index 19\n\n\n\n\n\n\n\n\nWarning\n\n\n\nRemember to increment i, or you’ll get stuck in a loop.\n\n\n\n\n\n\n\n\n\n\nFigure 6.1: Hopefully not you!\n\n\n\nActually, the previous code is quite dangerous. You can also get stuck in a loop… if the start_codon does not appear in seq at all.\nIndeed, even when you go above the given length of seq, the condition seq[i:i+3] != start_codon will still be true because seq[i:i+3] will output an empty string.\n\nseq[9999:9999+3]\n\n''\n\n\nSo, once the end of the sequence is reached, the condition seq[i:i+3] != start_codon will always be true, and you’ll get stuck in an infinite loop.\n\n\n\n\n\n\nNote\n\n\n\nTo get interrupt a process, press [ctrl + c].\n\n\n\n\n6.4.4 Break statement\nIteration stops in a for loop when the iterator is exhausted. It stops in a while loop when the conditional evaluates to False. There is another way to stop iteration: the break keyword. Whenever break is encountered in a for or while loop, the iteration stops and execution continues outside the loop.\n\nseq = 'ACCATTTTTTGGGGGGGCGGGGGGAGGGGGGG'\nstart_codon = 'ATG'\n\n# Initialize sequence index\ni = 0\n# Scan sequence until we hit the start codon\nwhile seq[i:i+3] != start_codon:\n  i += 1\n  if i+3 &gt; len(seq): # Get out of the loop if we parsed the full seq \n    print('Codon not found in sequence.')\n    break\nelse:\n  print('The start codon starts at index', i)\n\nCodon not found in sequence.\n\n\n\n\n\n\n\n\nNote\n\n\n\nAlso, note that the else statement can be used in for and while loops. In for loops it is executed when the loop is finished. In while loops, it is executed when the condition is no longer true. In both case, the loops need to not encounter a break to enter in the else block.\n\n\n\n\n6.4.5 Continue statement\nIn addition to the break statement, there is also the continue statement in Python that can be used to alter the flow of iteration in loops. When continue is encountered within a loop, it skips the remaining code inside the loop for the current iteration and moves on to the next iteration.\nHere’s an example showcasing the continue statement in a loop:\n\n# List of DNA sequences\ndna_sequences = ['ATGCTAGCTAG', 'ATCGATCGATC', 'ATGGCTAGCTA', 'ATGTAGCTAGC']\n\n# Find sequences starting with a start codon\nfor sequence in dna_sequences:\n    if sequence[:3] != 'ATG':  # Check if the sequence does not start with a start codon\n        print(f\"Sequence '{sequence}' does not start with a start codon. Skipping analysis.\")\n        continue  # Skip further analysis for this sequence\n    print(f\"Analyzing sequence '{sequence}' for protein coding regions...\")\n    # Additional analysis code here\nelse:\n  print('All sequences were processed.')\n\nAnalyzing sequence 'ATGCTAGCTAG' for protein coding regions...\nSequence 'ATCGATCGATC' does not start with a start codon. Skipping analysis.\nAnalyzing sequence 'ATGGCTAGCTA' for protein coding regions...\nAnalyzing sequence 'ATGTAGCTAGC' for protein coding regions...\nAll sequences were processed.\n\n\nThe continue statement in this example skips the analysis code for sequence that does not start with a start codon.\n\n\n6.4.6 Exercises\n\n\n\n\n\n\nExercise 1\n\n\n\nGiven a list of DNA sequences, find the first sequence that contains a specific motif 'TATA', print the sequence, and stop the process. If no sequence contains the motif, print a message accordingly. You must use only one for loop.\nWith the input given below, the output should look like this:\n\n# List of DNA sequences with a TATA\ndna_sequences = [\n'ATGCTACAGCTAG', \n'ATCGATATAATC', # TATA\n'ATGGCTAGCTA', \n'ATGTAGCTAGC', \n'ATGTAGCTATA'   # TATA\n] \n\nfor ...\n  # Your code here\n\n\n\nSequence 'ATCGATATAATC' contains the 'TATA' motif.\n\n\n\n# List of DNA sequences without a TATA\ndna_sequences = [\n'ATGCTACAGCTAG', \n'ATCGATACAATC', \n'ATGGCTAGCTA', \n'ATGTAGCTAGC'\n]\n\nfor ...\n  # Your code here\n\n\n\nNo sequence contains the 'TATA' motif.\n\n\n\n\n\n\n\n\n\n\nExercise 2\n\n\n\nAnalyze a DNA sequence to count the number of consecutive 'A' nucleotides. You must use only one while loop.\nWith the input given below, the output should look like this:\n\n# DNA sequence to analyze\ndna_sequence = 'ATGATAAGAGAAAGTAAAAGCGATCGAAAAAA'\n\nwhile ...\n  # Your code here\n\n\n\nNumber of consecutive 'A's: 6",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lesson 1 - Introduction, Data types, Operators</span>"
+    ]
+  },
+  {
+    "objectID": "lecture/lesson-2.html",
+    "href": "lecture/lesson-2.html",
+    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "section": "",
+    "text": "4 Introduction",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+    ]
+  },
+  {
+    "objectID": "lecture/lesson-2.html#aim-of-the-class",
+    "href": "lecture/lesson-2.html#aim-of-the-class",
+    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "section": "4.1 Aim of the class",
+    "text": "4.1 Aim of the class\nAt the end of this class, you will be able to:\n\nCreate simple functions\nHandle some errors\nAsk for input from the user\nUpload, modify and download files into Python\nImport packages (and use in a simple manner some scientific packages)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+    ]
+  },
+  {
+    "objectID": "lecture/lesson-2.html#requirements",
+    "href": "lecture/lesson-2.html#requirements",
+    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "section": "4.2 Requirements",
+    "text": "4.2 Requirements\nRemembering some of lesson 1.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+    ]
+  },
+  {
+    "objectID": "lecture/lesson-2.html#syntax",
+    "href": "lecture/lesson-2.html#syntax",
+    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "section": "5.1 Syntax",
+    "text": "5.1 Syntax\nIn python, a function is declared with the keyword def followed by its name, and the arguments inside parenthesis. The next block of code, corresponding to the content of the function, must be indented. The output is defined by the return keyword.\n\ndef hello(name):\n  \"\"\"Presenting myself.\"\"\"\n  presentation = \"Hello, my name is {0}.\".format(name)\n  return presentation\n\n\ntext = hello(name = \"Valentine\")\nprint(text)\n\nHello, my name is Valentine.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+    ]
+  },
+  {
+    "objectID": "lecture/lesson-2.html#documentation",
+    "href": "lecture/lesson-2.html#documentation",
+    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "section": "5.2 Documentation",
+    "text": "5.2 Documentation\nAs you may have noticed, you can also add a description of the function directly after the function definition. It is the message that will be shown when running help(). As it can be along text over multiple lines, it is common to put it inside triple quotes \"\"\".\n\nhelp(hello)\n\nHelp on function hello in module __main__:\n\nhello(name)\n    Presenting myself.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+    ]
+  },
+  {
+    "objectID": "lecture/lesson-2.html#arguments",
+    "href": "lecture/lesson-2.html#arguments",
+    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "section": "5.3 Arguments",
+    "text": "5.3 Arguments\nYou can have several arguments. They can be mandatory or optional. To make them optional, they need to have a default value assigned inside the function definition, like so:\n\ndef hello(name, french = True):\n  \"\"\"Presenting myself.\"\"\"\n  if french:\n    presentation = \"Bonjour, je m'appelle {0}.\"\n  else:\n    presentation = \"Hello, my name is {0}.\"\n  return presentation.format(name)\n\nThe parameter nameis mandatory, but french is optional.\n\nhello(\"Valentine\")\n\n\"Bonjour, je m'appelle Valentine.\"\n\n\n\nhello(french = False)\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[8], line 1\n----&gt; 1 hello(french = False)\n\nTypeError: hello() missing 1 required positional argument: 'name'\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nReminder: if you provide the parameters in the exact same order as they are defined, you don’t have to name them. If you name the parameters you can switch their order. As good practice, put all required parameters first.\n\nhello(french = False, name = \"Valentine\")\n\n'Hello, my name is Valentine.'\n\n\n\nhello(\"Valentine\", False)\n\n'Hello, my name is Valentine.'",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+    ]
+  },
+  {
+    "objectID": "lecture/lesson-2.html#output",
+    "href": "lecture/lesson-2.html#output",
+    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "section": "5.4 Output",
+    "text": "5.4 Output\nIf no return statement is given, then no output will be returned, but the function will still be run.\n\ndef hello(name):\n  \"\"\"Presenting myself.\"\"\"\n  print(\"We are inside the 'hello()' function.\")\n  presentation = \"Hello, my name is {0}.\".format(name)\n\n\nprint(hello(\"Valentine\"))\n\nWe are inside the 'hello()' function.\nNone\n\n\nThe output can be of any type. If you have a lot of things to return, you might want to return a list or a dict for example.\n\ndef multiple_of_3(list_of_numbers):\n  \"\"\"Returns the number that are multiple of 3.\"\"\"\n  multiples = []\n  for num in list_of_numbers:\n    if num % 3 == 0:\n      multiples.append(num)\n  return multiples\n\nmultiple_of_3(range(1, 20, 2))\n\n[3, 9, 15]\n\n\n\n\n\n\n\n\nNote\n\n\n\nThis could be written as a one-liner.\n\ndef multiple_of_3(list_of_numbers):\n  \"\"\"Returns the number that are multiple of 3.\"\"\"\n  multiples = [num for num in list_of_numbers if num % 3 == 0]\n  return multiples\n\nmultiple_of_3(range(1, 20, 2))\n\n[3, 9, 15]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+    ]
+  },
+  {
+    "objectID": "lecture/lesson-2.html#exercise",
+    "href": "lecture/lesson-2.html#exercise",
+    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "section": "5.5 Exercise",
+    "text": "5.5 Exercise\n\n\n\n\n\n\nExercise\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'G': 0.4, 'C': 0.3, 'T': 0.2, 'A': 0.1}\n\n\n\n\n\n\n\n\n\n\nSolutions\n\n\n\n\n\n\ndef nucl_freq(seq):\n  n = len(seq)\n  freq = dict()\n  for nucl in {\"A\", \"T\", \"C\", \"G\"}:\n    freq[nucl] = seq.count(nucl)/n\n  return freq \n\nnucl_freq(\"ATTCCCGGGG\")\n\n{'G': 0.4, 'C': 0.3, 'T': 0.2, 'A': 0.1}",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+    ]
+  },
+  {
+    "objectID": "lecture/lesson-2.html#syntax-1",
+    "href": "lecture/lesson-2.html#syntax-1",
+    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "section": "6.1 Syntax",
+    "text": "6.1 Syntax\nIt is possible to handle errors (in python, they are also called exceptions), using the following statements:\n\ntry to test a block of code for errors\nexcept to handle the error\nelse to excute code if there is no error\nfinally to excute code, regardless of the result of the try and except blocks\n\n\n# The try block will generate an exception, because some_undefined_variable is not defined:\ntry:\n  print(some_undefined_variable)\nexcept:\n  print(\"Oops... Something went wrong\") \n\nOops... Something went wrong\n\n\n\n# Without the try block, the program will crash and raise an error:\nprint(some_undefined_variable)\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[18], line 2\n      1 # Without the try block, the program will crash and raise an error:\n----&gt; 2 print(some_undefined_variable)\n\nNameError: name 'some_undefined_variable' is not defined\n\n\n\n\ntry:\n  print(some_undefined_variable)\nexcept:\n  print(\"Oops... Something went wrong\") \nelse:\n  print(\"Nothing went wrong\") \nfinally:\n  print(\"The 'try except' is finished\") \n\nOops... Something went wrong\nThe 'try except' is finished",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+    ]
+  },
+  {
+    "objectID": "lecture/lesson-2.html#raising-exceptions",
+    "href": "lecture/lesson-2.html#raising-exceptions",
+    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "section": "6.2 Raising exceptions",
+    "text": "6.2 Raising exceptions\nHere is a table of some of the built-in exceptions in python.\n\n\n\n\n\n\n\nException\nDescription\n\n\n\n\nIndexError\nRaised when the index of a sequence is out of range.\n\n\nKeyError\nRaised when a key is not found in a dictionary.\n\n\nKeyboardInterrupt\nRaised when the user hits the interrupt key (Ctrl+c or Delete).\n\n\nNameError\nRaised when a variable is not found in the local or global scope.\n\n\nTypeError\nRaised when a function or operation is applied to an object of an incorrect type.\n\n\nValueError\nRaised when a function receives an argument of the correct type but of an incorrect value.\n\n\nRuntimeError\nRaised when an error occurs that do not belong to any specific exceptions.\n\n\nException\nBase class of exceptions.\n\n\n\nYou can use them to be more specific about the type of exception occurring.\n\ntry:\n  print(some_undefined_variable)\nexcept NameError:\n  print(\"A variable is not defined\") \nexcept:\n  print(\"Oops... Something went wrong\") \nelse:\n  print(\"Nothing went wrong\") \nfinally:\n  print(\"The 'try except' is finished\") \n\nA variable is not defined\nThe 'try except' is finished\n\n\nYou can also use them to throw an exception if a condition occurs, by using the raise keyword.\n\nx = \"hello\"\ntry:\n  if not isinstance(x, int):\n    raise TypeError(\"Only integers are allowed\") \n  if x &lt; 0:\n    raise ValueError(\"Sorry, no numbers below zero\") \n  print(x, \"is a positive integer.\")\nexcept NameError:\n  print(\"A variable is not defined\") \nelse:\n  print(\"Nothing went wrong\") \nfinally:\n  print(\"The 'try except' is finished\") \n\nThe 'try except' is finished\n\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[21], line 4\n      2 try:\n      3   if not isinstance(x, int):\n----&gt; 4     raise TypeError(\"Only integers are allowed\") \n      5   if x &lt; 0:\n      6     raise ValueError(\"Sorry, no numbers below zero\") \n\nTypeError: Only integers are allowed",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+    ]
+  },
+  {
+    "objectID": "lecture/lesson-2.html#exercise-1",
+    "href": "lecture/lesson-2.html#exercise-1",
+    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "section": "6.3 Exercise",
+    "text": "6.3 Exercise\n\n\n\n\n\n\nExercise\n\n\n\nLet’s make our previous function even better by adding some exception handling. Raise a TypeError if the input is not a string. Raise a ValueError if the input string contains something else than the nucleotides A, C, T, G.\nWith the input given below, the output and errors should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(5474)\nnucl_freq(\"ATTCXCCGGGG\")\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[22], line 15\n     12     freq[nucl] = seq.count(nucl)/n\n     13   return freq \n---&gt; 15 nucl_freq(5474)\n     16 nucl_freq(\"ATTCXCCGGGG\")\n     17 nucl_freq(\"ATTCCCGGGG\")\n\nCell In[22], line 3, in nucl_freq(seq)\n      1 def nucl_freq(seq):\n      2   if not isinstance(seq, str):\n----&gt; 3     raise TypeError(\"Input must be a string.\")\n      4   valid_nucl = {\"A\", \"T\", \"C\", \"G\"}\n      5   seq_nucl = set(seq)\n\nTypeError: Input must be a string.\n\n\n\n\n\n\n\n\n\n\n\nSolutions\n\n\n\n\n\n\ndef nucl_freq(seq):\n  if not isinstance(seq, str):\n    raise TypeError(\"Input must be a string.\")\n  valid_nucl = {\"A\", \"T\", \"C\", \"G\"}\n  seq_nucl = set(seq)\n  if seq_nucl.difference(valid_nucl) != set():\n    raise ValueError(\"Input string must only contain characters A, C, T or G.\")\n    \n  n = len(seq)\n  freq = dict()\n  for nucl in valid_nucl:\n    freq[nucl] = seq.count(nucl)/n\n  return freq \n\nnucl_freq(5474)\nnucl_freq(\"ATTCXCCGGGG\")\nnucl_freq(\"ATTCCCGGGG\")\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[23], line 15\n     12     freq[nucl] = seq.count(nucl)/n\n     13   return freq \n---&gt; 15 nucl_freq(5474)\n     16 nucl_freq(\"ATTCXCCGGGG\")\n     17 nucl_freq(\"ATTCCCGGGG\")\n\nCell In[23], line 3, in nucl_freq(seq)\n      1 def nucl_freq(seq):\n      2   if not isinstance(seq, str):\n----&gt; 3     raise TypeError(\"Input must be a string.\")\n      4   valid_nucl = {\"A\", \"T\", \"C\", \"G\"}\n      5   seq_nucl = set(seq)\n\nTypeError: Input must be a string.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+    ]
+  },
+  {
+    "objectID": "lecture/lesson-2.html#input",
+    "href": "lecture/lesson-2.html#input",
+    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "section": "7.1 input",
+    "text": "7.1 input\nPython stops executing when it comes to the input() function, and continues when the user has given some input.\nIn a file called username-1.py, write the following:\n\nusername = input(\"Enter username: \")\nprint(\"Username is: \" + username)\n\nThen in the terminal, run:\n#| eval: False\npython username-1.py \nYou should be asked, in command line, to enter a username. When you write it, and press Enter, it gets printed.\n\n\nEnter username: vgilbart\nUsername is: vgilbart",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+    ]
+  },
+  {
+    "objectID": "lecture/lesson-2.html#sys.argv",
+    "href": "lecture/lesson-2.html#sys.argv",
+    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "section": "7.2 sys.argv",
+    "text": "7.2 sys.argv\nTo use sys.argv you need to import a module called sys. It is part of the standard python library, so you should not have to install anything in particular.\nIn a file called username-2.py, write the following:\n\nimport sys \n\nprint(\"Username is: \" + sys.argv[1])\n\nThen in the terminal, run:\n#| eval: False\npython username-2.py vgilbart\nArguments are given in command line, seperated by [space].\n\n\nUsername is: vgilbart\n\n\n\n\n\n\n\n\nNote\n\n\n\nWhat is the type of sys.argv? Remember that in python index begins at 0. What do you think is sys.argv[0]? Verify!\nAlso, what happens if you run python username-2.py valentine gilbart ?",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
+    ]
+  },
+  {
+    "objectID": "lecture/lesson-2.html#argparse",
+    "href": "lecture/lesson-2.html#argparse",
+    "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
+    "section": "7.3 argparse",
+    "text": "7.3 argparse\nJust like for sys, you need to import argparse.\nIn a file called username-3.py, write the following:\n\nimport argparse\nparser = argparse.ArgumentParser()\nparser.add_argument('--username', action=\"store\")\n\nargs = parser.parse_args()\nprint(\"Username is: \" + args.username)\n\nThen in the terminal, run:\n#| eval: False\npython username-3.py --username vgilbart\nArguments are given in command line, but they have specific names.\n\n\n\n\n\n\nNote\n\n\n\nargparse is a very useful module when creating programs! You can easily specify the expected type of argument, whether it is optional or not, and create a help for your script. Check their tutorial for more information.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
     ]
   }
 ]
