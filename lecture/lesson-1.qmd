@@ -15,6 +15,7 @@ solutions: false
 ```{python}
 import os
 os.getcwd()
+os.listdir() 
 ```
 
 ## Aim of the class
