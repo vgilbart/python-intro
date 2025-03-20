@@ -13,7 +13,7 @@ book:
         - name: Metzger Lab, IGBMC  
   date: last-modified
   repo-url: https://github.com/vgilbart/python-intro
-  repo-branch: gh-pages
+  repo-branch: main
   repo-actions: [edit, issue]
   chapters:
     - index.qmd
