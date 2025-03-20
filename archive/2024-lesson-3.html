@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Valentine Gilbart">
-<meta name="dcterms.date" content="2025-03-19">
+<meta name="dcterms.date" content="2025-03-20">
 
 <title>7&nbsp; Lesson 3 - Conway’s Game of Life – Python Introduction IMCBio</title>
 <style>
@@ -229,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions"><span class="header-section-number">11</span> Solutions</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/vgilbart/python-intro/edit/gh-pages/archive/2024-lesson-3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vgilbart/python-intro/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/vgilbart/python-intro/edit/main/archive/2024-lesson-3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vgilbart/python-intro/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
@@ -253,7 +253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 19, 2025</p>
+      <p class="date">March 20, 2025</p>
     </div>
   </div>
   
@@ -332,7 +332,7 @@ Figure&nbsp;8.1: <em>pssssss</em>
 <section id="optional-function" class="level2" data-number="9.4">
 <h2 data-number="9.4" class="anchored" data-anchor-id="optional-function"><span class="header-section-number">9.4</span> Optional function</h2>
 <p>As an option, you can create a function called <code>initialize_universe</code> to initialize the grid with one of the following seeds that have specific proprieties:</p>
-<div id="cd279ab5" class="cell" data-execution_count="1">
+<div id="c14afcda" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dictionary containing different seed patterns for the game</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>seeds <span class="op">=</span> {</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"diehard"</span>: [</span>
@@ -371,7 +371,7 @@ Figure&nbsp;8.1: <em>pssssss</em>
 <section id="exemple-of-input-and-output" class="level2" data-number="9.5">
 <h2 data-number="9.5" class="anchored" data-anchor-id="exemple-of-input-and-output"><span class="header-section-number">9.5</span> Exemple of input and output</h2>
 <p>Here’s an example of input, and the desired output:</p>
-<div id="77fc9890" class="cell" data-execution_count="3">
+<div id="c5899d37" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize by hand</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>universe <span class="op">=</span> [</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>],</span>
@@ -427,7 +427,7 @@ Figure&nbsp;8.1: <em>pssssss</em>
 </div>
 </div>
 <p>The same matrix can be initialized by the following (if you are doing the optional <code>initialize_universe</code> function):</p>
-<div id="3cd15615" class="cell" data-execution_count="4">
+<div id="8d05ac11" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize with a seed</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>universe <span class="op">=</span> initialize_universe(universe_size <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">10</span>), seed <span class="op">=</span> <span class="st">"infinite"</span>, seed_position <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">2</span>))</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> universe:</span>
@@ -477,6 +477,7 @@ Figure&nbsp;8.1: <em>pssssss</em>
 <li>use pandas (or numpy as there it is only numerical data) to deal with the matrix</li>
 <li>use matplotlib to plot each generation, and create a final gif</li>
 </ul>
+<p><a href="img/game_of_life.gif">Example of a final gif generated from the same universe matrix as the one from basic implementation</a></p>
 </section>
 </section>
 <section id="solutions" class="level1" data-number="11">
@@ -1065,4 +1066,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/vgilbart/python-intro/edit/gh-pages/archive/2024-lesson-3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vgilbart/python-intro/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/vgilbart/python-intro/edit/main/archive/2024-lesson-3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vgilbart/python-intro/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

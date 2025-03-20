@@ -244,7 +244,7 @@
     "href": "lecture/lesson-2.html#exercise",
     "title": "Lesson 2 - Functions, Scientific Packages",
     "section": "5.5 Exercise",
-    "text": "5.5 Exercise\n\n\n\n\n\n\nExercise\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'A': 0.1, 'C': 0.3, 'G': 0.4, 'T': 0.2}\n\n\n\n\n\n\n\n\n\n\nSolutions\n\n\n\n\n\n\ndef nucl_freq(seq):\n  n = len(seq)\n  freq = dict()\n  for nucl in {\"A\", \"T\", \"C\", \"G\"}:\n    freq[nucl] = seq.count(nucl)/n\n  return freq \n\nnucl_freq(\"ATTCCCGGGG\")\n\n{'A': 0.1, 'C': 0.3, 'G': 0.4, 'T': 0.2}",
+    "text": "5.5 Exercise\n\n\n\n\n\n\nExercise\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'A': 0.1, 'T': 0.2, 'G': 0.4, 'C': 0.3}\n\n\n\n\n\n\n\n\n\n\nSolutions\n\n\n\n\n\n\ndef nucl_freq(seq):\n  n = len(seq)\n  freq = dict()\n  for nucl in {\"A\", \"T\", \"C\", \"G\"}:\n    freq[nucl] = seq.count(nucl)/n\n  return freq \n\nnucl_freq(\"ATTCCCGGGG\")\n\n{'A': 0.1, 'T': 0.2, 'G': 0.4, 'C': 0.3}",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Scientific Packages</span>"
     ]
@@ -588,7 +588,7 @@
     "href": "archive/2024-lesson-2.html#exercise",
     "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
     "section": "8.5 Exercise",
-    "text": "8.5 Exercise\n\n\n\n\n\n\nExercise\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'G': 0.4, 'C': 0.3, 'T': 0.2, 'A': 0.1}\n\n\n\n\n\n\n\n\n\n\nSolutions\n\n\n\n\n\n\ndef nucl_freq(seq):\n  n = len(seq)\n  freq = dict()\n  for nucl in {\"A\", \"T\", \"C\", \"G\"}:\n    freq[nucl] = seq.count(nucl)/n\n  return freq \n\nnucl_freq(\"ATTCCCGGGG\")\n\n{'G': 0.4, 'C': 0.3, 'T': 0.2, 'A': 0.1}",
+    "text": "8.5 Exercise\n\n\n\n\n\n\nExercise\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'C': 0.3, 'A': 0.1, 'T': 0.2, 'G': 0.4}\n\n\n\n\n\n\n\n\n\n\nSolutions\n\n\n\n\n\n\ndef nucl_freq(seq):\n  n = len(seq)\n  freq = dict()\n  for nucl in {\"A\", \"T\", \"C\", \"G\"}:\n    freq[nucl] = seq.count(nucl)/n\n  return freq \n\nnucl_freq(\"ATTCCCGGGG\")\n\n{'C': 0.3, 'A': 0.1, 'T': 0.2, 'G': 0.4}",
     "crumbs": [
       "Archive 2024",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
@@ -863,7 +863,7 @@
     "href": "archive/2024-lesson-3.html#instructions-1",
     "title": "Lesson 3 - Conway’s Game of Life",
     "section": "10.1 Instructions",
-    "text": "10.1 Instructions\nCreate another implementation of Conway’s Game of Life, with the following characteristics:\n\nthe file parses arguments from command line (if you use argparse, you can check the help of your function by running in the terminal python conway_life_advanced.py --help)\nuse pandas (or numpy as there it is only numerical data) to deal with the matrix\nuse matplotlib to plot each generation, and create a final gif",
+    "text": "10.1 Instructions\nCreate another implementation of Conway’s Game of Life, with the following characteristics:\n\nthe file parses arguments from command line (if you use argparse, you can check the help of your function by running in the terminal python conway_life_advanced.py --help)\nuse pandas (or numpy as there it is only numerical data) to deal with the matrix\nuse matplotlib to plot each generation, and create a final gif\n\nExample of a final gif generated from the same universe matrix as the one from basic implementation",
     "crumbs": [
       "Archive 2024",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Lesson 3 - Conway’s Game of Life</span>"
