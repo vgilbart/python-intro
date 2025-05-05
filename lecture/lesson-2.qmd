@@ -10,13 +10,6 @@ format:
 editor: source
 solutions: true
 ---
-
-```{python}
-import os
-os.getcwd()
-os.listdir('exercise/data') 
-```
-
 # Introduction
 
 ## Aim of the class
@@ -24,10 +17,11 @@ os.listdir('exercise/data')
 At the end of this class, you will be able to:
 
 - Create simple functions
-- Handle some errors
-- Ask for input from the user
 - Upload, modify and download files into Python 
-- Import packages (and use in a simple manner some scientific packages)
+- Install and import packages 
+- Basic use of pandas (manipulate data)
+- Basic use of matplotlib.pyplot (visualize data)
+
 
 # Function
 
@@ -55,7 +49,12 @@ The next block of code, corresponding to the content of the function, must be in
 
 ```{python}
 def hello(name):
-  """Presenting myself."""
+  """Presenting myself.
+  
+  Parameters:
+  name (str): My name.
+  """
+
   presentation = f"Hello, my name is {name}."
   return presentation
 ```
@@ -80,7 +79,13 @@ You can have several arguments. They can be mandatory or optional. To make them 
 
 ```{python}
 def hello(name, french = True):
-  """Presenting myself."""
+  """Presenting myself.
+  
+  Parameters:
+  name (str): My name.
+  french (bool, optional): Whether to greet in french (True) or not (False).
+  """
+
   if french:
     presentation = f"Bonjour, je m'appelle {name}."
   else:
@@ -155,7 +160,7 @@ multiple_of_3(range(1, 20, 2))
 
 
 ## Exercise 
-::: {.callout-important title="Exercise"} 
+::: {.callout-important title="Exercise 1"} 
 
 Write a function called `nucl_freq` to compute nucleotide frequency of a sequence. 
 Given a sequence as input, it outputs a dictionnary with keys being the nucleotides `A`, `T`, `C` and `G`, and values being their frequency in the sequence.  
@@ -204,30 +209,270 @@ nucl_freq("ATTCCCGGGG")
 ::: 
 :::
 
+
+# File Handling
+
+The key function to work with files in `open()`. 
+It has two parameters `file` and `mode`.
+
+```{python}
+# Write the correct path for you!
+fasta_file = 'exercise/data/example.fasta' 
+f = open(fasta_file, mode = 'r')
+```
+
+The modes can be one of the following: 
+
+| Mode  | Description  |
+|-|--------|
+| `r`  | Opens a file for reading, error if the file does not exist (default) |
+| `a`  | Opens a file for appending, creates the file if it does not exist |
+| `w`  | Opens a file for writing, creates the file if it does not exist |
+| `x`  | Creates the specified file, returns an error if the file exists |
+
+
+## Reading
+
+The `open()` function returns a file object, which has a `read()` method for reading the content of the file:
+```{python}
+print(f.read())
+```
+
+The parameter `size =` can be added to specify the number of bytes (~ characters) to return.
+
+```{python}
+# We need to re-open it because we have already parsed the whole file
+f = open(fasta_file, mode = 'r') 
+print(f.read(2))
+```
+
+You can return one line by using the `.readline()` method.
+By calling it two times, you can read the two first lines:
+```{python}
+f = open(fasta_file, mode = 'r') 
+print(f.readline())
+print(f.readline())
+```
+
+By looping through the lines of the file, you can read the whole file, line by line:
+
+```{python}
+for i, line in enumerate(f):
+  print(i, line) 
+```
+
+It is a good practice to close the file when you are done with it.
+
+```{python}
+f.close() 
+```
+
+
+::: {.callout-warning} 
+In some cases, changes made to a file may not show until you close the file.
+::: 
+
+::: {.callout-note} 
+A common syntax to handle files that you might encounter is:
+```{python}
+with open(fasta_file, 'r') as f:
+  print(f.readline())
+```
+
+This code is equivalent to 
+```{python}
+f = open(fasta_file, 'r') 
+try:
+  print(f.readline())
+finally:
+  f.close()
+```
+
+The `with` statement is an example of a context manager, i.e. it allows to allocate and release resources precisely, by cleaning up the resources once they are no longer needed.
+::: 
+
+## Writting
+
+To write into a file, you must have it open under a `w`, `a` mode. 
+
+Then, the method `write()` can be used. 
+
+```{python}
+#| output: asis
+txt_file = "exercise/data/some_file.txt"
+f = open(txt_file, "w")
+f.write("Woops! I have deleted the content!\n")
+f.close()
+
+# Read the current content of the file
+f = open(txt_file, "r")
+print(f.read()) 
+```
+
+::: {.callout-warning} 
+Be very careful when opening a file in `write` mode as you can delete its content without any way to retrieve the original file!
+::: 
+
+As you may have noticed, `write()` returns the number of characters written. You can prevent it from being printed by assigning the return value to a variable that will not be used.
+
+```{python}
+f = open(txt_file, "a")
+_ = f.write("Now the file has more content!\n") 
+f.close()
+
+# Read the current content of the file
+f = open(txt_file, "r")
+print(f.read()) 
+```
+
+::: {.callout-note} 
+You must specify a newline with the character:
+
+- `\n` in Linus/MacOS
+- `\r\n` in Windows
+- `\r` in MacOS before X
+::: 
+
+## os module
+
+Python has a built-in package called `os`, to interact with the operating system. 
+
+```{python}
+import os 
+```
+
+Here are some useful functions from the `os` package. 
+
+| Function  | Description  |
+|--|--------|
+| `getcwd()`  |  Returns the current working directory |
+| `chdir()`  |  Change the current working directory |
+| `listdir()`  | Returns a list of the names of the entries in a directory |
+| `mkdir()`  |  Creates a directory |
+| `makedirs()`  |  Creates a directory recursively |
+
+
+These functions can be useful if you don't manage to open a file, or don't find where you created it. Because it might just be that you are not in the directory you think:
+
+```{python}
+# Verify your working directory
+os.getcwd()
+```
+
+```{python}
+#| eval: false 
+
+# Change you working directory if needed
+os.chdir("/Users/gilbartv/Documents/git")
+```
+
+In other cases, to create a file, the folder it belongs to must already exist, so you need to create it automatically via python: 
+
+```{python}
+#| eval: false 
+
+# Create a new directory recursively (if Documents/ does not exist it would be created)
+# If the directory is already created, don't raise an error
+os.makedirs("/Users/gilbartv/Documents/NewFolder", exist_ok=True)
+```
+
+
+## Exercise 
+
+::: {.callout-important title="Exercise 2"} 
+
+Create a function that:
+
+- read the fasta file, 
+- calculate the nucleotide frequency for each sequence (using the previously defined function)
+- create a new file as follow:
+
+```
+Seq A C T G 
+seq1 0.1 0.2 0.3 0.4
+seq2 0.4 0.3 0.2 0.1
+...
+```
+
+To make this easier, consider that the sequences in the fasta file are only in one line. 
+
+You might make good use of the method `str.strip()`.
+
+You can take as input the file in `exercise/data/example.fasta` you should get the same result as `exercise/data/example.txt`. 
+
+```{python}
+#| eval: false
+
+def analyse_fasta(input_file, output_file):
+  ...
+
+input_file = "exercise/data/example.fasta"
+output_file = "exercise/data/example.txt"
+
+analyse_fasta(input_file, output_file)
+```
+
+:::
+
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
+```{python}
+#| eval: false
+
+def analyse_fasta(input_file, output_file):
+  freq = {}
+  # Parse input_file and calculate nucl_freq for each seq
+  with open(input_file, 'r') as input:
+    for line in input:
+      if line.startswith(">"):
+        sequence_name = line.strip()[1:]
+      else: 
+        current_sequence = line.strip()
+        freq[sequence_name] = nucl_freq(current_sequence)
+  # Write results in output_file
+  with open(output_file, 'w') as output:
+    output.write("Seq A T C G\n")
+    for key, value in freq.items():
+      output.write(f"{key} {value.get('A')} {value.get('T')} {value.get('C')} {value.get('G')}\n")
+
+
+input_file = "exercise/data/example.fasta"
+output_file = "exercise/data/example.txt"
+
+analyse_fasta(input_file, output_file)
+```
+
+:::
+:::
+
+
+
 # Scientific packages 
 
 A python package contains a set of function to perform specific tasks. 
 
 A package needs to be **installed** to your computer one time. 
 
+::: {.callout-warning} 
+Installing a package is done outside of the python interpreter, in command line in a terminal. 
+::: 
+
 You can install a package with `pip`. It should have been automatically installed with your python, to make sure that you have it you can run:
 
 ```{bash}
-#| eval: false
-
 # In Linux/MacOS
 python -m pip --version
 # In Windows
 py -m pip --version
 ```
 
-If it does not work, check out [pip documentation](https://pip.pypa.io/en/stable/getting-started/).
+If it does not work, check out [pip documentation](https://pip.pypa.io/en/stable/getting-started/)
 
 To install a package called pandas, you must run:
 
 ```{bash}
-#| eval: false
-
 # In Linux/MacOS
 python -m pip install pandas
 # In Windows
@@ -235,10 +480,6 @@ py -m pip install pandas
 ```
 
 To get more information about `pip`, check out the full [documentation](https://pip.pypa.io/en/stable/getting-started/).
-
-::: {.callout-warning} 
-Installing a package is done outside of the python interpreter, in command line in a terminal. 
-::: 
 
 When you wish to use a package in a python script, you'll need to import it, by writing inside of you script:
 
@@ -285,16 +526,21 @@ df = pandas.read_csv('exercise/data/sample.csv')
 print(df)
 ```
 
+### Index and columns
+
 You get access to the index and column names with: 
 
 ```{python}
 df.columns
+```
+```{python}
 df.index
 ```
 
 You can rename index and column names:
 ```{python}
-df = df.rename(index={0: 'a', 1: 'b', 2: 'c', 3: 'd', 4: 'e', 5 : 'f'})
+df = df.rename(index={0: 'a', 1: 'b', 2: 'c', 
+                      3: 'd', 4: 'e', 5 : 'f'})
 
 df.index
 ```
@@ -302,25 +548,34 @@ df.index
 You can select rows:
 ```{python}
 # Select one row by its label
-print(df.loc[['a']]) 
+df.loc[['a']]
+```
+```{python}
 # Select one row by its index
-print(df.iloc[[0]]) 
-
+df.iloc[[0]]
+```
+```{python}
 # Select several rows by labels
-print(df.loc[['a','c']])
+df.loc[['a','c']]
+```
+```{python}
 # Select one row by index
-print(df.iloc[[0,2]]) 
+df.iloc[[0,2]]
 ```
 
 You can select columns:
 ```{python}
 # Select one column by label
 df['Tissue'] # Series
+```
+```{python}
 df[['Tissue']] # DataFrame
-
+```
+```{python}
 # Select several columns
 df[['Gene','Expression_Level']]
-
+```
+```{python}
 # Select several columns by index 
 df.iloc[:,[0,1]]
 ```
@@ -334,6 +589,30 @@ You can filter based on a condition as follows:
 ```{python}
 df[df['Expression_Level'] > 6]
 ```
+
+
+::: {.callout-note} 
+
+To better understand how `df[df['Expression_Level'] > 6]` works, let's break it down. 
+
+```{python}
+df['Expression_Level']
+```
+
+```{python}
+rows_to_keep = df['Expression_Level'] > 6
+rows_to_keep
+```
+
+Each value in `df['Expression_Level']` is being tested against the condition `> 6` and a boolean in being return. 
+
+```{python}
+df[rows_to_keep]
+```
+
+Rows of the DataFrame are being filtered by boolean values. If `True` the row is kept, if `False` it is dropped. 
+
+:::
 
 ### Useful methods
 
@@ -367,15 +646,15 @@ To get more information on how to use pandas, check out:
 - the [cheat sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
 - any [useful tutorial](https://www.w3schools.com/python/pandas/)
 
-### Exercise 
+### Exercise
 
-::: {.callout-important title="Exercise"} 
+::: {.callout-important title="Exercise 3"} 
 
 1. Create a pandas DataFrame from the file containing the frequency of each nucleotide per sequences (`exercise/data/example.txt`). 
 
 2. Make sure that `df.index` contains the name of the sequences, and `df.columns` contains the nucleotides. 
 
-3. Use `pandas.melt()` (see the [doc](https://pandas.pydata.org/docs/reference/api/pandas.melt.html)) to get the data in the following format:
+3. Use `pandas.melt()` (see the [example in the doc](https://pandas.pydata.org/docs/reference/api/pandas.melt.html)) to get the data in the following format:
 
 ```
     nucl  freq
@@ -439,75 +718,176 @@ df.groupby("nucl")[['freq']].mean()
 
 Matplotlib is a package to create visualizations in Python widely used in science.
 
-To shorten the name of the package when we call its functions, we can import it as follows:
+To shorten the name of the package when we call its functions, we can import it with a nickname, as follows:
 ```{python}
-import matplotlib.pyplot as plt
+import pandas as pd
 
-df = pandas.read_csv('exercise/data/sample.csv')
-
-# The data for GeneA and GeneB is extracted from the DataFrame 'df'
-serieA = df[df['Gene'] == 'GeneA']['Expression_Level']
-serieB = df[df['Gene'] == 'GeneB']['Expression_Level']
-
-# Create a new figure 
-fig = plt.figure()
-
-# Create a boxplot showing the expression levels of GeneA and GeneB
-plt.boxplot([serieA, serieB], # List of series
-            labels=['GeneA', 'GeneB'])
-
-# Set the label for the x-axis
-plt.xlabel('Gene')
-# Set the label for the y-axis
-plt.ylabel('Expression Level')
-# Set the title of the plot
-plt.title('Expression of Genes in Different Tissues')
-# Display the boxplot
-plt.show()
-# Save the plot as a PNG file with a resolution of 300 dots per inch (dpi)
-# The file will be saved in the specified location 
-fig.savefig('exercise/data/my-figure.png', dpi=300)
+df = pd.read_csv('exercise/data/sample.csv')
 ```
 
-The following code is equivalent. 
+For matplotlib, we usually import like so:
+
 ```{python}
-# Create a new figure 
-fig, ax = plt.subplots(1, figsize=(5, 4))
+import matplotlib.pyplot as plt
+```
 
-ax.boxplot([serieA, serieB], # List of series
-            labels=['GeneA', 'GeneB'])
-ax.set_xlabel('Gene')
-ax.set_ylabel('Expression Level')
-ax.set_title('Expression of Genes in Different Tissues')
-ax.legend()
+pyplot is one of the modules of matplotlib. It contains functions to generate basic plots. 
+
+### Create a plot
+
+To create your first plot, you can use the function `plt.plot()` that draws points to plot, and by default draws a line from point to points: 
+```{python}
+data = {
+  "calories": [420, 380, 390],
+  "duration": [50, 40, 45]
+} 
+df = pd.DataFrame(data).sort_values(by="duration")
+
+x = df['duration']
+y = df['calories']
+
+plt.plot(x, y)
 plt.show()
+```
 
-# Save the plot as a PNG file with a resolution of 300 dots per inch (dpi)
-# The file will be saved in the specified location 
-fig.savefig('exercise/data/my-figure-2.png', dpi=300)
+The first parameter is for the x-axis, and the second for the y-axis
+
+To only plot the points, one can add the format (it can be color, marker, linestyle):
+```{python}
+plt.plot(x, y, 'o') # point as markers
+plt.show()
+```
+
+```{python}
+plt.plot(x, y, 'g+--') # Green as color, plus as marker, dash as line 
+plt.show()
+```
+
+X and y labels and plot title can be added: 
+```{python}
+plt.plot(x, y, 'o') 
+
+plt.xlabel("Duration of exercise")
+plt.ylabel("Calories Burned")
+plt.title("Calories burned over Duration of exercise")
+
+plt.show()
+```
+
+The first way of plotting is function-oriented. It relies on pyplot to implicitly create and manage the Figures and Axes, and use pyplot functions for plotting.
+
+There is a second way of plotting called object-oriented. It needs to explicitly create Figures and Axes, and call methods on them (the "object-oriented (OO) style"). 
+
+You might encounter both styles of coding. 
+
+In object-oriented, the plot above would be created like so:
+
+```{python}
+fig, ax = plt.subplots(1) # Create the Figure and Axes
+
+ax.plot(x, y, 'o') # Apply methods on the axes
+
+ax.set_xlabel("Duration of exercise")
+ax.set_ylabel("Calories Burned")
+ax.set_title("Calories burned over Duration of exercise")
+
+plt.show()
 ```
 
 ::: {.callout-note} 
-The first way of plotting is function-oriented, and the second is object-oriented. 
-You might encounter both styles of coding. 
+Notice that the names of the functions/methods called are not the same: the function `xlabel()` is used for the function-oriented manner and the method `set_xlabel()` is used for the object-oriented.
+:::
+
+### Matplotlib anatomy 
+
+Matplotlib graphs your data on Figures, each of which can contain one or more Axes. An Axes is an area where points can be specified in terms of x-y coordinates. 
+
+Axes contains a region for plotting data and includes generally two Axis objects (2D plots), a title, an x-label, and a y-label. The Axes methods (e.g. `.set_xlabel()`) are the primary interface for configuring most parts of your plot (adding data, controlling axis scales and limits, adding labels etc.).
+
+An Axis sets the scale and limits and generate ticks (the marks on the Axis) and ticklabels (strings labeling the ticks). 
+
+::: {.callout-note} 
+Be aware of the difference between Axes and Axis.
 :::
 
 ![Anatomy of a matplotlib plot](img/matplotlib.png)
 
-Many visualizations are available (static, animated, interactive). For more information, check out: 
+To create a Figure with 2 Axes, run:
+
+```{python}
+# a figure with a 1x2 (nrow x ncolumn) grid of Axes
+# and of defined size figsize=(width,height)
+fig, axs = plt.subplots(1, 2, figsize=(9,2)) 
+
+axs[0].plot(x, y, 'o') # Apply methods on the axes
+axs[0].set_xlabel("Duration of exercise")
+axs[0].set_ylabel("Calories Burned")
+axs[0].set_title("Calories burned over Duration of exercise")
+
+axs[1].plot(x, y, 'g+--') # Apply methods on the axes
+axs[1].set_xlabel("Duration of exercise")
+axs[1].set_ylabel("Calories Burned")
+axs[1].set_title("Calories burned over Duration of exercise")
+
+plt.show()
+```
+
+There are many other plot available: `.scatter()`, `.bar()`, `.hist()`, `.pie()`, `.boxplot()`...
+
+
+### Save a figure 
+
+You can save a figure with the `savefig()` function:
+```{python}
+plt.savefig('exercise/data/barplot.png')
+```
+
+
+::: {.callout-warning} 
+Note that plt refer to a global figure variable and after a figure has been displayed to the screen (e.g. with plt.show) matplotlib will make this variable refer to a new empty figure. Therefore, make sure you call `plt.savefig` before the plot is displayed to the screen, otherwise you may find a file with an empty plot.
+:::  
+
+```{python}
+# a figure with a 1x2 (nrow x ncolumn) grid of Axes
+# and of defined size figsize=(width,height)
+fig, axs = plt.subplots(1, 2, figsize=(9,2)) 
+
+axs[0].plot(x, y, 'o') # Apply methods on the axes
+axs[0].set_xlabel("Duration of exercise")
+axs[0].set_ylabel("Calories Burned")
+axs[0].set_title("Calories burned over Duration of exercise")
+
+axs[1].plot(x, y, 'g+--') # Apply methods on the axes
+axs[1].set_xlabel("Duration of exercise")
+axs[1].set_ylabel("Calories Burned")
+axs[1].set_title("Calories burned over Duration of exercise")
+
+plt.savefig('exercise/data/barplot.png')
+
+plt.show()
+```
+
+The plot can also be save ad ps, pdf or svg. Moreover, the resolution can be modified.
+See the documentation of [savefig](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html).
+
+
+### Matplotlib documentation 
+
+For more information, check out the following ressources: 
 
 - the [documentation](https://matplotlib.org/stable/users/explain/quick_start.html)
 - the [cheat sheet](https://matplotlib.org/cheatsheets/)
 - any [useful tutorial](https://www.w3schools.com/python/matplotlib_intro.asp)
 - some [inspiration](https://matplotlib.org/stable/gallery/index)
 
+
 ## Exercise
 
-::: {.callout-important title="Exercise"} 
+::: {.callout-important title="Exercise 4"} 
 
 Create a script that gets nucleotide frequency data from a file in the format of `exercise/data/example.txt`, and visualizes it using Matplotlib and Pandas. 
 
-Your script should read the data, create a stacked bar chart showing the nucleotide frequencies for each sequence, and label the axes appropriately. 
+Your script should read the data, create a stacked bar chart showing the nucleotide frequencies for each sequence, and label the axes appropriately. Finally, save your plot as a png file.
 Here's the expected plot:
 
 ```{python}
@@ -532,6 +912,8 @@ ax.set_xlabel('Sequences')
 ax.set_ylabel('Frequency')
 ax.legend(title='Nucleotides', bbox_to_anchor=(0, 1),
           loc='lower left', ncols=4)
+
+plt.savefig('exercise/data/exercise4.png')
 
 plt.show()
 ```
@@ -590,6 +972,84 @@ plt.show()
 
 :::
 
+
+
+::: {.callout-important title="Exercise 5"} 
+
+Create a figure of 4 bar plots, where each bar plot contains the frequency of one nucleotide for each sequences. Label the axes appropriately. Finally, save your plot as a png file.
+Here's the expected plot:
+
+```{python}
+#| echo: false
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create a DataFrame from the given data
+df = pd.read_csv('exercise/data/example.txt', index_col=0, sep=' ')
+
+# a figure with a 1x2 (nrow x ncolumn) grid of Axes
+# and of defined size figsize=(width,height)
+fig, axs = plt.subplots(2, 2, figsize=(9,9)) 
+
+for i, nucl in enumerate(df.columns):
+    axs[i//2, i%2].bar(df.index, df[nucl], label=nucl)
+    axs[i//2, i%2].set_ylabel(f'Frequency of {nucl}')
+
+fig.savefig('exercise/data/exercise5.png')
+
+```
+
+:::
+
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
+```{python}
+#| eval: false
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create a DataFrame from the given data
+df = pd.read_csv('exercise/data/example.txt', index_col=0, sep=' ')
+
+# a figure with a 1x2 (nrow x ncolumn) grid of Axes
+# and of defined size figsize=(width,height)
+fig, axs = plt.subplots(2, 2, figsize=(9,9)) 
+
+for i, nucl in enumerate(df.columns):
+    axs[i//2, i%2].bar(df.index, df[nucl], label=nucl)
+    axs[i//2, i%2].set_ylabel(f'Frequency of {nucl}')
+
+```
+
+or also, 
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create a DataFrame from the given data
+df = pd.read_csv('exercise/data/example.txt', index_col=0, sep=' ')
+
+# a figure with a 1x2 (nrow x ncolumn) grid of Axes
+# and of defined size figsize=(width,height)
+fig, axs = plt.subplots(2, 2, figsize=(9,9)) 
+
+for i, nucl in enumerate(df.columns):
+    df[nucl].plot(kind='bar', stacked=True, ax=axs[i//2, i%2])
+    axs[i//2, i%2].set_ylabel(f'Frequency of {nucl}')
+
+```
+
+
+
+:::
+
+:::
+
 ## More packages
 
 There are MANY packages available, here's a short list of some that might interest you:
@@ -615,12 +1075,15 @@ There are MANY packages available, here's a short list of some that might intere
 
 Here are a couple of tips:
 
-- Leave comments (think of your future self!)
+- Leave comments (think of your future self)
 - Be consistent (quotes, indents...)
+- Break down one complex task into lots of (easy) small tasks
+- When using functions you are not comfortable with, verify the output and make sure it does what you expect in with small examples
 - Don't re-invent the wheel, for common tasks, it's likely that a function already exists
-- Read the documentation when using a new package or function!
+- Read the documentation when using a new package or function
 - Google It! Use the correct programming vocabulary to increase your chances of finding an answer. If you don't find anything, try wording it differently. 
-- The easiest way to learn is by example, so follow a tutorial with the example data, and then try to apply it to your own! 
+- Prompt it to AI! It works generally well to explain a code, and for small tasks using famous packages.
+- The easiest way to learn is by example, so follow a tutorial with the example data, and then try to apply it to your own
 
 You can follow some free tutorials on:
 
@@ -628,11 +1091,8 @@ You can follow some free tutorials on:
 - [EdX](https://www.edx.org/learn/python)
 - Youtube!
   
-Finally, you should able to use Github Copilot (AI coding assistant), as it is free for students: [https://education.github.com/benefits](https://education.github.com/benefits). 
 
 # References {.unnumbered}
-
-A [python conference](https://www.pycon.fr/2024/) organized by the AFPy (Association Francophone Python) is held in Strasbourg in the end of October 2024!  
 
 Here are some references and ressources that inspired this class: 
 

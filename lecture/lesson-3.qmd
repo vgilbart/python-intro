@@ -3,9 +3,6 @@
 title: "Lesson 3 - Jupyter Notebook"
 author: "Valentine Gilbart"
 date : last-modified
-theme:
-  light: flatly
-  dark: darkly
 format: 
   html: 
     toc: true
@@ -18,17 +15,444 @@ solutions: true
 
 ## Aim of the class
 
-This last class is to pratice the notions learned on a couple of (larger) exercises. 
+
+At the end of this class, you will be able to:
+
+- Create, run, export your own Jupyter Notebook
+- Create your own environment to run your Jupyter Notebook
+- Parameter a Notebook
+- Use a Notebook template to run on several dataset 
+
+This last class is also to keep on praticing the notions learned in the previous lessons. 
 
 ::: {.column-margin}
 ![*pssssss*](img/potter.jpg){#fig-potter width=100%}
 :::
 
-The exercises have one provided solution, but it is not the only one. We all have a different coding style, and it evolves with time. So do not worry if you have a different solution, as long as your result is correct, that's already great!
+# Jupyter Notebook
+
+## What is Jupyter Notebook
+
+A Jupyter Notebook is a computational notebook with the file extension `.ipynb`. It is a document that can combines text (formatted in plain text or Markdown), code (python, R, bash) and various visualizations (such as graphs, tables). It provides a friendly environment to format, explain and explore the results of a data analysis. Jupyter Notebooks can be exported to `.pdf` or `.html` to share them easily.
+
+It is part of the [Project Jupyter](https://docs.jupyter.org/en/latest/), which is an umbrella project providing tools for interactive computing. JupyterLab provides an environment and user interface for Jupyter Notebooks. 
+
+## How can I program in a Jupyter Notebook
+
+### In your text editor 
+
+To use Jupyter Notebook outside of a JupyterLab, your text editor must be compatible with the Jupyter Notebook format. In Visual Studio Code, you will need to install the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). Some other extensions can be useful, for example [Jupyter Cell Tags](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-jupyter-cell-tags).
+
+### On a local server
+
+If Jupyter Notebook or Jupyter Lab is installed (report to [installation doc](https://jupyter.org/install)) on your computer, you can start running a local notebook server by running in the terminal:
 
 
-## Requirements
 
-Remembering some of [lesson 1](../lecture/lesson-1.html) and [2](../lecture/lesson-2.html).
+```{python}
+#jupyter notebook 
+```
 
-# 
+or
+
+```{python}
+#jupyter lab 
+```
+
+This will print some information about the notebook server in your console, and open a web browser to the URL of the local web application.
+
+### Inside a JupyterLab
+
+In the IGBMC, you can for example have access to a JupyterLab on the cluster with [Open OnDemand](https://it.igbmc.fr/open-ondemand).
+
+For test purpose, you can also create a Jupyter Notebook in [JupyterLab](https://jupyter.org/try-jupyter/lab/). 
+
+# Structure of a Jupyter Notebook  
+
+## Cells 
+
+In practice, a notebook consists of cells. A cell can contain markdown or code (by default) text. 
+The execution of a code cell is dependent on the kernel used (for example, the kernel needs to have the adequate python packages installed). The results and warnings returned are displayed as the cell’s output. The output can be text, table, plot... 
+
+
+::: {.callout-important title="Exercise"} 
+
+Let's create our first Jupyter Notebook. For this create a new file and name it `lesson3.ipynb`. 
+Before creating your Jupyter Notebook, or before running your first cell you will get asked to choose a Kernel. For the moment let's use the first one provided, we'll explain later what it is. 
+
+Write a command in the first cells that says `print("Hello Jupyter")` and execute it. 
+
+Write a command that will generate an error, for example `print("Hello Jupyter", end=1)` and execute it.
+
+:::
+
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
+See associated [Jupyter Notebook](../exercise/jupyter-notebook/lesson3.ipynb) or its [html](../exercise/jupyter-notebook/lesson3.html) 
+
+:::
+
+:::
+
+## Markdown 
+
+The aim of a Jupyter Notebook is also to explain code. For this, we can write in the Markdown format descriptions of the experiment, the dataset, or general useful information about the analysis. 
+
+In markdown, you can:
+
+Create headers (i.e. titles with hierarchy):
+```
+# Header 1
+# Header 2
+## Subheader 1
+```
+
+Write in *italics*: `*italics*`
+
+Write in **bold**: `**bold**`
+
+Write [links](https://igbmc.fr): `[links](https://igbmc.fr)`
+
+Add images ![alt text](https://www.igbmc.fr/typo3conf/ext/igbmc/Resources/Public/images/logos/igbmc.png){width=10%}: `![alt text](https://www.igbmc.fr/typo3conf/ext/igbmc/Resources/Public/images/logos/igbmc.png){width=10%}`
+
+Create (nested) lists:
+
+- Item 1
+- Item 2
+  - Subitem 1
+  
+```
+- Item 1
+- Item 2
+  - Subitem 1
+```
+
+Write in html: <p style="color:red;">This is in red.</p> ` <p style="color:red;">This is in red.</p>`
+
+::: {.callout-important title="Exercise"} 
+
+Let's rewrite some code of Exercise 3 of lesson 2 below into a Jupyter Notebook, with some explanation of the dataset and the code, using Markdown formatting.
+
+Use at least the following Markdown elements: 
+
+- header
+- bold
+- list
+- link
+
+And execute at least the following code (seperate it in different cells).
+
+```{python}
+#| eval: false
+
+
+import pandas as pd
+
+df = pd.read_csv('exercise/data/example.txt', index_col=0, sep=' ')
+df = pd.melt(df, var_name='nucl', value_name='freq', ignore_index=False)
+
+df.index
+df.columns
+
+df.head()
+
+df['freq'].mean()
+df.groupby("nucl")[['freq']].mean()
+```
+:::
+
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
+See associated [Jupyter Notebook](../exercise/jupyter-notebook/lesson3.ipynb) or its [html](../exercise/jupyter-notebook/lesson3.html) 
+
+:::
+
+:::
+
+# Magic Commands
+
+Magic commands are handy commands built into the IPython kernel.
+You can get an explanation of all magic commands and usages in the [IPython doc](https://ipython.readthedocs.io/en/stable/interactive/magics.html).
+Here are a few that can be useful:
+
+
+| Command  | Usage |  
+|--|---|
+| whos | Show a table of all vairables defined within the current notebook | 
+| history | Display command history  | 
+| time |  Measure execution time a Python statement or expression (line or cell) |  
+| writefile <filename> |  Write the content of a cell into a file |  
+| load |  Loads content of an external python script into a cell |  
+| run | Exectures an external python script |  
+| pip | Run the pip package manager within the current kernel | 
+
+To use it in line mode add the prefix `%` before the command (e.g. `%time`). To use it in cell mode add the prefix `%%` (e.g. `%%time`). Some commands can only be used in one or the other mode. 
+
+::: {.callout-important title="Exercise"} 
+
+1. Load the file `analyse_fasta.py` that contains the functions `nucl_freq()` and `analyse_fasta()` into the next cell. Run the command `nucl_freq("AACTTG")` to verify that it worked.
+
+2. Use a magic command to get all the variables currently defined. Remove the functions `nucl_freq` and `analyse_fasta` variable using `del <variable>` in python and rerun the magic command to output all variables currently defined.
+
+3. Run the file `analyse_fasta.py` that contains the functions `nucl_freq()` and `analyse_fasta()`. Run the command `nucl_freq("AACTTG")` to verify that it worked.
+
+:::
+
+
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
+See associated [Jupyter Notebook](../exercise/jupyter-notebook/lesson3.ipynb) or its [html](../exercise/jupyter-notebook/lesson3.html) 
+
+:::
+
+:::
+
+
+# Exporting notebook 
+
+JupyterLab allows you to export your jupyter notebook files (.ipynb) into other file formats such as:
+
+- HTML `.html`
+- LaTeX `.tex`
+- Markdown `.md`
+- PDF `.pdf`
+- Executable Script `.py`
+
+Converting the notebook uses the module [`nbconvert`](https://nbconvert.readthedocs.io/en/latest/#) and the availability of certain conversions will depend on `nbconvert` configuration.
+
+On a JupterLab instance, you will be able to export your notebook with `File > Save and Export Notebook As`. 
+
+In the Visual Studio Code, exporting can be done with the button (on the same bar as `+ Code`) `... > Export` or via the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) `>Jupyter: Export to ...`.
+
+::: {.callout-important title="Exercise"} 
+Export `lesson3.ipynb` in a `.html` format. Open the `.html` file into a browser. 
+:::
+
+
+# Conda environment as a kernel
+
+A Kernel is a computational engine for running and interacting with the Jupyter code. By default, Jupyter only knows about the base Python environment. This Python environment needs to have the necessary python library installed (e.g. `pandas`, `matplotlib`). 
+
+In some cases, it might be useful to create different Python environments for different usage or projects. This ensures that you can install specific packages and Python versions without affecting your base system or other environments. For this purpose, a common tool used is [conda](https://anaconda.org/anaconda/conda). 
+
+![Conda schema from [https://angus.readthedocs.io/](https://angus.readthedocs.io/en/2019/conda_tutorial.html) ](img/conda.png){#fig-conda width=100%}
+
+You can see it as a closed setup with its own Python interpreter and packages.
+
+Some basic library like `pandas` or `matplotlib` are included in most already existing Kernels. But other library that are domain-specific won't be included by default. Also, you might want to work with a specific version of python or python packages.  
+One can register a Conda environment as a Kernel so Jupyter can use it to run code. 
+
+
+```{python}
+#conda create -n python_intro python
+#conda activate python_intro
+#conda install ipykernel
+#python -m ipykernel install --user --name=python_intro 
+```
+
+
+::: {.callout-important title="Exercise"} 
+
+Verify the current version of pandas with the command `print(pandas.__version__)`. 
+
+Create a conda environment with a previous version of pandas and ipykernel. 
+
+Register it as a kernel. 
+
+Create a new Jupyter Notebook that uses this kernel. Verify that the pandas version has indeed downgraded by running `print(pandas.__version__)` in a cell.
+
+TODO bc it does not work with codespace that take another lib of python module as defautl: /home/codespace/.local/lib/python3.12/site-packages/plotly
+:::
+
+
+
+# Interactive notebook
+
+## Widgets
+
+An interesting thing about notebook is to make them interactive. For this we will use the [interact](https://ipywidgets.readthedocs.io/en/latest/examples/Using%20Interact.html) function of `ipywidgets`. 
+
+It can take different values as input (integer, boolean, string):
+
+```{python}
+from ipywidgets import interact
+
+def f(x):
+    return x
+
+interact(f, x=10)
+
+interact(f, x=True)
+
+interact(f, x='Hi there!')
+
+interact(f, x=['Choice A', 'Choice B'])
+```
+
+Or more than one value:
+```{python}
+def f(w, x, y, z,):
+    return (w, x, y, z)
+
+interact(f, w=10, x=True, y='Hi there!', z=['Choice A', 'Choice B'])
+```
+
+The type of value given calls for a specific widget (slider, check box, text box), that can be parametered. Here is a summary:
+
+| Type of value | Widget function | Usage example |
+|-|-|-|
+| Boolean | Checkbox() |  `True` or `False` | 
+| String | Text() | `'Hi there'` | 
+| Integer | IntSlider() | `value` or `(min,max)` or `(min,max,step)` if integers are passed | 
+| Float  | FloatSlider() | `value` or `(min,max)` or `(min,max,step)` if floats are passed | 
+| List | Dropdown() | `['orange','apple']` or `[('one', 1), ('two', 2)]` | 
+
+There are actually many more widgets, they can be found in [ipywidget documentation](https://ipywidgets.readthedocs.io/en/7.x/examples/Widget%20List.html). 
+
+
+::: {.callout-warning} 
+The interactivity is only kept in the Jupyter Notebook format `.ipynb` as it needs the Kernel to be run. That means that these interactive elements will not be exported in the `.html` or `.pdf` format for example. 
+
+Which is also why the exmaples given in this website are not interactive!
+::: 
+
+
+::: {.callout-important title="Exercise"} 
+
+Create an interactive plot based on the stacked bar chart from lesson 2. It should show the frequencies of only one (interactively) selected nucleotide for each sequence.
+
+Export it in `.html` or `.pdf`. 
+
+Bonus: allow for the choice of multiple nucleotides. 
+
+```{python}
+#| eval: true
+#| echo: false
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from ipywidgets import interact
+from ipywidgets import widgets
+
+# Create a DataFrame from the given data
+df = pd.read_csv('exercise/data/example.txt', index_col=0, sep=' ')
+
+def interactive_plot(columns):
+    # Plot the data
+    fig, ax = plt.subplots(1, figsize=(5, 6))
+
+    bottom = pd.Series([0,0,0,0,0], index = df.index) 
+    for col in columns:
+        ax.bar(df.index, df[col], label=col, bottom=bottom)
+        bottom += df[col]
+
+    # Add labels and legend
+    ax.set_xlabel('Sequences')
+    ax.set_ylabel('Frequency')
+    ax.legend(title='Nucleotides', bbox_to_anchor=(0, 1),
+              loc='lower left', ncols=4)
+    plt.show()
+
+interact(interactive_plot, columns=df.columns)
+
+interact(interactive_plot, columns=widgets.SelectMultiple(
+    options=df.columns,
+    value=[df.columns[0], df.columns[1]],
+    description='Nucleotides',
+    disabled=False
+))
+```
+:::
+
+
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
+```{python}
+#| eval: false
+#| echo: true
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from ipywidgets import interact
+from ipywidgets import widgets
+
+# Create a DataFrame from the given data
+df = pd.read_csv('exercise/data/example.txt', index_col=0, sep=' ')
+
+def interactive_plot(columns):
+    # Plot the data
+    fig, ax = plt.subplots(1, figsize=(5, 6))
+
+    bottom = pd.Series([0,0,0,0,0], index = df.index) 
+    for col in columns:
+        ax.bar(df.index, df[col], label=col, bottom=bottom)
+        bottom += df[col]
+
+    # Add labels and legend
+    ax.set_xlabel('Sequences')
+    ax.set_ylabel('Frequency')
+    ax.legend(title='Nucleotides', bbox_to_anchor=(0, 1),
+              loc='lower left', ncols=4)
+    plt.show()
+
+interact(interactive_plot, columns=df.columns)
+
+interact(interactive_plot, columns=widgets.SelectMultiple(
+    options=df.columns,
+    value=[df.columns[0], df.columns[1]],
+    description='Nucleotides',
+    disabled=False
+))
+```
+
+See associated [Jupyter Notebook](../exercise/jupyter-notebook/lesson3.ipynb) or its [html](../exercise/jupyter-notebook/lesson3.html) 
+
+:::
+
+:::
+
+
+## Plotly express
+
+`plotly.express` is a module used to create figures that are interactive. 
+Refer to its [documentation](https://plotly.com/python/) for more information.
+
+TODO explain a bit more and add something about renderer https://plotly.com/python/renderers/ if we use vscode 
+
+
+::: {.callout-warning} 
+It does not rely on the same grammar as `matplotlib`, so you have to get used to new objects and functions to create plots. We will not cover it here, but it is useful to know that `plotly.express` exists when creating Jupyter Notebooks
+::: 
+
+```{python}
+#| eval: false
+#| echo: true
+
+import plotly.express as px
+import pandas as pd
+
+df = pd.read_csv('exercise/data/example.txt', sep=' ')
+df = pd.melt(df, var_name='nucl', value_name='freq', id_vars=['Seq'])
+
+fig = px.bar(df, x="Seq", y="freq", color = "nucl", title="Nucleotide frequency")
+fig.show()
+
+```
+
+# Final exercise 
+
+TODO create a final exercise that recaps everything with a new dataset maybe? a vcf? or the result of a excel from genomeast? (volcano plot, heatmap...)
+
+# Ressources 
+
+https://jupyter-notebook.readthedocs.io/en/stable/notebook.html
+https://bioinformatics.ccr.cancer.gov/docs/intro-to-bioinformatics-ss2023/Lesson6/Jupyter_Lab/
+
