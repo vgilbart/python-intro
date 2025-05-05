@@ -116,7 +116,7 @@ To get out of the Python interpreter, type `quit()`or `exit()`, followed by `ent
 
 To run a script, create a folder named `script`, in which a file named `intro.py` contains: 
 
-```{python }
+```{python}
 #| eval: FALSE
 #!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
@@ -1002,17 +1002,6 @@ else:
 :::
 :::
 
-An `if` statement cannot be empty, but if for some reason you have an if statement with no content, put in the `pass` statement to avoid getting an error.
-
-
-```{python}
-a = 33
-b = 200
-
-if b > a:
-  pass
-```
-
 ## Notes on indentation
 
 ::: {.callout-note} 
@@ -1025,7 +1014,7 @@ Any code that is at the same level of indentation is considered part of the same
 
 When you have nested structures like a conditional statement inside another conditional statement, you must further to show the hierarchy. Each level of indentation represents a deeper level of nesting.
 
-It's essential to be consistent with your indentation throughout your code. Mixing tabs and spaces can lead to errors, so it's recommended to choose one and stick with it.
+It's essential to be consistent with your indentation throughout your code. The [styling guide of Python PEP8](https://peps.python.org/pep-0008/) recommands 4 spaces as indentation.
 
 
 ::: {.callout-important title="Exercise"} 
@@ -1063,9 +1052,9 @@ x = 7
 
 if x > 5:
   print("x is greater than 5")  
-  if y > 10:
+  if x > 10:
     print("x is greater than 10")  
-  elif y = 10: 
+  elif x = 10: 
     print("x equals 10") 
   else:
     print("x is less than 10")  
@@ -1107,9 +1096,9 @@ x = 7
 
 if x > 5:
   print("x is greater than 5")  
-  if y > 10:
+  if x > 10:
     print("x is greater than 10")  
-  elif y == 10: 
+  elif x == 10: 
     print("x equals 10") 
     # It must be ==, the comparison operator 
     # instead of =, the assignement operator
@@ -1193,7 +1182,7 @@ This is because `all_codons` was converted to an iterator in the `for` statement
 
 An iterator is a special object that gives values in succession.
 
-In the previous example, the iterator returns a copy of the item in a list, not a reference to it. Therefore, the `codon` inside the `for` block is not a view into the original list, and changing it does not do anything.
+In the previous example, the iterator returns a copy of the item in a list, not a reference to it. Therefore, the `codon` inside the `for` block is not a view into the original list, and changing it does not do anything to the original list.
 
 A way to modify the list would be to use an iterable to access the original data. 
 The `range(start, stop)` function creates an iterable to count from one integer to another. 
@@ -1277,7 +1266,7 @@ So, once the end of the sequence is reached, the condition `seq[i:i+3] != start_
 
 
 ::: {.callout-note} 
-To get interrupt a process, press `[ctrl + c]`. 
+To interrupt a process, press `[ctrl + c]`. 
 :::
 
 ### Break statement
@@ -1305,6 +1294,7 @@ Also, note that the `else` statement can be used in `for` and `while` loops.
 In `for` loops it is executed when the **loop is finished**. In `while` loops, it is executed when the condition is **no longer true**. In both case, the loops need to **not** encounter a `break` to enter in the `else` block. 
 :::
 
+
 ### Continue statement 
 
 In addition to the break statement, there is also the continue statement in Python that can be used to alter the flow of iteration in loops. When continue is encountered within a loop, it skips the remaining code inside the loop for the current iteration and moves on to the next iteration.
@@ -1329,8 +1319,12 @@ else:
 
 The continue statement in this example skips the analysis code for sequence that does not start with a start codon.
 
-### Exercises
+::: {.callout-note} 
 
+The annotation `f"Some text followed by a {variable}"` is a straight-forward and clear way to format strings called [F-Strings](https://www.w3schools.com/python/python_string_formatting.asp). `{variable}` will be interpreted so that its value is output.  
+:::
+
+### Exercises
 
 ::: {.callout-important title="Exercise 1"} 
 
@@ -1522,11 +1516,7 @@ For french speakers, the AFPy (Association Francophone Python) has a learning to
 
 Or keep on googling for more python exercises! 
 
-To continue your learning journey, follow [lesson 2](../lecture/2024-lesson-2.html). 
-
 # References {.unnumbered}
-
-A [python conference](https://www.pycon.fr/2024/) organized by the AFPy (Association Francophone Python) is held in Strasbourg in the end of October 2024!  
 
 Here are some references and ressources that (greatly) inspired this class: 
 
