@@ -19,7 +19,7 @@ book:
     - index.qmd
     - lecture/lesson-1.qmd
     - lecture/lesson-2.qmd
-    - lecture/lesson-3.qmd
+#    - lecture/lesson-3.qmd
     - part: "Archive 2024"
       chapters: 
         - archive/2024-lesson-1.qmd
