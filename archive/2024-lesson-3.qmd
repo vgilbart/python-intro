@@ -125,7 +125,7 @@ Here's an example of input, and the desired output:
 
 import sys
 
-sys.path.append( 'exercise/script' )
+sys.path.append( 'archive/exercise/script' )
 from conway_life_basic import * 
 ```
 
