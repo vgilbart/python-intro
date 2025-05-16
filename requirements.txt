@@ -5,3 +5,7 @@ pandas==1.5.3
 torch
 torchvision
 tqdm==4.66.3
+nbconvert
+pandoc
+texlive-core
+ipykernel
