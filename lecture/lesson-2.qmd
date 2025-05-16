@@ -1,6 +1,6 @@
 
 ---
-title: "Lesson 2 - Functions, Scientific Packages"
+title: "Lesson 2 - Functions, file handling, dataframe and plots"
 author: "Valentine Gilbart"
 date : last-modified
 format: 

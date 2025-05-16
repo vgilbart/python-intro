@@ -16,8 +16,8 @@
 
 | Lecture | Link  |
 |--------|--------|
-| Lesson 1 - Introduction | [lecture/lesson-1.html](https://vgilbart.github.io/python-intro/lecture/lesson-1.html) |
-| Lesson 2 - pandas and matplotlib | [lecture/lesson-2.html](https://vgilbart.github.io/python-intro/lecture/lesson-2.html) |
+| Lesson 1 - Introduction, representing and manipulating data | [lecture/lesson-1.html](https://vgilbart.github.io/python-intro/lecture/lesson-1.html) |
+| Lesson 2 - Functions, file handling, dataframe and plots | [lecture/lesson-2.html](https://vgilbart.github.io/python-intro/lecture/lesson-2.html) |
 | Lesson 3 - Jupyter Notebook | [lecture/lesson-3.html](https://vgilbart.github.io/python-intro/lecture/lesson-3.html) |
 
 ## Old Material 
