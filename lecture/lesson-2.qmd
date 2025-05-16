@@ -839,7 +839,7 @@ There are many other plot available: `.scatter()`, `.bar()`, `.hist()`, `.pie()`
 
 You can save a figure with the `savefig()` function:
 ```{python}
-plt.savefig('exercise/data/barplot.png')
+plt.savefig('exercise/data/figure.png')
 ```
 
 

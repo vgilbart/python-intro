@@ -10,7 +10,6 @@ format:
 editor: source
 solutions: true
 ---
-
 # Introduction
 
 ## Aim of the class
@@ -48,21 +47,19 @@ To use Jupyter Notebook outside of a JupyterLab, your text editor must be compat
 If Jupyter Notebook or Jupyter Lab is installed (report to [installation doc](https://jupyter.org/install)) on your computer, you can start running a local notebook server by running in the terminal:
 
 
-
-```{python}
-#jupyter notebook 
+```{bash}
+jupyter notebook 
 ```
 
 or
 
-```{python}
-#jupyter lab 
+```{bash}
+jupyter lab 
 ```
 
 This will print some information about the notebook server in your console, and open a web browser to the URL of the local web application.
 
 ### Inside a JupyterLab
-
 In the IGBMC, you can for example have access to a JupyterLab on the cluster with [Open OnDemand](https://it.igbmc.fr/open-ondemand).
 
 For test purpose, you can also create a Jupyter Notebook in [JupyterLab](https://jupyter.org/try-jupyter/lab/). 
@@ -71,14 +68,14 @@ For test purpose, you can also create a Jupyter Notebook in [JupyterLab](https:/
 
 ## Cells 
 
-In practice, a notebook consists of cells. A cell can contain markdown or code (by default) text. 
+In practice, a notebook consists of cells. A cell can contain Markdown or code. 
 The execution of a code cell is dependent on the kernel used (for example, the kernel needs to have the adequate python packages installed). The results and warnings returned are displayed as the cell’s output. The output can be text, table, plot... 
 
 
 ::: {.callout-important title="Exercise"} 
 
-Let's create our first Jupyter Notebook. For this create a new file and name it `lesson3.ipynb`. 
-Before creating your Jupyter Notebook, or before running your first cell you will get asked to choose a Kernel. For the moment let's use the first one provided, we'll explain later what it is. 
+Let's create our first Jupyter Notebook. For this create a new file and name it `lesson-3-companion.ipynb`. 
+Before creating your Jupyter Notebook, (or before running your first cell) you will get asked to choose a Kernel. For the moment let's use the first one provided, we'll explain later what it is. 
 
 Write a command in the first cells that says `print("Hello Jupyter")` and execute it. 
 
@@ -90,7 +87,7 @@ Write a command that will generate an error, for example `print("Hello Jupyter",
 
 ::: {.callout collapse="true" title="Solutions"}
 
-See associated [Jupyter Notebook](../exercise/jupyter-notebook/lesson3.ipynb) or its [html](../exercise/jupyter-notebook/lesson3.html) 
+See associated [Jupyter Notebook](../exercise/jupyter-notebook/lesson-3-companion.ipynb) or its [html](../exercise/jupyter-notebook/lesson-3-companion.html) 
 
 :::
 
@@ -147,7 +144,6 @@ And execute at least the following code (seperate it in different cells).
 ```{python}
 #| eval: false
 
-
 import pandas as pd
 
 df = pd.read_csv('exercise/data/example.txt', index_col=0, sep=' ')
@@ -186,8 +182,8 @@ Here are a few that can be useful:
 | history | Display command history  | 
 | time |  Measure execution time a Python statement or expression (line or cell) |  
 | writefile <filename> |  Write the content of a cell into a file |  
-| load |  Loads content of an external python script into a cell |  
-| run | Exectures an external python script |  
+| load |  Load content of an external python script into a cell |  
+| run | Execute an external python script |  
 | pip | Run the pip package manager within the current kernel | 
 
 To use it in line mode add the prefix `%` before the command (e.g. `%time`). To use it in cell mode add the prefix `%%` (e.g. `%%time`). Some commands can only be used in one or the other mode. 
@@ -216,7 +212,7 @@ See associated [Jupyter Notebook](../exercise/jupyter-notebook/lesson3.ipynb) or
 
 # Exporting notebook 
 
-JupyterLab allows you to export your jupyter notebook files (.ipynb) into other file formats such as:
+JupyterLab allows you to export your jupyter notebook files (`.ipynb`) into other file formats such as:
 
 - HTML `.html`
 - LaTeX `.tex`
@@ -231,9 +227,10 @@ On a JupterLab instance, you will be able to export your notebook with `File > S
 In the Visual Studio Code, exporting can be done with the button (on the same bar as `+ Code`) `... > Export` or via the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) `>Jupyter: Export to ...`.
 
 ::: {.callout-important title="Exercise"} 
-Export `lesson3.ipynb` in a `.html` format. Open the `.html` file into a browser. 
+Export `lesson-3-companion.ipynb` in a `.html` format. Open the `.html` file into a browser. 
 :::
 
+TODO verify it works in vscode or other platform
 
 # Conda environment as a kernel
 
@@ -246,30 +243,74 @@ In some cases, it might be useful to create different Python environments for di
 You can see it as a closed setup with its own Python interpreter and packages.
 
 Some basic library like `pandas` or `matplotlib` are included in most already existing Kernels. But other library that are domain-specific won't be included by default. Also, you might want to work with a specific version of python or python packages.  
-One can register a Conda environment as a Kernel so Jupyter can use it to run code. 
+It is possible to register a Conda environment as a Kernel (so that Jupyter can use an environment with adequate packages to run code). 
 
 
-```{python}
-#conda create -n python_intro python
-#conda activate python_intro
-#conda install ipykernel
-#python -m ipykernel install --user --name=python_intro 
+```{bash}
+conda create -n python_intro python
+conda activate python_intro
+conda install ipykernel notebook
+python -m ipykernel install --user --name=python_intro 
 ```
 
 
 ::: {.callout-important title="Exercise"} 
 
-Verify the current version of pandas with the command `print(pandas.__version__)`. 
+Create the conda environment like above. 
 
-Create a conda environment with a previous version of pandas and ipykernel. 
+Run the command `print('Hello World!')` in a cell. 
 
-Register it as a kernel. 
+Run the command `import pandas` in a cell. If it does not work run in the terminal `conda install pandas` or `pip install pandas`, and once it's installed, try re-running the command `import pandas`. 
 
-Create a new Jupyter Notebook that uses this kernel. Verify that the pandas version has indeed downgraded by running `print(pandas.__version__)` in a cell.
-
-TODO bc it does not work with codespace that take another lib of python module as defautl: /home/codespace/.local/lib/python3.12/site-packages/plotly
 :::
 
+As we are using conda, we might as well get familiar with some basic commands in conda.  
+
+| Command                              | Description                                      |
+|--------------------------------------|--------------------------------------------------|
+| `conda create -n env_name `          | Create a new environment                         |
+| `conda create -n env_name package`   | Create a new environment with a specific package |
+| `conda create -n env_name package==version`   | Create a new environment with a specific package and version |
+| `conda activate env_name`            | Activate an environment                          |
+| `conda deactivate`                   | Deactivate the current environment               |
+| `conda list`                         | List all installed packages in the current env   |
+| `conda env list`                     | List all available environments                  |
+| `conda install package_name`         | Install a package in the current environment     |
+| `conda remove package_name`          | Remove a package from the current environment    |
+| `conda remove -n env_name --all`     | Remove an entire environment                     |
+| `conda update package_name`          | Update a specific package                        |
+| `conda update conda`                 | Update conda itself                              |
+| `conda search package_name`          | Search for a package in conda repositories       |
+| `conda info`                         | Display information about the conda installation |
+
+
+::: {.callout-important title="Exercise"} 
+
+Try the commands `conda list` and `conda env list`. Do you understand what they output?
+
+::: {.content-hidden unless-meta="solutions"}
+::: {.callout collapse="true" title="Solutions"}
+`conda list` prints the packages available in the current environment. 
+
+`conda env list` prints the conda environments available.
+:::
+:::
+
+Create an environment with pandas at version 1.5.3. You can verify the version of pandas with the following code `print(pandas.__version__)`.
+
+::: {.content-hidden unless-meta="solutions"}
+::: {.callout collapse="true" title="Solutions"}
+In a terminal run: 
+```{bash}
+conda create -n pandas_v1 pandas==1.5.3
+conda activate pandas==1.5.3
+python -c "import pandas; print(pandas.__version__)"
+```
+:::
+:::
+
+
+:::
 
 
 # Interactive notebook
@@ -281,6 +322,8 @@ An interesting thing about notebook is to make them interactive. For this we wil
 It can take different values as input (integer, boolean, string):
 
 ```{python}
+#| eval: false
+
 from ipywidgets import interact
 
 def f(x):
@@ -297,6 +340,8 @@ interact(f, x=['Choice A', 'Choice B'])
 
 Or more than one value:
 ```{python}
+#| eval: false
+
 def f(w, x, y, z,):
     return (w, x, y, z)
 
@@ -317,7 +362,7 @@ There are actually many more widgets, they can be found in [ipywidget documentat
 
 
 ::: {.callout-warning} 
-The interactivity is only kept in the Jupyter Notebook format `.ipynb` as it needs the Kernel to be run. That means that these interactive elements will not be exported in the `.html` or `.pdf` format for example. 
+The interactivity is only kept in the Jupyter Notebook format `.ipynb` as it needs the Kernel to be run. That means that these interactive elements will not be exported in the `.html` format for example. 
 
 Which is also why the exmaples given in this website are not interactive!
 ::: 
@@ -327,7 +372,7 @@ Which is also why the exmaples given in this website are not interactive!
 
 Create an interactive plot based on the stacked bar chart from lesson 2. It should show the frequencies of only one (interactively) selected nucleotide for each sequence.
 
-Export it in `.html` or `.pdf`. 
+Export it in `.html`. 
 
 Bonus: allow for the choice of multiple nucleotides. 
 
@@ -449,7 +494,75 @@ fig.show()
 
 # Final exercise 
 
-TODO create a final exercise that recaps everything with a new dataset maybe? a vcf? or the result of a excel from genomeast? (volcano plot, heatmap...)
+::: {.callout-important title="Exercise"} 
+
+Download the `GSE165691_DEG_result_table.xlsx` file from [GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE165691). 
+
+Create a new Jupyter Notebook to analyze this dataset. Use markdown cells as necessary to explain the process and results of the analysis. Throughout the notebook, use the following markdown elements:
+
+- header
+- bold
+- links
+- lists
+
+1. Load the dataset into the Notebook using pandas.
+
+::: {.callout collapse="true" title="Hint"}
+Run the magic command `%pip install openpyxl` inside a cell of the Notebook. 
+Now you can use `pd.read_excel()`! 
+:::
+
+2. Explore the datatable and describe it (number of rows, columns, column names and what they contain...). Importantly, get the following information: 
+
+- are there any value that are null? If so in which columns?
+- number of unique genes
+- min, max and mean of log2FC
+- number genes with of padj < 0.05
+- number of significantly up- and down-regulated genes (up: `log2FC > 1` and `padj < 0.05` and down: `log2FC < -1` and `padj < 0.05`)
+
+::: {.callout collapse="true" title="Hint"}
+For the last two information, you can make good use of either `.sum()` or `.value_counts()`.
+:::
+
+3. Get the following values: 
+
+- the expression in both samples of the genes: Il31ra, Sox9, Lbp
+- the expression in both samples of the genes associated with .. GO term (TODO)
+
+4. Make a histogram plot of the log2FoldChange.
+
+::: {.callout collapse="true" title="Hint"}
+pandas has built-in [plot](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html) functions that are based on matplotlib.
+:::
+
+5. Make a pie plot that separates positive-log2FoldChange genes and negative-log2FoldChange genes. (TODO)
+
+::: {.callout collapse="true" title="Hint"}
+Create a new column, assign `+` for positive-log2FoldChange and `-` for negative-log2FoldChange. Make a pie plot of this new column.
+:::
+
+6. Make a volcano plot where up-regulated genes are red points, down-regulated genes are blue points, and other are grey. 
+
+::: {.callout collapse="true" title="Hint"}
+Create a new column called `color` that has the value `red` for up-regulated genes, `blue` for down-regulated genes, and `grey` for others. 
+::: 
+
+7. Just like 6 but make it interactive with widgets so that you can change the threshold of log2FC and padj. 
+
+8. Just like 6 but make it interactive with plotly expression so that you can hoover your mouse on a point and get the name of the gene, and some other informations available about that gene (e.g. `'ensembl_gene_id', 'log2FoldChange', 'padj', 'symbol','PR661W_Vec', 'PR661W_TRPM1'`). 
+
+::: {.callout collapse="true" title="Hint"}
+`plotly.express` behaves differently than `matplotlib`. You can create a new column called `color` that has the value `up-regulated` for up-regulated genes, `down-regulated` for down-regulated genes, and `Non-significant` for others. 
+::: 
+
+9. Make a heatmap of the top 5 up-regulated and top 5 down-regulated genes where the color corresponds to the `norm.count.mean` column.
+Make a heatmap of the genes associated with .. GO term (TODO)
+
+10. Export the notebook in html. 
+
+
+
+::: 
 
 # Ressources 
 

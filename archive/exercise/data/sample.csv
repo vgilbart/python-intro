@@ -1,0 +1,7 @@
+Gene,Expression_Level,Tissue
+GeneA,8.7,Heart
+GeneB,3.2,Heart
+GeneA,7.0,Brain
+GeneB,10.2,Brain
+GeneA,6.6,Liver
+GeneB,7.6,Liver

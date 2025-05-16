@@ -33,3 +33,13 @@ def analyse_fasta(input_file, output_file):
       output.write(f"{key} {value.get('A')} {value.get('T')} {value.get('C')} {value.get('G')}\n")
 
   return None
+
+
+if __name__ == "__main__":  
+  if len(sys.argv) != 3:
+    print("Usage: python analyse_fasta.py path/to/fasta path/to/output/file")
+  else:
+    input_file = sys.argv[1]
+    output_file = sys.argv[2]
+
+    analyse_fasta(input_file, output_file)

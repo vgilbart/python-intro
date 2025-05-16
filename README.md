@@ -17,8 +17,8 @@
 | Lecture | Link  |
 |--------|--------|
 | Lesson 1 - Introduction | [lecture/lesson-1.html](https://vgilbart.github.io/python-intro/lecture/lesson-1.html) |
-| Lesson 2 - pandas | [lecture/lesson-2.html](https://vgilbart.github.io/python-intro/lecture/lesson-2.html) |
-| Lesson 3 - matplotlib | [lecture/lesson-3.html](https://vgilbart.github.io/python-intro/lecture/lesson-3.html) |
+| Lesson 2 - pandas and matplotlib | [lecture/lesson-2.html](https://vgilbart.github.io/python-intro/lecture/lesson-2.html) |
+| Lesson 3 - Jupyter Notebook | [lecture/lesson-3.html](https://vgilbart.github.io/python-intro/lecture/lesson-3.html) |
 
 ## Old Material 
 
