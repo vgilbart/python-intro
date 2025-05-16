@@ -244,7 +244,7 @@
     "href": "lecture/lesson-2.html#exercise",
     "title": "Lesson 2 - Functions, Scientific Packages",
     "section": "5.5 Exercise",
-    "text": "5.5 Exercise\n\n\n\n\n\n\nExercise 1\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'C': 0.3, 'G': 0.4, 'T': 0.2, 'A': 0.1}\n\n\n\n\n\n\n\n\n\n\nSolutions\n\n\n\n\n\n\ndef nucl_freq(seq):\n  n = len(seq)\n  freq = dict()\n  for nucl in {\"A\", \"T\", \"C\", \"G\"}:\n    freq[nucl] = seq.count(nucl)/n\n  return freq \n\nnucl_freq(\"ATTCCCGGGG\")\n\n{'C': 0.3, 'G': 0.4, 'T': 0.2, 'A': 0.1}",
+    "text": "5.5 Exercise\n\n\n\n\n\n\nExercise 1\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'C': 0.3, 'T': 0.2, 'G': 0.4, 'A': 0.1}\n\n\n\n\n\n\n\n\n\n\nSolutions\n\n\n\n\n\n\ndef nucl_freq(seq):\n  n = len(seq)\n  freq = dict()\n  for nucl in {\"A\", \"T\", \"C\", \"G\"}:\n    freq[nucl] = seq.count(nucl)/n\n  return freq \n\nnucl_freq(\"ATTCCCGGGG\")\n\n{'C': 0.3, 'T': 0.2, 'G': 0.4, 'A': 0.1}",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 2 - Functions, Scientific Packages</span>"
     ]

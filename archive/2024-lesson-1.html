@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.7.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Valentine Gilbart">
-<meta name="dcterms.date" content="2025-05-06">
+<meta name="dcterms.date" content="2025-05-16">
 
 <title>4&nbsp; Lesson 1 - Introduction, Data types, Operators – Python Introduction IMCBio</title>
 <style>
@@ -75,14 +75,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-49299fefe11377925576cba6af9bf1bc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-bae15c786f24dee8f76a9e45e7a759f7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-49299fefe11377925576cba6af9bf1bc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-93fa5749095c2464a7fe83d2d5aee960.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-cbfe9299f5caab731b93668de05d1c8d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-93fa5749095c2464a7fe83d2d5aee960.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -486,7 +486,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 6, 2025</p>
+      <p class="date">May 16, 2025</p>
     </div>
   </div>
   
@@ -567,7 +567,7 @@ Figure&nbsp;5.2: Guido van Rossum
 <li>…</li>
 </ul>
 <p>It supports different types of programming paradigms (i.e.&nbsp;way of thinking) including the procedural programming paradigm. In this approach, the program moves through a linear series of instructions.</p>
-<div id="e77e2851" class="cell" data-execution_count="1">
+<div id="c7f4c9cd" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a string seq</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="st">'ATGAAGGGTCC'</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Call the function len() to retrieve the length of the string</span></span>
@@ -622,7 +622,7 @@ Note
 </div>
 </div>
 <p>From this, you can start using python interactively, e.g.&nbsp;run:</p>
-<div id="3f6d72cb" class="cell" data-execution_count="2">
+<div id="538a8c02" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello world"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello world</code></pre>
@@ -643,7 +643,7 @@ Figure&nbsp;5.4: Interactive mode
 <section id="script-mode" class="level3" data-number="5.5.2">
 <h3 data-number="5.5.2" class="anchored" data-anchor-id="script-mode"><span class="header-section-number">5.5.2</span> Script mode</h3>
 <p>To run a script, create a folder named <code>script</code>, in which a file named <code>intro.py</code> contains:</p>
-<div id="af6069bb" class="cell" data-execution_count="3">
+<div id="bf4eaa76" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env python3</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># -*- coding: UTF-8 -*-</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -652,7 +652,7 @@ Figure&nbsp;5.4: Interactive mode
 <p>and run</p>
 <pre class="{bash}"><code>./script/intro.py</code></pre>
 <p>You should get the same output as before, that is:</p>
-<div id="cb085b0a" class="cell" data-execution_count="4">
+<div id="6a18037c" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello world</code></pre>
 </div>
@@ -686,24 +686,24 @@ Warning
 <section id="values-and-variables" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="values-and-variables"><span class="header-section-number">6.1</span> Values and variables</h2>
 <p>You will manipulate values such as integers, characters or dictionaries. These values can be stored in memory using variables. To assign a value to a variable, use the <code>=</code> operator as follow:</p>
-<div id="6a4fbe25" class="cell" data-execution_count="5">
+<div id="b4ab29b6" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="st">'ATGAAGGGTCC'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To output the variable value, either type the variable name or use a function like <code>print()</code>:</p>
-<div id="3ff61087" class="cell" data-execution_count="6">
+<div id="84aefcea" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>seq </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>'ATGAAGGGTCC'</code></pre>
 </div>
 </div>
-<div id="fc37dec5" class="cell" data-execution_count="7">
+<div id="bd597fd7" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(seq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ATGAAGGGTCC</code></pre>
 </div>
 </div>
 <p>We can change a variable value by assigning it a new one:</p>
-<div id="7c3558d0" class="cell" data-execution_count="8">
+<div id="3ba50d0a" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> seq <span class="op">+</span> <span class="st">'AAAA'</span> <span class="co"># The + operator can be used to concatenate strings</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>seq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
@@ -743,7 +743,7 @@ Exercise
 <h2 data-number="6.2" class="anchored" data-anchor-id="function-calls"><span class="header-section-number">6.2</span> Function calls</h2>
 <p>A function stores a piece of code that performs a certain task, and that gets run when called. It takes some data as input (parameters that are required or optional), and returns an output (that can be of any type). Some functions are predefined (but we will also learn how to create our own later on).</p>
 <p>To run a function, write its name followed by parenthesis. Parameters are added inside the parenthesis as follow:</p>
-<div id="9221f9db" class="cell" data-execution_count="13">
+<div id="cbbef621" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># round(number, ndigits=None)</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">round</span>(number <span class="op">=</span> <span class="fl">5.76543</span>, ndigits <span class="op">=</span> <span class="dv">2</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -764,13 +764,13 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>If you provide the parameters in the exact same order as they are defined, you don’t have to name them. If you name the parameters you can switch their order. As good practice, put all required parameters first.</p>
-<div id="2e2b567f" class="cell" data-execution_count="14">
+<div id="236f8db5" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">round</span>(<span class="fl">5.76543</span>, <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>5.77</code></pre>
 </div>
 </div>
-<div id="ec38ff26" class="cell" data-execution_count="15">
+<div id="03f7a9bc" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">round</span>(ndigits <span class="op">=</span> <span class="dv">2</span>, number <span class="op">=</span> <span class="fl">5.76543</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>5.77</code></pre>
@@ -873,7 +873,7 @@ To quit the help, press <code>q</code>.</p>
 <h3 data-number="7.1.1" class="anchored" data-anchor-id="boolean"><span class="header-section-number">7.1.1</span> Boolean</h3>
 <p>Booleans represent one of two values: <code>True</code> or <code>False</code>.</p>
 <p>When you compare two values, the expression is evaluated and Python returns the Boolean answer:</p>
-<div id="63c20ea0" class="cell" data-execution_count="16">
+<div id="80ea958e" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">10</span> <span class="op">&gt;</span> <span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
@@ -889,24 +889,24 @@ To quit the help, press <code>q</code>.</p>
 <li><code>complex</code> (<span class="math inline">\(\mathbb{C}\)</span>), complex numbers</li>
 </ul>
 <p>Python will assign a numerical type automatically.</p>
-<div id="0cd9fff9" class="cell" data-execution_count="17">
+<div id="2c0b5b10" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span>    </span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="fl">2.8</span> </span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="ot">1j</span> <span class="op">+</span> <span class="dv">2</span> <span class="co"># j is the convention in electrical engineering</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="8a4e4cb3" class="cell" data-execution_count="18">
+<div id="d9a80937" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>int</code></pre>
 </div>
 </div>
-<div id="c82b8f54" class="cell" data-execution_count="19">
+<div id="ce8055af" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>float</code></pre>
 </div>
 </div>
-<div id="a48ed122" class="cell" data-execution_count="20">
+<div id="aba36179" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>complex</code></pre>
@@ -916,14 +916,14 @@ To quit the help, press <code>q</code>.</p>
 <section id="text" class="level3" data-number="7.1.3">
 <h3 data-number="7.1.3" class="anchored" data-anchor-id="text"><span class="header-section-number">7.1.3</span> Text</h3>
 <p>String type represents textual data composed of letters, numbers, and symbols. The character string must be expressed between quotes.</p>
-<div id="fd842738" class="cell" data-execution_count="21">
+<div id="09c0aae1" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""my string"""</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co">'''my string'''</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co">"my string"</span></span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co">'my string'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>are all the same thing. The difference with triple quotes is that it allows a string to extend over multiple lines. You can also use single quotes and double quotes freely within the triple quotes.</p>
-<div id="09fc4b2a" class="cell" data-execution_count="22">
+<div id="f46c4790" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A multi-line string</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>my_str <span class="op">=</span> <span class="st">'''This is a multi-line string. This is the first line.</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="st">This is the second line.</span></span>
@@ -941,7 +941,7 @@ He said "Bond, James Bond."
 </div>
 </div>
 <p>You can get the number of characters inside a string with <code>len()</code>.</p>
-<div id="8b199895" class="cell" data-execution_count="23">
+<div id="6af450d8" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(seq)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(seq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -987,7 +987,7 @@ He said "Bond, James Bond."
 </tbody>
 </table>
 <p>They are called like this:</p>
-<div id="c6e0f15d" class="cell" data-execution_count="24">
+<div id="d8252616" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>seq.count(<span class="st">'A'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>7</code></pre>
@@ -1030,11 +1030,11 @@ Exercise
 <section id="list" class="level3" data-number="7.2.1">
 <h3 data-number="7.2.1" class="anchored" data-anchor-id="list"><span class="header-section-number">7.2.1</span> List</h3>
 <p>List is a collection which is ordered and changeable. It allows duplicate members. They are created using square brackets <code>[]</code>.</p>
-<div id="259b7924" class="cell" data-execution_count="27">
+<div id="83f32e84" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> [<span class="st">'ATGAAGGGTCCAAAA'</span>, <span class="st">'AGTCCCCGTATGAT'</span>, <span class="st">'ACCT'</span>, <span class="st">'ACCT'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>List items are indexed, the first item has index <code>[0]</code>, the second item has index <code>[1]</code> etc.</p>
-<div id="9791c47d" class="cell" data-execution_count="28">
+<div id="e5c48ab4" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>seq[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>'AGTCCCCGTATGAT'</code></pre>
@@ -1054,7 +1054,7 @@ Tip
 </div>
 </div>
 <p>As a list is changeable, we can change, add, and remove items in a list after it has been created.</p>
-<div id="f7e02bbb" class="cell" data-execution_count="29">
+<div id="8cfd35f9" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>seq[<span class="dv">1</span>] <span class="op">=</span> <span class="st">'ATG'</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>seq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
@@ -1062,7 +1062,7 @@ Tip
 </div>
 </div>
 <p>You can specify a range of indexes by specifying the start (included) and the end (not included) of the range.</p>
-<div id="7605a24b" class="cell" data-execution_count="30">
+<div id="a73ace22" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>seq[<span class="dv">0</span>:<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>['ATGAAGGGTCCAAAA', 'ATG']</code></pre>
@@ -1079,7 +1079,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>By leaving out the start value, the range will start at the first item:</p>
-<div id="b39a24eb" class="cell" data-execution_count="31">
+<div id="2442c631" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>seq[:<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>['ATGAAGGGTCCAAAA', 'ATG']</code></pre>
@@ -1099,7 +1099,7 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>Indexes also conveniently work on <code>str</code> types.</p>
-<div id="f6fc74ee" class="cell" data-execution_count="32">
+<div id="17728abb" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(seq[<span class="dv">0</span>])</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(seq[<span class="dv">0</span>][<span class="dv">0</span>:<span class="dv">5</span>]) </span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(seq[<span class="dv">0</span>][<span class="dv">2</span>]) </span>
@@ -1114,7 +1114,7 @@ A</code></pre>
 </div>
 </div>
 <p>You can get how many items are in a list with <code>len()</code>.</p>
-<div id="1abf7d59" class="cell" data-execution_count="33">
+<div id="91f4babc" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(seq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
 <pre><code>4</code></pre>
@@ -1171,7 +1171,7 @@ Exercise
 <section id="tuple" class="level3" data-number="7.2.2">
 <h3 data-number="7.2.2" class="anchored" data-anchor-id="tuple"><span class="header-section-number">7.2.2</span> Tuple</h3>
 <p>Tuple is a collection which is ordered and unchangeable. It allows duplicate members. Tuples are written with round brackets <code>()</code>.</p>
-<div id="94ad7e3d" class="cell" data-execution_count="36">
+<div id="c0bd0fd0" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>my_favorite_amino_acid <span class="op">=</span> (<span class="st">'Y'</span>, <span class="st">'Tyr'</span>, <span class="st">'Tyrosine'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Just like for the list, you can get items with their index. The only difference is that you cannot change a tuple that has been created.</p>
@@ -1215,7 +1215,7 @@ Exercise
 <section id="set" class="level3" data-number="7.2.3">
 <h3 data-number="7.2.3" class="anchored" data-anchor-id="set"><span class="header-section-number">7.2.3</span> Set</h3>
 <p>Set is a collection which is unordered and unindexed. It does not allow duplicate members (they will be ignored). Sets are written with curly brackets <code>{}</code>.</p>
-<div id="57482713" class="cell" data-execution_count="39">
+<div id="9554c7f3" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> {<span class="st">'BRCA1'</span>, <span class="st">'TP53'</span>, <span class="st">'EGFR'</span>, <span class="st">'MYC'</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Once a set is created, you cannot change its items directly (as they don’t have index), but you modify the set by removing and adding items.</p>
@@ -1269,7 +1269,7 @@ Exercise
 </div>
 <div class="callout-body-container callout-body">
 <p>Get the common genes between the following sets:</p>
-<div id="a5e493fc" class="cell" data-execution_count="40">
+<div id="53ccb73a" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>organism1_genes <span class="op">=</span> {<span class="st">'BRCA1'</span>, <span class="st">'TP53'</span>, <span class="st">'EGFR'</span>, <span class="st">'MYC'</span>}</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>organism2_genes <span class="op">=</span> {<span class="st">'TP53'</span>, <span class="st">'MYC'</span>, <span class="st">'KRAS'</span>, <span class="st">'BRAF'</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1279,7 +1279,7 @@ Exercise
 <section id="dictionary" class="level3" data-number="7.2.4">
 <h3 data-number="7.2.4" class="anchored" data-anchor-id="dictionary"><span class="header-section-number">7.2.4</span> Dictionary</h3>
 <p>Dictionaries are used to store data values in <code>key: value</code> pairs. A dictionary is a collection which is ordered (as of Python &gt;= 3.7), changeable and does not allow duplicates keys. Dictionaries are written with curly brackets <code>{}</code>, with keys and values.</p>
-<div id="ba758fc5" class="cell" data-execution_count="42">
+<div id="45a19374" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>organism1_genes <span class="op">=</span> {</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#key: value;</span></span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'BRCA1'</span>: <span class="st">'DNA repair'</span>, </span>
@@ -1289,7 +1289,7 @@ Exercise
 <span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Dictionary items can be referred to by using the key name.</p>
-<div id="793445ba" class="cell" data-execution_count="43">
+<div id="49ee3074" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>organism1_genes[<span class="st">"BRCA1"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>'DNA repair'</code></pre>
@@ -1387,37 +1387,37 @@ Exercise
 </tr>
 </tbody>
 </table>
-<div id="2aef2e07" class="cell" data-execution_count="49">
+<div id="d3c20f3e" class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="bu">bool</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="47">
 <pre><code>True</code></pre>
 </div>
 </div>
-<div id="cabe2fe9" class="cell" data-execution_count="50">
+<div id="e3dfc221" class="cell" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="fl">5.8</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="48">
 <pre><code>5</code></pre>
 </div>
 </div>
-<div id="aa72cfdf" class="cell" data-execution_count="51">
+<div id="6c79b964" class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="49">
 <pre><code>'1'</code></pre>
 </div>
 </div>
-<div id="9bf2d43d" class="cell" data-execution_count="52">
+<div id="5c297488" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>({<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="50">
 <pre><code>[1, 2, 3]</code></pre>
 </div>
 </div>
-<div id="450fbdeb" class="cell" data-execution_count="53">
+<div id="7586830b" class="cell" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="51">
 <pre><code>{1, 2, 3}</code></pre>
 </div>
 </div>
-<div id="5eabfa58" class="cell" data-execution_count="54">
+<div id="cb54d802" class="cell" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="bu">dict</span>(((<span class="st">'a'</span>, <span class="dv">1</span>), </span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>      (<span class="st">'f'</span>, <span class="dv">2</span>), </span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>      (<span class="st">'g'</span>, <span class="dv">3</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1480,7 +1480,7 @@ Warning
 </div>
 </div>
 <p>Python will convert data type according to what is necessary. Thus, when you divide two <code>int</code> you will obtain a <code>float</code> number, if you add a <code>float</code> to an <code>int</code>, you will get a <code>float</code>, …</p>
-<div id="22f3b2f2" class="cell" data-execution_count="55">
+<div id="85af8ac9" class="cell" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example</span></span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="op">/</span><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="53">
@@ -1498,7 +1498,7 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p><code>+</code> also conveniently work on <code>str</code> types.</p>
-<div id="b82fbe07" class="cell" data-execution_count="56">
+<div id="615b5a8f" class="cell" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co">'AC'</span> <span class="op">+</span> <span class="st">'AT'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="54">
 <pre><code>'ACAT'</code></pre>
@@ -1587,7 +1587,7 @@ Note
 </tr>
 </tbody>
 </table>
-<div id="e3985acb" class="cell" data-execution_count="57">
+<div id="d6dc1256" class="cell" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example</span></span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="55">
@@ -1605,7 +1605,7 @@ Warning
 </div>
 <div class="callout-body-container callout-body">
 <p>You should never use equalty operators (<code>==</code>or <code>!=</code>) with floats or complex values.</p>
-<div id="767d8474" class="cell" data-execution_count="58">
+<div id="57d8c763" class="cell" data-execution_count="58">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example</span></span>
 <span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fl">2.1</span> <span class="op">+</span> <span class="fl">3.2</span> <span class="op">==</span> <span class="fl">5.3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="56">
@@ -1613,14 +1613,14 @@ Warning
 </div>
 </div>
 <p>This is a floating point arithmetic problem seen in other programming languages. It is due to the difficulty of having a fixed number of binary digits (bits) to accurately represent some decimal number. This leads to small rounding errors in calculations.</p>
-<div id="d1d8cda0" class="cell" data-execution_count="59">
+<div id="dc1e376f" class="cell" data-execution_count="59">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fl">2.1</span> <span class="op">+</span> <span class="fl">3.2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="57">
 <pre><code>5.300000000000001</code></pre>
 </div>
 </div>
 <p>If you need to use equalty operators, do it with a degree of freedom:</p>
-<div id="970adff3" class="cell" data-execution_count="60">
+<div id="2d2c1824" class="cell" data-execution_count="60">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>tol <span class="op">=</span> <span class="fl">1e-6</span> <span class="op">;</span> <span class="bu">abs</span>((<span class="fl">2.1</span> <span class="op">+</span> <span class="fl">3.2</span>) <span class="op">-</span> <span class="fl">5.3</span>) <span class="op">&lt;</span> tol</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="58">
 <pre><code>True</code></pre>
@@ -1654,21 +1654,21 @@ Warning
 </tr>
 </tbody>
 </table>
-<div id="bb1c6b80" class="cell" data-execution_count="61">
+<div id="9ebb5daf" class="cell" data-execution_count="61">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example </span></span>
 <span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="va">False</span> <span class="kw">and</span> <span class="va">False</span>, <span class="va">False</span> <span class="kw">and</span> <span class="va">True</span>, <span class="va">True</span> <span class="kw">and</span> <span class="va">False</span>, <span class="va">True</span> <span class="kw">and</span> <span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="59">
 <pre><code>(False, False, False, True)</code></pre>
 </div>
 </div>
-<div id="2b8b8845" class="cell" data-execution_count="62">
+<div id="132a708f" class="cell" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example </span></span>
 <span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="va">False</span> <span class="kw">or</span> <span class="va">False</span>, <span class="va">False</span> <span class="kw">or</span> <span class="va">True</span>, <span class="va">True</span> <span class="kw">or</span> <span class="va">False</span>, <span class="va">True</span> <span class="kw">or</span> <span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="60">
 <pre><code>(False, True, True, True)</code></pre>
 </div>
 </div>
-<div id="0b78236e" class="cell" data-execution_count="63">
+<div id="9efde9fc" class="cell" data-execution_count="63">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example </span></span>
 <span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="va">True</span> <span class="kw">or</span> <span class="kw">not</span> <span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="61">
@@ -1700,7 +1700,7 @@ Warning
 </tr>
 </tbody>
 </table>
-<div id="3b370da6" class="cell" data-execution_count="64">
+<div id="1c65378c" class="cell" data-execution_count="64">
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example </span></span>
 <span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="co">'ACCT'</span> <span class="kw">in</span> seq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="62">
@@ -1790,7 +1790,7 @@ otherwise:
     do task b</code></pre>
 <p>The comparison (<code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>), logical (<code>and</code>, <code>or</code>, <code>not</code>) and membership (<code>in</code>, <code>not in</code>) operators can be used as conditions.</p>
 <p>In Python, this is written with an <code>if ... elif ... else</code> statement like so:</p>
-<div id="5901d614" class="cell" data-execution_count="69">
+<div id="98ddecd0" class="cell" data-execution_count="69">
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define gene expression levels</span></span>
 <span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>gene1_expression <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>gene2_expression <span class="op">=</span> <span class="dv">50</span></span>
@@ -1807,7 +1807,7 @@ otherwise:
 </div>
 </div>
 <p>The <code>elif</code> keyword is Python’s way of saying “if the previous conditions were not true, then try this condition”. The following code is equivalent to the one before:</p>
-<div id="bb08f1bc" class="cell" data-execution_count="70">
+<div id="23753a0c" class="cell" data-execution_count="70">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyze gene expression levels</span></span>
 <span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> gene1_expression <span class="op">&gt;</span> gene2_expression:</span>
 <span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Gene 1 has higher expression level."</span>)</span>
@@ -1831,7 +1831,7 @@ Exercise
 </div>
 <div class="callout-body-container callout-body">
 <p>Are these two codes equivalent?</p>
-<div id="48495e1e" class="cell" data-execution_count="71">
+<div id="fa15bc29" class="cell" data-execution_count="71">
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code A</span></span>
 <span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"ATG"</span> <span class="kw">in</span> dna_sequence:</span>
 <span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Start codon found."</span>)  </span>
@@ -1840,7 +1840,7 @@ Exercise
 <span id="cb95-6"><a href="#cb95-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb95-7"><a href="#cb95-7" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"No interesting codon not found."</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="75c76723" class="cell" data-execution_count="72">
+<div id="0039c17e" class="cell" data-execution_count="72">
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code B</span></span>
 <span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"ATG"</span> <span class="kw">in</span> dna_sequence:</span>
 <span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Start codon found."</span>)  </span>
@@ -1852,7 +1852,7 @@ Exercise
 </div>
 </div>
 <p>An <code>if</code> statement cannot be empty, but if for some reason you have an if statement with no content, put in the <code>pass</code> statement to avoid getting an error.</p>
-<div id="c2e053f6" class="cell" data-execution_count="76">
+<div id="4f47bdc3" class="cell" data-execution_count="76">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">33</span></span>
 <span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">200</span></span>
 <span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1891,7 +1891,7 @@ Exercise
 <div class="callout-body-container callout-body">
 <p>Here are three codes, they all are incorrect, can you tell why?</p>
 <p>Of course, you can run them and read the error that Python gives!</p>
-<div id="7ebd89d6" class="cell" data-execution_count="77">
+<div id="02b06139" class="cell" data-execution_count="77">
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>amino_acid_list <span class="op">=</span> [<span class="st">"MET"</span>, <span class="st">"ARG"</span>, <span class="st">"THR"</span>, <span class="st">"GLY"</span>]</span>
 <span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"MET"</span> <span class="kw">in</span> amino_acid_list:</span>
@@ -1901,7 +1901,7 @@ Exercise
 <span id="cb98-7"><a href="#cb98-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb98-8"><a href="#cb98-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Start codon not found."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="2d4dc403" class="cell" data-execution_count="78">
+<div id="657987e0" class="cell" data-execution_count="78">
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>dna_sequence <span class="op">=</span> <span class="st">"ATGCTAGCTAGCTAG"</span></span>
 <span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"ATG"</span> <span class="kw">in</span> dna_sequence:</span>
@@ -1909,7 +1909,7 @@ Exercise
 <span id="cb99-5"><a href="#cb99-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"TAG"</span> <span class="kw">in</span> dna_sequence</span>
 <span id="cb99-6"><a href="#cb99-6" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Stop codon found."</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="121a13b6" class="cell" data-execution_count="79">
+<div id="37a6c0cf" class="cell" data-execution_count="79">
 <div class="sourceCode cell-code" id="cb100"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">7</span></span>
 <span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">5</span>:</span>
@@ -1935,7 +1935,7 @@ Exercise
 <pre><code>for item in data_structure:
     do task a</code></pre>
 <p>The loop will execute the indented block of code for each element in the sequence until all elements have been processed. This is particularly useful when you know the number of times you need to iterate.</p>
-<div id="ded4c274" class="cell" data-execution_count="83">
+<div id="72138d35" class="cell" data-execution_count="83">
 <div class="sourceCode cell-code" id="cb102"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>all_codons <span class="op">=</span> [</span>
 <span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'AAA'</span>, <span class="st">'AAC'</span>, <span class="st">'AAG'</span>, <span class="st">'AAT'</span>,</span>
 <span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'ACA'</span>, <span class="st">'ACC'</span>, <span class="st">'ACG'</span>, <span class="st">'ACT'</span>,</span>
@@ -1977,7 +1977,7 @@ Warning
 </div>
 <div class="callout-body-container callout-body">
 <p>You cannot modify an element of a list that way.</p>
-<div id="28424cc2" class="cell" data-execution_count="84">
+<div id="a2457f24" class="cell" data-execution_count="84">
 <div class="sourceCode cell-code" id="cb104"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> codon <span class="kw">in</span> all_codons: </span>
 <span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="st">'T'</span> <span class="kw">in</span> codon :</span>
 <span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a>    codon <span class="op">=</span> codon.replace(<span class="st">'T'</span>, <span class="st">'U'</span>)</span>
@@ -1996,7 +1996,7 @@ Warning
 <p>An iterator is a special object that gives values in succession.</p>
 <p>In the previous example, the iterator returns a copy of the item in a list, not a reference to it. Therefore, the <code>codon</code> inside the <code>for</code> block is not a view into the original list, and changing it does not do anything.</p>
 <p>A way to modify the list would be to use an iterable to access the original data. The <code>range(start, stop)</code> function creates an iterable to count from one integer to another.</p>
-<div id="cc450161" class="cell" data-execution_count="85">
+<div id="51559637" class="cell" data-execution_count="85">
 <div class="sourceCode cell-code" id="cb106"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">10</span>):</span>
 <span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i, end<span class="op">=</span><span class="st">'  '</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2004,7 +2004,7 @@ Warning
 </div>
 </div>
 <p>We could count from 0 to the size of the list, loop though every element of the list by calling them by their index, and modify them if necessary. That’s what the following code does:</p>
-<div id="102d84de" class="cell" data-execution_count="86">
+<div id="77b6b738" class="cell" data-execution_count="86">
 <div class="sourceCode cell-code" id="cb108"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(all_codons)): </span>
 <span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="st">'T'</span> <span class="kw">in</span> all_codons[i] :</span>
 <span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a>    all_codons[i] <span class="op">=</span> all_codons[i].replace(<span class="st">'T'</span>, <span class="st">'U'</span>)</span>
@@ -2015,7 +2015,7 @@ Warning
 </div>
 </div>
 <p>Another useful function that returns an iterator is <code>enumerate()</code>. It is an iterator that generates pairs of index and value. It is commonly used when you need to access both the index and value of items simultaneously.</p>
-<div id="051b2921" class="cell" data-execution_count="87">
+<div id="dfddb677" class="cell" data-execution_count="87">
 <div class="sourceCode cell-code" id="cb110"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="st">'ATGCATGC'</span></span>
 <span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Print index and identity of bases</span></span>
@@ -2032,7 +2032,7 @@ Warning
 7 C</code></pre>
 </div>
 </div>
-<div id="3a20db10" class="cell" data-execution_count="88">
+<div id="c976fae6" class="cell" data-execution_count="88">
 <div class="sourceCode cell-code" id="cb112"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through sequence and print index of G's</span></span>
 <span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, base <span class="kw">in</span> <span class="bu">enumerate</span>(seq):</span>
 <span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> base <span class="kw">in</span> <span class="st">'G'</span>:</span>
@@ -2048,7 +2048,7 @@ Warning
 <pre><code>while condition is true:
     do task a</code></pre>
 <p>This type of loop is handy when you’re not sure how many iterations you’ll need to perform or when you need to repeat a block of code until a certain condition is met.</p>
-<div id="b6955472" class="cell" data-execution_count="89">
+<div id="1027f35c" class="cell" data-execution_count="89">
 <div class="sourceCode cell-code" id="cb115"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="st">'TACTCTGTCGATCGTACGTATGCAAGCTGATGCATGATTGACTTCAGTATCGAGCGCAGCA'</span></span>
 <span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>start_codon <span class="op">=</span> <span class="st">'ATG'</span></span>
 <span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2091,7 +2091,7 @@ Figure&nbsp;8.1: Hopefully not you!
 </div>
 </div></div><p>Actually, the previous code is quite dangerous. You can also get stuck in a loop… if the <code>start_codon</code> does not appear in <code>seq</code> at all.</p>
 <p>Indeed, even when you go above the given length of <code>seq</code>, the condition <code>seq[i:i+3] != start_codon</code> will still be true because <code>seq[i:i+3]</code> will output an empty string.</p>
-<div id="2189ae2a" class="cell" data-execution_count="90">
+<div id="50010729" class="cell" data-execution_count="90">
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>seq[<span class="dv">9999</span>:<span class="dv">9999</span><span class="op">+</span><span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="83">
 <pre><code>''</code></pre>
@@ -2115,7 +2115,7 @@ Note
 <section id="break-statement" class="level3" data-number="8.4.4">
 <h3 data-number="8.4.4" class="anchored" data-anchor-id="break-statement"><span class="header-section-number">8.4.4</span> Break statement</h3>
 <p>Iteration stops in a <code>for</code> loop when the iterator is exhausted. It stops in a <code>while</code> loop when the conditional evaluates to <code>False</code>. There is another way to stop iteration: the <code>break</code> keyword. Whenever <code>break</code> is encountered in a <code>for</code> or <code>while</code> loop, the iteration stops and execution continues outside the loop.</p>
-<div id="0e63141e" class="cell" data-execution_count="91">
+<div id="54c75279" class="cell" data-execution_count="91">
 <div class="sourceCode cell-code" id="cb119"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="st">'ACCATTTTTTGGGGGGGCGGGGGGAGGGGGGG'</span></span>
 <span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>start_codon <span class="op">=</span> <span class="st">'ATG'</span></span>
 <span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2151,7 +2151,7 @@ Note
 <h3 data-number="8.4.5" class="anchored" data-anchor-id="continue-statement"><span class="header-section-number">8.4.5</span> Continue statement</h3>
 <p>In addition to the break statement, there is also the continue statement in Python that can be used to alter the flow of iteration in loops. When continue is encountered within a loop, it skips the remaining code inside the loop for the current iteration and moves on to the next iteration.</p>
 <p>Here’s an example showcasing the continue statement in a loop:</p>
-<div id="f16be0bc" class="cell" data-execution_count="92">
+<div id="898d4ff7" class="cell" data-execution_count="92">
 <div class="sourceCode cell-code" id="cb121"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List of DNA sequences</span></span>
 <span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a>dna_sequences <span class="op">=</span> [<span class="st">'ATGCTAGCTAG'</span>, <span class="st">'ATCGATCGATC'</span>, <span class="st">'ATGGCTAGCTA'</span>, <span class="st">'ATGTAGCTAGC'</span>]</span>
 <span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2188,7 +2188,7 @@ Exercise 1
 <div class="callout-body-container callout-body">
 <p>Given a list of DNA sequences, find the first sequence that contains a specific motif <code>'TATA'</code>, print the sequence, and stop the process. If no sequence contains the motif, print a message accordingly. You must use only one <code>for</code> loop.</p>
 <p>With the input given below, the output should look like this:</p>
-<div id="e6098bf2" class="cell" data-execution_count="93">
+<div id="cb12e531" class="cell" data-execution_count="93">
 <div class="sourceCode cell-code" id="cb123"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List of DNA sequences with a TATA</span></span>
 <span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a>dna_sequences <span class="op">=</span> [</span>
 <span id="cb123-3"><a href="#cb123-3" aria-hidden="true" tabindex="-1"></a><span class="st">'ATGCTACAGCTAG'</span>, </span>
@@ -2201,12 +2201,12 @@ Exercise 1
 <span id="cb123-10"><a href="#cb123-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ...</span>
 <span id="cb123-11"><a href="#cb123-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="55c63ce9" class="cell" data-execution_count="94">
+<div id="a1db4c2e" class="cell" data-execution_count="94">
 <div class="cell-output cell-output-stdout">
 <pre><code>Sequence 'ATCGATATAATC' contains the 'TATA' motif.</code></pre>
 </div>
 </div>
-<div id="77d1edf0" class="cell" data-execution_count="95">
+<div id="36b444d0" class="cell" data-execution_count="95">
 <div class="sourceCode cell-code" id="cb125"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List of DNA sequences without a TATA</span></span>
 <span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a>dna_sequences <span class="op">=</span> [</span>
 <span id="cb125-3"><a href="#cb125-3" aria-hidden="true" tabindex="-1"></a><span class="st">'ATGCTACAGCTAG'</span>, </span>
@@ -2218,7 +2218,7 @@ Exercise 1
 <span id="cb125-9"><a href="#cb125-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ...</span>
 <span id="cb125-10"><a href="#cb125-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f22bea56" class="cell" data-execution_count="96">
+<div id="b822d360" class="cell" data-execution_count="96">
 <div class="cell-output cell-output-stdout">
 <pre><code>No sequence contains the 'TATA' motif.</code></pre>
 </div>
@@ -2237,14 +2237,14 @@ Exercise 2
 <div class="callout-body-container callout-body">
 <p>Analyze a DNA sequence to count the number of consecutive <code>'A'</code> nucleotides. You must use only one <code>while</code> loop.</p>
 <p>With the input given below, the output should look like this:</p>
-<div id="150e83db" class="cell" data-execution_count="98">
+<div id="7498263e" class="cell" data-execution_count="98">
 <div class="sourceCode cell-code" id="cb127"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DNA sequence to analyze</span></span>
 <span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a>dna_sequence <span class="op">=</span> <span class="st">'ATGATAAGAGAAAGTAAAAGCGATCGAAAAAA'</span></span>
 <span id="cb127-3"><a href="#cb127-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb127-4"><a href="#cb127-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> ...</span>
 <span id="cb127-5"><a href="#cb127-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="520636fe" class="cell" data-execution_count="99">
+<div id="23226c8d" class="cell" data-execution_count="99">
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of consecutive 'A's: 6</code></pre>
 </div>
