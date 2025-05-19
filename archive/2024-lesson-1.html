@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Valentine Gilbart">
-<meta name="dcterms.date" content="2025-05-16">
+<meta name="dcterms.date" content="2025-05-19">
 
-<title>4&nbsp; Lesson 1 - Introduction, Data types, Operators – Python Introduction IMCBio</title>
+<title>5&nbsp; Lesson 1 - Introduction, Data types, Operators – Python Introduction IMCBio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,7 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../archive/2024-lesson-2.html" rel="next">
-<link href="../lecture/lesson-2.html" rel="prev">
+<link href="../lecture/lesson-3.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -358,6 +358,11 @@ window.Quarto = {
   <a href="../lecture/lesson-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lesson 2 - Functions, file handling, dataframe and plots</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lecture/lesson-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lesson 3 - Jupyter Notebook</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -384,11 +389,6 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">References</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -399,66 +399,66 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">5</span> Introduction</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">6</span> Introduction</a>
   <ul class="collapse">
-  <li><a href="#aim-of-the-class" id="toc-aim-of-the-class" class="nav-link" data-scroll-target="#aim-of-the-class"><span class="header-section-number">5.1</span> Aim of the class</a></li>
-  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements"><span class="header-section-number">5.2</span> Requirements</a></li>
-  <li><a href="#what-is-python" id="toc-what-is-python" class="nav-link" data-scroll-target="#what-is-python"><span class="header-section-number">5.3</span> What is Python?</a></li>
-  <li><a href="#why-use-python" id="toc-why-use-python" class="nav-link" data-scroll-target="#why-use-python"><span class="header-section-number">5.4</span> Why use Python?</a></li>
-  <li><a href="#how-can-i-program-in-python" id="toc-how-can-i-program-in-python" class="nav-link" data-scroll-target="#how-can-i-program-in-python"><span class="header-section-number">5.5</span> How can I program in Python?</a>
+  <li><a href="#aim-of-the-class" id="toc-aim-of-the-class" class="nav-link" data-scroll-target="#aim-of-the-class"><span class="header-section-number">6.1</span> Aim of the class</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements"><span class="header-section-number">6.2</span> Requirements</a></li>
+  <li><a href="#what-is-python" id="toc-what-is-python" class="nav-link" data-scroll-target="#what-is-python"><span class="header-section-number">6.3</span> What is Python?</a></li>
+  <li><a href="#why-use-python" id="toc-why-use-python" class="nav-link" data-scroll-target="#why-use-python"><span class="header-section-number">6.4</span> Why use Python?</a></li>
+  <li><a href="#how-can-i-program-in-python" id="toc-how-can-i-program-in-python" class="nav-link" data-scroll-target="#how-can-i-program-in-python"><span class="header-section-number">6.5</span> How can I program in Python?</a>
   <ul class="collapse">
-  <li><a href="#interactive-mode" id="toc-interactive-mode" class="nav-link" data-scroll-target="#interactive-mode"><span class="header-section-number">5.5.1</span> Interactive mode</a></li>
-  <li><a href="#script-mode" id="toc-script-mode" class="nav-link" data-scroll-target="#script-mode"><span class="header-section-number">5.5.2</span> Script mode</a></li>
+  <li><a href="#interactive-mode" id="toc-interactive-mode" class="nav-link" data-scroll-target="#interactive-mode"><span class="header-section-number">6.5.1</span> Interactive mode</a></li>
+  <li><a href="#script-mode" id="toc-script-mode" class="nav-link" data-scroll-target="#script-mode"><span class="header-section-number">6.5.2</span> Script mode</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#basic-concepts" id="toc-basic-concepts" class="nav-link" data-scroll-target="#basic-concepts"><span class="header-section-number">6</span> Basic concepts</a>
+  <li><a href="#basic-concepts" id="toc-basic-concepts" class="nav-link" data-scroll-target="#basic-concepts"><span class="header-section-number">7</span> Basic concepts</a>
   <ul class="collapse">
-  <li><a href="#values-and-variables" id="toc-values-and-variables" class="nav-link" data-scroll-target="#values-and-variables"><span class="header-section-number">6.1</span> Values and variables</a></li>
-  <li><a href="#function-calls" id="toc-function-calls" class="nav-link" data-scroll-target="#function-calls"><span class="header-section-number">6.2</span> Function calls</a></li>
-  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"><span class="header-section-number">6.3</span> Getting help</a></li>
-  <li><a href="#comment-your-code" id="toc-comment-your-code" class="nav-link" data-scroll-target="#comment-your-code"><span class="header-section-number">6.4</span> Comment your code</a></li>
+  <li><a href="#values-and-variables" id="toc-values-and-variables" class="nav-link" data-scroll-target="#values-and-variables"><span class="header-section-number">7.1</span> Values and variables</a></li>
+  <li><a href="#function-calls" id="toc-function-calls" class="nav-link" data-scroll-target="#function-calls"><span class="header-section-number">7.2</span> Function calls</a></li>
+  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"><span class="header-section-number">7.3</span> Getting help</a></li>
+  <li><a href="#comment-your-code" id="toc-comment-your-code" class="nav-link" data-scroll-target="#comment-your-code"><span class="header-section-number">7.4</span> Comment your code</a></li>
   </ul></li>
-  <li><a href="#how-can-i-represent-data" id="toc-how-can-i-represent-data" class="nav-link" data-scroll-target="#how-can-i-represent-data"><span class="header-section-number">7</span> How can I represent data?</a>
+  <li><a href="#how-can-i-represent-data" id="toc-how-can-i-represent-data" class="nav-link" data-scroll-target="#how-can-i-represent-data"><span class="header-section-number">8</span> How can I represent data?</a>
   <ul class="collapse">
-  <li><a href="#simple-data-types" id="toc-simple-data-types" class="nav-link" data-scroll-target="#simple-data-types"><span class="header-section-number">7.1</span> Simple data types</a>
+  <li><a href="#simple-data-types" id="toc-simple-data-types" class="nav-link" data-scroll-target="#simple-data-types"><span class="header-section-number">8.1</span> Simple data types</a>
   <ul class="collapse">
-  <li><a href="#boolean" id="toc-boolean" class="nav-link" data-scroll-target="#boolean"><span class="header-section-number">7.1.1</span> Boolean</a></li>
-  <li><a href="#numeric" id="toc-numeric" class="nav-link" data-scroll-target="#numeric"><span class="header-section-number">7.1.2</span> Numeric</a></li>
-  <li><a href="#text" id="toc-text" class="nav-link" data-scroll-target="#text"><span class="header-section-number">7.1.3</span> Text</a></li>
+  <li><a href="#boolean" id="toc-boolean" class="nav-link" data-scroll-target="#boolean"><span class="header-section-number">8.1.1</span> Boolean</a></li>
+  <li><a href="#numeric" id="toc-numeric" class="nav-link" data-scroll-target="#numeric"><span class="header-section-number">8.1.2</span> Numeric</a></li>
+  <li><a href="#text" id="toc-text" class="nav-link" data-scroll-target="#text"><span class="header-section-number">8.1.3</span> Text</a></li>
   </ul></li>
-  <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures"><span class="header-section-number">7.2</span> Data structures</a>
+  <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures"><span class="header-section-number">8.2</span> Data structures</a>
   <ul class="collapse">
-  <li><a href="#list" id="toc-list" class="nav-link" data-scroll-target="#list"><span class="header-section-number">7.2.1</span> List</a></li>
-  <li><a href="#tuple" id="toc-tuple" class="nav-link" data-scroll-target="#tuple"><span class="header-section-number">7.2.2</span> Tuple</a></li>
-  <li><a href="#set" id="toc-set" class="nav-link" data-scroll-target="#set"><span class="header-section-number">7.2.3</span> Set</a></li>
-  <li><a href="#dictionary" id="toc-dictionary" class="nav-link" data-scroll-target="#dictionary"><span class="header-section-number">7.2.4</span> Dictionary</a></li>
+  <li><a href="#list" id="toc-list" class="nav-link" data-scroll-target="#list"><span class="header-section-number">8.2.1</span> List</a></li>
+  <li><a href="#tuple" id="toc-tuple" class="nav-link" data-scroll-target="#tuple"><span class="header-section-number">8.2.2</span> Tuple</a></li>
+  <li><a href="#set" id="toc-set" class="nav-link" data-scroll-target="#set"><span class="header-section-number">8.2.3</span> Set</a></li>
+  <li><a href="#dictionary" id="toc-dictionary" class="nav-link" data-scroll-target="#dictionary"><span class="header-section-number">8.2.4</span> Dictionary</a></li>
   </ul></li>
-  <li><a href="#conversion-between-types" id="toc-conversion-between-types" class="nav-link" data-scroll-target="#conversion-between-types"><span class="header-section-number">7.3</span> Conversion between types</a></li>
+  <li><a href="#conversion-between-types" id="toc-conversion-between-types" class="nav-link" data-scroll-target="#conversion-between-types"><span class="header-section-number">8.3</span> Conversion between types</a></li>
   </ul></li>
-  <li><a href="#how-can-i-manipulate-data" id="toc-how-can-i-manipulate-data" class="nav-link" data-scroll-target="#how-can-i-manipulate-data"><span class="header-section-number">8</span> How can I manipulate data?</a>
+  <li><a href="#how-can-i-manipulate-data" id="toc-how-can-i-manipulate-data" class="nav-link" data-scroll-target="#how-can-i-manipulate-data"><span class="header-section-number">9</span> How can I manipulate data?</a>
   <ul class="collapse">
-  <li><a href="#operators" id="toc-operators" class="nav-link" data-scroll-target="#operators"><span class="header-section-number">8.1</span> Operators</a>
+  <li><a href="#operators" id="toc-operators" class="nav-link" data-scroll-target="#operators"><span class="header-section-number">9.1</span> Operators</a>
   <ul class="collapse">
-  <li><a href="#arithmetic-operators" id="toc-arithmetic-operators" class="nav-link" data-scroll-target="#arithmetic-operators"><span class="header-section-number">8.1.1</span> Arithmetic operators</a></li>
-  <li><a href="#assignment-operators" id="toc-assignment-operators" class="nav-link" data-scroll-target="#assignment-operators"><span class="header-section-number">8.1.2</span> Assignment operators</a></li>
-  <li><a href="#comparison-operators" id="toc-comparison-operators" class="nav-link" data-scroll-target="#comparison-operators"><span class="header-section-number">8.1.3</span> Comparison operators</a></li>
-  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators"><span class="header-section-number">8.1.4</span> Logical operators</a></li>
-  <li><a href="#membership-operators" id="toc-membership-operators" class="nav-link" data-scroll-target="#membership-operators"><span class="header-section-number">8.1.5</span> Membership operators</a></li>
-  <li><a href="#operator-precedence" id="toc-operator-precedence" class="nav-link" data-scroll-target="#operator-precedence"><span class="header-section-number">8.1.6</span> Operator precedence</a></li>
+  <li><a href="#arithmetic-operators" id="toc-arithmetic-operators" class="nav-link" data-scroll-target="#arithmetic-operators"><span class="header-section-number">9.1.1</span> Arithmetic operators</a></li>
+  <li><a href="#assignment-operators" id="toc-assignment-operators" class="nav-link" data-scroll-target="#assignment-operators"><span class="header-section-number">9.1.2</span> Assignment operators</a></li>
+  <li><a href="#comparison-operators" id="toc-comparison-operators" class="nav-link" data-scroll-target="#comparison-operators"><span class="header-section-number">9.1.3</span> Comparison operators</a></li>
+  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators"><span class="header-section-number">9.1.4</span> Logical operators</a></li>
+  <li><a href="#membership-operators" id="toc-membership-operators" class="nav-link" data-scroll-target="#membership-operators"><span class="header-section-number">9.1.5</span> Membership operators</a></li>
+  <li><a href="#operator-precedence" id="toc-operator-precedence" class="nav-link" data-scroll-target="#operator-precedence"><span class="header-section-number">9.1.6</span> Operator precedence</a></li>
   </ul></li>
-  <li><a href="#conditionals" id="toc-conditionals" class="nav-link" data-scroll-target="#conditionals"><span class="header-section-number">8.2</span> Conditionals</a></li>
-  <li><a href="#notes-on-indentation" id="toc-notes-on-indentation" class="nav-link" data-scroll-target="#notes-on-indentation"><span class="header-section-number">8.3</span> Notes on indentation</a></li>
-  <li><a href="#iterations" id="toc-iterations" class="nav-link" data-scroll-target="#iterations"><span class="header-section-number">8.4</span> Iterations</a>
+  <li><a href="#conditionals" id="toc-conditionals" class="nav-link" data-scroll-target="#conditionals"><span class="header-section-number">9.2</span> Conditionals</a></li>
+  <li><a href="#notes-on-indentation" id="toc-notes-on-indentation" class="nav-link" data-scroll-target="#notes-on-indentation"><span class="header-section-number">9.3</span> Notes on indentation</a></li>
+  <li><a href="#iterations" id="toc-iterations" class="nav-link" data-scroll-target="#iterations"><span class="header-section-number">9.4</span> Iterations</a>
   <ul class="collapse">
-  <li><a href="#for-loops" id="toc-for-loops" class="nav-link" data-scroll-target="#for-loops"><span class="header-section-number">8.4.1</span> For loops</a></li>
-  <li><a href="#iterators" id="toc-iterators" class="nav-link" data-scroll-target="#iterators"><span class="header-section-number">8.4.2</span> Iterators</a></li>
-  <li><a href="#while-loops" id="toc-while-loops" class="nav-link" data-scroll-target="#while-loops"><span class="header-section-number">8.4.3</span> While loops</a></li>
-  <li><a href="#break-statement" id="toc-break-statement" class="nav-link" data-scroll-target="#break-statement"><span class="header-section-number">8.4.4</span> Break statement</a></li>
-  <li><a href="#continue-statement" id="toc-continue-statement" class="nav-link" data-scroll-target="#continue-statement"><span class="header-section-number">8.4.5</span> Continue statement</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">8.4.6</span> Exercises</a></li>
+  <li><a href="#for-loops" id="toc-for-loops" class="nav-link" data-scroll-target="#for-loops"><span class="header-section-number">9.4.1</span> For loops</a></li>
+  <li><a href="#iterators" id="toc-iterators" class="nav-link" data-scroll-target="#iterators"><span class="header-section-number">9.4.2</span> Iterators</a></li>
+  <li><a href="#while-loops" id="toc-while-loops" class="nav-link" data-scroll-target="#while-loops"><span class="header-section-number">9.4.3</span> While loops</a></li>
+  <li><a href="#break-statement" id="toc-break-statement" class="nav-link" data-scroll-target="#break-statement"><span class="header-section-number">9.4.4</span> Break statement</a></li>
+  <li><a href="#continue-statement" id="toc-continue-statement" class="nav-link" data-scroll-target="#continue-statement"><span class="header-section-number">9.4.5</span> Continue statement</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">9.4.6</span> Exercises</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">9</span> Conclusion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">10</span> Conclusion</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/vgilbart/python-intro/edit/main/archive/2024-lesson-1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vgilbart/python-intro/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -486,7 +486,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 16, 2025</p>
+      <p class="date">May 19, 2025</p>
     </div>
   </div>
   
@@ -498,10 +498,10 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level1 page-columns page-full" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Introduction</h1>
-<section id="aim-of-the-class" class="level2 page-columns page-full" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="aim-of-the-class"><span class="header-section-number">5.1</span> Aim of the class</h2>
+<section id="introduction" class="level1 page-columns page-full" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Introduction</h1>
+<section id="aim-of-the-class" class="level2 page-columns page-full" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="aim-of-the-class"><span class="header-section-number">6.1</span> Aim of the class</h2>
 <p>At the end of this class, you will:</p>
 <ul>
 <li>Be familiar with the Python environment</li>
@@ -516,13 +516,13 @@ window.Quarto = {
 <img src="img/python.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-python-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.1: Python logo
+Figure&nbsp;6.1: Python logo
 </figcaption>
 </figure>
 </div>
 </div></div></section>
-<section id="requirements" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="requirements"><span class="header-section-number">5.2</span> Requirements</h2>
+<section id="requirements" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="requirements"><span class="header-section-number">6.2</span> Requirements</h2>
 <p>You need to have a computer, and either:</p>
 <ul>
 <li><a href="https://www.Python.org/downloads/">install Python 3.0.0</a> (or above) and install a text editor (Word is not a text editor!).</li>
@@ -544,8 +544,8 @@ Note
 <li>have a github account, <a href="https://github.com/codespaces/">create a new codespace</a>, and select the Repository <code>vgilbart/python-intro</code> to copy from. This is a free solution up to 60 hours of computing and 15 GB per month.</li>
 </ul>
 </section>
-<section id="what-is-python" class="level2 page-columns page-full" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="what-is-python"><span class="header-section-number">5.3</span> What is Python?</h2>
+<section id="what-is-python" class="level2 page-columns page-full" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="what-is-python"><span class="header-section-number">6.3</span> What is Python?</h2>
 <p>Python is a programming language first released in 1991 and implemented by Guido van Rossum.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
@@ -555,7 +555,7 @@ Note
 <img src="img/GuidovanRossum.jpg" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-GuidovanRossum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.2: Guido van Rossum
+Figure&nbsp;6.2: Guido van Rossum
 </figcaption>
 </figure>
 </div>
@@ -567,7 +567,7 @@ Figure&nbsp;5.2: Guido van Rossum
 <li>…</li>
 </ul>
 <p>It supports different types of programming paradigms (i.e.&nbsp;way of thinking) including the procedural programming paradigm. In this approach, the program moves through a linear series of instructions.</p>
-<div id="d0e8c28c" class="cell" data-execution_count="1">
+<div id="69d06462" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a string seq</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="st">'ATGAAGGGTCC'</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Call the function len() to retrieve the length of the string</span></span>
@@ -579,8 +579,8 @@ Figure&nbsp;5.2: Guido van Rossum
 </div>
 </div>
 </section>
-<section id="why-use-python" class="level2 page-columns page-full" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="why-use-python"><span class="header-section-number">5.4</span> Why use Python?</h2>
+<section id="why-use-python" class="level2 page-columns page-full" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="why-use-python"><span class="header-section-number">6.4</span> Why use Python?</h2>
 <ul>
 <li>Easy-to-use and easy-to-read syntax</li>
 <li>Large standard library for many applications (<code>numpy</code> for tables/matrices, <code>matplotlib</code> for graphs, <code>scikit-learn</code> for machine learning…)</li>
@@ -595,16 +595,16 @@ Figure&nbsp;5.2: Guido van Rossum
 <img src="img/googling.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-googling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.3: Just google it!
+Figure&nbsp;6.3: Just google it!
 </figcaption>
 </figure>
 </div>
 </div></div></section>
-<section id="how-can-i-program-in-python" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="how-can-i-program-in-python"><span class="header-section-number">5.5</span> How can I program in Python?</h2>
+<section id="how-can-i-program-in-python" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="how-can-i-program-in-python"><span class="header-section-number">6.5</span> How can I program in Python?</h2>
 <p>Python is an interpreted language, this means that all scripts written in Python need a software to be run. This software is called an interpreter, which “translate” each line of the code, into instructions that the computer can understand. By extension, the interpreter that is able to read Python scripts is also called Python. So, whenever you want your Python code to run, you give it to the Python interpreter.</p>
-<section id="interactive-mode" class="level3" data-number="5.5.1">
-<h3 data-number="5.5.1" class="anchored" data-anchor-id="interactive-mode"><span class="header-section-number">5.5.1</span> Interactive mode</h3>
+<section id="interactive-mode" class="level3" data-number="6.5.1">
+<h3 data-number="6.5.1" class="anchored" data-anchor-id="interactive-mode"><span class="header-section-number">6.5.1</span> Interactive mode</h3>
 <p>One way to launch the Python interpreter is to type the following, on the command line of a terminal:</p>
 <pre class="{bash}"><code>python3</code></pre>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -622,7 +622,7 @@ Note
 </div>
 </div>
 <p>From this, you can start using python interactively, e.g.&nbsp;run:</p>
-<div id="b2c8a55b" class="cell" data-execution_count="2">
+<div id="32790c9e" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello world"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello world</code></pre>
@@ -635,15 +635,15 @@ Note
 <img src="img/interactive.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-interactive-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.4: Interactive mode
+Figure&nbsp;6.4: Interactive mode
 </figcaption>
 </figure>
 </div>
 </section>
-<section id="script-mode" class="level3" data-number="5.5.2">
-<h3 data-number="5.5.2" class="anchored" data-anchor-id="script-mode"><span class="header-section-number">5.5.2</span> Script mode</h3>
+<section id="script-mode" class="level3" data-number="6.5.2">
+<h3 data-number="6.5.2" class="anchored" data-anchor-id="script-mode"><span class="header-section-number">6.5.2</span> Script mode</h3>
 <p>To run a script, create a folder named <code>script</code>, in which a file named <code>intro.py</code> contains:</p>
-<div id="e4698fb5" class="cell" data-execution_count="3">
+<div id="96fb6031" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env python3</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># -*- coding: UTF-8 -*-</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -652,7 +652,7 @@ Figure&nbsp;5.4: Interactive mode
 <p>and run</p>
 <pre class="{bash}"><code>./script/intro.py</code></pre>
 <p>You should get the same output as before, that is:</p>
-<div id="b816963c" class="cell" data-execution_count="4">
+<div id="b3786611" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello world</code></pre>
 </div>
@@ -681,29 +681,29 @@ Warning
 </section>
 </section>
 </section>
-<section id="basic-concepts" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Basic concepts</h1>
-<section id="values-and-variables" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="values-and-variables"><span class="header-section-number">6.1</span> Values and variables</h2>
+<section id="basic-concepts" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Basic concepts</h1>
+<section id="values-and-variables" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="values-and-variables"><span class="header-section-number">7.1</span> Values and variables</h2>
 <p>You will manipulate values such as integers, characters or dictionaries. These values can be stored in memory using variables. To assign a value to a variable, use the <code>=</code> operator as follow:</p>
-<div id="3ec19bde" class="cell" data-execution_count="5">
+<div id="44056807" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="st">'ATGAAGGGTCC'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To output the variable value, either type the variable name or use a function like <code>print()</code>:</p>
-<div id="9faac710" class="cell" data-execution_count="6">
+<div id="bbbfa85f" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>seq </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>'ATGAAGGGTCC'</code></pre>
 </div>
 </div>
-<div id="8d834436" class="cell" data-execution_count="7">
+<div id="7faf0cb8" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(seq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ATGAAGGGTCC</code></pre>
 </div>
 </div>
 <p>We can change a variable value by assigning it a new one:</p>
-<div id="09dc2256" class="cell" data-execution_count="8">
+<div id="b04d01b0" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> seq <span class="op">+</span> <span class="st">'AAAA'</span> <span class="co"># The + operator can be used to concatenate strings</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>seq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
@@ -739,11 +739,11 @@ Exercise
 </div>
 </div>
 </section>
-<section id="function-calls" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="function-calls"><span class="header-section-number">6.2</span> Function calls</h2>
+<section id="function-calls" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="function-calls"><span class="header-section-number">7.2</span> Function calls</h2>
 <p>A function stores a piece of code that performs a certain task, and that gets run when called. It takes some data as input (parameters that are required or optional), and returns an output (that can be of any type). Some functions are predefined (but we will also learn how to create our own later on).</p>
 <p>To run a function, write its name followed by parenthesis. Parameters are added inside the parenthesis as follow:</p>
-<div id="7bbcb7c4" class="cell" data-execution_count="13">
+<div id="4f46b01f" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># round(number, ndigits=None)</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">round</span>(number <span class="op">=</span> <span class="fl">5.76543</span>, ndigits <span class="op">=</span> <span class="dv">2</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -764,13 +764,13 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>If you provide the parameters in the exact same order as they are defined, you don’t have to name them. If you name the parameters you can switch their order. As good practice, put all required parameters first.</p>
-<div id="f9792f0d" class="cell" data-execution_count="14">
+<div id="4a400616" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">round</span>(<span class="fl">5.76543</span>, <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>5.77</code></pre>
 </div>
 </div>
-<div id="b7279881" class="cell" data-execution_count="15">
+<div id="6846d7cc" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">round</span>(ndigits <span class="op">=</span> <span class="dv">2</span>, number <span class="op">=</span> <span class="fl">5.76543</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>5.77</code></pre>
@@ -778,11 +778,11 @@ Note
 </div>
 </div>
 </div>
-<p>In <a href="#tbl-function-useful" class="quarto-xref">Table&nbsp;<span>6.1</span></a> you will find some basic but useful python functions:</p>
+<p>In <a href="#tbl-function-useful" class="quarto-xref">Table&nbsp;<span>7.1</span></a> you will find some basic but useful python functions:</p>
 <div id="tbl-function-useful" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-function-useful-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;6.1: List of useful Python functions.
+Table&nbsp;7.1: List of useful Python functions.
 </figcaption>
 <div aria-describedby="tbl-function-useful-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -833,8 +833,8 @@ Note
 </div>
 </div>
 </section>
-<section id="getting-help" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="getting-help"><span class="header-section-number">6.3</span> Getting help</h2>
+<section id="getting-help" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="getting-help"><span class="header-section-number">7.3</span> Getting help</h2>
 <p>To get more information about a function or an operator, you can use the <code>help()</code> function. For example, in interactive mode, run <code>help(print)</code> to display the help of the <code>print()</code> function, giving you information about the input and output of this function. If you need information about an operator, you will have to put it into quotes, e.g.&nbsp;<code>help('+')</code></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -851,8 +851,8 @@ To quit the help, press <code>q</code>.</p>
 </div>
 </div>
 </section>
-<section id="comment-your-code" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="comment-your-code"><span class="header-section-number">6.4</span> Comment your code</h2>
+<section id="comment-your-code" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="comment-your-code"><span class="header-section-number">7.4</span> Comment your code</h2>
 <p>Except for the shebang and coding specifications seen before, all things after a hashtag <code>#</code> character will be ignored by the interpreter until the end of the line. This is used to add comments in your code.</p>
 <p>Comments are used to:</p>
 <ul>
@@ -864,24 +864,24 @@ To quit the help, press <code>q</code>.</p>
 </ul>
 </section>
 </section>
-<section id="how-can-i-represent-data" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> How can I represent data?</h1>
+<section id="how-can-i-represent-data" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> How can I represent data?</h1>
 <p>Each programming language has its own set of data types, from the most basics (<code>bool</code>, <code>int</code>, <code>string</code>) to more complex structures (<code>list</code>, <code>tuple</code>, <code>set</code>…).</p>
-<section id="simple-data-types" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="simple-data-types"><span class="header-section-number">7.1</span> Simple data types</h2>
-<section id="boolean" class="level3" data-number="7.1.1">
-<h3 data-number="7.1.1" class="anchored" data-anchor-id="boolean"><span class="header-section-number">7.1.1</span> Boolean</h3>
+<section id="simple-data-types" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="simple-data-types"><span class="header-section-number">8.1</span> Simple data types</h2>
+<section id="boolean" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="boolean"><span class="header-section-number">8.1.1</span> Boolean</h3>
 <p>Booleans represent one of two values: <code>True</code> or <code>False</code>.</p>
 <p>When you compare two values, the expression is evaluated and Python returns the Boolean answer:</p>
-<div id="b24f9e4e" class="cell" data-execution_count="16">
+<div id="09e40114" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">10</span> <span class="op">&gt;</span> <span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
 </div>
 </section>
-<section id="numeric" class="level3" data-number="7.1.2">
-<h3 data-number="7.1.2" class="anchored" data-anchor-id="numeric"><span class="header-section-number">7.1.2</span> Numeric</h3>
+<section id="numeric" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="numeric"><span class="header-section-number">8.1.2</span> Numeric</h3>
 <p>Python provides three kinds of numerical type:</p>
 <ul>
 <li><code>int</code> (<span class="math inline">\(\mathbb{Z}\)</span>), integers</li>
@@ -889,41 +889,41 @@ To quit the help, press <code>q</code>.</p>
 <li><code>complex</code> (<span class="math inline">\(\mathbb{C}\)</span>), complex numbers</li>
 </ul>
 <p>Python will assign a numerical type automatically.</p>
-<div id="e36ac1b9" class="cell" data-execution_count="17">
+<div id="dd992ebf" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span>    </span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="fl">2.8</span> </span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="ot">1j</span> <span class="op">+</span> <span class="dv">2</span> <span class="co"># j is the convention in electrical engineering</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a60124d4" class="cell" data-execution_count="18">
+<div id="91bac0e5" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>int</code></pre>
 </div>
 </div>
-<div id="61ebd876" class="cell" data-execution_count="19">
+<div id="b2979903" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>float</code></pre>
 </div>
 </div>
-<div id="2d176304" class="cell" data-execution_count="20">
+<div id="29656d81" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>complex</code></pre>
 </div>
 </div>
 </section>
-<section id="text" class="level3" data-number="7.1.3">
-<h3 data-number="7.1.3" class="anchored" data-anchor-id="text"><span class="header-section-number">7.1.3</span> Text</h3>
+<section id="text" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="text"><span class="header-section-number">8.1.3</span> Text</h3>
 <p>String type represents textual data composed of letters, numbers, and symbols. The character string must be expressed between quotes.</p>
-<div id="3f6972a9" class="cell" data-execution_count="21">
+<div id="fd1b3d17" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""my string"""</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co">'''my string'''</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co">"my string"</span></span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co">'my string'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>are all the same thing. The difference with triple quotes is that it allows a string to extend over multiple lines. You can also use single quotes and double quotes freely within the triple quotes.</p>
-<div id="06a14c91" class="cell" data-execution_count="22">
+<div id="c523d269" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A multi-line string</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>my_str <span class="op">=</span> <span class="st">'''This is a multi-line string. This is the first line.</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="st">This is the second line.</span></span>
@@ -941,7 +941,7 @@ He said "Bond, James Bond."
 </div>
 </div>
 <p>You can get the number of characters inside a string with <code>len()</code>.</p>
-<div id="ff7b73c6" class="cell" data-execution_count="23">
+<div id="acbfcf75" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(seq)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(seq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -987,7 +987,7 @@ He said "Bond, James Bond."
 </tbody>
 </table>
 <p>They are called like this:</p>
-<div id="759ada67" class="cell" data-execution_count="24">
+<div id="61c3760c" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>seq.count(<span class="st">'A'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>7</code></pre>
@@ -1024,17 +1024,17 @@ Exercise
 </div>
 </section>
 </section>
-<section id="data-structures" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="data-structures"><span class="header-section-number">7.2</span> Data structures</h2>
+<section id="data-structures" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="data-structures"><span class="header-section-number">8.2</span> Data structures</h2>
 <p>Data structures are a collection of data types and/or data structures, organized in some way.</p>
-<section id="list" class="level3" data-number="7.2.1">
-<h3 data-number="7.2.1" class="anchored" data-anchor-id="list"><span class="header-section-number">7.2.1</span> List</h3>
+<section id="list" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="list"><span class="header-section-number">8.2.1</span> List</h3>
 <p>List is a collection which is ordered and changeable. It allows duplicate members. They are created using square brackets <code>[]</code>.</p>
-<div id="e8524390" class="cell" data-execution_count="27">
+<div id="3b794384" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> [<span class="st">'ATGAAGGGTCCAAAA'</span>, <span class="st">'AGTCCCCGTATGAT'</span>, <span class="st">'ACCT'</span>, <span class="st">'ACCT'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>List items are indexed, the first item has index <code>[0]</code>, the second item has index <code>[1]</code> etc.</p>
-<div id="69cdcf7c" class="cell" data-execution_count="28">
+<div id="9e065e01" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>seq[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>'AGTCCCCGTATGAT'</code></pre>
@@ -1054,7 +1054,7 @@ Tip
 </div>
 </div>
 <p>As a list is changeable, we can change, add, and remove items in a list after it has been created.</p>
-<div id="5861d942" class="cell" data-execution_count="29">
+<div id="f6053204" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>seq[<span class="dv">1</span>] <span class="op">=</span> <span class="st">'ATG'</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>seq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
@@ -1062,7 +1062,7 @@ Tip
 </div>
 </div>
 <p>You can specify a range of indexes by specifying the start (included) and the end (not included) of the range.</p>
-<div id="25a8b848" class="cell" data-execution_count="30">
+<div id="fa6e9311" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>seq[<span class="dv">0</span>:<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>['ATGAAGGGTCCAAAA', 'ATG']</code></pre>
@@ -1079,7 +1079,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>By leaving out the start value, the range will start at the first item:</p>
-<div id="a67aab8a" class="cell" data-execution_count="31">
+<div id="63ebefad" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>seq[:<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>['ATGAAGGGTCCAAAA', 'ATG']</code></pre>
@@ -1099,7 +1099,7 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>Indexes also conveniently work on <code>str</code> types.</p>
-<div id="13a93673" class="cell" data-execution_count="32">
+<div id="24974927" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(seq[<span class="dv">0</span>])</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(seq[<span class="dv">0</span>][<span class="dv">0</span>:<span class="dv">5</span>]) </span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(seq[<span class="dv">0</span>][<span class="dv">2</span>]) </span>
@@ -1114,7 +1114,7 @@ A</code></pre>
 </div>
 </div>
 <p>You can get how many items are in a list with <code>len()</code>.</p>
-<div id="0530c67e" class="cell" data-execution_count="33">
+<div id="4500b9f1" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(seq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
 <pre><code>4</code></pre>
@@ -1168,10 +1168,10 @@ Exercise
 </div>
 </div>
 </section>
-<section id="tuple" class="level3" data-number="7.2.2">
-<h3 data-number="7.2.2" class="anchored" data-anchor-id="tuple"><span class="header-section-number">7.2.2</span> Tuple</h3>
+<section id="tuple" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="tuple"><span class="header-section-number">8.2.2</span> Tuple</h3>
 <p>Tuple is a collection which is ordered and unchangeable. It allows duplicate members. Tuples are written with round brackets <code>()</code>.</p>
-<div id="f097badf" class="cell" data-execution_count="36">
+<div id="1f0cef80" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>my_favorite_amino_acid <span class="op">=</span> (<span class="st">'Y'</span>, <span class="st">'Tyr'</span>, <span class="st">'Tyrosine'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Just like for the list, you can get items with their index. The only difference is that you cannot change a tuple that has been created.</p>
@@ -1212,10 +1212,10 @@ Exercise
 </div>
 </div>
 </section>
-<section id="set" class="level3" data-number="7.2.3">
-<h3 data-number="7.2.3" class="anchored" data-anchor-id="set"><span class="header-section-number">7.2.3</span> Set</h3>
+<section id="set" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="set"><span class="header-section-number">8.2.3</span> Set</h3>
 <p>Set is a collection which is unordered and unindexed. It does not allow duplicate members (they will be ignored). Sets are written with curly brackets <code>{}</code>.</p>
-<div id="e574a730" class="cell" data-execution_count="39">
+<div id="cf64283f" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> {<span class="st">'BRCA1'</span>, <span class="st">'TP53'</span>, <span class="st">'EGFR'</span>, <span class="st">'MYC'</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Once a set is created, you cannot change its items directly (as they don’t have index), but you modify the set by removing and adding items.</p>
@@ -1269,17 +1269,17 @@ Exercise
 </div>
 <div class="callout-body-container callout-body">
 <p>Get the common genes between the following sets:</p>
-<div id="b8230cd9" class="cell" data-execution_count="40">
+<div id="cfd8cac1" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>organism1_genes <span class="op">=</span> {<span class="st">'BRCA1'</span>, <span class="st">'TP53'</span>, <span class="st">'EGFR'</span>, <span class="st">'MYC'</span>}</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>organism2_genes <span class="op">=</span> {<span class="st">'TP53'</span>, <span class="st">'MYC'</span>, <span class="st">'KRAS'</span>, <span class="st">'BRAF'</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="dictionary" class="level3" data-number="7.2.4">
-<h3 data-number="7.2.4" class="anchored" data-anchor-id="dictionary"><span class="header-section-number">7.2.4</span> Dictionary</h3>
+<section id="dictionary" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="dictionary"><span class="header-section-number">8.2.4</span> Dictionary</h3>
 <p>Dictionaries are used to store data values in <code>key: value</code> pairs. A dictionary is a collection which is ordered (as of Python &gt;= 3.7), changeable and does not allow duplicates keys. Dictionaries are written with curly brackets <code>{}</code>, with keys and values.</p>
-<div id="9a81f452" class="cell" data-execution_count="42">
+<div id="06d5dca5" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>organism1_genes <span class="op">=</span> {</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#key: value;</span></span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'BRCA1'</span>: <span class="st">'DNA repair'</span>, </span>
@@ -1289,7 +1289,7 @@ Exercise
 <span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Dictionary items can be referred to by using the key name.</p>
-<div id="4b833a7f" class="cell" data-execution_count="43">
+<div id="9fd53416" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>organism1_genes[<span class="st">"BRCA1"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>'DNA repair'</code></pre>
@@ -1346,8 +1346,8 @@ Exercise
 </div>
 </section>
 </section>
-<section id="conversion-between-types" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="conversion-between-types"><span class="header-section-number">7.3</span> Conversion between types</h2>
+<section id="conversion-between-types" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="conversion-between-types"><span class="header-section-number">8.3</span> Conversion between types</h2>
 <p>You can get the data type of any object by using the function <code>type()</code>. You can (more or less easily) convert between data types.</p>
 <table class="caption-top table">
 <colgroup>
@@ -1387,37 +1387,37 @@ Exercise
 </tr>
 </tbody>
 </table>
-<div id="1d4cf765" class="cell" data-execution_count="49">
+<div id="531b4c64" class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="bu">bool</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="47">
 <pre><code>True</code></pre>
 </div>
 </div>
-<div id="d703d9e4" class="cell" data-execution_count="50">
+<div id="9133af7f" class="cell" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="fl">5.8</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="48">
 <pre><code>5</code></pre>
 </div>
 </div>
-<div id="baaada7b" class="cell" data-execution_count="51">
+<div id="325c3ffa" class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="49">
 <pre><code>'1'</code></pre>
 </div>
 </div>
-<div id="b2ce07eb" class="cell" data-execution_count="52">
+<div id="773fe713" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>({<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="50">
 <pre><code>[1, 2, 3]</code></pre>
 </div>
 </div>
-<div id="5ce3ab13" class="cell" data-execution_count="53">
+<div id="6b2b375f" class="cell" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="51">
 <pre><code>{1, 2, 3}</code></pre>
 </div>
 </div>
-<div id="c18395fa" class="cell" data-execution_count="54">
+<div id="654aae5b" class="cell" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="bu">dict</span>(((<span class="st">'a'</span>, <span class="dv">1</span>), </span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>      (<span class="st">'f'</span>, <span class="dv">2</span>), </span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>      (<span class="st">'g'</span>, <span class="dv">3</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1427,14 +1427,14 @@ Exercise
 </div>
 </section>
 </section>
-<section id="how-can-i-manipulate-data" class="level1 page-columns page-full" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> How can I manipulate data?</h1>
+<section id="how-can-i-manipulate-data" class="level1 page-columns page-full" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> How can I manipulate data?</h1>
 <p>In the previous section we have learned how data can be represented in different types and gathered in various data structures. In this section we will see how we can manipulate data in order to do more complex tasks.</p>
-<section id="operators" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="operators"><span class="header-section-number">8.1</span> Operators</h2>
+<section id="operators" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="operators"><span class="header-section-number">9.1</span> Operators</h2>
 <p>Operators are used to perform operations on variables and values. We will present a few common ones here.</p>
-<section id="arithmetic-operators" class="level3" data-number="8.1.1">
-<h3 data-number="8.1.1" class="anchored" data-anchor-id="arithmetic-operators"><span class="header-section-number">8.1.1</span> Arithmetic operators</h3>
+<section id="arithmetic-operators" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="arithmetic-operators"><span class="header-section-number">9.1.1</span> Arithmetic operators</h3>
 <p>Arithmetic operators are used with numeric values to perform common mathematical operations:</p>
 <table class="caption-top table">
 <thead>
@@ -1480,7 +1480,7 @@ Warning
 </div>
 </div>
 <p>Python will convert data type according to what is necessary. Thus, when you divide two <code>int</code> you will obtain a <code>float</code> number, if you add a <code>float</code> to an <code>int</code>, you will get a <code>float</code>, …</p>
-<div id="d12a182c" class="cell" data-execution_count="55">
+<div id="62248e9e" class="cell" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example</span></span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="op">/</span><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="53">
@@ -1498,7 +1498,7 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p><code>+</code> also conveniently work on <code>str</code> types.</p>
-<div id="6078bb56" class="cell" data-execution_count="56">
+<div id="5dfe11ec" class="cell" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co">'AC'</span> <span class="op">+</span> <span class="st">'AT'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="54">
 <pre><code>'ACAT'</code></pre>
@@ -1507,8 +1507,8 @@ Note
 </div>
 </div>
 </section>
-<section id="assignment-operators" class="level3" data-number="8.1.2">
-<h3 data-number="8.1.2" class="anchored" data-anchor-id="assignment-operators"><span class="header-section-number">8.1.2</span> Assignment operators</h3>
+<section id="assignment-operators" class="level3" data-number="9.1.2">
+<h3 data-number="9.1.2" class="anchored" data-anchor-id="assignment-operators"><span class="header-section-number">9.1.2</span> Assignment operators</h3>
 <p>Assignment operators are used to assign values to variables:</p>
 <table class="caption-top table">
 <thead>
@@ -1550,8 +1550,8 @@ Note
 </div>
 </div>
 </section>
-<section id="comparison-operators" class="level3" data-number="8.1.3">
-<h3 data-number="8.1.3" class="anchored" data-anchor-id="comparison-operators"><span class="header-section-number">8.1.3</span> Comparison operators</h3>
+<section id="comparison-operators" class="level3" data-number="9.1.3">
+<h3 data-number="9.1.3" class="anchored" data-anchor-id="comparison-operators"><span class="header-section-number">9.1.3</span> Comparison operators</h3>
 <p>Comparison operators are used to compare two values:</p>
 <table class="caption-top table">
 <thead>
@@ -1587,7 +1587,7 @@ Note
 </tr>
 </tbody>
 </table>
-<div id="5a7d3c6c" class="cell" data-execution_count="57">
+<div id="57dc8b20" class="cell" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example</span></span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="55">
@@ -1605,7 +1605,7 @@ Warning
 </div>
 <div class="callout-body-container callout-body">
 <p>You should never use equalty operators (<code>==</code>or <code>!=</code>) with floats or complex values.</p>
-<div id="1cf85b86" class="cell" data-execution_count="58">
+<div id="2f4949b4" class="cell" data-execution_count="58">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example</span></span>
 <span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fl">2.1</span> <span class="op">+</span> <span class="fl">3.2</span> <span class="op">==</span> <span class="fl">5.3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="56">
@@ -1613,14 +1613,14 @@ Warning
 </div>
 </div>
 <p>This is a floating point arithmetic problem seen in other programming languages. It is due to the difficulty of having a fixed number of binary digits (bits) to accurately represent some decimal number. This leads to small rounding errors in calculations.</p>
-<div id="6506329c" class="cell" data-execution_count="59">
+<div id="90adbc72" class="cell" data-execution_count="59">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fl">2.1</span> <span class="op">+</span> <span class="fl">3.2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="57">
 <pre><code>5.300000000000001</code></pre>
 </div>
 </div>
 <p>If you need to use equalty operators, do it with a degree of freedom:</p>
-<div id="d129f650" class="cell" data-execution_count="60">
+<div id="c8360f13" class="cell" data-execution_count="60">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>tol <span class="op">=</span> <span class="fl">1e-6</span> <span class="op">;</span> <span class="bu">abs</span>((<span class="fl">2.1</span> <span class="op">+</span> <span class="fl">3.2</span>) <span class="op">-</span> <span class="fl">5.3</span>) <span class="op">&lt;</span> tol</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="58">
 <pre><code>True</code></pre>
@@ -1629,8 +1629,8 @@ Warning
 </div>
 </div>
 </section>
-<section id="logical-operators" class="level3" data-number="8.1.4">
-<h3 data-number="8.1.4" class="anchored" data-anchor-id="logical-operators"><span class="header-section-number">8.1.4</span> Logical operators</h3>
+<section id="logical-operators" class="level3" data-number="9.1.4">
+<h3 data-number="9.1.4" class="anchored" data-anchor-id="logical-operators"><span class="header-section-number">9.1.4</span> Logical operators</h3>
 <p>Logical operators are used to combine conditional statements:</p>
 <table class="caption-top table">
 <thead>
@@ -1654,21 +1654,21 @@ Warning
 </tr>
 </tbody>
 </table>
-<div id="02b52803" class="cell" data-execution_count="61">
+<div id="92d4b12a" class="cell" data-execution_count="61">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example </span></span>
 <span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="va">False</span> <span class="kw">and</span> <span class="va">False</span>, <span class="va">False</span> <span class="kw">and</span> <span class="va">True</span>, <span class="va">True</span> <span class="kw">and</span> <span class="va">False</span>, <span class="va">True</span> <span class="kw">and</span> <span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="59">
 <pre><code>(False, False, False, True)</code></pre>
 </div>
 </div>
-<div id="fbd3e92f" class="cell" data-execution_count="62">
+<div id="3fcf2041" class="cell" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example </span></span>
 <span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="va">False</span> <span class="kw">or</span> <span class="va">False</span>, <span class="va">False</span> <span class="kw">or</span> <span class="va">True</span>, <span class="va">True</span> <span class="kw">or</span> <span class="va">False</span>, <span class="va">True</span> <span class="kw">or</span> <span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="60">
 <pre><code>(False, True, True, True)</code></pre>
 </div>
 </div>
-<div id="479877d8" class="cell" data-execution_count="63">
+<div id="8aad1ea0" class="cell" data-execution_count="63">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example </span></span>
 <span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="va">True</span> <span class="kw">or</span> <span class="kw">not</span> <span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="61">
@@ -1676,8 +1676,8 @@ Warning
 </div>
 </div>
 </section>
-<section id="membership-operators" class="level3" data-number="8.1.5">
-<h3 data-number="8.1.5" class="anchored" data-anchor-id="membership-operators"><span class="header-section-number">8.1.5</span> Membership operators</h3>
+<section id="membership-operators" class="level3" data-number="9.1.5">
+<h3 data-number="9.1.5" class="anchored" data-anchor-id="membership-operators"><span class="header-section-number">9.1.5</span> Membership operators</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -1700,7 +1700,7 @@ Warning
 </tr>
 </tbody>
 </table>
-<div id="7a003226" class="cell" data-execution_count="64">
+<div id="a214cedd" class="cell" data-execution_count="64">
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example </span></span>
 <span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="co">'ACCT'</span> <span class="kw">in</span> seq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="62">
@@ -1708,8 +1708,8 @@ Warning
 </div>
 </div>
 </section>
-<section id="operator-precedence" class="level3" data-number="8.1.6">
-<h3 data-number="8.1.6" class="anchored" data-anchor-id="operator-precedence"><span class="header-section-number">8.1.6</span> Operator precedence</h3>
+<section id="operator-precedence" class="level3" data-number="9.1.6">
+<h3 data-number="9.1.6" class="anchored" data-anchor-id="operator-precedence"><span class="header-section-number">9.1.6</span> Operator precedence</h3>
 <p>Operator precedence describes the order in which operations are performed.</p>
 <p>The precedence order is described in the table below, starting with the highest precedence at the top:</p>
 <table class="caption-top table">
@@ -1781,8 +1781,8 @@ Exercise
 </div>
 </section>
 </section>
-<section id="conditionals" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="conditionals"><span class="header-section-number">8.2</span> Conditionals</h2>
+<section id="conditionals" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="conditionals"><span class="header-section-number">9.2</span> Conditionals</h2>
 <p>Conditionals allows you to make decisions in your code based on certain conditions.</p>
 <pre><code>if something is true:
     do task a
@@ -1790,7 +1790,7 @@ otherwise:
     do task b</code></pre>
 <p>The comparison (<code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>), logical (<code>and</code>, <code>or</code>, <code>not</code>) and membership (<code>in</code>, <code>not in</code>) operators can be used as conditions.</p>
 <p>In Python, this is written with an <code>if ... elif ... else</code> statement like so:</p>
-<div id="9b5ee331" class="cell" data-execution_count="69">
+<div id="c00d280b" class="cell" data-execution_count="69">
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define gene expression levels</span></span>
 <span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>gene1_expression <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>gene2_expression <span class="op">=</span> <span class="dv">50</span></span>
@@ -1807,7 +1807,7 @@ otherwise:
 </div>
 </div>
 <p>The <code>elif</code> keyword is Python’s way of saying “if the previous conditions were not true, then try this condition”. The following code is equivalent to the one before:</p>
-<div id="a326ebf4" class="cell" data-execution_count="70">
+<div id="5309ccc7" class="cell" data-execution_count="70">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyze gene expression levels</span></span>
 <span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> gene1_expression <span class="op">&gt;</span> gene2_expression:</span>
 <span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Gene 1 has higher expression level."</span>)</span>
@@ -1831,7 +1831,7 @@ Exercise
 </div>
 <div class="callout-body-container callout-body">
 <p>Are these two codes equivalent?</p>
-<div id="9ab38bde" class="cell" data-execution_count="71">
+<div id="37bb4ab5" class="cell" data-execution_count="71">
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code A</span></span>
 <span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"ATG"</span> <span class="kw">in</span> dna_sequence:</span>
 <span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Start codon found."</span>)  </span>
@@ -1840,7 +1840,7 @@ Exercise
 <span id="cb95-6"><a href="#cb95-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb95-7"><a href="#cb95-7" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"No interesting codon not found."</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="32519a05" class="cell" data-execution_count="72">
+<div id="6b4cbada" class="cell" data-execution_count="72">
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code B</span></span>
 <span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"ATG"</span> <span class="kw">in</span> dna_sequence:</span>
 <span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Start codon found."</span>)  </span>
@@ -1852,7 +1852,7 @@ Exercise
 </div>
 </div>
 <p>An <code>if</code> statement cannot be empty, but if for some reason you have an if statement with no content, put in the <code>pass</code> statement to avoid getting an error.</p>
-<div id="13d77d92" class="cell" data-execution_count="76">
+<div id="3cb84943" class="cell" data-execution_count="76">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">33</span></span>
 <span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">200</span></span>
 <span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1860,8 +1860,8 @@ Exercise
 <span id="cb97-5"><a href="#cb97-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="notes-on-indentation" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="notes-on-indentation"><span class="header-section-number">8.3</span> Notes on indentation</h2>
+<section id="notes-on-indentation" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="notes-on-indentation"><span class="header-section-number">9.3</span> Notes on indentation</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1891,7 +1891,7 @@ Exercise
 <div class="callout-body-container callout-body">
 <p>Here are three codes, they all are incorrect, can you tell why?</p>
 <p>Of course, you can run them and read the error that Python gives!</p>
-<div id="20dc9208" class="cell" data-execution_count="77">
+<div id="3d9a6819" class="cell" data-execution_count="77">
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>amino_acid_list <span class="op">=</span> [<span class="st">"MET"</span>, <span class="st">"ARG"</span>, <span class="st">"THR"</span>, <span class="st">"GLY"</span>]</span>
 <span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"MET"</span> <span class="kw">in</span> amino_acid_list:</span>
@@ -1901,7 +1901,7 @@ Exercise
 <span id="cb98-7"><a href="#cb98-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb98-8"><a href="#cb98-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Start codon not found."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="20292d3c" class="cell" data-execution_count="78">
+<div id="14fe4146" class="cell" data-execution_count="78">
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>dna_sequence <span class="op">=</span> <span class="st">"ATGCTAGCTAGCTAG"</span></span>
 <span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"ATG"</span> <span class="kw">in</span> dna_sequence:</span>
@@ -1909,7 +1909,7 @@ Exercise
 <span id="cb99-5"><a href="#cb99-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"TAG"</span> <span class="kw">in</span> dna_sequence</span>
 <span id="cb99-6"><a href="#cb99-6" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Stop codon found."</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ab58553f" class="cell" data-execution_count="79">
+<div id="a82cc37c" class="cell" data-execution_count="79">
 <div class="sourceCode cell-code" id="cb100"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">7</span></span>
 <span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">5</span>:</span>
@@ -1924,18 +1924,18 @@ Exercise
 </div>
 </div>
 </section>
-<section id="iterations" class="level2 page-columns page-full" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="iterations"><span class="header-section-number">8.4</span> Iterations</h2>
+<section id="iterations" class="level2 page-columns page-full" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="iterations"><span class="header-section-number">9.4</span> Iterations</h2>
 <p>Iteration involves repeating a set of instructions or a block of code multiple times.</p>
 <p>There are two types of loops in python, <code>for</code> and <code>while</code>.</p>
 <p>Iterating through data structures like lists allows you to access each element individually, making it easier to perform operations on them.</p>
-<section id="for-loops" class="level3" data-number="8.4.1">
-<h3 data-number="8.4.1" class="anchored" data-anchor-id="for-loops"><span class="header-section-number">8.4.1</span> For loops</h3>
+<section id="for-loops" class="level3" data-number="9.4.1">
+<h3 data-number="9.4.1" class="anchored" data-anchor-id="for-loops"><span class="header-section-number">9.4.1</span> For loops</h3>
 <p>When using a for loop, you iterate over a sequence of elements, such as a list, tuple, or dictionary.</p>
 <pre><code>for item in data_structure:
     do task a</code></pre>
 <p>The loop will execute the indented block of code for each element in the sequence until all elements have been processed. This is particularly useful when you know the number of times you need to iterate.</p>
-<div id="6d26b08f" class="cell" data-execution_count="83">
+<div id="5b286bab" class="cell" data-execution_count="83">
 <div class="sourceCode cell-code" id="cb102"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>all_codons <span class="op">=</span> [</span>
 <span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'AAA'</span>, <span class="st">'AAC'</span>, <span class="st">'AAG'</span>, <span class="st">'AAT'</span>,</span>
 <span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'ACA'</span>, <span class="st">'ACC'</span>, <span class="st">'ACG'</span>, <span class="st">'ACT'</span>,</span>
@@ -1977,7 +1977,7 @@ Warning
 </div>
 <div class="callout-body-container callout-body">
 <p>You cannot modify an element of a list that way.</p>
-<div id="8623efed" class="cell" data-execution_count="84">
+<div id="9e2c1593" class="cell" data-execution_count="84">
 <div class="sourceCode cell-code" id="cb104"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> codon <span class="kw">in</span> all_codons: </span>
 <span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="st">'T'</span> <span class="kw">in</span> codon :</span>
 <span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a>    codon <span class="op">=</span> codon.replace(<span class="st">'T'</span>, <span class="st">'U'</span>)</span>
@@ -1991,12 +1991,12 @@ Warning
 </div>
 </div>
 </section>
-<section id="iterators" class="level3" data-number="8.4.2">
-<h3 data-number="8.4.2" class="anchored" data-anchor-id="iterators"><span class="header-section-number">8.4.2</span> Iterators</h3>
+<section id="iterators" class="level3" data-number="9.4.2">
+<h3 data-number="9.4.2" class="anchored" data-anchor-id="iterators"><span class="header-section-number">9.4.2</span> Iterators</h3>
 <p>An iterator is a special object that gives values in succession.</p>
 <p>In the previous example, the iterator returns a copy of the item in a list, not a reference to it. Therefore, the <code>codon</code> inside the <code>for</code> block is not a view into the original list, and changing it does not do anything.</p>
 <p>A way to modify the list would be to use an iterable to access the original data. The <code>range(start, stop)</code> function creates an iterable to count from one integer to another.</p>
-<div id="a4e7ff5e" class="cell" data-execution_count="85">
+<div id="9f1ea32f" class="cell" data-execution_count="85">
 <div class="sourceCode cell-code" id="cb106"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">10</span>):</span>
 <span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i, end<span class="op">=</span><span class="st">'  '</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2004,7 +2004,7 @@ Warning
 </div>
 </div>
 <p>We could count from 0 to the size of the list, loop though every element of the list by calling them by their index, and modify them if necessary. That’s what the following code does:</p>
-<div id="5f032ef1" class="cell" data-execution_count="86">
+<div id="389bfc37" class="cell" data-execution_count="86">
 <div class="sourceCode cell-code" id="cb108"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(all_codons)): </span>
 <span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="st">'T'</span> <span class="kw">in</span> all_codons[i] :</span>
 <span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a>    all_codons[i] <span class="op">=</span> all_codons[i].replace(<span class="st">'T'</span>, <span class="st">'U'</span>)</span>
@@ -2015,7 +2015,7 @@ Warning
 </div>
 </div>
 <p>Another useful function that returns an iterator is <code>enumerate()</code>. It is an iterator that generates pairs of index and value. It is commonly used when you need to access both the index and value of items simultaneously.</p>
-<div id="14877938" class="cell" data-execution_count="87">
+<div id="c49252b6" class="cell" data-execution_count="87">
 <div class="sourceCode cell-code" id="cb110"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="st">'ATGCATGC'</span></span>
 <span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Print index and identity of bases</span></span>
@@ -2032,7 +2032,7 @@ Warning
 7 C</code></pre>
 </div>
 </div>
-<div id="2cf23e04" class="cell" data-execution_count="88">
+<div id="761416cf" class="cell" data-execution_count="88">
 <div class="sourceCode cell-code" id="cb112"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through sequence and print index of G's</span></span>
 <span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, base <span class="kw">in</span> <span class="bu">enumerate</span>(seq):</span>
 <span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> base <span class="kw">in</span> <span class="st">'G'</span>:</span>
@@ -2042,13 +2042,13 @@ Warning
 </div>
 </div>
 </section>
-<section id="while-loops" class="level3 page-columns page-full" data-number="8.4.3">
-<h3 data-number="8.4.3" class="anchored" data-anchor-id="while-loops"><span class="header-section-number">8.4.3</span> While loops</h3>
+<section id="while-loops" class="level3 page-columns page-full" data-number="9.4.3">
+<h3 data-number="9.4.3" class="anchored" data-anchor-id="while-loops"><span class="header-section-number">9.4.3</span> While loops</h3>
 <p>A while loop continues executing a set of statement as long as a condition is true.</p>
 <pre><code>while condition is true:
     do task a</code></pre>
 <p>This type of loop is handy when you’re not sure how many iterations you’ll need to perform or when you need to repeat a block of code until a certain condition is met.</p>
-<div id="3cec393e" class="cell" data-execution_count="89">
+<div id="acc8334b" class="cell" data-execution_count="89">
 <div class="sourceCode cell-code" id="cb115"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="st">'TACTCTGTCGATCGTACGTATGCAAGCTGATGCATGATTGACTTCAGTATCGAGCGCAGCA'</span></span>
 <span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>start_codon <span class="op">=</span> <span class="st">'ATG'</span></span>
 <span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2085,13 +2085,13 @@ Warning
 <img src="img/StuckInLoop.jpg" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-StuckInLoop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.1: Hopefully not you!
+Figure&nbsp;9.1: Hopefully not you!
 </figcaption>
 </figure>
 </div>
 </div></div><p>Actually, the previous code is quite dangerous. You can also get stuck in a loop… if the <code>start_codon</code> does not appear in <code>seq</code> at all.</p>
 <p>Indeed, even when you go above the given length of <code>seq</code>, the condition <code>seq[i:i+3] != start_codon</code> will still be true because <code>seq[i:i+3]</code> will output an empty string.</p>
-<div id="8440fb0e" class="cell" data-execution_count="90">
+<div id="c24cd23a" class="cell" data-execution_count="90">
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>seq[<span class="dv">9999</span>:<span class="dv">9999</span><span class="op">+</span><span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="83">
 <pre><code>''</code></pre>
@@ -2112,10 +2112,10 @@ Note
 </div>
 </div>
 </section>
-<section id="break-statement" class="level3" data-number="8.4.4">
-<h3 data-number="8.4.4" class="anchored" data-anchor-id="break-statement"><span class="header-section-number">8.4.4</span> Break statement</h3>
+<section id="break-statement" class="level3" data-number="9.4.4">
+<h3 data-number="9.4.4" class="anchored" data-anchor-id="break-statement"><span class="header-section-number">9.4.4</span> Break statement</h3>
 <p>Iteration stops in a <code>for</code> loop when the iterator is exhausted. It stops in a <code>while</code> loop when the conditional evaluates to <code>False</code>. There is another way to stop iteration: the <code>break</code> keyword. Whenever <code>break</code> is encountered in a <code>for</code> or <code>while</code> loop, the iteration stops and execution continues outside the loop.</p>
-<div id="8172e935" class="cell" data-execution_count="91">
+<div id="1c02836b" class="cell" data-execution_count="91">
 <div class="sourceCode cell-code" id="cb119"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="st">'ACCATTTTTTGGGGGGGCGGGGGGAGGGGGGG'</span></span>
 <span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>start_codon <span class="op">=</span> <span class="st">'ATG'</span></span>
 <span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2147,11 +2147,11 @@ Note
 </div>
 </div>
 </section>
-<section id="continue-statement" class="level3" data-number="8.4.5">
-<h3 data-number="8.4.5" class="anchored" data-anchor-id="continue-statement"><span class="header-section-number">8.4.5</span> Continue statement</h3>
+<section id="continue-statement" class="level3" data-number="9.4.5">
+<h3 data-number="9.4.5" class="anchored" data-anchor-id="continue-statement"><span class="header-section-number">9.4.5</span> Continue statement</h3>
 <p>In addition to the break statement, there is also the continue statement in Python that can be used to alter the flow of iteration in loops. When continue is encountered within a loop, it skips the remaining code inside the loop for the current iteration and moves on to the next iteration.</p>
 <p>Here’s an example showcasing the continue statement in a loop:</p>
-<div id="63e889df" class="cell" data-execution_count="92">
+<div id="24dd0558" class="cell" data-execution_count="92">
 <div class="sourceCode cell-code" id="cb121"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List of DNA sequences</span></span>
 <span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a>dna_sequences <span class="op">=</span> [<span class="st">'ATGCTAGCTAG'</span>, <span class="st">'ATCGATCGATC'</span>, <span class="st">'ATGGCTAGCTA'</span>, <span class="st">'ATGTAGCTAGC'</span>]</span>
 <span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2174,8 +2174,8 @@ All sequences were processed.</code></pre>
 </div>
 <p>The continue statement in this example skips the analysis code for sequence that does not start with a start codon.</p>
 </section>
-<section id="exercises" class="level3" data-number="8.4.6">
-<h3 data-number="8.4.6" class="anchored" data-anchor-id="exercises"><span class="header-section-number">8.4.6</span> Exercises</h3>
+<section id="exercises" class="level3" data-number="9.4.6">
+<h3 data-number="9.4.6" class="anchored" data-anchor-id="exercises"><span class="header-section-number">9.4.6</span> Exercises</h3>
 <div class="callout callout-style-default callout-important callout-titled" title="Exercise 1">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2188,7 +2188,7 @@ Exercise 1
 <div class="callout-body-container callout-body">
 <p>Given a list of DNA sequences, find the first sequence that contains a specific motif <code>'TATA'</code>, print the sequence, and stop the process. If no sequence contains the motif, print a message accordingly. You must use only one <code>for</code> loop.</p>
 <p>With the input given below, the output should look like this:</p>
-<div id="0ac1902a" class="cell" data-execution_count="93">
+<div id="f3c5f81b" class="cell" data-execution_count="93">
 <div class="sourceCode cell-code" id="cb123"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List of DNA sequences with a TATA</span></span>
 <span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a>dna_sequences <span class="op">=</span> [</span>
 <span id="cb123-3"><a href="#cb123-3" aria-hidden="true" tabindex="-1"></a><span class="st">'ATGCTACAGCTAG'</span>, </span>
@@ -2201,12 +2201,12 @@ Exercise 1
 <span id="cb123-10"><a href="#cb123-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ...</span>
 <span id="cb123-11"><a href="#cb123-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="97ce29b5" class="cell" data-execution_count="94">
+<div id="99f54508" class="cell" data-execution_count="94">
 <div class="cell-output cell-output-stdout">
 <pre><code>Sequence 'ATCGATATAATC' contains the 'TATA' motif.</code></pre>
 </div>
 </div>
-<div id="568af3a1" class="cell" data-execution_count="95">
+<div id="b832a28a" class="cell" data-execution_count="95">
 <div class="sourceCode cell-code" id="cb125"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List of DNA sequences without a TATA</span></span>
 <span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a>dna_sequences <span class="op">=</span> [</span>
 <span id="cb125-3"><a href="#cb125-3" aria-hidden="true" tabindex="-1"></a><span class="st">'ATGCTACAGCTAG'</span>, </span>
@@ -2218,7 +2218,7 @@ Exercise 1
 <span id="cb125-9"><a href="#cb125-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ...</span>
 <span id="cb125-10"><a href="#cb125-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="00e0af3f" class="cell" data-execution_count="96">
+<div id="97b063f1" class="cell" data-execution_count="96">
 <div class="cell-output cell-output-stdout">
 <pre><code>No sequence contains the 'TATA' motif.</code></pre>
 </div>
@@ -2237,14 +2237,14 @@ Exercise 2
 <div class="callout-body-container callout-body">
 <p>Analyze a DNA sequence to count the number of consecutive <code>'A'</code> nucleotides. You must use only one <code>while</code> loop.</p>
 <p>With the input given below, the output should look like this:</p>
-<div id="6f7354e0" class="cell" data-execution_count="98">
+<div id="8e560449" class="cell" data-execution_count="98">
 <div class="sourceCode cell-code" id="cb127"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DNA sequence to analyze</span></span>
 <span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a>dna_sequence <span class="op">=</span> <span class="st">'ATGATAAGAGAAAGTAAAAGCGATCGAAAAAA'</span></span>
 <span id="cb127-3"><a href="#cb127-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb127-4"><a href="#cb127-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> ...</span>
 <span id="cb127-5"><a href="#cb127-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="8a0d0ec4" class="cell" data-execution_count="99">
+<div id="10a1493b" class="cell" data-execution_count="99">
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of consecutive 'A's: 6</code></pre>
 </div>
@@ -2254,8 +2254,8 @@ Exercise 2
 </section>
 </section>
 </section>
-<section id="conclusion" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> Conclusion</h1>
+<section id="conclusion" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Conclusion</h1>
 <p>Congrats! You now know the (very) basics of Python programming.</p>
 <p>If you want to keep on practising with simple exercises, you can check out <a href="https://www.w3schools.com/python/exercise.asp">w3schools</a>.</p>
 <p>For more biology-related exercises check out <a href="https://www.pythonforbiologists.org/">pythonforbiologist.org</a>, they have exercises availables in each chapters.</p>
@@ -2692,8 +2692,8 @@ Exercise 2
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../lecture/lesson-2.html" class="pagination-link" aria-label="Lesson 2 - Functions, file handling, dataframe and plots">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Lesson 2 - Functions, file handling, dataframe and plots</span></span>
+      <a href="../lecture/lesson-3.html" class="pagination-link" aria-label="Lesson 3 - Jupyter Notebook">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Lesson 3 - Jupyter Notebook</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
