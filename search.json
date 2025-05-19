@@ -30,16 +30,6 @@
     ]
   },
   {
-    "objectID": "lecture/lesson-1.html#requirements",
-    "href": "lecture/lesson-1.html#requirements",
-    "title": "Lesson 1 - Introduction, representing and manipulating data",
-    "section": "Requirements",
-    "text": "Requirements\nYou need to have a computer, and either:\n\ninstall Python 3.0.0 (or above) and install a text editor (Word is not a text editor!).\n\n\n\n\n\n\n\nNote\n\n\n\nAn IDE (integrated development environment) is an improved text editor. It is a software that provides functionalities like syntax highlighting, auto completion, help, debugger… For example Visual Studio Code (install and learn how to use it with Python), but any other IDE will work.\n\n\n\nhave a github account, create a new codespace, and select the Repository vgilbart/python-intro to copy from. This is a free solution up to 60 hours of computing and 15 GB per month.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Lesson 1 - Introduction, representing and manipulating data</span>"
-    ]
-  },
-  {
     "objectID": "lecture/lesson-1.html#what-is-python",
     "href": "lecture/lesson-1.html#what-is-python",
     "title": "Lesson 1 - Introduction, representing and manipulating data",
@@ -244,7 +234,7 @@
     "href": "lecture/lesson-2.html#exercise",
     "title": "Lesson 2 - Functions, file handling, dataframe and plots",
     "section": "Exercise",
-    "text": "Exercise\n\n\n\n\n\n\nExercise 1\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'A': 0.1, 'G': 0.4, 'C': 0.3, 'T': 0.2}",
+    "text": "Exercise\n\n\n\n\n\n\nExercise 1\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'G': 0.4, 'A': 0.1, 'T': 0.2, 'C': 0.3}",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lesson 2 - Functions, file handling, dataframe and plots</span>"
     ]
@@ -678,7 +668,7 @@
     "href": "archive/2024-lesson-2.html#exercise",
     "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
     "section": "7.5 Exercise",
-    "text": "7.5 Exercise\n\n\n\n\n\n\nExercise\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'T': 0.2, 'G': 0.4, 'C': 0.3, 'A': 0.1}\n\n\n\n\n\n\n\n\n\n\nSolutions\n\n\n\n\n\n\ndef nucl_freq(seq):\n  n = len(seq)\n  freq = dict()\n  for nucl in {\"A\", \"T\", \"C\", \"G\"}:\n    freq[nucl] = seq.count(nucl)/n\n  return freq \n\nnucl_freq(\"ATTCCCGGGG\")\n\n{'T': 0.2, 'G': 0.4, 'C': 0.3, 'A': 0.1}",
+    "text": "7.5 Exercise\n\n\n\n\n\n\nExercise\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'C': 0.3, 'G': 0.4, 'A': 0.1, 'T': 0.2}\n\n\n\n\n\n\n\n\n\n\nSolutions\n\n\n\n\n\n\ndef nucl_freq(seq):\n  n = len(seq)\n  freq = dict()\n  for nucl in {\"A\", \"T\", \"C\", \"G\"}:\n    freq[nucl] = seq.count(nucl)/n\n  return freq \n\nnucl_freq(\"ATTCCCGGGG\")\n\n{'C': 0.3, 'G': 0.4, 'A': 0.1, 'T': 0.2}",
     "crumbs": [
       "Archive 2024",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
