@@ -9,7 +9,7 @@
 <meta name="author" content="Valentine Gilbart">
 <meta name="dcterms.date" content="2025-05-19">
 
-<title>7&nbsp; Lesson 3 - Conway’s Game of Life – Python Introduction IMCBio</title>
+<title>6&nbsp; Lesson 3 - Conway’s Game of Life – Python Introduction IMCBio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -315,7 +315,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Python introduction</span></a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -369,25 +370,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">8</span> Introduction</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">7</span> Introduction</a>
   <ul class="collapse">
-  <li><a href="#aim-of-the-class" id="toc-aim-of-the-class" class="nav-link" data-scroll-target="#aim-of-the-class"><span class="header-section-number">8.1</span> Aim of the class</a></li>
-  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements"><span class="header-section-number">8.2</span> Requirements</a></li>
+  <li><a href="#aim-of-the-class" id="toc-aim-of-the-class" class="nav-link" data-scroll-target="#aim-of-the-class"><span class="header-section-number">7.1</span> Aim of the class</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements"><span class="header-section-number">7.2</span> Requirements</a></li>
   </ul></li>
-  <li><a href="#conways-game-of-life-basic" id="toc-conways-game-of-life-basic" class="nav-link" data-scroll-target="#conways-game-of-life-basic"><span class="header-section-number">9</span> Conway’s Game of Life (basic)</a>
+  <li><a href="#conways-game-of-life-basic" id="toc-conways-game-of-life-basic" class="nav-link" data-scroll-target="#conways-game-of-life-basic"><span class="header-section-number">8</span> Conway’s Game of Life (basic)</a>
   <ul class="collapse">
-  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions"><span class="header-section-number">9.1</span> Instructions</a></li>
-  <li><a href="#rules" id="toc-rules" class="nav-link" data-scroll-target="#rules"><span class="header-section-number">9.2</span> Rules</a></li>
-  <li><a href="#functions-to-create" id="toc-functions-to-create" class="nav-link" data-scroll-target="#functions-to-create"><span class="header-section-number">9.3</span> Functions to create</a></li>
-  <li><a href="#optional-function" id="toc-optional-function" class="nav-link" data-scroll-target="#optional-function"><span class="header-section-number">9.4</span> Optional function</a></li>
-  <li><a href="#exemple-of-input-and-output" id="toc-exemple-of-input-and-output" class="nav-link" data-scroll-target="#exemple-of-input-and-output"><span class="header-section-number">9.5</span> Exemple of input and output</a></li>
-  <li><a href="#tips" id="toc-tips" class="nav-link" data-scroll-target="#tips"><span class="header-section-number">9.6</span> Tips</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions"><span class="header-section-number">8.1</span> Instructions</a></li>
+  <li><a href="#rules" id="toc-rules" class="nav-link" data-scroll-target="#rules"><span class="header-section-number">8.2</span> Rules</a></li>
+  <li><a href="#functions-to-create" id="toc-functions-to-create" class="nav-link" data-scroll-target="#functions-to-create"><span class="header-section-number">8.3</span> Functions to create</a></li>
+  <li><a href="#optional-function" id="toc-optional-function" class="nav-link" data-scroll-target="#optional-function"><span class="header-section-number">8.4</span> Optional function</a></li>
+  <li><a href="#exemple-of-input-and-output" id="toc-exemple-of-input-and-output" class="nav-link" data-scroll-target="#exemple-of-input-and-output"><span class="header-section-number">8.5</span> Exemple of input and output</a></li>
+  <li><a href="#tips" id="toc-tips" class="nav-link" data-scroll-target="#tips"><span class="header-section-number">8.6</span> Tips</a></li>
   </ul></li>
-  <li><a href="#conways-game-of-life-advanced" id="toc-conways-game-of-life-advanced" class="nav-link" data-scroll-target="#conways-game-of-life-advanced"><span class="header-section-number">10</span> Conway’s Game of Life (advanced)</a>
+  <li><a href="#conways-game-of-life-advanced" id="toc-conways-game-of-life-advanced" class="nav-link" data-scroll-target="#conways-game-of-life-advanced"><span class="header-section-number">9</span> Conway’s Game of Life (advanced)</a>
   <ul class="collapse">
-  <li><a href="#instructions-1" id="toc-instructions-1" class="nav-link" data-scroll-target="#instructions-1"><span class="header-section-number">10.1</span> Instructions</a></li>
+  <li><a href="#instructions-1" id="toc-instructions-1" class="nav-link" data-scroll-target="#instructions-1"><span class="header-section-number">9.1</span> Instructions</a></li>
   </ul></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions"><span class="header-section-number">11</span> Solutions</a></li>
+  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions"><span class="header-section-number">10</span> Solutions</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/vgilbart/python-intro/edit/main/archive/2024-lesson-3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vgilbart/python-intro/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -426,10 +427,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="introduction" class="level1 page-columns page-full" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Introduction</h1>
-<section id="aim-of-the-class" class="level2 page-columns page-full" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="aim-of-the-class"><span class="header-section-number">8.1</span> Aim of the class</h2>
+<section id="introduction" class="level1 page-columns page-full" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Introduction</h1>
+<section id="aim-of-the-class" class="level2 page-columns page-full" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="aim-of-the-class"><span class="header-section-number">7.1</span> Aim of the class</h2>
 <p>This last class is to pratice the notions learned on a couple of (larger) exercises.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
@@ -439,27 +440,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <img src="img/potter.jpg" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-potter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.1: <em>pssssss</em>
+Figure&nbsp;7.1: <em>pssssss</em>
 </figcaption>
 </figure>
 </div>
 </div></div><p>The exercises have one provided solution, but it is not the only one. We all have a different coding style, and it evolves with time. So do not worry if you have a different solution, as long as your result is correct, that’s already great!</p>
 </section>
-<section id="requirements" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="requirements"><span class="header-section-number">8.2</span> Requirements</h2>
+<section id="requirements" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="requirements"><span class="header-section-number">7.2</span> Requirements</h2>
 <p>Remembering some of <a href="../archive/2024-lesson-1.html">lesson 1</a> and <a href="../archive/2024-lesson-2.html">2</a>.</p>
 </section>
 </section>
-<section id="conways-game-of-life-basic" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> Conway’s Game of Life (basic)</h1>
-<section id="instructions" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">9.1</span> Instructions</h2>
+<section id="conways-game-of-life-basic" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Conway’s Game of Life (basic)</h1>
+<section id="instructions" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">8.1</span> Instructions</h2>
 <p>Create an implementation of <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway’s Game of Life</a> in a script called <code>conway_life_basic.py</code>.</p>
 <p>The game consists in initializing a 2D matrix of binary value (0 or 1), and, by following certain rules, observing its evolution at each generation.</p>
 <p>Each value represent a cell, that can either be live (0) or dead (1).</p>
 </section>
-<section id="rules" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="rules"><span class="header-section-number">9.2</span> Rules</h2>
+<section id="rules" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="rules"><span class="header-section-number">8.2</span> Rules</h2>
 <p>Cells interact with their neighbors such that:</p>
 <ul>
 <li>Any live cell with fewer (&lt;) than two live neighbors dies (as if by underpopulation)</li>
@@ -470,8 +471,8 @@ Figure&nbsp;8.1: <em>pssssss</em>
 <p>The new matrix created corresponds to a new generation.</p>
 <p>The original game is played on a infinite board, but we’ll implement it to a finite board. When a cell is in a corner, it has 3 neighbors. When a cell is on a side it has 5 neighbors.</p>
 </section>
-<section id="functions-to-create" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="functions-to-create"><span class="header-section-number">9.3</span> Functions to create</h2>
+<section id="functions-to-create" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="functions-to-create"><span class="header-section-number">8.3</span> Functions to create</h2>
 <p>You should create:</p>
 <ul>
 <li>a <code>count_neighbors</code> function that counts the number of live neighbors around a cell</li>
@@ -490,10 +491,10 @@ Figure&nbsp;8.1: <em>pssssss</em>
 . . . </code></pre>
 <p>You will need to initialize a matrix to begin the game, then it should run on its own for a defined amount of generations.</p>
 </section>
-<section id="optional-function" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="optional-function"><span class="header-section-number">9.4</span> Optional function</h2>
+<section id="optional-function" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="optional-function"><span class="header-section-number">8.4</span> Optional function</h2>
 <p>As an option, you can create a function called <code>initialize_universe</code> to initialize the grid with one of the following seeds that have specific proprieties:</p>
-<div id="fd2af06c" class="cell" data-execution_count="1">
+<div id="8e70e368" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dictionary containing different seed patterns for the game</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>seeds <span class="op">=</span> {</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"diehard"</span>: [</span>
@@ -529,10 +530,10 @@ Figure&nbsp;8.1: <em>pssssss</em>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exemple-of-input-and-output" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="exemple-of-input-and-output"><span class="header-section-number">9.5</span> Exemple of input and output</h2>
+<section id="exemple-of-input-and-output" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="exemple-of-input-and-output"><span class="header-section-number">8.5</span> Exemple of input and output</h2>
 <p>Here’s an example of input, and the desired output:</p>
-<div id="7c849a62" class="cell" data-execution_count="3">
+<div id="35bc9885" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize by hand</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>universe <span class="op">=</span> [</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>],</span>
@@ -588,7 +589,7 @@ Figure&nbsp;8.1: <em>pssssss</em>
 </div>
 </div>
 <p>The same matrix can be initialized by the following (if you are doing the optional <code>initialize_universe</code> function):</p>
-<div id="f11f17fa" class="cell" data-execution_count="4">
+<div id="b04829dd" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize with a seed</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>universe <span class="op">=</span> initialize_universe(universe_size <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">10</span>), seed <span class="op">=</span> <span class="st">"infinite"</span>, seed_position <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">2</span>))</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> universe:</span>
@@ -618,8 +619,8 @@ Figure&nbsp;8.1: <em>pssssss</em>
 . . . . . . . . . .
 . . . . . . . . . .</code></pre>
 </section>
-<section id="tips" class="level2" data-number="9.6">
-<h2 data-number="9.6" class="anchored" data-anchor-id="tips"><span class="header-section-number">9.6</span> Tips</h2>
+<section id="tips" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="tips"><span class="header-section-number">8.6</span> Tips</h2>
 <ul>
 <li>Take an exemple and do it by hand to better understand the game.</li>
 <li>Before jumping into coding, try to have a plan of how you will implement it all. Imagine what will be the input and output of each function.</li>
@@ -628,10 +629,10 @@ Figure&nbsp;8.1: <em>pssssss</em>
 </ul>
 </section>
 </section>
-<section id="conways-game-of-life-advanced" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> Conway’s Game of Life (advanced)</h1>
-<section id="instructions-1" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="instructions-1"><span class="header-section-number">10.1</span> Instructions</h2>
+<section id="conways-game-of-life-advanced" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Conway’s Game of Life (advanced)</h1>
+<section id="instructions-1" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="instructions-1"><span class="header-section-number">9.1</span> Instructions</h2>
 <p>Create another implementation of Conway’s Game of Life, with the following characteristics:</p>
 <ul>
 <li>the file parses arguments from command line (if you use argparse, you can check the help of your function by running in the terminal <code>python conway_life_advanced.py --help</code>)</li>
@@ -641,8 +642,8 @@ Figure&nbsp;8.1: <em>pssssss</em>
 <p><a href="img/game_of_life.gif">Example of a final gif generated from the same universe matrix as the one from basic implementation</a></p>
 </section>
 </section>
-<section id="solutions" class="level1" data-number="11">
-<h1 data-number="11"><span class="header-section-number">11</span> Solutions</h1>
+<section id="solutions" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Solutions</h1>
 <p>Both solutions are available in the folder <code>exercise/script/</code>.</p>
 
 
