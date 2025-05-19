@@ -6,9 +6,9 @@ date : last-modified
 format: 
   html: 
     toc: true
-    number-sections: true
+    number-sections: false
 editor: source
-solutions: true
+solutions: false
 ---
 # Introduction
 
@@ -862,7 +862,7 @@ axs[1].set_xlabel("Duration of exercise")
 axs[1].set_ylabel("Calories Burned")
 axs[1].set_title("Calories burned over Duration of exercise")
 
-plt.savefig('exercise/data/barplot.png')
+plt.savefig('exercise/data/figure.png')
 
 plt.show()
 ```
@@ -1069,10 +1069,6 @@ There are MANY packages available, here's a short list of some that might intere
 
 # Final tips and resources 
 
-::: {.column-margin}
-![Please, read the doc](img/readthedocs.jpg){#fig-readthedocs width=100%}
-:::
-
 Here are a couple of tips:
 
 - Leave comments (think of your future self)
@@ -1094,9 +1090,11 @@ You can follow some free tutorials on:
 
 # References {.unnumbered}
 
-Here are some references and ressources that inspired this class: 
+Here are some references and ressources that inspired this class : 
 
 - [Python doc](https://docs.python.org/3/tutorial/introduction.html)
 - [w3schools](https://www.w3schools.com/python/)
 - [pythonforbiologists](https://www.pythonforbiologists.org/)
 - [justinbois's Bootcamp](https://justinbois.github.io/bootcamp/2020/lessons/l01_welcome.html#.py-files)
+- [Software carpentry 1](https://swcarpentry.github.io/python-novice-inflammation/)
+- [Software carpentry 2](https://swcarpentry.github.io/python-novice-gapminder/)

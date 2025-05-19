@@ -1,1 +1,18 @@
-# Python introduction 
+# Python introduction {.unnumbered}
+
+
+This course is part of the [IMCBio PhD Program courses](https://imcbio.unistra.fr/imcbio-training-programs/#phD).
+
+You will need your computer, and a way to work with Python. I have two possible solutions for you, either: 
+
+A) create a [GitHub](https://github.com/) account. Then [create a new codespace](https://github.com/codespaces/) with the repository vgilbart/python-intro (everything else should be default). With a bit of patience, you should end up with a Visual Studio Code window (looking somewhat [like this](https://code.visualstudio.com/docs/getstarted/userinterface)). 
+
+*NB: This does not require installing anything on your computer. It is the preferred solution for this class, as we will all be working on the same environment. This is a free solution up to 60 hours and 15 GB of computing per month (we won’t do as much during this class!).*
+
+OR 
+
+B) install both [Python](https://www.python.org/downloads/) (v3 or above), and an [IDE](https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python) (an improved text editor) on your computer. So that we are all on the same page, I recommend installing [Visual Studio Code](https://code.visualstudio.com/Download/). If for some reason, you are already familiar with another IDE that can be used for Python, you can work with it, but I won’t be able to help you as much with it. 
+
+*NB: It can be useful for your future works to make sure that you have managed to correctly install Python and an IDE on your computer. But for the purpose of this class, the solution A) is sufficient and more convenient. *
+
+

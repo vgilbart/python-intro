@@ -5,7 +5,7 @@ date : last-modified
 format: 
   html: 
     toc: true
-    number-sections: true
+    number-sections: false
 editor: source
 solutions: false
 ---
@@ -20,33 +20,9 @@ At the end of this class, you will:
 - Understand the major data types in Python 
 - Manipulate variables with operators and built-in functions
 
-
-::: {.column-margin}
-![Python logo](img/python.png){#fig-python width=100%}
-:::
-
-## Requirements
-
-You need to have a computer, and either:
-
-- [install Python 3.0.0](https://www.Python.org/downloads/) (or above) and install a text editor (Word is not a text editor!). 
-
-::: {.callout-note} 
-An IDE (integrated development environment) is an improved text editor. It is a software that provides functionalities like syntax highlighting, auto completion, help, debugger… 
-For example Visual Studio Code ([install](https://code.visualstudio.com/Download/) and learn [how to use it with Python](https://code.visualstudio.com/docs/languages/Python)), but [any other IDE](https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python) will work.
-::: 
-
-- have a github account, [create a new codespace](https://github.com/codespaces/), and select the Repository `vgilbart/python-intro` to copy from. This is a free solution up to 60 hours of computing and 15 GB per month. 
-
-
 ## What is Python? 
 
 Python is a programming language first released in 1991 and implemented by Guido van Rossum. 
-
-::: {.column-margin}
-![Guido van Rossum](img/GuidovanRossum.jpg){#fig-GuidovanRossum width=100%}
-:::
-
 
 It is widely used, with various applications, such as:
 
@@ -75,9 +51,6 @@ print('The sequence has', size, 'bases.')
 - Interactive mode making it easy to test short snippets of code
 - Large community ([stackoverflow](https://stackoverflow.com/questions/tagged/Python))
 
-::: {.column-margin}
-![Just google (or ChatGPT/Copilot) it!](img/googling.png){#fig-googling width=100%}
-:::
 
 ## How can I program in Python? 
 
@@ -1250,10 +1223,6 @@ print('The start codon begins at index', i)
 Remember to increment i, or you'll get stuck in a loop.
 :::
 
-::: {.column-margin}
-![Hopefully not you!](img/StuckInLoop.jpg){#fig-StuckInLoop width=100%}
-:::
-
 Actually, the previous code is quite dangerous. You can also get stuck in a loop... if the `start_codon` does not appear in `seq` at all. 
 
 Indeed, even when you go above the given length of `seq`, the condition `seq[i:i+3] != start_codon` will still be true because `seq[i:i+3]` will output an empty string. 
@@ -1518,9 +1487,11 @@ Or keep on googling for more python exercises!
 
 # References {.unnumbered}
 
-Here are some references and ressources that (greatly) inspired this class: 
+Here are some references and ressources that inspired this class : 
 
 - [Python doc](https://docs.python.org/3/tutorial/introduction.html)
 - [w3schools](https://www.w3schools.com/python/)
 - [pythonforbiologists](https://www.pythonforbiologists.org/)
 - [justinbois's Bootcamp](https://justinbois.github.io/bootcamp/2020/lessons/l01_welcome.html#.py-files)
+- [Software carpentry 1](https://swcarpentry.github.io/python-novice-inflammation/)
+- [Software carpentry 2](https://swcarpentry.github.io/python-novice-gapminder/)

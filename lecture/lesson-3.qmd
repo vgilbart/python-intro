@@ -6,9 +6,9 @@ date : last-modified
 format: 
   html: 
     toc: true
-    number-sections: true
+    number-sections: false
 editor: source
-solutions: true
+solutions: false
 ---
 # Introduction
 
@@ -23,10 +23,6 @@ At the end of this class, you will be able to:
 - Use a Notebook template to run on several dataset 
 
 This last class is also to keep on praticing the notions learned in the previous lessons. 
-
-::: {.column-margin}
-![*pssssss*](img/potter.jpg){#fig-potter width=100%}
-:::
 
 # Jupyter Notebook
 
@@ -79,10 +75,15 @@ Some basic library like `pandas` or `matplotlib` are included in most already ex
 It is possible to register a Conda environment as a Kernel (so that Jupyter can use an environment with adequate packages to run code). 
 
 ```{bash}
-conda init # Run just once after installing conda, to actually start working in conda
+# Run just once after installing conda, to actually start working in conda-mode
+conda init 
+
+# Open a new terminal (for conda init to be effective)
 conda create -n python_intro python
 conda activate python_intro
 conda install ipykernel notebook
+
+# In some JupyterLab instances you need to run the following:
 python -m ipykernel install --user --name=python_intro 
 ```
 
@@ -90,6 +91,7 @@ python -m ipykernel install --user --name=python_intro
 ::: {.callout-important title="Exercise"} 
 
 Create the conda environment like above.
+The environment should now be available as a Kernel in the selection.
 
 Run the command `print('Hello World!')` in a cell. 
 
@@ -194,7 +196,7 @@ Write in **bold**: `**bold**`
 
 Write [links](https://igbmc.fr): `[links](https://igbmc.fr)`
 
-Add images ![alt text](https://jupyter.org/assets/homepage/main-logo.svg){width=10%}: `![alt text](https://jupyter.org/assets/homepage/main-logo.svg){width=10%}`
+Add images ![alt text](img/jupyter.png){width=10%}: `![alt text](img/jupyter.png){width=10%}`
 
 Create (nested) lists:
 
@@ -245,7 +247,7 @@ df.groupby("nucl")[['freq']].mean()
 
 ::: {.callout collapse="true" title="Solutions"}
 
-See associated [Jupyter Notebook](../exercise/jupyter-notebook/lesson3.ipynb) or its [html](../exercise/jupyter-notebook/lesson3.html) 
+See associated [Jupyter Notebook](../exercise/jupyter-notebook/lesson-3-companion.ipynb) or its [html](../exercise/jupyter-notebook/lesson-3-companion.html) 
 
 :::
 
@@ -285,7 +287,7 @@ To use it in line mode add the prefix `%` before the command (e.g. `%time`). To 
 
 ::: {.callout collapse="true" title="Solutions"}
 
-See associated [Jupyter Notebook](../exercise/jupyter-notebook/lesson3.ipynb) or its [html](../exercise/jupyter-notebook/lesson3.html) 
+See associated [Jupyter Notebook](../exercise/jupyter-notebook/lesson-3-companion.ipynb) or its [html](../exercise/jupyter-notebook/lesson-3-companion.html) 
 
 :::
 
@@ -458,7 +460,7 @@ interact(interactive_plot, columns=widgets.SelectMultiple(
 ))
 ```
 
-See associated [Jupyter Notebook](../exercise/jupyter-notebook/lesson3.ipynb) or its [html](../exercise/jupyter-notebook/lesson3.html) 
+See associated [Jupyter Notebook](../exercise/jupyter-notebook/lesson-3-companion.ipynb) or its [html](../exercise/jupyter-notebook/lesson-3-companion.html) 
 
 :::
 
@@ -565,11 +567,21 @@ One way to order by absolute value of a column is: `df.sort_values(..., key=lamb
 Use `np.log()` from `numpy` package. 
 ::: 
 
-10.    Export the notebook in html. 
+10. Export the notebook in html. 
 
+
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
+See associated [Jupyter Notebook](../exercise/jupyter-notebook/lesson-3-exercises.ipynb) or its [html](../exercise/jupyter-notebook/lesson-3-exercises.html) 
+
+:::
+
+:::
 ::: 
 
-# References 
+# References {.unnumbered}
 
 Here are some references and ressources that inspired this class:
 
