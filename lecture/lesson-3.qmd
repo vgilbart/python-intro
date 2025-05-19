@@ -64,6 +64,88 @@ In the IGBMC, you can for example have access to a JupyterLab on the cluster wit
 
 For test purpose, you can also create a Jupyter Notebook in [JupyterLab](https://jupyter.org/try-jupyter/lab/). 
 
+
+# Conda environment as a kernel
+
+A Kernel is a computational engine for running and interacting with the Jupyter code. By default, Jupyter only knows about the base Python environment. This Python environment needs to have the necessary python library installed (e.g. `pandas`, `matplotlib`). 
+
+In some cases, it might be useful to create different Python environments for different usage or projects. This ensures that you can install specific packages and Python versions without affecting your base system or other environments. For this purpose, a common tool used is [conda](https://anaconda.org/anaconda/conda). 
+
+![Conda schema from [https://angus.readthedocs.io/](https://angus.readthedocs.io/en/2019/conda_tutorial.html) ](img/conda.png){#fig-conda width=100%}
+
+You can see it as a closed setup with its own Python interpreter and packages.
+
+Some basic library like `pandas` or `matplotlib` are included in most already existing Kernels. But other library that are domain-specific won't be included by default. Also, you might want to work with a specific version of python or python packages.  
+It is possible to register a Conda environment as a Kernel (so that Jupyter can use an environment with adequate packages to run code). 
+
+```{bash}
+conda init # Run just once after installing conda, to actually start working in conda
+conda create -n python_intro python
+conda activate python_intro
+conda install ipykernel notebook
+python -m ipykernel install --user --name=python_intro 
+```
+
+
+::: {.callout-important title="Exercise"} 
+
+Create the conda environment like above.
+
+Run the command `print('Hello World!')` in a cell. 
+
+Run the command `import pandas` in a cell. If it does not work run in the terminal `conda install pandas` or `pip install pandas`, and once it's installed, try re-running the command `import pandas`. 
+
+:::
+
+As we are using conda, we might as well get familiar with some basic commands in conda.  
+
+| Command                              | Description                                      |
+|--------------------------------------|--------------------------------------------------|
+| `conda create -n env_name `          | Create a new environment                         |
+| `conda create -n env_name package`   | Create a new environment with a specific package |
+| `conda create -n env_name package==version`   | Create a new environment with a specific package and version |
+| `conda activate env_name`            | Activate an environment                          |
+| `conda deactivate`                   | Deactivate the current environment               |
+| `conda list`                         | List all installed packages in the current env   |
+| `conda env list`                     | List all available environments                  |
+| `conda install package_name`         | Install a package in the current environment     |
+| `conda remove package_name`          | Remove a package from the current environment    |
+| `conda remove -n env_name --all`     | Remove an entire environment                     |
+| `conda update package_name`          | Update a specific package                        |
+| `conda update conda`                 | Update conda itself                              |
+| `conda search package_name`          | Search for a package in conda repositories       |
+| `conda info`                         | Display information about the conda installation |
+
+
+::: {.callout-important title="Exercise"} 
+
+Try the commands `conda list` and `conda env list`. Do you understand what they output?
+
+::: {.content-hidden unless-meta="solutions"}
+::: {.callout collapse="true" title="Solutions"}
+`conda list` prints the packages available in the current environment. 
+
+`conda env list` prints the conda environments available.
+:::
+:::
+
+Create an environment with pandas at version 1.5.3. You can verify the version of pandas with the following python code `print(pandas.__version__)`.
+
+::: {.content-hidden unless-meta="solutions"}
+::: {.callout collapse="true" title="Solutions"}
+In a terminal run: 
+```{bash}
+conda create -n pandas_v1 pandas==1.5.3
+conda activate pandas==1.5.3
+python -c "import pandas; print(pandas.__version__)"
+```
+:::
+:::
+
+:::
+
+
+
 # Structure of a Jupyter Notebook  
 
 ## Cells 
@@ -112,7 +194,7 @@ Write in **bold**: `**bold**`
 
 Write [links](https://igbmc.fr): `[links](https://igbmc.fr)`
 
-Add images ![alt text](https://www.igbmc.fr/typo3conf/ext/igbmc/Resources/Public/images/logos/igbmc.png){width=10%}: `![alt text](https://www.igbmc.fr/typo3conf/ext/igbmc/Resources/Public/images/logos/igbmc.png){width=10%}`
+Add images ![alt text](https://jupyter.org/assets/homepage/main-logo.svg){width=10%}: `![alt text](https://jupyter.org/assets/homepage/main-logo.svg){width=10%}`
 
 Create (nested) lists:
 
@@ -228,88 +310,6 @@ In the Visual Studio Code, exporting can be done with the button (on the same ba
 
 ::: {.callout-important title="Exercise"} 
 Export `lesson-3-companion.ipynb` in a `.html` format. Open the `.html` file into a browser. 
-:::
-
-TODO verify it works in vscode or other platform
-
-# Conda environment as a kernel
-
-A Kernel is a computational engine for running and interacting with the Jupyter code. By default, Jupyter only knows about the base Python environment. This Python environment needs to have the necessary python library installed (e.g. `pandas`, `matplotlib`). 
-
-In some cases, it might be useful to create different Python environments for different usage or projects. This ensures that you can install specific packages and Python versions without affecting your base system or other environments. For this purpose, a common tool used is [conda](https://anaconda.org/anaconda/conda). 
-
-![Conda schema from [https://angus.readthedocs.io/](https://angus.readthedocs.io/en/2019/conda_tutorial.html) ](img/conda.png){#fig-conda width=100%}
-
-You can see it as a closed setup with its own Python interpreter and packages.
-
-Some basic library like `pandas` or `matplotlib` are included in most already existing Kernels. But other library that are domain-specific won't be included by default. Also, you might want to work with a specific version of python or python packages.  
-It is possible to register a Conda environment as a Kernel (so that Jupyter can use an environment with adequate packages to run code). 
-
-
-```{bash}
-conda create -n python_intro python
-conda activate python_intro
-conda install ipykernel notebook
-python -m ipykernel install --user --name=python_intro 
-```
-
-
-::: {.callout-important title="Exercise"} 
-
-Create the conda environment like above. 
-
-Run the command `print('Hello World!')` in a cell. 
-
-Run the command `import pandas` in a cell. If it does not work run in the terminal `conda install pandas` or `pip install pandas`, and once it's installed, try re-running the command `import pandas`. 
-
-:::
-
-As we are using conda, we might as well get familiar with some basic commands in conda.  
-
-| Command                              | Description                                      |
-|--------------------------------------|--------------------------------------------------|
-| `conda create -n env_name `          | Create a new environment                         |
-| `conda create -n env_name package`   | Create a new environment with a specific package |
-| `conda create -n env_name package==version`   | Create a new environment with a specific package and version |
-| `conda activate env_name`            | Activate an environment                          |
-| `conda deactivate`                   | Deactivate the current environment               |
-| `conda list`                         | List all installed packages in the current env   |
-| `conda env list`                     | List all available environments                  |
-| `conda install package_name`         | Install a package in the current environment     |
-| `conda remove package_name`          | Remove a package from the current environment    |
-| `conda remove -n env_name --all`     | Remove an entire environment                     |
-| `conda update package_name`          | Update a specific package                        |
-| `conda update conda`                 | Update conda itself                              |
-| `conda search package_name`          | Search for a package in conda repositories       |
-| `conda info`                         | Display information about the conda installation |
-
-
-::: {.callout-important title="Exercise"} 
-
-Try the commands `conda list` and `conda env list`. Do you understand what they output?
-
-::: {.content-hidden unless-meta="solutions"}
-::: {.callout collapse="true" title="Solutions"}
-`conda list` prints the packages available in the current environment. 
-
-`conda env list` prints the conda environments available.
-:::
-:::
-
-Create an environment with pandas at version 1.5.3. You can verify the version of pandas with the following code `print(pandas.__version__)`.
-
-::: {.content-hidden unless-meta="solutions"}
-::: {.callout collapse="true" title="Solutions"}
-In a terminal run: 
-```{bash}
-conda create -n pandas_v1 pandas==1.5.3
-conda activate pandas==1.5.3
-python -c "import pandas; print(pandas.__version__)"
-```
-:::
-:::
-
-
 :::
 
 
@@ -470,8 +470,6 @@ See associated [Jupyter Notebook](../exercise/jupyter-notebook/lesson3.ipynb) or
 `plotly.express` is a module used to create figures that are interactive. 
 Refer to its [documentation](https://plotly.com/python/) for more information.
 
-TODO explain a bit more and add something about renderer https://plotly.com/python/renderers/ if we use vscode 
-
 
 ::: {.callout-warning} 
 It does not rely on the same grammar as `matplotlib`, so you have to get used to new objects and functions to create plots. We will not cover it here, but it is useful to know that `plotly.express` exists when creating Jupyter Notebooks
@@ -527,7 +525,11 @@ For the last two information, you can make good use of either `.sum()` or `.valu
 3. Get the following values: 
 
 - the expression in both samples of the genes: Il31ra, Sox9, Lbp
-- the expression in both samples of the genes associated with .. GO term (TODO)
+- the gene with the highest log2FoldChange, and the gene with the lowest log2FoldChange. 
+
+::: {.callout collapse="true" title="Hint"}
+For the last one, you can use `.idxmin()`, see [doc](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.idxmax.html)
+:::
 
 4. Make a histogram plot of the log2FoldChange.
 
@@ -535,10 +537,10 @@ For the last two information, you can make good use of either `.sum()` or `.valu
 pandas has built-in [plot](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html) functions that are based on matplotlib.
 :::
 
-5. Make a pie plot that separates positive-log2FoldChange genes and negative-log2FoldChange genes. (TODO)
+5. Make a pie plot that gives the proportion of positive-log2FoldChange genes and negative-log2FoldChange genes. 
 
 ::: {.callout collapse="true" title="Hint"}
-Create a new column, assign `+` for positive-log2FoldChange and `-` for negative-log2FoldChange. Make a pie plot of this new column.
+Compute the number of positive and negative log2FoldChange first. Then use `plt.pie()`. 
 :::
 
 6. Make a volcano plot where up-regulated genes are red points, down-regulated genes are blue points, and other are grey. 
@@ -547,7 +549,7 @@ Create a new column, assign `+` for positive-log2FoldChange and `-` for negative
 Create a new column called `color` that has the value `red` for up-regulated genes, `blue` for down-regulated genes, and `grey` for others. 
 ::: 
 
-7. Just like 6 but make it interactive with widgets so that you can change the threshold of log2FC and padj. 
+7. Just like 6 but make it interactive with widgets so that you can change the threshold of log2FoldChange and padj. 
 
 8. Just like 6 but make it interactive with plotly expression so that you can hoover your mouse on a point and get the name of the gene, and some other informations available about that gene (e.g. `'ensembl_gene_id', 'log2FoldChange', 'padj', 'symbol','PR661W_Vec', 'PR661W_TRPM1'`). 
 
@@ -555,17 +557,22 @@ Create a new column called `color` that has the value `red` for up-regulated gen
 `plotly.express` behaves differently than `matplotlib`. You can create a new column called `color` that has the value `up-regulated` for up-regulated genes, `down-regulated` for down-regulated genes, and `Non-significant` for others. 
 ::: 
 
-9. Make a heatmap of the top 5 up-regulated and top 5 down-regulated genes where the color corresponds to the `norm.count.mean` column.
-Make a heatmap of the genes associated with .. GO term (TODO)
+9. Make a heatmap of the top 5 up-regulated and top 5 down-regulated (based on `log2FoldChange`) genes where the color corresponds to the log value of `norm.count.mean` column.
+    
+::: {.callout collapse="true" title="Hint"}
+One way to order by absolute value of a column is: `df.sort_values(..., key=lambda x: abs(x))`.
 
-10. Export the notebook in html. 
+Use `np.log()` from `numpy` package. 
+::: 
 
-
+10.    Export the notebook in html. 
 
 ::: 
 
-# Ressources 
+# References 
 
-https://jupyter-notebook.readthedocs.io/en/stable/notebook.html
-https://bioinformatics.ccr.cancer.gov/docs/intro-to-bioinformatics-ss2023/Lesson6/Jupyter_Lab/
+Here are some references and ressources that inspired this class:
+
+- [Jupyter doc](https://jupyter-notebook.readthedocs.io/en/stable/notebook.html)
+- [NIG course](https://bioinformatics.ccr.cancer.gov/docs/intro-to-bioinformatics-ss2023/Lesson6/Jupyter_Lab/)
 
