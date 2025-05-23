@@ -84,7 +84,7 @@
     "href": "lecture/lesson-1.html#getting-help",
     "title": "Lesson 1 - Introduction, representing and manipulating data",
     "section": "Getting help",
-    "text": "Getting help\nTo get more information about a function or an operator, you can use the help() function. For example, in interactive mode, run help(print) to display the help of the print() function, giving you information about the input and output of this function. If you need information about an operator, you will have to put it into quotes, e.g. help('+')\n\n\n\n\n\n\nBrowse the help\n\n\n\nIf the help is long, press [enter] to get the next line or [space] to get the next ‘page’ of information.\nTo quit the help, press q.",
+    "text": "Getting help\nTo get more information about a function or an operator, you can use the help() function. For example, in interactive mode, run help(print) to display the help of the print() function, giving you information about the input and output of this function. If you need information about an operator, you will have to put it into quotes, e.g. help('+')\n\n\n\n\n\n\nBrowse the help\n\n\n\nIf the help is long, press [enter] to get the next line or [space] to get the next ‘page’ of information.\nTo quit the help, press q.\n\n\n\n\n\n\n\n\nExercise\n\n\n\nRead the help of the print() function. Add a point at the end of the last value using the parameters available.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Lesson 1 - Introduction, representing and manipulating data</span>"
     ]
@@ -234,7 +234,7 @@
     "href": "lecture/lesson-2.html#exercise",
     "title": "Lesson 2 - Functions, file handling, dataframe and plots",
     "section": "Exercise",
-    "text": "Exercise\n\n\n\n\n\n\nExercise 1\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'T': 0.2, 'A': 0.1, 'C': 0.3, 'G': 0.4}",
+    "text": "Exercise\n\n\n\n\n\n\nExercise 1\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'A': 0.1, 'G': 0.4, 'C': 0.3, 'T': 0.2}",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lesson 2 - Functions, file handling, dataframe and plots</span>"
     ]
@@ -668,7 +668,7 @@
     "href": "archive/2024-lesson-2.html#exercise",
     "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
     "section": "7.5 Exercise",
-    "text": "7.5 Exercise\n\n\n\n\n\n\nExercise\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'C': 0.3, 'A': 0.1, 'G': 0.4, 'T': 0.2}",
+    "text": "7.5 Exercise\n\n\n\n\n\n\nExercise\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'A': 0.1, 'C': 0.3, 'G': 0.4, 'T': 0.2}",
     "crumbs": [
       "Archive 2024",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
