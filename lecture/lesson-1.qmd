@@ -235,6 +235,7 @@ In @tbl-function-useful you will find some basic but useful python functions:
 
 : List of useful Python functions. {#tbl-function-useful}
 
+
 ## Getting help
 
 To get more information about a function or an operator, you can use the `help()` function. For example, in interactive mode, run `help(print)` to display the help of the `print()` function, giving you information about the input and output of this function. 
@@ -247,6 +248,24 @@ If the help is long, press `[enter]` to get the next line or `[space]` to get th
 To quit the help, press `q`. 
 :::
 
+
+::: {.callout-important title="Exercise"} 
+
+Read the help of the `print()` function. Add a point at the end of the last value using the parameters available. 
+
+:::
+
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+
+```{python}
+print('Hello world', end = '.')
+```
+
+:::
+
+:::
 
 ## Comment your code 
 

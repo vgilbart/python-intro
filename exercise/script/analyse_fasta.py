@@ -3,13 +3,8 @@
 import sys 
 
 def nucl_freq(seq):
-  if not isinstance(seq, str):
-    raise TypeError("Input must be a string.")
-  valid_nucl = {"A", "T", "C", "G"}
-  seq_nucl = set(seq)
-  if seq_nucl.difference(valid_nucl) != set():
-    raise ValueError("Input string must only contain characters A, C, T or G.")
-    
+  valid_nucl = ["A", "T", "C", "G"]
+
   n = len(seq)
   freq = dict()
   for nucl in valid_nucl:
