@@ -54,9 +54,9 @@ print('The sequence has', size, 'bases.')
 
 ## How can I program in Python? 
 
-Python is an interpreted language, this means that all scripts written in Python need a software to be run. This software is called an interpreter, which "translate" each line of the code, into instructions that the computer can understand. 
+Python is an interpreted language, this means that it is not directly compiled into machine code (binary instructions that the computer hardware understands). It is executed by an interpreter program that "translates" each line of the code, into instructions that the computer can understand. 
 By extension, the interpreter that is able to read Python scripts is also called Python.
-So, whenever you want your Python code to run, you give it to the Python interpreter. 
+So, whenever you want your Python code to run, you must call the Python interpreter. 
 
 ### Interactive mode 
 
@@ -448,6 +448,7 @@ Similarly, by leaving out the end value, the range will end at the last item.
 :::
 
 
+
 ::: {.callout-note} 
 Indexes also conveniently work on `str` types.
 ```{python}
@@ -459,7 +460,25 @@ print(seq[0][-1])
 
 :::
 
+
+::: {.callout-tip} 
+
+One way to remember how slices work is to think of the indices as pointing between characters, with the left edge of the first character numbered 0. Then the right edge of the last character of a string of n characters has index n, for example:
+
+```{textual}
+  +---+---+---+---+---+---+
+  | P | y | t | h | o | n |
+  +---+---+---+---+---+---+
+  0   1   2   3   4   5   6
+ -6  -5  -4  -3  -2  -1
+```
+
+The first row of numbers gives the position of the indices 0…6 in the string; the second row gives the corresponding negative indices. The slice from i to j consists of all characters between the edges labeled i and j, respectively.
+
+:::
+
 You can get how many items are in a list with `len()`.
+
 ```{python}
 len(seq)
 ```
@@ -1165,7 +1184,7 @@ print(all_codons)
 ```
 
 
-This is because `all_codons` was converted to an iterator in the `for` statement. 
+This is `codon` is a copy of the item in a list, not a reference to it. So changing it does not do anything to the original list.
 :::
 
 
@@ -1174,10 +1193,8 @@ This is because `all_codons` was converted to an iterator in the `for` statement
 
 An iterator is a special object that gives values in succession.
 
-In the previous example, the iterator returns a copy of the item in a list, not a reference to it. Therefore, the `codon` inside the `for` block is not a view into the original list, and changing it does not do anything to the original list.
-
-A way to modify the list would be to use an iterable to access the original data. 
-The `range(start, stop)` function creates an iterable to count from one integer to another. 
+A way to modify the list would be to use an iterator to access the original data. 
+The `range(start, stop)` function creates an iterator to count from one integer to another. 
 ```{python}
 for i in range(2, 10):
     print(i, end='  ')
@@ -1194,6 +1211,33 @@ for i in range(0, len(all_codons)):
 print(all_codons)
 ```
 
+
+::: {.callout-warning} 
+
+A list is iterable but not an iterator. The difference is that they are reusable, see: 
+```{python}
+l = [1,2,3,4]
+
+for i in l:
+  print(i)
+
+for i in l:
+  print(i)
+```
+
+```{python}
+# Convert to iterable
+il = iter(l)
+
+for i in il:
+  print(i)
+
+for i in il:
+  print(i)
+```
+
+:::
+
 Another useful function that returns an iterator is `enumerate()`. It is an iterator that generates pairs of index and value. It is commonly used when you need to access both the index and value of items simultaneously.
 
 ```{python}
@@ -1208,7 +1252,7 @@ for i, base in enumerate(seq):
 # Loop through sequence and print index of G's
 for i, base in enumerate(seq):
     if base in 'G':
-        print(i, end='  ')
+        print(i, end=' ')
 ```
 
 
