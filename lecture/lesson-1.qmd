@@ -7,7 +7,7 @@ format:
     toc: true
     number-sections: false
 editor: source
-solutions: false
+solutions: true
 ---
 
 # Introduction
@@ -954,7 +954,7 @@ if "ATG" in dna_sequence:
 elif "TAG" in dna_sequence:
   print("Stop codon found.")  
 else:
-  print("No interesting codon not found.") 
+  print("No interesting codon found.") 
 ```
 
 ```{python}
@@ -965,7 +965,7 @@ if "ATG" in dna_sequence:
   if "TAG" in dna_sequence:
     print("Stop codon found.")  
 else:
-  print("No interesting codon not found.") 
+  print("No interesting codon found.") 
 ```
 
 
@@ -984,7 +984,7 @@ if "ATG" in dna_sequence:
 elif "TAG" in dna_sequence:
   print("Stop codon found.")  
 else:
-  print("No interesting codon not found.") 
+  print("No interesting codon found.") 
 ```
 
 
@@ -995,7 +995,7 @@ if "ATG" in dna_sequence:
   if "TAG" in dna_sequence:
     print("Stop codon found.")  
 else:
-  print("No interesting codon not found.") 
+  print("No interesting codon found.") 
 ```
 
 The equivalent code to `Code A` would be:
@@ -1007,7 +1007,7 @@ else:
   if "TAG" in dna_sequence:
     print("Stop codon found.")  
   else:
-    print("No interesting codon not found.") 
+    print("No interesting codon found.") 
 ```
 
 :::
@@ -1177,7 +1177,7 @@ You cannot modify an element of a list that way.
 
 ```{python}
 for codon in all_codons: 
-  if 'T' in codon :
+  if 'T' in codon:
     codon = codon.replace('T', 'U')
 
 print(all_codons)
