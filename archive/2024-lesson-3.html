@@ -494,7 +494,7 @@ Figure&nbsp;7.1: <em>pssssss</em>
 <section id="optional-function" class="level2" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="optional-function"><span class="header-section-number">8.4</span> Optional function</h2>
 <p>As an option, you can create a function called <code>initialize_universe</code> to initialize the grid with one of the following seeds that have specific proprieties:</p>
-<div id="de7bd86b" class="cell" data-execution_count="1">
+<div id="61f743f7" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dictionary containing different seed patterns for the game</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>seeds <span class="op">=</span> {</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"diehard"</span>: [</span>
@@ -533,7 +533,7 @@ Figure&nbsp;7.1: <em>pssssss</em>
 <section id="exemple-of-input-and-output" class="level2" data-number="8.5">
 <h2 data-number="8.5" class="anchored" data-anchor-id="exemple-of-input-and-output"><span class="header-section-number">8.5</span> Exemple of input and output</h2>
 <p>Here’s an example of input, and the desired output:</p>
-<div id="5013eb53" class="cell" data-execution_count="3">
+<div id="dd20f796" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize by hand</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>universe <span class="op">=</span> [</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>],</span>
@@ -589,7 +589,7 @@ Figure&nbsp;7.1: <em>pssssss</em>
 </div>
 </div>
 <p>The same matrix can be initialized by the following (if you are doing the optional <code>initialize_universe</code> function):</p>
-<div id="e4714fb1" class="cell" data-execution_count="4">
+<div id="ed22b261" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize with a seed</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>universe <span class="op">=</span> initialize_universe(universe_size <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">10</span>), seed <span class="op">=</span> <span class="st">"infinite"</span>, seed_position <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">2</span>))</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> universe:</span>
