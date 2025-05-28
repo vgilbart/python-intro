@@ -234,7 +234,7 @@
     "href": "lecture/lesson-2.html#exercise",
     "title": "Lesson 2 - Functions, file handling, dataframe and plots",
     "section": "Exercise",
-    "text": "Exercise\n\n\n\n\n\n\nExercise 1\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'G': 0.4, 'A': 0.1, 'C': 0.3, 'T': 0.2}",
+    "text": "Exercise\n\n\n\n\n\n\nExercise 1\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'T': 0.2, 'A': 0.1, 'C': 0.3, 'G': 0.4}",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Lesson 2 - Functions, file handling, dataframe and plots</span>"
     ]
@@ -334,7 +334,7 @@
     "href": "lecture/lesson-3.html#aim-of-the-class",
     "title": "Lesson 3 - Jupyter Notebook",
     "section": "Aim of the class",
-    "text": "Aim of the class\nAt the end of this class, you will be able to:\n\nCreate, run, export your own Jupyter Notebook\nCreate your own environment to run your Jupyter Notebook\nParameter a Notebook\nUse a Notebook template to run on several dataset\n\nThis last class is also to keep on praticing the notions learned in the previous lessons.",
+    "text": "Aim of the class\nAt the end of this class, you will be able to:\n\nCreate your own environment to run your Jupyter Notebook\nCreate, run, export your own Jupyter Notebook\nKnow about magic commands\nUse interactivity with a Jupyter Notebook\n\nThis last class is also to keep on praticing the notions learned in the previous lessons.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Lesson 3 - Jupyter Notebook</span>"
     ]
@@ -668,7 +668,7 @@
     "href": "archive/2024-lesson-2.html#exercise",
     "title": "Lesson 2 - Functions, Errors, File Handling, Scientific Packages",
     "section": "7.5 Exercise",
-    "text": "7.5 Exercise\n\n\n\n\n\n\nExercise\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'G': 0.4, 'T': 0.2, 'A': 0.1, 'C': 0.3}",
+    "text": "7.5 Exercise\n\n\n\n\n\n\nExercise\n\n\n\nWrite a function called nucl_freq to compute nucleotide frequency of a sequence. Given a sequence as input, it outputs a dictionnary with keys being the nucleotides A, T, C and G, and values being their frequency in the sequence.\nWith the input given below, the output should be:\n\ndef ...\n  # Your code here\n\nnucl_freq(\"ATTCCCGGGG\")\n\n\n\n{'T': 0.2, 'C': 0.3, 'A': 0.1, 'G': 0.4}",
     "crumbs": [
       "Archive 2024",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Lesson 2 - Functions, Errors, File Handling, Scientific Packages</span>"
