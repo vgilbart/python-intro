@@ -17,10 +17,10 @@ solutions: false
 
 At the end of this class, you will be able to:
 
-- Create, run, export your own Jupyter Notebook
 - Create your own environment to run your Jupyter Notebook
-- Parameter a Notebook
-- Use a Notebook template to run on several dataset 
+- Create, run, export your own Jupyter Notebook
+- Know about magic commands
+- Use interactivity with a Jupyter Notebook
 
 This last class is also to keep on praticing the notions learned in the previous lessons. 
 
@@ -65,7 +65,7 @@ For test purpose, you can also create a Jupyter Notebook in [JupyterLab](https:/
 
 A Kernel is a computational engine for running and interacting with the Jupyter code. By default, Jupyter only knows about the base Python environment. This Python environment needs to have the necessary python library installed (e.g. `pandas`, `matplotlib`). 
 
-In some cases, it might be useful to create different Python environments for different usage or projects. This ensures that you can install specific packages and Python versions without affecting your base system or other environments. For this purpose, a common tool used is [conda](https://anaconda.org/anaconda/conda). 
+In some cases, it might be useful to create different Python environments for different usage or projects. This ensures that you can install specific packages and Python versions without affecting your base system or other environments. For this purpose, a common tool used is [conda](https://www.anaconda.com/download/). 
 
 ![Conda schema from [https://angus.readthedocs.io/](https://angus.readthedocs.io/en/2019/conda_tutorial.html) ](img/conda.png){#fig-conda width=100%}
 
@@ -123,18 +123,19 @@ As we are using conda, we might as well get familiar with some basic commands in
 
 Try the commands `conda list` and `conda env list`. Do you understand what they output?
 
+
+Create an environment with pandas at version 1.5.3. You can verify the version of pandas with the following python code `print(pandas.__version__)`.
+
+
+:::
+
+
 ::: {.content-hidden unless-meta="solutions"}
 ::: {.callout collapse="true" title="Solutions"}
 `conda list` prints the packages available in the current environment. 
 
 `conda env list` prints the conda environments available.
-:::
-:::
 
-Create an environment with pandas at version 1.5.3. You can verify the version of pandas with the following python code `print(pandas.__version__)`.
-
-::: {.content-hidden unless-meta="solutions"}
-::: {.callout collapse="true" title="Solutions"}
 In a terminal run: 
 ```{bash}
 conda create -n pandas_v1 pandas==1.5.3
@@ -143,9 +144,6 @@ python -c "import pandas; print(pandas.__version__)"
 ```
 :::
 :::
-
-:::
-
 
 
 # Structure of a Jupyter Notebook  
@@ -570,6 +568,9 @@ Use `np.log()` from `numpy` package.
 10. Export the notebook in html. 
 
 
+::: 
+
+
 ::: {.content-hidden unless-meta="solutions"}
 
 ::: {.callout collapse="true" title="Solutions"}
@@ -579,7 +580,6 @@ See associated [Jupyter Notebook](../exercise/jupyter-notebook/lesson-3-exercise
 :::
 
 :::
-::: 
 
 # References {.unnumbered}
 

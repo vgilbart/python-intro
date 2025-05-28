@@ -10,6 +10,7 @@ format:
 editor: source
 solutions: false
 ---
+
 # Introduction
 
 ## Aim of the class
@@ -794,9 +795,12 @@ ax.set_title("Calories burned over Duration of exercise")
 plt.show()
 ```
 
+In the line `fig, ax = plt.subplots(1)`, `fig` refers to the overall figure — the entire canvas that holds everything, including one or more plots. `ax` is the specific subplot (axes) where your data is drawn. In simple plots, we often interact only with `ax` to label axes or plot data. However, `fig` becomes useful when you want to set the overall figure title, adjust layout, or save the figure to a file.
+
 ::: {.callout-note} 
 Notice that the names of the functions/methods called are not the same: the function `xlabel()` is used for the function-oriented manner and the method `set_xlabel()` is used for the object-oriented.
 :::
+
 
 ### Matplotlib anatomy 
 
@@ -839,12 +843,20 @@ There are many other plot available: `.scatter()`, `.bar()`, `.hist()`, `.pie()`
 
 You can save a figure with the `savefig()` function:
 ```{python}
-plt.savefig('exercise/data/figure.png')
+fig.savefig('exercise/data/figure.png')
 ```
 
 
-::: {.callout-warning} 
-Note that plt refer to a global figure variable and after a figure has been displayed to the screen (e.g. with plt.show) matplotlib will make this variable refer to a new empty figure. Therefore, make sure you call `plt.savefig` before the plot is displayed to the screen, otherwise you may find a file with an empty plot.
+::: {.callout-note} 
+One could also run:
+
+```{python}
+plt.savefig('exercise/data/figure.png')
+```
+
+The `matplotlib.pyplot` module works by automatically referencing the current active figure (i.e., the most recently created or interacted-with figure).
+
+But be careful, after a figure has been displayed to the screen (e.g. with `plt.show()`) matplotlib will make this variable refer to a new empty figure. Therefore, make sure you call `plt.savefig()` before the plot is displayed to the screen, otherwise you may find a file with an empty plot. 
 :::  
 
 ```{python}
@@ -862,7 +874,7 @@ axs[1].set_xlabel("Duration of exercise")
 axs[1].set_ylabel("Calories Burned")
 axs[1].set_title("Calories burned over Duration of exercise")
 
-plt.savefig('exercise/data/figure.png')
+fig.savefig('exercise/data/figure.png')
 
 plt.show()
 ```
@@ -913,10 +925,12 @@ ax.set_ylabel('Frequency')
 ax.legend(title='Nucleotides', bbox_to_anchor=(0, 1),
           loc='lower left', ncols=4)
 
-plt.savefig('exercise/data/exercise4.png')
+fig.savefig('exercise/data/exercise4.png')
 
 plt.show()
 ```
+
+Take a look at matplotlib set of [examples](https://matplotlib.org/stable/gallery/index) to try to repoduce it. 
 
 :::
 
@@ -1000,6 +1014,9 @@ fig.savefig('exercise/data/exercise5.png')
 
 ```
 
+See how matplotlib deals with 2D axis in [this plot example](https://matplotlib.org/stable/gallery/lines_bars_and_markers/scatter_star_poly.html#sphx-glr-gallery-lines-bars-and-markers-scatter-star-poly-py) or [this one](https://matplotlib.org/stable/gallery/lines_bars_and_markers/markevery_demo.html#sphx-glr-gallery-lines-bars-and-markers-markevery-demo-py).
+
+
 :::
 
 ::: {.content-hidden unless-meta="solutions"}
@@ -1015,19 +1032,59 @@ import matplotlib.pyplot as plt
 # Create a DataFrame from the given data
 df = pd.read_csv('exercise/data/example.txt', index_col=0, sep=' ')
 
-# a figure with a 1x2 (nrow x ncolumn) grid of Axes
-# and of defined size figsize=(width,height)
 fig, axs = plt.subplots(2, 2, figsize=(9,9)) 
 
-for i, nucl in enumerate(df.columns):
-    axs[i//2, i%2].bar(df.index, df[nucl], label=nucl)
-    axs[i//2, i%2].set_ylabel(f'Frequency of {nucl}')
+# Assign each nucleotide column to an axis manually
+axs[0, 0].bar(df.index, df['A'], label='A')
+axs[0, 0].set_ylabel('Frequency of A')
 
+axs[0, 1].bar(df.index, df['T'], label='T')
+axs[0, 1].set_ylabel('Frequency of T')
+
+axs[1, 0].bar(df.index, df['C'], label='C')
+axs[1, 0].set_ylabel('Frequency of C')
+
+axs[1, 1].bar(df.index, df['G'], label='G')
+axs[1, 1].set_ylabel('Frequency of G')
+
+plt.show()
 ```
 
 or also, 
 
 ```{python}
+#| eval: false
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create a DataFrame from the given data
+df = pd.read_csv('exercise/data/example.txt', index_col=0, sep=' ')
+
+# a figure with a 1x2 (nrow x ncolumn) grid of Axes
+# and of defined size figsize=(width,height)
+fig, axs = plt.subplots(2, 2, figsize=(9,9)) 
+
+for ax, nucl in zip(axs.flat, df.columns):
+    ax.bar(df.index, df[nucl], label=nucl)
+    ax.set_ylabel(f'Frequency of {nucl}')
+
+plt.show()
+```
+
+::: {.callout-note} 
+
+`axs.flat` iterates through each subplot axis in a flattened 1D manner (left to right, top to bottom).
+
+`zip(axs.flat, df.columns)` pairs each axis with one nucleotide column.
+
+:::
+
+or also, 
+
+```{python}
+#| eval: false
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -1042,9 +1099,14 @@ for i, nucl in enumerate(df.columns):
     df[nucl].plot(kind='bar', stacked=True, ax=axs[i//2, i%2])
     axs[i//2, i%2].set_ylabel(f'Frequency of {nucl}')
 
+plt.show()
 ```
 
+::: {.callout-note} 
 
+`i//2, i%2` are respectively the Euclidian division and rest.
+
+:::
 
 :::
 
