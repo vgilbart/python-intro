@@ -3,3 +3,4 @@
 _book/
 /.quarto/
 exercise/script/__pycache__/
+_freeze/
