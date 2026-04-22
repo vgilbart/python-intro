@@ -1,11 +1,71 @@
-# Python introduction {.unnumbered}
+# Summary and setup {.unnumbered}
 
+## Summary
 
 This course is part of the [IMCBio PhD Program courses](https://imcbio.unistra.fr/imcbio-training-programs/#phD).
 
-You will need your computer, and a way to work with Python. I have two possible solutions for you, either: 
+The best way to learn how to program is to do something useful,
+so this introduction to Python is built around a common scientific task:
+**data analysis**.
 
-A) create a [GitHub](https://github.com/) account. Then [create a new codespace](https://github.com/codespaces/) with the repository vgilbart/python-intro (everything else should be default). With a bit of patience, you should end up with a Visual Studio Code window (looking somewhat [like this](https://code.visualstudio.com/docs/getstarted/userinterface)). 
+### The Scenario
+
+We received a CSV spreadsheet about a clinical trial data. The drug tested promises to cure arthritis inflammation flare-ups after only 3 weeks since initially taking the medication! 
+
+The CSV file contains the number of inflammation flare-ups per day for the 60 patients
+in the initial clinical trial, with the trial lasting 40 days. Each row corresponds to a
+patient, and each column corresponds to a day in the trial. Once a patient has their first
+inflammation flare-up they take the medication and wait a few weeks for it to take effect
+and reduce flare-ups.
+
+To see how effective the treatment is we would like to:
+
+1. Calculate the average inflammation per day across all patients.
+2. Plot the result to discuss and share with colleagues.
+
+![](episodes/fig/lesson-overview.svg "Lesson Overview"){alt='3-step flowchart shows inflammation data records for patients moving to the Analysis stepwhere a heat map of provided data is generated moving to the Conclusion step that asks thequestion, How does the medication affect patients?'}
+
+### Data Format
+
+The data sets are stored in
+[comma-separated values](learners/reference.md#comma-separated-values) (CSV) format:
+
+- each row holds information for a single patient,
+- columns represent successive days.
+
+The first three rows of our first file look like this:
+
+```source
+0,0,1,3,1,2,4,7,8,3,3,3,10,5,7,4,7,7,12,18,6,13,11,11,7,7,4,6,8,8,4,4,5,7,3,4,2,3,0,0
+0,1,2,1,2,1,3,2,2,6,10,11,5,9,4,4,7,16,8,6,18,4,12,5,12,7,11,5,11,3,3,5,4,4,5,5,1,1,0,1
+0,1,1,3,3,2,6,2,5,9,5,7,4,5,4,15,5,11,9,10,19,14,12,17,7,12,11,7,4,2,10,5,4,2,2,3,2,2,1,1
+```
+
+Each number represents the number of inflammation flare-ups that a particular patient experienced on a
+given day.
+
+For example, value "6" at row 3 column 7 of the data set above means that the third
+patient was experiencing inflammation six times on the seventh day of the clinical study.
+
+In order to analyze this data and report to our colleagues, we'll have to learn a little bit
+about programming.
+
+### Aims 
+
+At the end of this course, you will:
+- Be familiar with the Python environment
+- Understand the major data types in Python 
+- Manipulate variables with operators and built-in functions
+- Create simple functions
+- Upload, modify and download files into Python 
+- Install and import packages 
+- Basic use of pandas (manipulate data) and matplotlib.pyplot (visualize data)
+
+## Install Python
+
+For this course, you will need your computer and a way to work with Python. I have two possible solutions for you, either: 
+
+A) create a [GitHub](https://github.com/) account. Then [create a new codespace](https://github.com/codespaces/new) with the repository vgilbart/python-intro (everything else should be default). With a bit of patience, you should end up with a Visual Studio Code window (looking somewhat [like this](https://code.visualstudio.com/docs/getstarted/userinterface)). 
 
 *NB: This does not require installing anything on your computer. It is the preferred solution for this class, as we will all be working on the same environment. This is a free solution up to 60 hours and 15 GB of computing per month (we won’t do as much during this class!).*
 
@@ -14,5 +74,21 @@ OR
 B) install both [Python](https://www.python.org/downloads/) (v3 or above), and an [IDE](https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python) (an improved text editor) on your computer. So that we are all on the same page, I recommend installing [Visual Studio Code](https://code.visualstudio.com/Download/). If for some reason, you are already familiar with another IDE that can be used for Python, you can work with it, but I won’t be able to help you as much with it. 
 
 *NB: It can be useful for your future works to make sure that you have managed to correctly install Python and an IDE on your computer. But for the purpose of this class, the solution A) is sufficient and more convenient. *
+
+## Obtain lesson materials
+
+1. Download [python-novice-inflammation-data.zip][zipfile1]
+  and [python-novice-inflammation-code.zip][zipfile2].
+2. Create a folder called `swc-python` on your Desktop.
+3. Move downloaded files to `swc-python`.
+4. Unzip the files.
+
+You should see two folders called `data` and `code` in the `swc-python` directory on your
+Desktop.
+
+[zipfile1]: data/python-novice-inflammation-data.zip
+[zipfile2]: ../episodes/files/code/python-novice-inflammation-code.zip
+[gitbash]: https://gitforwindows.org
+
 
 
