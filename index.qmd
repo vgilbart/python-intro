@@ -33,18 +33,19 @@ The data sets are stored in
 - each row holds information for a single patient,
 - columns represent successive days.
 
-The first three rows of our first file look like this:
+The first four rows of our first file look like this:
 
 ```source
-0,0,1,3,1,2,4,7,8,3,3,3,10,5,7,4,7,7,12,18,6,13,11,11,7,7,4,6,8,8,4,4,5,7,3,4,2,3,0,0
-0,1,2,1,2,1,3,2,2,6,10,11,5,9,4,4,7,16,8,6,18,4,12,5,12,7,11,5,11,3,3,5,4,4,5,5,1,1,0,1
-0,1,1,3,3,2,6,2,5,9,5,7,4,5,4,15,5,11,9,10,19,14,12,17,7,12,11,7,4,2,10,5,4,2,2,3,2,2,1,1
+Day1,Day2,Day3,Day4,Day5,Day6,Day7,Day8,Day9,Day10,Day11,Day12,Day13,Day14,Day15,Day16,Day17,Day18,Day19,Day20,Day21,Day22,Day23,Day24,Day25,Day26,Day27,Day28,Day29,Day30,Day31,Day32,Day33,Day34,Day35,Day36,Day37,Day38,Day39,Day40
+Patient1,0,0,1,3,1,2,4,7,8,3,3,3,10,5,7,4,7,7,12,18,6,13,11,11,7,7,4,6,8,8,4,4,5,7,3,4,2,3,0,0
+Patient2,0,1,2,1,2,1,3,2,2,6,10,11,5,9,4,4,7,16,8,6,18,4,12,5,12,7,11,5,11,3,3,5,4,4,5,5,1,1,0,1
+Patient3,0,1,1,3,3,2,6,2,5,9,5,7,4,5,4,15,5,11,9,10,19,14,12,17,7,12,11,7,4,2,10,5,4,2,2,3,2,2,1,1
 ```
 
 Each number represents the number of inflammation flare-ups that a particular patient experienced on a
 given day.
 
-For example, value "6" at row 3 column 7 of the data set above means that the third
+For example, value "6" at row 4 column 8 of the data set above means that the third
 patient was experiencing inflammation six times on the seventh day of the clinical study.
 
 In order to analyze this data and report to our colleagues, we'll have to learn a little bit
@@ -65,30 +66,26 @@ At the end of this course, you will:
 
 For this course, you will need your computer and a way to work with Python. I have two possible solutions for you, either: 
 
-A) create a [GitHub](https://github.com/) account. Then [create a new codespace](https://github.com/codespaces/new) with the repository vgilbart/python-intro (everything else should be default). With a bit of patience, you should end up with a Visual Studio Code window (looking somewhat [like this](https://code.visualstudio.com/docs/getstarted/userinterface)). 
+A) install both [Python](https://www.python.org/downloads/) (v3 or above), and an [IDE](https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python) (an improved text editor) on your computer. So that we are all on the same page, I recommend installing [Visual Studio Code](https://code.visualstudio.com/Download/). If for some reason, you are already familiar with another IDE that can be used for Python, you can work with it, but I won’t be able to help you as much with it. 
 
-*NB: This does not require installing anything on your computer. It is the preferred solution for this class, as we will all be working on the same environment. This is a free solution up to 60 hours and 15 GB of computing per month (we won’t do as much during this class!).*
+*NB: It can be useful for your future works to make sure that you have managed to correctly install Python and an IDE on your computer.*
 
 OR 
 
-B) install both [Python](https://www.python.org/downloads/) (v3 or above), and an [IDE](https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python) (an improved text editor) on your computer. So that we are all on the same page, I recommend installing [Visual Studio Code](https://code.visualstudio.com/Download/). If for some reason, you are already familiar with another IDE that can be used for Python, you can work with it, but I won’t be able to help you as much with it. 
+B) create a [GitHub](https://github.com/) account. Then [create a new codespace](https://github.com/codespaces/new) with the repository vgilbart/python-intro (everything else should be default). With a bit of patience, you should end up with a Visual Studio Code window (looking somewhat [like this](https://code.visualstudio.com/docs/getstarted/userinterface)). 
 
-*NB: It can be useful for your future works to make sure that you have managed to correctly install Python and an IDE on your computer. But for the purpose of this class, the solution A) is sufficient and more convenient. *
+*NB: This does not require installing anything on your computer. This is a free solution up to 60 hours and 15 GB of computing per month (we won’t do as much during this class!).*
 
 ## Obtain lesson materials
 
-1. Download [python-novice-inflammation-data.zip][zipfile1]
-  and [python-novice-inflammation-code.zip][zipfile2].
+1. Download [inflammation-data.zip][zipfile1].
 2. Create a folder called `swc-python` on your Desktop.
 3. Move downloaded files to `swc-python`.
 4. Unzip the files.
 
-You should see two folders called `data` and `code` in the `swc-python` directory on your
-Desktop.
+You should see the folder called `data` in the `swc-python` directory on your Desktop.
 
-[zipfile1]: data/python-novice-inflammation-data.zip
-[zipfile2]: ../episodes/files/code/python-novice-inflammation-code.zip
-[gitbash]: https://gitforwindows.org
+[zipfile1]: data/inflammation.zip
 
 
 
