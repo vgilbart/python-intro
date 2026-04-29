@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Valentine Gilbart">
-<meta name="dcterms.date" content="2026-04-20">
+<meta name="dcterms.date" content="2026-04-29">
 
 <title>Python Introduction IMCBio</title>
 <style>
@@ -252,7 +252,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Python introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Summary and setup</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -284,22 +284,17 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Python introduction</span></a>
+ <span class="menu-text">Summary and setup</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lecture/lesson-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lesson 1 - Introduction, representing and manipulating data</span></a>
+  <a href="./lecture/lesson-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lesson 1 - Introduction, representing, manipulating and visualising data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lecture/lesson-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lesson 2 - Functions, file handling, dataframe and plots</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./lecture/lesson-3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lesson 3 - Jupyter Notebook</span></a>
+  <a href="./lecture/lesson-2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Lesson 2 - Conditional, Functions, User-input and Errors</span></a>
   </div>
 </li>
     </ul>
@@ -312,7 +307,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#python-introduction" id="toc-python-introduction" class="nav-link active" data-scroll-target="#python-introduction">Python introduction</a></li>
+  <li><a href="#summary-and-setup" id="toc-summary-and-setup" class="nav-link active" data-scroll-target="#summary-and-setup">Summary and setup</a>
+  <ul class="collapse">
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a>
+  <ul class="collapse">
+  <li><a href="#the-scenario" id="toc-the-scenario" class="nav-link" data-scroll-target="#the-scenario">The Scenario</a></li>
+  <li><a href="#data-format" id="toc-data-format" class="nav-link" data-scroll-target="#data-format">Data Format</a></li>
+  <li><a href="#aims" id="toc-aims" class="nav-link" data-scroll-target="#aims">Aims</a></li>
+  </ul></li>
+  <li><a href="#install-python" id="toc-install-python" class="nav-link" data-scroll-target="#install-python">Install Python</a></li>
+  <li><a href="#obtain-lesson-materials" id="toc-obtain-lesson-materials" class="nav-link" data-scroll-target="#obtain-lesson-materials">Obtain lesson materials</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/vgilbart/python-intro/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vgilbart/python-intro/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -346,7 +351,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 20, 2026</p>
+      <p class="date">April 29, 2026</p>
     </div>
   </div>
   
@@ -358,21 +363,68 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="python-introduction" class="level1 unnumbered">
-<h1 class="unnumbered">Python introduction</h1>
+<section id="summary-and-setup" class="level1 unnumbered">
+<h1 class="unnumbered">Summary and setup</h1>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>This course is part of the <a href="https://imcbio.unistra.fr/imcbio-training-programs/#phD">IMCBio PhD Program courses</a>.</p>
-<p>You will need your computer, and a way to work with Python. I have two possible solutions for you, either:</p>
-<ol type="A">
-<li>create a <a href="https://github.com/">GitHub</a> account. Then <a href="https://github.com/codespaces/">create a new codespace</a> with the repository vgilbart/python-intro (everything else should be default). With a bit of patience, you should end up with a Visual Studio Code window (looking somewhat <a href="https://code.visualstudio.com/docs/getstarted/userinterface">like this</a>).</li>
+<p>The best way to learn how to program is to do something useful, so this introduction to Python is built around a common scientific task: <strong>data analysis</strong>.</p>
+<section id="the-scenario" class="level3">
+<h3 class="anchored" data-anchor-id="the-scenario">The Scenario</h3>
+<p>We received a CSV spreadsheet about a clinical trial data. The drug tested promises to cure arthritis inflammation flare-ups after only 3 weeks since initially taking the medication!</p>
+<p>The CSV file contains the number of inflammation flare-ups per day for the 60 patients in the initial clinical trial, with the trial lasting 40 days. Each row corresponds to a patient, and each column corresponds to a day in the trial. Once a patient has their first inflammation flare-up they take the medication and wait a few weeks for it to take effect and reduce flare-ups.</p>
+<p>To see how effective the treatment is we would like to:</p>
+<ol type="1">
+<li>Calculate the average inflammation per day across all patients.</li>
+<li>Plot the result to discuss and share with colleagues.</li>
 </ol>
-<p><em>NB: This does not require installing anything on your computer. It is the preferred solution for this class, as we will all be working on the same environment. This is a free solution up to 60 hours and 15 GB of computing per month (we won’t do as much during this class!).</em></p>
-<p>OR</p>
-<ol start="2" type="A">
+</section>
+<section id="data-format" class="level3">
+<h3 class="anchored" data-anchor-id="data-format">Data Format</h3>
+<p>The data sets are stored in <a href="learners/reference.md#comma-separated-values">comma-separated values</a> (CSV) format:</p>
+<ul>
+<li>each row holds information for a single patient,</li>
+<li>columns represent successive days.</li>
+</ul>
+<p>The first four rows of our first file look like this:</p>
+<pre class="source"><code>Day1,Day2,Day3,Day4,Day5,Day6,Day7,Day8,Day9,Day10,Day11,Day12,Day13,Day14,Day15,Day16,Day17,Day18,Day19,Day20,Day21,Day22,Day23,Day24,Day25,Day26,Day27,Day28,Day29,Day30,Day31,Day32,Day33,Day34,Day35,Day36,Day37,Day38,Day39,Day40
+Patient1,0,0,1,3,1,2,4,7,8,3,3,3,10,5,7,4,7,7,12,18,6,13,11,11,7,7,4,6,8,8,4,4,5,7,3,4,2,3,0,0
+Patient2,0,1,2,1,2,1,3,2,2,6,10,11,5,9,4,4,7,16,8,6,18,4,12,5,12,7,11,5,11,3,3,5,4,4,5,5,1,1,0,1
+Patient3,0,1,1,3,3,2,6,2,5,9,5,7,4,5,4,15,5,11,9,10,19,14,12,17,7,12,11,7,4,2,10,5,4,2,2,3,2,2,1,1</code></pre>
+<p>Each number represents the number of inflammation flare-ups that a particular patient experienced on a given day.</p>
+<p>For example, value “6” at row 4 column 8 of the data set above means that the third patient was experiencing inflammation six times on the seventh day of the clinical study.</p>
+<p>In order to analyze this data and report to our colleagues, we’ll have to learn a little bit about programming.</p>
+</section>
+<section id="aims" class="level3">
+<h3 class="anchored" data-anchor-id="aims">Aims</h3>
+<p>At the end of this course, you will: - Be familiar with the Python environment - Understand the major data types in Python - Manipulate variables with operators and built-in functions - Create simple functions - Upload, modify and download files into Python - Install and import packages - Basic use of pandas (manipulate data) and matplotlib.pyplot (visualize data)</p>
+</section>
+</section>
+<section id="install-python" class="level2">
+<h2 class="anchored" data-anchor-id="install-python">Install Python</h2>
+<p>For this course, you will need your computer and a way to work with Python. I have two possible solutions for you, either:</p>
+<ol type="A">
 <li>install both <a href="https://www.python.org/downloads/">Python</a> (v3 or above), and an <a href="https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python">IDE</a> (an improved text editor) on your computer. So that we are all on the same page, I recommend installing <a href="https://code.visualstudio.com/Download/">Visual Studio Code</a>. If for some reason, you are already familiar with another IDE that can be used for Python, you can work with it, but I won’t be able to help you as much with it.</li>
 </ol>
-<p><em>NB: It can be useful for your future works to make sure that you have managed to correctly install Python and an IDE on your computer. But for the purpose of this class, the solution A) is sufficient and more convenient. </em></p>
+<p><em>NB: It can be useful for your future works to make sure that you have managed to correctly install Python and an IDE on your computer.</em></p>
+<p>OR</p>
+<ol start="2" type="A">
+<li>create a <a href="https://github.com/">GitHub</a> account. Then <a href="https://github.com/codespaces/new">create a new codespace</a> with the repository vgilbart/python-intro (everything else should be default). With a bit of patience, you should end up with a Visual Studio Code window (looking somewhat <a href="https://code.visualstudio.com/docs/getstarted/userinterface">like this</a>).</li>
+</ol>
+<p><em>NB: This does not require installing anything on your computer. This is a free solution up to 60 hours and 15 GB of computing per month (we won’t do as much during this class!).</em></p>
+</section>
+<section id="obtain-lesson-materials" class="level2">
+<h2 class="anchored" data-anchor-id="obtain-lesson-materials">Obtain lesson materials</h2>
+<ol type="1">
+<li>Download <a href="data/inflammation.zip">inflammation-data.zip</a>.</li>
+<li>Create a folder called <code>swc-python</code> on your Desktop.</li>
+<li>Move downloaded files to <code>swc-python</code>.</li>
+<li>Unzip the files.</li>
+</ol>
+<p>You should see the folder called <code>data</code> in the <code>swc-python</code> directory on your Desktop.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -793,8 +845,8 @@ ul.task-list li input[type="checkbox"] {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./lecture/lesson-1.html" class="pagination-link" aria-label="Lesson 1 - Introduction, representing and manipulating data">
-        <span class="nav-page-text"><span class="chapter-title">Lesson 1 - Introduction, representing and manipulating data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./lecture/lesson-1.html" class="pagination-link" aria-label="Lesson 1 - Introduction, representing, manipulating and visualising data">
+        <span class="nav-page-text"><span class="chapter-title">Lesson 1 - Introduction, representing, manipulating and visualising data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
