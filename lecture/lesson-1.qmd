@@ -126,6 +126,10 @@ Some common errors can occur at this step:
 - `bash: script/intro.py: Permission denied` i.e. you don't have the right to execute your script.
   
   Solution: run `ls -l script/intro.py` and make sure you have at least `-rwx` (read, write, exectute rights) as the first 4 characters, if not run `chmod 744 script/intro.py` to change your rights.
+
+- `bash: python3: command not found` i.e. you don't the python3 shortcut.
+  
+  Solution: start writting `python` in your shell, then press the `Tab` key on your keyboard, it should try to autocomplete and give you a set of `python` shortcuts available. Once you see a shortcut that works e.g. `python3.11` or `python` instead of our `python3`, you can change the shebang in your script to use it, e.g. `#!/usr/bin/env python` instead of `#!/usr/bin/env python3`. You can also check what path to give by running `which python` or `which python3` and then put this path in the shebang, e.g. `#!/usr/bin/python3` instead of `#!/usr/bin/env python3`.
 :::
 
 # Basic concepts 
@@ -686,6 +690,11 @@ print('small is:')
 print(small)
 ```
 
+or even:
+```{python}
+data.iloc[:3, :]
+data.iloc[:, 36:]
+```
 
 It is also possible to use negative index, `-1` will retrieve the last item, `-2` the second last item, etc. For example, to get the value last 10 patient on the 1st day, you could use:
 
@@ -706,6 +715,55 @@ One way to remember how slices work is to think of the indices as pointing betwe
 
 The first row of numbers gives the position of the indices 0…6 in the string; the second row gives the corresponding negative indices. The slice from i to j consists of all characters between the edges labeled i and j, respectively.
 :::
+
+## Slice with labels
+
+Since we loaded our data with `index_col=0`, the first column of the data is used as row names (i.e. patient names). We can use these names to slice the data instead of using the integer indices. To do this, we need to use `.loc[]` instead of `.iloc[]`:
+
+```{python}
+print(data.loc['Patient1', 'Day10'])
+print(data.loc['Patient1',])
+print(data.loc['Patient1':'Patient10', 'Day10':'Day20'])
+print(data.loc[:'Patient10', 'Day20':])
+```
+
+It works the same way as `.iloc[]` but with the labels instead of the integer indices. The only difference is that when slicing with labels, the upper bound is included in the slice (i.e. `Patient10` and `Day20` are included in the slices above).
+
+## Filter based on conditions
+
+You can also slice based on conditions. For example, to get the values of the patients on the 4th day that are greater than 2, you can run:
+
+```{python}
+data.iloc[:, 3] > 2
+```
+
+:::{.callout-note}
+Booleans represent one of two values: `True` or `False`. When you compare two values, the expression is evaluated and Python returns the Boolean answer:
+:::
+
+It outputs a Boolean Series of the same length as the number of patients, with `True` for the patients that have a value greater than 2 on the 4th day, and `False` for the others. We can use this boolean array to slice the data and get only the values that are greater than 2:
+
+```{python}
+patient_to_keep = data.iloc[:, 3] > 2
+print(data[patient_to_keep])
+```
+
+Rows of the DataFrame are being filtered by boolean values. If `True` the row is kept, if `False` it is dropped.
+
+:::{.callout-note}
+The syntax does not use `.iloc[]` or `.loc[]` because we are not slicing with integer indices or labels, but with a boolean array. The boolean array is used to filter the rows of the data, and all columns are included in the output.
+:::
+
+:::{.callout-warning}
+The boolean array needs to be the same length as the number of rows in the data, otherwise you will get an error. For example, if you try to filter with a boolean array that has only 10 values, you will get an error because it does not match the number of patients (60).
+
+```{python}
+#| error: true
+patient_to_keep = data.iloc[:10, 3] > 2
+print(data[patient_to_keep])
+```
+:::
+
 
 ## Analysing data 
 
@@ -745,7 +803,40 @@ If you are interested in learning more about functions available in a package, y
 
 ## Exercise
 
-TODO They have tried another drug, and we want to compare the inflammation levels of patients treated with the new drug to those treated with the old drug. We have a second data file inflammation-02.csv that contains the inflammation levels of patients treated with the new drug.
+::: {.callout-important title="Exercise"} 
+
+Output the data for the last 10 days of the data of the first 10 patients.
+
+Output the minimum, maximum, and mean inflammation for the Day 20.
+
+Compute the average inflammation for each days for the first 10 patients. 
+
+Filter the data to keep only the patients that have an average inflammation across days greater than 6.
+
+Filter the data to keep only the patients that have a median inflammation across days greater than 6. Show only the last 10 days of the filtered data.
+:::
+
+::: {.content-hidden unless-meta="solutions"}
+
+::: {.callout collapse="true" title="Solutions"}
+```{python}
+print(data.iloc[:10, -10:])
+
+print(data.iloc[:10, 20].min())
+print(data.iloc[:10, 20].mean())
+print(data.iloc[:10, 20].max())
+
+print(data.iloc[0:10].mean())
+
+patient_to_keep = data.mean(axis=1) > 6
+print(data[patient_to_keep])
+
+print(data[data.median(axis=1) > 6].iloc[:, -10:])
+```
+
+:::
+:::
+
 
 # Visualizing data
 ## Matplotlib package
@@ -958,7 +1049,37 @@ For more information, check out the following ressources:
 
 ::: {.callout-important title="Exercise"} 
 
-1. Create a figure with two subplots... on top of one another instead of side by side.
+Create a figure with two subplots, the one on the left being a boxplot (`.boxplot()`) of the average inflammation, and the one on the right being a histogram (`.hist()`) of the average inflammation.
+Make them one on top of one another instead of side by side. You can also set the x and y labels of the two plots to make them more informative.
+
+The result should look something like this:
+```{python}
+#| echo: false
+
+import matplotlib.pyplot as plt
+import pandas as pd
+
+data = pd.read_csv('data/inflammation-01.csv', index_col=0)
+ave_inflammation = data.mean(axis=0)
+
+fig = plt.figure()
+
+axes1 = fig.add_subplot(2, 1, 1)
+axes2 = fig.add_subplot(2, 1, 2)
+
+axes1.boxplot(ave_inflammation)
+axes1.set_xlabel('Across Days')
+axes1.set_ylabel('Average Inflammation')
+
+axes2.hist(ave_inflammation)
+axes2.set_xlabel('with given Average Inflammation')
+axes2.set_ylabel('Number of Days')
+
+fig.tight_layout()
+
+plt.show()
+```
+
 
 :::
 
@@ -966,7 +1087,30 @@ For more information, check out the following ressources:
 
 ::: {.callout collapse="true" title="Solutions"}
 
-1. 
+```{python}
+import matplotlib.pyplot as plt
+import pandas as pd
+
+data = pd.read_csv('data/inflammation-01.csv', index_col=0)
+ave_inflammation = data.mean(axis=0)
+
+fig = plt.figure()
+
+axes1 = fig.add_subplot(2, 1, 1)
+axes2 = fig.add_subplot(2, 1, 2)
+
+axes1.boxplot(ave_inflammation)
+axes1.set_xlabel('Across Days')
+axes1.set_ylabel('Average Inflammation')
+
+axes2.hist(ave_inflammation)
+axes2.set_xlabel('with given Average Inflammation')
+axes2.set_ylabel('Number of Days')
+
+fig.tight_layout()
+
+plt.show()
+```
 
 :::
 :::
@@ -1547,8 +1691,7 @@ for i, base in enumerate(seq):
 
 
 ::: {.callout-important title="Exercise"} 
-Write a loop that calculates the sum of elements in a list by adding each element and printing the final value, so feeding the loop `[124, 402, 36]` prints `562` after summing up.
-
+Write a loop that calculates the sum of elements in a list by adding each element and printing the final value, so feeding the loop with the list `[124, 402, 36]` shoud print `562` after summing up.
 :::
 
 ::: {.content-hidden unless-meta="solutions"}
@@ -1556,13 +1699,11 @@ Write a loop that calculates the sum of elements in a list by adding each elemen
 ::: {.callout collapse="true" title="Solutions"}
 
 ```{python}
-
 numbers = [124, 402, 36]
 summed = 0
 for num in numbers:
     summed = summed + num
 print(summed)
-
 ```
 
 :::
