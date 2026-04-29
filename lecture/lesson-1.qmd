@@ -152,7 +152,7 @@ assigning the value `65` to a variable `weight_kg`:
 weight_kg = 65
 ```
 
-![A assigning a value to a variable is analogous to assigning a sticky note to a value.](img/sticky-variable1.svg){#fig-interactive width=70%}
+![A assigning a value to a variable is analogous to assigning a sticky note to a value.](img/sticky-variable1.png){#fig-interactive width=70%}
 
 
 From now on, whenever we use `weight_kg`, Python will substitute the value we assigned to
@@ -242,7 +242,7 @@ weight_kg = 65.0
 weight_lb = 2.2 * weight_kg
 ```
 
-![Assigning values to weight_kg and weight_lb.](img/sticky-variable2.svg){#fig-interactive width=100%}
+![Assigning values to weight_kg and weight_lb.](img/sticky-variable2.png){#fig-interactive width=100%}
 The expression `2.2 * weight_kg` is evaluated to `143.0`, and then this value is assigned to the variable `weight_lb` (i.e. the sticky noteweight_lbis placed on `143.0`). At this point, each variable is "stuck" to completely distinct and unrelated values.
 
 ::: {.callout-warning} 
@@ -257,7 +257,7 @@ print(weight_kg, weight_lb)
 ```
 
 
-![Changing the value of weight_kg does not impact the value of weight_lb.](img/sticky-variable3.svg){#fig-interactive width=100%}
+![Changing the value of weight_kg does not impact the value of weight_lb.](img/sticky-variable3.png){#fig-interactive width=100%}
 
 Since `weight_lb` doesn’t 'remember' where its value comes from, it is not updated when we change `weight_kg`.
 
@@ -664,7 +664,7 @@ Programming languages like R start counting at 1 because that’s what human bei
 
 As a result, if we have an MxN array in Python, its indices go from 0 to M-1 on the first axis and 0 to N-1 on the second. It takes a bit of getting used to, but one way to remember the rule is that the index is how many steps we have to take from the start to get the item we want.
 
-![Schema of Python indexes.](img/python-zero-index.svg){#fig-interactive width=100%}
+![Schema of Python indexes.](img/python-zero-index.png){#fig-interactive width=100%}
 
 :::
 

@@ -735,7 +735,7 @@ def fahr_to_celsius(temp):
     return ((temp - 32) * (5/9))
 ```
 
-![Function schema](img/python-function.svg){#fig-interactive width=70%}
+![Function schema](img/python-function.png){#fig-interactive width=70%}
 
 When we call the function, the values we pass to it are assigned to those variables so that we can use them inside the function. Inside the function, we use a return statement to send a result back to whoever asked for it. Let’s try running our function:
 
