@@ -15,9 +15,8 @@
 
 | Lecture | Link  |
 |--------|--------|
-| Lesson 1 - Introduction, representing and manipulating data | [lecture/lesson-1.html](https://vgilbart.github.io/python-intro/lecture/lesson-1.html) |
-| Lesson 2 - Functions, file handling, dataframe and plots | [lecture/lesson-2.html](https://vgilbart.github.io/python-intro/lecture/lesson-2.html) |
-| Lesson 3 - Jupyter Notebook | [lecture/lesson-3.html](https://vgilbart.github.io/python-intro/lecture/lesson-3.html) |
+| Lesson 1 - Introduction, representing, manipulating and visualising data | [lecture/lesson-1.html](https://vgilbart.github.io/python-intro/lecture/lesson-1.html) |
+| Lesson 2 - Lesson 2 - Conditional, Functions, User-input and Errors | [lecture/lesson-2.html](https://vgilbart.github.io/python-intro/lecture/lesson-2.html) |
 
 ## Old Material 
 
@@ -30,4 +29,10 @@ git clone git@github.com:vgilbart/python-intro.git
 git checkout -b 2024_branch 2024
 ```
 
-The lesson are quarto files, which can be rendered in RStudio or in command line (see [quarto documentation](https://quarto.org/docs/projects/quarto-projects.html#rendering-projects) for more information)
+The lesson are quarto files, which can be rendered in RStudio or in command line (see [quarto documentation](https://quarto.org/docs/projects/quarto-projects.html#rendering-projects) for more information). 
+
+You might need to run the following:
+```
+QUARTO_PYTHON=~/miniconda3/quarto/bin/python
+quarto preview python-intro/lecture/lesson-1.qmd --no-browser --no-watch-inputs
+```
