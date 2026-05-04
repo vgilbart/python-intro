@@ -27,5 +27,4 @@ parser.add_argument('--max', action="store_true")
 parser.add_argument('--mean', action="store_true")
 args = parser.parse_args()
 
-if __name__ == "__main__":
-    main(args.filename, min=args.min, mean=args.mean, max=args.max)
+main(args.filename, min=args.min, mean=args.mean, max=args.max)

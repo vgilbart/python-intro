@@ -91,7 +91,7 @@ To get out of the Python interpreter, type `quit()`or `exit()`, followed by `ent
 
 ### Script mode 
 
-To run a script, create a folder named `script`, in which a file named `intro.py` contains: 
+To run a script, create a folder named `code`, in which a file named `intro.py` contains: 
 
 ```{python}
 #| eval: FALSE
@@ -103,7 +103,7 @@ print("Hello world")
 
 and run 
 ```{bash}
-./script/intro.py
+./code/intro.py
 ```
 
 You should get the same output as before, that is:
@@ -113,21 +113,21 @@ You should get the same output as before, that is:
 print("Hello world")
 ```
 
-The shebang `#!` followed by the interpreter `/usr/bin/env python3` can be put at the beginning of the script in order to ommit calling `python3` in command-line. If you don't put it, you will have to run `python3 script/intro.py` instead of simply `./script/intro.py`.
+The shebang `#!` followed by the interpreter `/usr/bin/env python3` can be put at the beginning of the script in order to ommit calling `python3` in command-line. If you don't put it, you will have to run `python3 code/intro.py` instead of simply `./code/intro.py`.
 
 The `-*- coding: UTF-8 -*-` specify the type of encoding to use. UTF-8 is used by default (which means that this line in the script is not necessary). This accepts characters from all languages. Other valid [encoding](https://docs.python.org/3/library/codecs.html#module-codecs) are available, such as ascii (English characters only). 
 
 ::: {.callout-warning} 
 Some common errors can occur at this step: 
 
-- `bash: script/intro.py: No such file or directory` i.e. you are not in the right directory to run the file.
+- `bash: code/intro.py: No such file or directory` i.e. you are not in the right directory to run the file.
 
-  Solution: run `ls */` and make sure you can find `script/: intro.py`, if not go to the correct directory by running `cd <insert directory name here>`, e.g. `cd ~/Desktop/swc-python` (`~` is a shortcut for your home directory)
-- `bash: script/intro.py: Permission denied` i.e. you don't have the right to execute your script.
+  Solution: run `ls */` and make sure you can find `code/: intro.py`, if not go to the correct directory by running `cd <insert directory name here>`, e.g. `cd ~/Desktop/swc-python` (`~` is a shortcut for your home directory)
+- `bash: code/intro.py: Permission denied` i.e. you don't have the right to execute your script.
   
-  Solution: run `ls -l script/intro.py` and make sure you have at least `-rwx` (read, write, exectute rights) as the first 4 characters, if not run `chmod 744 script/intro.py` to change your rights.
+  Solution: run `ls -l code/intro.py` and make sure you have at least `-rwx` (read, write, exectute rights) as the first 4 characters, if not run `chmod 744 code/intro.py` to change your rights.
 
-- `bash: python3: command not found` i.e. you don't the python3 shortcut.
+- `bash: python3: command not found` i.e. you don't have the python3 shortcut for using python.
   
   Solution: start writting `python` in your shell, then press the `Tab` key on your keyboard, it should try to autocomplete and give you a set of `python` shortcuts available. Once you see a shortcut that works e.g. `python3.11` or `python` instead of our `python3`, you can change the shebang in your script to use it, e.g. `#!/usr/bin/env python` instead of `#!/usr/bin/env python3`. You can also check what path to give by running `which python` or `which python3` and then put this path in the shebang, e.g. `#!/usr/bin/python3` instead of `#!/usr/bin/env python3`.
 :::
@@ -216,9 +216,7 @@ Python knows various types of data. Three common ones are:
 * `float` ($\mathbb{R}$), real numbers
 * `str`, strings or more commonly known as characters
 
-Python will assign a type automatically. 
-
-In the example above, variable `weight_kg` has an integer value of `60`.
+Python will assign a type automatically to any numerical value given. In the example above, variable `weight_kg` has an integer value of `60`.
 If we want to more precisely track the weight of our patient,
 we can use a floating point value by executing:
 
@@ -226,13 +224,21 @@ we can use a floating point value by executing:
 weight_kg = 60.3
 ```
 
+
 To create a string, we add single or double quotes around some text.
 To identify and track a patient throughout our study,
 we can assign each person a unique identifier by storing it in a string:
 
 ```{python}
 patient_id = '001'
+# or 
+patient_id = "001"
+
 ```
+
+::: {.callout-note} 
+Note that `001` is a integer but `'001'` and `"001"` are strings. 
+::: 
 
 Once we have data stored with variable names, we can make use of it in calculations.
 We may want to store our patient's weight in pounds as well as kilograms:
@@ -243,7 +249,7 @@ weight_lb = 2.2 * weight_kg
 ```
 
 ![Assigning values to weight_kg and weight_lb.](img/sticky-variable2.png){#fig-interactive width=100%}
-The expression `2.2 * weight_kg` is evaluated to `143.0`, and then this value is assigned to the variable `weight_lb` (i.e. the sticky noteweight_lbis placed on `143.0`). At this point, each variable is "stuck" to completely distinct and unrelated values.
+The expression `2.2 * weight_kg` is evaluated to `143.0`, and then this value is assigned to the variable `weight_lb` (i.e. the sticky note `weight_lb` is placed on `143.0`). At this point, each variable is "stuck" to completely distinct and unrelated values.
 
 ::: {.callout-warning} 
 The value of `weight_lb` is computed, in the moment of assigning the value, from the current value of `weight_kg`. Modifying `weight_kg` later on will not modify the value of `weight_lb` indirectly (i.e. `weight_lb` is not recomputed every time it is called, its value stays the same)
@@ -290,20 +296,20 @@ len(patient_id)
 We can display multiple things at once using only one `print()` call:
 
 ```{python}
-print(patient_id, 'weight in kilograms:', weight_kg)
-```
-
-We can also call a function inside of another function call.
-For example, Python has a built-in function called `round()` that rounds a value:
-
-```{python}
-print(patient_id, 'weight in kilograms:', round(weight_kg))
+print('patient', patient_id, 'weight in kilograms:', weight_kg)
 ```
 
 Moreover, we can do arithmetic with variables right inside the `print` function:
 
 ```{python}
 print('weight in pounds:', 2.2 * weight_kg)
+```
+
+We can also call a function inside of another function call.
+For example, Python has a built-in function called `round()` that rounds a value:
+
+```{python}
+print(patient_id, 'weight in pounds:', round(2.2 * weight_kg))
 ```
 
 The above command, however, did not change the value of `weight_kg`:
@@ -316,7 +322,7 @@ To change the value of the `weight_kg` variable, we have to
 **assign** `weight_kg` a new value using the equals `=` sign:
 
 ```{python}
-weight_kg = 65.0
+weight_kg = weight_kg + 5
 print('weight in kilograms is now:', weight_kg)
 ```
 
@@ -330,7 +336,7 @@ help(round)
 
 Here the function `round()` needs as input `number` a numerical value. 
 As an option, one can add `ndigits` the number of decimal places to be used with digits. 
-If an option is not provided, a default value is given. In the case of the option `ndigits`, `0` is the default. The function returns a numerical value (more specifically a floating point number), that corresponds to the rounded value. This value, just like any other, can be stored in a variable.
+If an option is not provided, a default value is given. In the case of the option `ndigits`, `0` is the default. The function returns a numerical value, that corresponds to the rounded value. This value, just like any other, can be stored in a variable.
 
 ```{python}
 rounded_weight_kg = round(weight_kg)
@@ -388,7 +394,7 @@ Copying and pasting code (from a human or a AI chatbot) is risky unless you unde
 :::
 
 ::: {.callout-warning} 
-You will probably receive some useful guidance by presenting your error message to the chatbot and asking it what went wrong. However, the way this help is provided by the chatbot is different. Answers on StackOverflow have (probably) been given by a human as a direct response to the question asked. But generative AI chatbots, which are based on an advanced statistical model, respond by generating the most likely sequence of text that would follow the prompt they are given.
+You will probably receive some useful guidance by presenting your error message to the chatbot and asking it what went wrong. However, the way this help is provided by the chatbot is different. Answers on StackOverflow have been given by a human as a direct response to the question asked. But generative AI chatbots, which are based on an advanced statistical model, respond by generating the most likely sequence of text that would follow the prompt they are given.
 
 While responses from generative AI tools can often be helpful, they are not always reliable. These tools sometimes generate plausible but incorrect or misleading information, so (just as with an answer found on the internet) it is essential to verify their accuracy. You need the knowledge and skills to be able to understand these responses, to judge whether or not they are accurate, and to fix any errors in the code it offers you.
 ::: 
@@ -417,6 +423,14 @@ Remember that for this lesson:
 
 Read the help of the `print()` function. Print several variables (e.g `print(weight_kg, weight_lb)`). Using one of the parameters, add a separator in between each value. 
 
+The output of `print(weight_kg, weight_lb, ...)`, with a specific parameter instead of the `...` should look like this:
+
+```{python}
+#| echo: false
+
+print(weight_kg, weight_lb, sep = ', ')
+```
+
 :::
 
 ::: {.content-hidden unless-meta="solutions"}
@@ -437,7 +451,7 @@ print(weight_kg, weight_lb, sep = ', ')
 
 ## Comment your code 
 
-Except for the shebang and coding specifications seen before (e.g. inside a string, defined but quotes `'` or `"`), all things after a hashtag `#` character will be ignored by the interpreter until the end of the line. This is used to add comments in your code.
+Except for the shebang and coding specifications seen before (e.g. inside a string, defined by quotes `'` or `"`), all things after a hashtag `#` character will be ignored by the interpreter until the end of the line. This is used to add comments in your code.
 
 Comments are used to:
 
@@ -478,12 +492,13 @@ Basic built-in functions are useful, but what is even more useful is the possibi
 
 A python package contains a set of function to perform specific tasks.
 
-There are built-in packages that come with Python, and there are also third-party packages that you can install and use. For scientific computing, the most commonly used packages are third-party packages like `numpy` for numerical computing, `pandas` for data manipulation and analysis, matplotlib for data visualization, and `scikit-learn` for machine learning.
+There are built-in packages that come with Python, and there are also third-party packages that you can install and use. For scientific computing, the most commonly used packages are third-party packages like `numpy` for numerical computing, `pandas` for data manipulation and analysis, `matplotlib` for data visualization, and `scikit-learn` for machine learning.
 
 A package needs to be **installed** to your computer one time. But **loaded** in your script every time you want to use it.
 
 ::: {.callout-warning} 
 Installing a package is done outside of the python interpreter, in command line in a terminal.
+If your line starts by `>` your are in the python interpreter, if it starts by `$` you are in the command line of a terminal.
 ::: 
 
 You can install a package with `pip`. It should have been automatically installed with your python, to make sure that you have it you can run:
@@ -493,18 +508,20 @@ python -m pip --version
 # In Windows
 py -m pip --version
 ```
-If it does not work, check out pip documentation
 
-To install a package called pandas, you must run:
+If it does not work, check out [pip documentation](https://pip.pypa.io/en/stable/getting-started/)
+
+To install a package called `pandas`, you must run:
 ```{bash}
 # In Linux/MacOS
 python -m pip install pandas
 # In Windows
 py -m pip install pandas
 ```
-To get more information about pip, check out the full documentation.
+To get more information about pip, check out the full [documentation](https://pip.pypa.io/en/stable/getting-started/).
 
-When you wish to use a package in a python script, you’ll need to import it, by writing inside of you script:
+
+When you wish to use a package in a python script, you’ll need to import it, by writing inside of your script or python interpreter:
 
 ```{python}
 import pandas
@@ -518,7 +535,8 @@ Importing a library is like getting a piece of lab equipment out of a storage lo
 
 Pandas is a package used to work with data sets, in order to easily clean, manipulate, explore and analyze data. Once we’ve imported the library, we can ask the library to read our data file for us:
 ```{python}
-# Make sure this is the correct path for you! You are in the directory from where you execute the script.
+# Make sure this is the correct path for you! 
+# You are in the directory from where you execute the script.
 pandas.read_csv('data/inflammation-01.csv', index_col=0)
 ```
 
@@ -526,7 +544,7 @@ pandas.read_csv('data/inflammation-01.csv', index_col=0)
 The expression `pandas.read_csv()` is a function call that asks Python to run the function `read_csv()` which belongs to the pandas library.
 
 ::: {.callout-note} 
-The dot notation in Python is used most of all as an object attribute/property specifier or for invoking its function. `object.property` will give you the value of `property` from `object`, while `object.function()` will invoke on object function.
+The dot notation in Python is used most of all as an object attribute/property specifier or for invoking its function. `object.property` will give you the value of `property` from `object`, while `object.function()` will invoke an object function.
 :::
 
 We used `pandas.read_csv()` with two parameter:
@@ -549,7 +567,7 @@ print(data.head(5))
 ::: {.callout-note} 
 A method is a function that is associated with an object. It is called on the object and can access and modify the object’s data. In Python, methods are defined within classes and are accessed using dot notation.
 
-For example, if you have a pandas object called `data`, you can call the `head()` method on it to display the first few rows of the data by writing `data.head()`. The `head()` method is a built-in method of pandas DataFrame objects that returns the first n rows of the DataFrame, where n is specified as an argument (default is 5).
+For example, if you have a pandas object called `data`, you can call the `.head()` method on it to display the first few rows of the data by writing `data.head()`. The `.head()` method is a built-in method of pandas DataFrame objects that returns the first n rows of the DataFrame, where n is specified as an argument (default is 5).
 
 To access the help of such a method, you can use `help(pandas.DataFrame.head)`, where pandas is the library, DataFrame is the class of the object, and head is the method you want to learn about.
 
@@ -558,7 +576,7 @@ Methods are a fundamental part of another programming paradigm in Python called 
 
 ## Notes on types, attributes and methods
 
-In Python, data can be of different types, and the type of data determines what operations can be performed on it. For example, the + operator on two numbers will add them mathematically, but on two strings it will concatenate them.
+In Python, data can be of different types, and the type of data determines what operations can be performed on it. For example, the `+` operator on two numbers will add them mathematically, but on two strings it will concatenate them.
 
 There is a function in Python to determine the type of a value or variable, it is called `type()`.
 ```{python}
@@ -581,6 +599,8 @@ It is called a DataFrame. A DataFrame is a two-dimensional data structure with l
 
 It is actually composed of a pandas data type called Series. A Series is a one-dimensional array-like object that can hold any data type (integers, floats, strings, etc.). It is similar to a column in a table. Each element in a Series has an associated index, which allows for easy access and manipulation of the data. A DataFrame is essentially a collection of Series objects that share the same index.
 
+![Panda DataFrame schema from [boardinfinity](https://www.boardinfinity.com/blog/create-dataframes-using-pandas/).](img/pandas-dataframe.png){#fig-interactive width=90%}
+
 We can access one column of the data with `data.iloc[0]` (the first column has index 0, the second column has index 1, etc.) and check its type:
 
 ```{python}
@@ -589,7 +609,7 @@ print(type(data.iloc[0]))
 ```
 
 
-Notice that the output of `print(data.iloc[0].head(5))` also gives two information: `Name:0, dtype: int64`. `Name:0` indicates the name of the Series, which is 0 in this case (since we didn’t specify column names when loading the data, pandas automatically assigns integer names to the columns starting from 0). `dtype: int64` indicates the data type of the values in the Series, which is int64, meaning that the values are 64-bit integers.
+Notice that the output of `print(data.iloc[0].head(5))` also gives two information: `Name:Patient1, dtype: int64`. `Name:Patient1` indicates the name of the Series, which is Patient1 in this case (since we specifoed column names when loading the data). `dtype: int64` indicates the data type of the values in the Series, which is int64, meaning that the values are 64-bit integers.
 
 We could get these same information by running:
 
@@ -598,7 +618,7 @@ print(data.iloc[0].name)
 print(type(data.iloc[0].dtype))
 ```
 
-There are also the index (the rownames) on the left of the output, that are not part of the data but are generated by pandas to help us access the data. The index could be also accessed like so:
+There are also the index (the rownames) on the left of the output, that are not part of the data but help us access the data. The index could be also accessed like so:
 
 ```{python}
 print(data.iloc[0].index)
@@ -607,7 +627,7 @@ print(type(data.iloc[0].index))
 
 ::: {.callout-note} 
 
-Notice that .index and .dtype are attributes of the Series, not methods, since they are not called with parentheses (). An attribute is a value associated with an object, while a method is a function that is associated with an object and can be called to perform an action on that object. In this case, .index and .dtype are attributes that provide information about the Series, while methods like .head() perform actions on the Series.
+Notice that `.index` and `.dtype` are attributes of the Series, not methods, since they are not called with parentheses `()`. An attribute is a value associated with an object, while a method is a function that is associated with an object and can be called to perform an action on that object. In this case, `.index` and `.dtype` are attributes that provide information about the Series, while methods like `.head()` perform actions on the Series.
 
 ::: 
 
@@ -617,7 +637,7 @@ Notice that .index and .dtype are attributes of the Series, not methods, since t
 
 There are many useful methods and attributes in pandas that helps describe a DataFrame.
 
-For example, to get the number of rows and the number of colmuns of the DataFrame:
+For example, to get the number of rows and the number of columns of the DataFrame:
 
 ```{python}
 print(data.shape) # rows x columns i.e. patients x days
@@ -660,7 +680,7 @@ The expression `data.iloc[29, 19]` accesses the element at row 30, column 20. Wh
 
 ::: {.callout-note} 
 
-Programming languages like R start counting at 1 because that’s what human beings do. Languages like Python count from 0 because it is closer to the way that computers represent arrays (if you are interested in the historical reasons behind counting indices from zero, you can read Mike Hoye’s blog post).
+Programming languages like R start counting at 1 because that’s what human beings do. Languages like Python count from 0 because it is closer to the way that computers represent arrays.
 
 As a result, if we have an MxN array in Python, its indices go from 0 to M-1 on the first axis and 0 to N-1 on the second. It takes a bit of getting used to, but one way to remember the rule is that the index is how many steps we have to take from the start to get the item we want.
 
@@ -674,7 +694,7 @@ As a result, if we have an MxN array in Python, its indices go from 0 to M-1 on 
 print(data.iloc[0:4, 0:10])
 ```
 
-The slice 0:4 means, “Start at index 0 and go up to, but not including, index 4”. Again, the up-to-but-not-including takes a bit of getting used to, but the rule is that the difference between the upper and lower bounds is the number of values in the slice.
+The slice `0:4` means, “Start at index 0 and go up to, but not including, index 4”. Again, the up-to-but-not-including takes a bit of getting used to, but the rule is that the difference between the upper and lower bounds is the number of values in the slice.
 
 We don’t have to start slices at 0:
 
@@ -807,11 +827,11 @@ If you are interested in learning more about functions available in a package, y
 
 Output the data for the last 10 days of the data of the first 10 patients.
 
-Output the minimum, maximum, and mean inflammation for the Day 20.
+Output the minimum, maximum, and mean inflammation for the Day 20 of the first 10 patients.
 
 Compute the average inflammation for each days for the first 10 patients. 
 
-Filter the data to keep only the patients that have an average inflammation across days greater than 6.
+Filter the data to keep only the patients that have an average inflammation across days strcitly greater than 6.
 
 Filter the data to keep only the patients that have a median inflammation across days greater than 6. Show only the last 10 days of the filtered data.
 :::
@@ -873,18 +893,26 @@ import matplotlib.pyplot as plt
 `pyplot` is one of the modules of `matplotlib`. It contains functions to generate basic plots. We can display a heatmap of our data:
 
 ```{python}
-image = plt.imshow(data)
+plt.imshow(data)
 plt.show()
 ```
 
 Each row in the heat map corresponds to a patient in the clinical trial dataset, and each column corresponds to a day in the dataset. Blue pixels in this heat map represent low values, while yellow pixels represent high values. As we can see, the general number of inflammation flare-ups for the patients rises and falls over a 40-day period. So far so good as this is in line with our knowledge of the clinical trial.
+
+To add a color bar, you can run:
+```{python}
+plt.imshow(data)
+plt.colorbar()
+plt.show()
+```
 
 ## Function or object-oriented
 
 This first way of plotting is function-oriented. It relies on pyplot to implicitly create and manage the Figures and Axes, and use pyplot functions for plotting.
 
 ```{python}
-image = plt.imshow(data)
+plt.imshow(data)
+plt.colorbar()
 plt.show()
 ```
 
@@ -893,15 +921,18 @@ There is a second way of plotting called object-oriented. It needs to explicitly
 
 ```{python}
 fig = plt.figure()
-ax = fig.add_subplot(1, 1, 1)
+ax = fig.add_subplot(1, 1, 1) # Figure has one row, one column, and this is the first subplot
 
-ax.imshow(data)
+img = ax.imshow(data)
+fig.colorbar(img, ax=ax)
 
 fig.tight_layout()
 plt.show()
 ```
 
-You might encounter both styles of coding.
+::: {.callout-tip} 
+You might encounter both styles of coding. Implicit function-oriented style is often used for quick and simple plots, while the explicit object-oriented style is more flexible and powerful, especially when creating complex visualizations with multiple subplots.
+:::
 
 `fig` refers to the overall figure — the entire canvas that holds everything, including one or more plots. `ax` is the specific subplot (axes) where your data is drawn. In simple plots, we often interact only with `ax` to label axes or plot data. However, `fig` becomes useful when you want to set the overall figure title, adjust layout, or save the figure to a file.
 
@@ -909,7 +940,29 @@ The function `plt.figure()` creates a space into which we will place all of our 
 Each subplot is placed into the figure using its add_subplot method. The add_subplot method takes 3 parameters. The first `nrows` denotes how many total rows of subplots there are, the second parameter `ncols` refers to the total number of subplot columns, and the final parameter `index` denotes which subplot your variable is referencing (left-to-right, top-to-bottom). 
 
 ::: {.callout-note} 
-Notice that the names of the functions/methods called are not the same: the function `xlabel()` is used for the function-oriented manner and the method `set_xlabel()` is used for the object-oriented.
+Notice that the names of the functions/methods called are not the same: `.xlabel()` is used for the function-oriented manner and `.set_xlabel()` is used for the object-oriented.
+
+```{python}
+plt.imshow(data)
+plt.colorbar()
+plt.xlabel("X axis label")
+plt.show()
+```
+
+```{python}
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1)
+
+img = ax.imshow(data)
+fig.colorbar(img, ax=ax)
+
+ax.set_xlabel("X axis label")
+
+fig.tight_layout()
+plt.show()
+```
+
+
 :::
 
 ## Matplotlib anatomy 
@@ -920,7 +973,7 @@ Axes contains a region for plotting data and includes generally two Axis objects
 
 An Axis sets the scale and limits and generate ticks (the marks on the Axis) and ticklabels (strings labeling the ticks). 
 
-::: {.callout-note} 
+::: {.callout-warning} 
 Be aware of the difference between Axes and Axis.
 :::
 
@@ -946,7 +999,7 @@ plt.show()
 
 The x-axis of this plot represents the days of the clinical trial, while the y-axis represents the average inflammation level across all patients for each day. The plot shows a clear pattern of increasing inflammation levels over the first 20 days, followed by a decrease in inflammation levels over the remaining 20 days. This pattern is consistent with what we observed in the heat map and with our knowledge of the clinical trial.
 
-Since our column names are `Day 1`, `Day 2`, etc., the x-axis of the plot is labeled with these column names. If we want to label the x-axis with the actual day numbers (1, 2, 3, etc.), we can modify the code as follows:
+Since our column names are `Day 1`, `Day 2`, etc., the x-axis of the plot is labeled with these column names. If we want to label the x-axis to be lisible, we can modify the code as follows:
 
 ```{python}
 #| fig-width: 8
@@ -998,7 +1051,7 @@ axes2 = fig.add_subplot(1, 2, 2)
 
 axes1.set_xlabel('Days')
 axes1.set_ylabel('Patient')
-axes1.imshow(data)
+axes1.imshow(data, aspect='auto') # aspect='auto' to avoid squishing the plot and make it use half of the figure
 
 ave_inflammation = data.mean(axis=0)
 axes2.set_xlabel('Days')
@@ -1118,9 +1171,9 @@ plt.show()
 
 # Storing multiple values in lists 
 
-We were provided with 9 more trial data, and we want to load and explore it as well.
+We were provided with more trial data, and we want to load and explore it as well.
 
-Our goal now is to process all the inflammation data we have, which means that we still have eleven more files to go!
+Our goal now is to process all the inflammation data we have, which means that we still have more files to go!
 
 The natural first step is to collect the names of all the files that we have to process. In Python, a list is a way to store multiple values together. In this episode, we will learn how to store multiple values in a list as well as how to work with lists.
 
@@ -1133,7 +1186,7 @@ A list is a collection which is ordered and changeable. It allows duplicate memb
 We create a list by putting values inside square brackets and separating the values with commas:
 
 ```{python}
-odds = ['one', 3, 5, 7]
+odds = ['one', 3, 5, 7, 7]
 print('odds are:', odds)
 ```
 
@@ -1145,12 +1198,12 @@ We can access elements of a list using indices, i.e. numbered positions of eleme
 
 ```{python}
 print('first element:', odds[0])
-print('last element:', odds[3])
+print('last element:', odds[4])
 print('"-1" element:', odds[-1])
 ```
 
 ::: {.callout-tip} 
-You can count backwards, with the index `[-1]` that retrieves the last item, `[-2]` the second to last, and so on. Because of this, `odds[3]` and `odds[-1]` point to the same element here.
+You can count backwards, with the index `[-1]` that retrieves the last item, `[-2]` the second to last, and so on. Because of this, `odds[4]` and `odds[-1]` point to the same element here.
 :::
 
 Subsets of lists and strings can be accessed by specifying ranges of values in brackets, similar to how we accessed ranges of positions in a pandas DataFrame. This is commonly referred to as "slicing" the list/string.
@@ -1305,9 +1358,9 @@ odds.reverse()
 print('odds after reversing:', odds)
 ```
 
-While modifying in place, it is useful to remember that Python treats lists in a slightly counter-intuitive way.
+Notice that you do not have to explicitly assign the modified list to a variable, as the list is modified in place. For example, you can reverse a list with `list.reverse()`, and you do not need to assign the result to a variable. 
 
-As we saw earlier, when we modified the `seq` list item in-place, if we make a list, (attempt to) copy it and then modify this list, we can cause all sorts of trouble. This also applies to modifying the list using the above functions:
+While modifying in place, it is useful to remember that Python treats lists in a slightly counter-intuitive way. As we saw earlier, when we modified the `seq` list item in-place, if we make a list, (attempt to) copy it and then modify this list, we can cause all sorts of trouble. This also applies to modifying the list using the above functions:
 
 ```{python}
 odds = [3, 5, 7]
@@ -1344,8 +1397,8 @@ Here are a few methods for lists:
 You could also concatenate two lists with the `+` or `*` operator: 
 
 ```{python}
-seqs[0] * 2
-seqs[0] + seqs[1]
+print(seqs[0] * 2)
+print(seqs[0] + seqs[1])
 ```
 
 ## Exercise 
@@ -1395,7 +1448,7 @@ list_for_slicing = [['fluorine', 'F'],
 
 Would your solution work regardless of whether you knew beforehand the length of the string or list (e.g. if you wanted to apply the solution to a set of lists of different lengths)? If not, try to change your approach to make it more robust.
 
-Hint: Remember that indices can be negative as well as positive
+Remember that indices can be negative as well as positive
 :::
 
 ::: {.content-hidden unless-meta="solutions"}
@@ -1415,7 +1468,7 @@ list_for_slicing[-4:]
 
 # Repeating actions with loops
 
-We have access to ten data sets right now, and we will want to create the same plots for all of them. We could copy and paste the code we used to create the plot for the first data set, and change the name of the data variable each time, but that would be very inefficient and error-prone.
+We have access to 12 data sets right now, and we will want to create the same plots for all of them. We could copy and paste the code we used to create the plot for the first data set, and change the name of the data variable each time, but that would be very inefficient and error-prone.
 We want to create plots for all of our data sets with a single statement. To do that, we’ll have to teach the computer how to repeat things.
 
 Before applying loops to our data sets, we will first learn how to use loops with simpler examples.
@@ -1463,6 +1516,12 @@ for num in odds:
 
 What it does is the following: it processes each element in the list `odds`, called in the following code `num`, and prints it.
 
+Using the odds example above, the loop might look like this:
+
+![Loops schema](img/loops.png){#fig-interactive width=100%}
+
+where each number (`num`) in the variable `odds` is looped through and printed one number after another. The other numbers in the diagram denote which loop cycle the number was printed in (1 being the first loop cycle, and 6 being the final loop cycle).
+
 A for loop is an iteration. An iteration involves repeating a set of instructions or a block of code multiple times. Iterating through data structures like lists allows you to access each element individually, making it easier to perform operations on them.
 
 When using a for loop, you iterate over a sequence of elements, such as a list. Here is the general syntax of a for loop in Python:
@@ -1476,11 +1535,6 @@ There must be a colon at the end of the line starting the loop, and we must inde
 
 The loop will execute the indented block of code for each element in the sequence until all elements have been processed. This is particularly useful when you know the number of times you need to iterate.
 
-Using the odds example above, the loop might look like this:
-
-![Loops schema](img/loops.png){#fig-interactive width=100%}
-
-where each number (`num`) in the variable `odds` is looped through and printed one number after another. The other numbers in the diagram denote which loop cycle the number was printed in (1 being the first loop cycle, and 6 being the final loop cycle).
 
 ::: {.callout-note} 
 
@@ -1511,7 +1565,7 @@ It's essential to be consistent with your indentation throughout your code. The 
 
 ::: {.callout-important title="Exercise"} 
 
-Here are two codes, they all are, can you tell why?
+Here are two codes, they all are incorrect, can you tell why?
 
 Of course, you can run them and read the error that Python gives!
 
@@ -1580,7 +1634,7 @@ for value in names:
 print('There are', length, 'names in the list.')
 ```
 
-It’s worth tracing the execution of this little program step by step. Since there are three names in `names`, the statement on line 4 will be executed three times. The first time around, `length` is `0` (the value assigned to it on line 1) and value is `Curie`. The statement adds 1 to the old value of `length`, producing `1`, and updates `length` to refer to that new value. The next time around, value is `Darwin` and `length` is `1`, so `length` is updated to be `2`. After one more update, `length` is `3`; since there is nothing left in names for Python to process, the loop finishes and the `print()` function on line 5 tells us our final answer.
+It’s worth tracing the execution of this little program step by step. Since there are three names in `names`, the statement `length = length + 1` will be executed three times. The first time around, `length` is `0` (the value assigned to it on line 1) and value is `Curie`. The statement adds 1 to the old value of `length`, producing `1`, and updates `length` to refer to that new value. The next time around, value is `Darwin` and `length` is `1`, so `length` is updated to be `2`. After one more update, `length` is `3`; since there is nothing left in names for Python to process, the loop finishes and the `print()` function outside of the loop tells us our final answer.
 
 Of course we could have just used `length(names)` to get the same answer, but this example is meant to illustrate how loops work, and how they can be used to update variables.
 
@@ -1651,7 +1705,7 @@ print(all_codons)
 
 
 ::: {.callout-warning}
-A list is iterable but not an iterator. The difference is that they are reusable, see:
+A list is iterable but not an iterator. The difference is that lists are reusable, see:
 
 ```{python}
 l = [1,2,3,4]
@@ -1725,7 +1779,7 @@ The `glob` library contains a function, also called `glob`, that finds files and
 print(glob.glob('data/inflammation*.csv'))
 ```
 
-As these examples show, `glob.glob`’s result is a list of file and directory paths in arbitrary order. This means we can loop over it to do something with each filename in turn. In our case, the “something” we want to do is generate a set of plots for each file in our inflammation dataset.
+As these examples show, `glob.glob`’s result is a list of file paths in arbitrary order. This means we can loop over it to do something with each filename in turn. In our case, the “something” we want to do is generate a set of plots for each file in our inflammation dataset.
 
 If we want to start by analyzing just the first three files in alphabetical order, we can use the `sorted` built-in function to generate a new sorted list from the `glob.glob` output:
 
@@ -1815,7 +1869,7 @@ plt.show()
 
 The 2 first plot show a similar trend, but the 3rd is different. If you look closely, in the 3rd heatmap, we can see that there are zero values sporadically distributed across all patients and days of the clinical trial, suggesting that there were potential issues with data collection throughout the trial. In addition, we can see that the last patient in the study didn't have any inflammation flare-ups at all throughout the trial, suggesting that they may not even suffer from arthritis! Is there an issue with the data? 
 
-A good data miner does not only look at the mean to understand dataset... 
+A good data miner does not only look at the mean to understand dataset, so let's explore more... 
 
 ## Exercise
 
@@ -1877,7 +1931,7 @@ for filename in filenames:
 The datasets appear to fall into two categories:
 
 - seemingly "ideal" datasets that agree excellently with our collaborator's claim, but display suspicious maxima and minima (such as `inflammation-01.csv` and `inflammation-02.csv`)
-- "noisy" datasets that somewhat agree with our collabortaor's claim, but show concerning data collection issues such as sporadic missing values and even an unsuitable candidate making it into the clinical trial.
+- "noisy" datasets that somewhat agree with our collaborator's claim, but show concerning data collection issues such as sporadic missing values and even an unsuitable candidate making it into the clinical trial.
 
 In fact, it appears that all three of the "noisy" datasets (`inflammation-03.csv`, `inflammation-08.csv`, and `inflammation-11.csv`) are identical down to the last value. Armed with this information, we confront our collaborator about the suspicious data and duplicated files.
 

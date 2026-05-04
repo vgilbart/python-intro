@@ -20,5 +20,4 @@ def main(filename, min = True, mean = True, max = True):
 filename = input("Enter filename: ")
 print("Filename is: " + filename)
 
-if __name__ == "__main__":
-    main(filename)
+main(filename)

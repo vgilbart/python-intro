@@ -23,5 +23,4 @@ parser.add_argument('--filename', action="store", required=True)
 args = parser.parse_args()
 print("Filename is: " + args.filename)
 
-if __name__ == "__main__":
-    main(args.filename)
+main(args.filename)

@@ -52,17 +52,17 @@ about programming.
 ### Aims 
 
 At the end of this course, you will:
+
 - Be familiar with the Python environment
 - Understand the major data types in Python 
 - Manipulate variables with operators and built-in functions
 - Create simple functions
-- Upload, modify and download files into Python 
 - Install and import packages 
-- Basic use of pandas (manipulate data) and matplotlib.pyplot (visualize data)
+- Manipulate and visualize table-like data
 
 ## Install Python
 
-For this course, you will need your computer and a way to work with Python. I have two possible solutions for you, either: 
+For this course, you will need your computer and a way to work with Python. You can either: 
 
 A) install both [Python](https://www.python.org/downloads/) (v3 or above), and an [IDE](https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python) (an improved text editor) on your computer. So that we are all on the same page, I recommend installing [Visual Studio Code](https://code.visualstudio.com/Download/). If for some reason, you are already familiar with another IDE that can be used for Python, you can work with it, but I won’t be able to help you as much with it. 
 

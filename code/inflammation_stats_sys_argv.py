@@ -20,5 +20,4 @@ def main(filename, min = True, mean = True, max = True):
 
 print("Filename is: " + sys.argv[1])
 
-if __name__ == "__main__":
-    main(sys.argv[1])
+main(sys.argv[1])
