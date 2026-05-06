@@ -74,7 +74,7 @@ python3
 ::: {.callout-note} 
 You can also try `python`, `/usr/bin/env python3`, `/usr/bin/python3`... There are many ways to call python!
 
-You can see where your current python is located by running `which python3`. 
+You can see where your current python is located by running `which python3` or `which python`. 
 :::
 
 From this, you can start using python interactively, e.g. run: 
@@ -89,9 +89,14 @@ To get out of the Python interpreter, type `quit()`or `exit()`, followed by `ent
 ![Interactive mode](img/interactive.png){#fig-interactive width=100%}
 
 
+
+::: {.callout-note} 
+We are switching from typing commands in a Python interpreter to typing commands in a shell terminal window (such as bash). When you see a `$` in front of a command that tells you that you are in the shell, when you see a `>>>` it tells you are in the Python interpreter.
+:::
+
 ### Script mode 
 
-To run a script, create a folder named `code`, in which a file named `intro.py` contains: 
+To run a script, create a folder named `code` under `swc-carpentry/`, in which a file named `intro.py` contains: 
 
 ```{python}
 #| eval: FALSE
@@ -101,7 +106,7 @@ To run a script, create a folder named `code`, in which a file named `intro.py` 
 print("Hello world")
 ```
 
-and run 
+and run in the shell terminal:
 ```{bash}
 ./code/intro.py
 ```
@@ -120,7 +125,7 @@ The `-*- coding: UTF-8 -*-` specify the type of encoding to use. UTF-8 is used b
 ::: {.callout-warning} 
 Some common errors can occur at this step: 
 
-- `bash: code/intro.py: No such file or directory` i.e. you are not in the right directory to run the file.
+- `bash: code/intro.py: No such file or directory` i.e. you are not in the right directory to run the file or your are not writing the filename correctly.
 
   Solution: run `ls */` and make sure you can find `code/: intro.py`, if not go to the correct directory by running `cd <insert directory name here>`, e.g. `cd ~/Desktop/swc-python` (`~` is a shortcut for your home directory)
 - `bash: code/intro.py: Permission denied` i.e. you don't have the right to execute your script.
@@ -145,7 +150,7 @@ Any Python interpreter can be used as a calculator:
 This is great but not very interesting.
 To do anything useful with data, we need to assign its value to a *variable*.
 In Python, we can assign a value to a variable, using the equals sign `=`.
-For example, we can track the weight of a patient who weighs 60 kilograms by
+For example, we can track the weight of a patient who weighs 65 kilograms by
 assigning the value `65` to a variable `weight_kg`:
 
 ```{python}
@@ -216,12 +221,12 @@ Python knows various types of data. Three common ones are:
 * `float` ($\mathbb{R}$), real numbers
 * `str`, strings or more commonly known as characters
 
-Python will assign a type automatically to any numerical value given. In the example above, variable `weight_kg` has an integer value of `60`.
+Python will assign a type automatically to any numerical value given. In the example above, variable `weight_kg` has an integer value of `65`.
 If we want to more precisely track the weight of our patient,
 we can use a floating point value by executing:
 
 ```{python}
-weight_kg = 60.3
+weight_kg = 65.3
 ```
 
 
@@ -230,14 +235,14 @@ To identify and track a patient throughout our study,
 we can assign each person a unique identifier by storing it in a string:
 
 ```{python}
-patient_id = '001'
+patient_id = '1'
 # or 
-patient_id = "001"
+patient_id = "1"
 
 ```
 
 ::: {.callout-note} 
-Note that `001` is a integer but `'001'` and `"001"` are strings. 
+Note that `1` is a integer but `'1'` and `"1"` are strings. 
 ::: 
 
 Once we have data stored with variable names, we can make use of it in calculations.
@@ -421,13 +426,26 @@ Remember that for this lesson:
 
 ::: {.callout-important title="Exercise"} 
 
-Read the help of the `print()` function. Print several variables (e.g `print(weight_kg, weight_lb)`). Using one of the parameters, add a separator in between each value. 
+Read the help of the `print()` function. Print several variables (e.g `print(weight_kg, weight_lb)`). Using one of the parameters, add a comma separator in between each value. 
 
-The output of `print(weight_kg, weight_lb, ...)`, with a specific parameter instead of the `...` should look like this:
+The output of:
+
+```{python}
+#| echo: false
+#| eval: false
+
+weight_kg = 65
+weight_lb = 2.2 * weight_kg
+print(weight_kg, weight_lb, ...)
+```
+
+with a specific parameter instead of the `...` should look like this:
 
 ```{python}
 #| echo: false
 
+weight_kg = 65
+weight_lb = 2.2 * weight_kg
 print(weight_kg, weight_lb, sep = ', ')
 ```
 
@@ -716,10 +734,16 @@ data.iloc[:3, :]
 data.iloc[:, 36:]
 ```
 
-It is also possible to use negative index, `-1` will retrieve the last item, `-2` the second last item, etc. For example, to get the value last 10 patient on the 1st day, you could use:
+It is also possible to use negative index, `-1` will retrieve the last item, `-2` the second last item, etc. For example, to get the value of the last patient on its first day, you could use:
 
 ```{python}
-print(data.iloc[40:-1, 0])
+print(data.iloc[-1, 0])
+```
+
+Or to get the value last 10 patient on the 1st day, you could use:
+
+```{python}
+print(data.iloc[-10:, 0])
 ```
 
 ::: {.callout-tip} 
@@ -831,7 +855,7 @@ Output the minimum, maximum, and mean inflammation for the Day 20 of the first 1
 
 Compute the average inflammation for each days for the first 10 patients. 
 
-Filter the data to keep only the patients that have an average inflammation across days strcitly greater than 6.
+Filter the data to keep only the patients that have an average inflammation across days strictly greater than 6.
 
 Filter the data to keep only the patients that have a median inflammation across days greater than 6. Show only the last 10 days of the filtered data.
 :::

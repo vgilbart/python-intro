@@ -26,7 +26,7 @@ To see how effective the treatment is we would like to:
 ### Data Format
 
 The data sets are stored in
-[comma-separated values](learners/reference.md#comma-separated-values) (CSV) format:
+comma-separated values (CSV) format:
 
 - each row holds information for a single patient,
 - columns represent successive days.
@@ -81,7 +81,7 @@ B) create a [GitHub](https://github.com/) account. Then [create a new codespace]
 3. Move downloaded files to `swc-python`.
 4. Unzip the files.
 
-You should see the folder called `data` in the `swc-python` directory on your Desktop.
+You should see the folder called `inflammation` in the `swc-python` directory on your Desktop. Rename the folder `inflammation` to `data.`
 
 [zipfile1]: data/inflammation.zip
 
